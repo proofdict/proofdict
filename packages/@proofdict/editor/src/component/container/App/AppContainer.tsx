@@ -1,20 +1,17 @@
 import * as React from "react";
 import "./AppContainer.css";
 import { appStoreGroup } from "./AppStoreGroup";
+import { BaseContainer } from "../BaseContainer";
+import { DictFormContainer } from "./DictForm/DictFormContainer";
+import { DictTesterContainer } from "./DictTester/DictTesterContainer";
 
-const logo = require("./logo.svg");
-
-export class AppContainer extends React.Component<typeof appStoreGroup.state, {}> {
+require("office-ui-fabric-react/dist/css/fabric.css");
+export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>便利</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.
-                </p>
+                <DictFormContainer dictForm={this.props.dictForm} />
+                <DictTesterContainer />
             </div>
         );
     }
