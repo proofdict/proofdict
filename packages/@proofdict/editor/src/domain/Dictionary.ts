@@ -1,25 +1,25 @@
 // MIT © 2017 azu
 import { DictionaryExpect } from "./DictionaryExpect";
 import { DictionaryPattern } from "./DictionaryPattern";
-import { splice } from "@immutable-array/prototype";
 import { Entity, Identifier } from "../ddd-base";
+import { DictionaryPatterns } from "./DictionaryPatterns";
 
 export class DictionaryIdentifier extends Identifier<string> {}
 
 export interface DictionaryArgs {
     id: DictionaryIdentifier;
-    expect?: DictionaryExpect;
-    patterns?: DictionaryPattern[];
+    expect: DictionaryExpect;
+    patterns: DictionaryPatterns;
 }
 
 export class Dictionary extends Entity<DictionaryIdentifier> {
-    expect?: DictionaryExpect;
-    patterns: DictionaryPattern[];
+    expect: DictionaryExpect;
+    patterns: DictionaryPatterns;
 
     constructor(args: DictionaryArgs) {
         super(args.id);
         this.expect = args.expect;
-        this.patterns = args.patterns || [];
+        this.patterns = args.patterns;
     }
 
     inputExpect(expect: DictionaryExpect) {
@@ -32,33 +32,21 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     addPattern(pattern: DictionaryPattern) {
         return new Dictionary({
             ...this as Dictionary,
-            patterns: this.patterns.concat(pattern)
+            patterns: this.patterns.add(pattern)
         });
     }
 
     updatePattern(oldExpect: DictionaryPattern, newExpect: DictionaryPattern) {
-        const index = this.patterns.findIndex(targetPattern => {
-            return targetPattern.equals(oldExpect);
-        });
-        if (index === -1) {
-            return this;
-        }
         return new Dictionary({
             ...this as Dictionary,
-            patterns: splice(this.patterns, index, 1, newExpect)
+            patterns: this.patterns.update(oldExpect, newExpect)
         });
     }
 
     removePattern(pattern: DictionaryPattern) {
-        const index = this.patterns.findIndex(targetPattern => {
-            return targetPattern.equals(pattern);
-        });
-        if (index === -1) {
-            return this;
-        }
         return new Dictionary({
             ...this as Dictionary,
-            patterns: splice(this.patterns, index, 1)
+            patterns: this.patterns.remove(pattern)
         });
     }
 }

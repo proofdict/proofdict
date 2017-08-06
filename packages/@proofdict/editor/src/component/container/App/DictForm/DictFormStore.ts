@@ -23,10 +23,8 @@ export class DictFormState {
     update(dictionary: Dictionary) {
         return new DictFormState({
             dictionaryId: dictionary.id,
-            expect: dictionary.expect && dictionary.expect.value,
-            patterns: dictionary.patterns.map(pattern => {
-                return pattern.value;
-            })
+            expect: dictionary.expect.value,
+            patterns: dictionary.patterns.getPatternValues()
         });
     }
 }

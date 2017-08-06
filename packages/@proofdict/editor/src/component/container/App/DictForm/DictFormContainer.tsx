@@ -19,30 +19,30 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
     };
 
     render() {
-        const expected = this.createExpected();
+        const patterns = this.createPatterns();
         return (
             <div className="DictFormContainer">
-                <TextField label="Pattern" defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect} />
-                {expected}
+                <TextField label="Expected" defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect} />
+                {patterns}
             </div>
         );
     }
 
-    private createExpected() {
+    private createPatterns() {
         const patterns = this.props.dictForm.patterns.map((expect, index) => {
             const onChangeExpect = (input: string) => {
                 this.useCase(createUpdateDictionaryPatternUseCase()).executor(useCase =>
                     useCase.execute(this.props.dictForm.dictionaryId, expect, input)
                 );
             };
-            return <TextField key={index} defaultValue={expect} label="Expect" onChanged={onChangeExpect} />;
+            return <TextField key={index} defaultValue={expect} label="Pattern" onChanged={onChangeExpect} />;
         });
         return (
             <div>
                 {patterns}
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}
-                    text="Add New expect"
+                    text="Add New pattern"
                     onClick={this.onClickAddNewPattern}
                 />
             </div>
