@@ -5,8 +5,4 @@ export class DictionaryExpect {
     constructor(value: string) {
         this.value = value;
     }
-
-    equals(expect: DictionaryExpect) {
-        return this.value === expect.value;
-    }
 }

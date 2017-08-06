@@ -2,15 +2,15 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { DictionaryExpect } from "../../domain/DictionaryExpect";
+import { DictionaryPattern } from "../../domain/DictionaryPattern";
 
-export const createAddNewExpectToDictionaryUseCase = () => {
-    return new AddNewExpectToDictionaryUseCase({
+export const createAddNewPatternToDictionaryUseCase = () => {
+    return new AddNewPatternToDictionaryUseCase({
         dictionaryRepository
     });
 };
 
-export class AddNewExpectToDictionaryUseCase extends UseCase {
+export class AddNewPatternToDictionaryUseCase extends UseCase {
     constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
         super();
     }
@@ -20,7 +20,7 @@ export class AddNewExpectToDictionaryUseCase extends UseCase {
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        const newDictionary = dictionary.addExpect(new DictionaryExpect(""));
+        const newDictionary = dictionary.addPattern(new DictionaryPattern(""));
         this.repo.dictionaryRepository.save(newDictionary);
     }
 }

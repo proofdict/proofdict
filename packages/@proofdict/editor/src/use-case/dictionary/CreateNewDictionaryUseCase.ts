@@ -2,8 +2,8 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { createDictionary } from "../../domain/DictionaryFactory";
-import { DictionaryExpect } from "../../domain/DictionaryExpect";
 import { DictionaryPattern } from "../../domain/DictionaryPattern";
+import { DictionaryExpect } from "../../domain/DictionaryExpect";
 
 export const createCreateNewDictionaryUseCase = () => {
     return new CreateNewDictionaryUseCase({ dictionaryRepository });
@@ -16,8 +16,8 @@ export class CreateNewDictionaryUseCase extends UseCase {
 
     execute() {
         const dictionary = createDictionary()
-            .inputPattern(new DictionaryPattern(""))
-            .addExpect(new DictionaryExpect(""));
+            .inputExpect(new DictionaryExpect(""))
+            .addPattern(new DictionaryPattern(""));
         this.repo.dictionaryRepository.save(dictionary);
     }
 }

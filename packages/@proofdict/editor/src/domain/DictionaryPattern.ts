@@ -5,4 +5,8 @@ export class DictionaryPattern {
     constructor(value: string) {
         this.value = value;
     }
+
+    equals(expect: DictionaryPattern) {
+        return this.value === expect.value;
+    }
 }

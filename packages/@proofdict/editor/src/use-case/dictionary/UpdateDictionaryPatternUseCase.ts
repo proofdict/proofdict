@@ -15,12 +15,15 @@ export class UpdateDictionaryPatternUseCase extends UseCase {
         super();
     }
 
-    execute(id: DictionaryIdentifier, pattern: string) {
+    execute(id: DictionaryIdentifier, oldExpect: string, newExpect: string) {
         const dictionary = this.repo.dictionaryRepository.findById(id);
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        dictionary.inputPattern(new DictionaryPattern(pattern));
-        this.repo.dictionaryRepository.save(dictionary);
+        const newDictionary = dictionary.updatePattern(
+            new DictionaryPattern(oldExpect),
+            new DictionaryPattern(newExpect)
+        );
+        this.repo.dictionaryRepository.save(newDictionary);
     }
 }

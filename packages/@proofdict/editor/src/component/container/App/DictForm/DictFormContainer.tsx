@@ -2,18 +2,18 @@ import * as React from "react";
 import { BaseContainer } from "../../BaseContainer";
 import { DictFormState } from "./DictFormStore";
 import { PrimaryButton, TextField } from "office-ui-fabric-react";
-import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dictionary/UpdateDictionaryPatternUseCase";
-import { createAddNewExpectToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewExpectToDictionaryUseCase";
+import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
+import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
-    onChangePattern = (input: string) => {
-        this.useCase(createUpdateDictionaryPatternUseCase()).executor(useCase =>
+    onChangeExpect = (input: string) => {
+        this.useCase(createUpdateDictionaryExpectedUseCase()).executor(useCase =>
             useCase.execute(this.props.dictForm.dictionaryId, input)
         );
     };
-    onClickAddNewExpect = () => {
-        this.useCase(createAddNewExpectToDictionaryUseCase()).executor(useCase =>
+    onClickAddNewPattern = () => {
+        this.useCase(createAddNewPatternToDictionaryUseCase()).executor(useCase =>
             useCase.execute(this.props.dictForm.dictionaryId)
         );
     };
@@ -22,20 +22,16 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         const expected = this.createExpected();
         return (
             <div className="DictFormContainer">
-                <TextField
-                    label="Pattern"
-                    defaultValue={this.props.dictForm.pattern}
-                    onChanged={this.onChangePattern}
-                />
+                <TextField label="Pattern" defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect} />
                 {expected}
             </div>
         );
     }
 
     private createExpected() {
-        const expectes = this.props.dictForm.expects.map((expect, index) => {
+        const patterns = this.props.dictForm.patterns.map((expect, index) => {
             const onChangeExpect = (input: string) => {
-                this.useCase(createUpdateDictionaryExpectedUseCase()).executor(useCase =>
+                this.useCase(createUpdateDictionaryPatternUseCase()).executor(useCase =>
                     useCase.execute(this.props.dictForm.dictionaryId, expect, input)
                 );
             };
@@ -43,11 +39,11 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         });
         return (
             <div>
-                {expectes}
+                {patterns}
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}
                     text="Add New expect"
-                    onClick={this.onClickAddNewExpect}
+                    onClick={this.onClickAddNewPattern}
                 />
             </div>
         );
