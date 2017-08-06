@@ -13,6 +13,10 @@ export class DictionaryPatterns {
         return this.patterns.map(pattern => pattern.value);
     }
 
+    getPatternValuesWithoutEmpty(): string[] {
+        return this.getPatternValues().filter(pattern => pattern.length > 0);
+    }
+
     // write
     add(pattern: DictionaryPattern) {
         return new DictionaryPatterns(this.patterns.concat(pattern));
@@ -22,6 +26,7 @@ export class DictionaryPatterns {
         const index = this.patterns.findIndex(targetPattern => {
             return targetPattern.equals(oldExpect);
         });
+        console.log(index);
         if (index === -1) {
             return this;
         }

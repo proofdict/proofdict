@@ -3,6 +3,7 @@ import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
 import { DictionaryExpect } from "../../domain/DictionaryExpect";
+import { createUpdateDictionarySpecStatusUseCase } from "./UpdateDictionarySpecStatusUseCase";
 
 export const createUpdateDictionaryExpectedUseCase = () => {
     return new UpdateDictionaryExpectedUseCase({
@@ -22,5 +23,6 @@ export class UpdateDictionaryExpectedUseCase extends UseCase {
         }
         const newDictionary = dictionary.inputExpect(new DictionaryExpect(pattern));
         this.repo.dictionaryRepository.save(newDictionary);
+        return this.context.useCase(createUpdateDictionarySpecStatusUseCase()).execute(newDictionary.id);
     }
 }
