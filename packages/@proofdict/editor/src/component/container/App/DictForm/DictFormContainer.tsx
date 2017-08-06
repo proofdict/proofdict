@@ -8,6 +8,7 @@ import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dic
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
 
 require("./DictFormContainer.css");
+
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
     onChangeExpect = (input: string) => {
         this.useCase(createUpdateDictionaryExpectedUseCase()).executor(useCase =>
@@ -24,13 +25,28 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         const patterns = this.createPatterns();
         return (
             <div className="DictFormContainer">
-                <h2>Expected:</h2>
+                <h2>Expected: {this.createExpectedHelp()}</h2>
                 <TextField defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect}/>
                 {patterns}
             </div>
         );
     }
 
+    private createExpectedHelp = () => {
+        return <HelpCalloutButton>
+            <div className="DictFormContainer-expectedHelp">
+                <p>Expected allow to use string or regexp replace symbol<b>$0-$1</b></p>
+                <ul>
+                    <li>Pattern: <code>/(\w+)\s(\w+)/</code></li>
+                    <li>Expected:<code>$2 = $1</code></li>
+                    <li>Input: <b>John Smith</b></li>
+                    <li>Output:<b>Smith = John</b></li>
+                </ul>
+                <p>If you want to know RegExp, please see <a
+                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN</a></p>
+            </div>
+        </HelpCalloutButton>
+    };
     private createPatternsHelp = () => {
         return <HelpCalloutButton>
             <div className="DictFormContainer-patternsHelp">
@@ -40,7 +56,8 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                     <li><code>/pattern/i</code> match <b>pattern</b> and <b>PATTERN</b> etc..</li>
                     <li><code>/\w+/i</code> match <b>a</b> and <b>ab</b> etc..</li>
                 </ul>
-                <p>If you want to know RegExp, please see <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN</a></p>
+                <p>If you want to know RegExp, please see <a
+                    href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN</a></p>
             </div>
         </HelpCalloutButton>
     };

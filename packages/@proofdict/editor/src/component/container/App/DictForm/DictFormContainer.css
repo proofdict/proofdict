@@ -1,7 +1,9 @@
+.DictFormContainer-expectedHelp,
 .DictFormContainer-patternsHelp {
     padding: 0.2rem 1rem;
 }
 
+.DictFormContainer-expectedHelp code,
 .DictFormContainer-patternsHelp code {
     color: #e90;
 }

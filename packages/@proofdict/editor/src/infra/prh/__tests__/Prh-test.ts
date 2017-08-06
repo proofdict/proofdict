@@ -17,12 +17,8 @@ describe("Prh#testPattern", () => {
                 actual: "JQUERY"
             })
         );
-        if (result instanceof DictionarySpec) {
-            assert.strictEqual(result.actual, "JQUERY");
-            assert.strictEqual(result.expected, "jQuery");
-        } else {
-            throw new Error("result is not DictionarySpec");
-        }
+        assert.strictEqual(result.actual, "JQUERY");
+        assert.strictEqual(result.expected, "jQuery");
     });
     it("should return spec", () => {
         const dictionary = createDictionary()
@@ -34,23 +30,20 @@ describe("Prh#testPattern", () => {
                 actual: "pattern"
             })
         );
-        if (result instanceof DictionarySpec) {
-            assert.strictEqual(result.actual, "pattern");
-            assert.strictEqual(result.expected, "expected");
-        } else {
-            throw new Error("result is not DictionarySpec");
-        }
+        assert.strictEqual(result.actual, "pattern");
+        assert.strictEqual(result.expected, "expected");
     });
     it("should return Error if invalid pattern", () => {
         const dictionary = createDictionary()
             .inputExpect(new DictionaryExpect("/broken"))
             .addPattern(new DictionaryPattern("/broken?:?*"));
-        const error = testPattern(
+        const spec = testPattern(
             dictionary,
             new DictionarySpec({
                 actual: "pattern"
             })
         );
-        assert.ok(error instanceof Error);
+        assert.ok(spec.isInvalid, "inValid");
+        assert.ok(spec.error instanceof Error, "inValid");
     });
 });

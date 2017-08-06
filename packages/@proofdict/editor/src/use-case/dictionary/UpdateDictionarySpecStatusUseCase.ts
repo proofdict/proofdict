@@ -25,12 +25,7 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
         const newSpecs = dictionary.specs.getSpecList().map(spec => {
             return testPattern(dictionary, spec);
         });
-        const errors = newSpecs.filter(spec => spec instanceof Error);
-        if (errors.length > 0) {
-            throw new Error("Has Errors:" + errors.map((error: Error) => error.message).join("\n"));
-        } else {
-            const newDictionary = dictionary.updateSpecList(newSpecs as DictionarySpec[]);
-            this.repo.dictionaryRepository.save(newDictionary);
-        }
+        const newDictionary = dictionary.updateSpecList(newSpecs as DictionarySpec[]);
+        this.repo.dictionaryRepository.save(newDictionary);
     }
 }

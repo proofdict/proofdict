@@ -28,7 +28,7 @@ export class HelpCalloutButton extends React.Component<HelpCalloutButtonProps, H
     private onClickButton = (event: React.MouseEvent<any>) => {
         this.setState({
             calloutTarget: event.currentTarget,
-            isCalloutVisible: true
+            isCalloutVisible: !this.state.isCalloutVisible
         });
     };
 
@@ -45,7 +45,7 @@ export class HelpCalloutButton extends React.Component<HelpCalloutButtonProps, H
             <IconButton
                 className="HelpCalloutButton"
                 onClick={this.onClickButton}
-                iconProps={{ iconName: 'Help' }}
+                iconProps={{ iconName: 'Info' }}
                 title='Help'
                 ariaLabel='Show help'/>
         </div>

@@ -6,7 +6,8 @@ import { DictionarySpec } from "./DictionarySpec";
  * Collection of DictionarySpec
  */
 export class DictionarySpecs {
-    constructor(private specs: DictionarySpec[]) {}
+    constructor(private specs: DictionarySpec[]) {
+    }
 
     // read
     getSpecList(): DictionarySpec[] {
@@ -18,7 +19,13 @@ export class DictionarySpecs {
     }
 
     getExpectedResults() {
-        return this.getSpecList().map(spec => spec.expected);
+        return this.getSpecList().map(spec => {
+            if (spec.isInvalid && spec.error) {
+                return spec.error.message
+            } else {
+                return spec.expected;
+            }
+        });
     }
 
     // write

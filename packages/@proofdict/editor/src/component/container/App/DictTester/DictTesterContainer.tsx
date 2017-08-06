@@ -51,7 +51,7 @@ export class DictTesterContainer extends BaseContainer<{
 
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}
-                    text="Add New pattern"
+                    text="Add New test pattern"
                     onClick={this.onClickAddNewPattern}
                 />
             </div>
