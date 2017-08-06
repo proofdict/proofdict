@@ -8,6 +8,8 @@ import { Grid } from "../../../ui-kit/Grid/Grid";
 import GridCell from "../../../ui-kit/Grid/GridCell";
 import { createAddNewSpecToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewSpecToDictionaryUseCase";
 
+require("./DictTesterContainer.css");
+
 export class DictTesterContainer extends BaseContainer<{
     dictForm: DictFormState;
     dictTester: DictTesterState;
@@ -22,17 +24,17 @@ export class DictTesterContainer extends BaseContainer<{
             };
             const result = this.props.dictTester.hasOutput(index) ? this.props.dictTester.getOutput(index) : "No data";
             return (
-                <Grid key={index}>
-                    <GridCell col="6of12">
+                <Grid key={index} className="DictTesterContainer-inputOutputGrid">
+                    <GridCell col="6of12" className="DictTesterContainer-inputCell">
                         <TextField
                             placeholder="any test string"
                             defaultValue={input}
                             onChanged={onChangeTestPattern}/>
                     </GridCell>
-                    <GridCell col="6of12">
-                    <span className="DictTesterContainer-expected">
+                    <GridCell col="6of12" className="DictTesterContainer-outputCell">
+                    <p className="DictTesterContainer-expected">
                         {result}
-                    </span>
+                    </p>
                     </GridCell>
                 </Grid>
             );
@@ -50,7 +52,7 @@ export class DictTesterContainer extends BaseContainer<{
         return (
             <div className="DictTesterContainer">
                 <h2>Test Patterns</h2>
-                <Grid>
+                <Grid className="DictTesterContainer-headerGrid">
                     <GridCell col="6of12">
                         <span>Input</span>
                     </GridCell>
