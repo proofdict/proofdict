@@ -13,6 +13,7 @@
     "almin-devtools": "^0.3.0",
     "almin-logger": "^6.0.0",
     "almin-react-container": "^0.3.11",
+    "classnames": "^2.2.5",
     "office-ui-fabric-react": "^4.30.0",
     "prh": "^3.0.1",
     "react": "^15.6.1",

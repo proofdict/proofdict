@@ -7,7 +7,24 @@ import * as assert from "assert";
 import { DictionarySpec } from "../../../domain/DictionarySpec";
 
 describe("Prh#testPattern", () => {
-    it("should return diff", () => {
+    it("should handle regexp-like string", () => {
+        const dictionary = createDictionary()
+            .inputExpect(new DictionaryExpect("jQuery"))
+            .addPattern(new DictionaryPattern("/jquery/i"));
+        const result = testPattern(
+            dictionary,
+            new DictionarySpec({
+                actual: "JQUERY"
+            })
+        );
+        if (result instanceof DictionarySpec) {
+            assert.strictEqual(result.actual, "JQUERY");
+            assert.strictEqual(result.expected, "jQuery");
+        } else {
+            throw new Error("result is not DictionarySpec");
+        }
+    });
+    it("should return spec", () => {
         const dictionary = createDictionary()
             .inputExpect(new DictionaryExpect("expected"))
             .addPattern(new DictionaryPattern("pattern"));

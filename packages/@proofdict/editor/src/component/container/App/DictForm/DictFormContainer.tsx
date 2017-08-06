@@ -22,7 +22,8 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         const patterns = this.createPatterns();
         return (
             <div className="DictFormContainer">
-                <TextField label="Expected" defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect} />
+                <h2>Expected:</h2>
+                <TextField defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect}/>
                 {patterns}
             </div>
         );
@@ -35,10 +36,11 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                     useCase.execute(this.props.dictForm.dictionaryId, expect, input)
                 );
             };
-            return <TextField key={index} defaultValue={expect} label="Pattern" onChanged={onChangeExpect} />;
+            return <TextField key={index} defaultValue={expect} onChanged={onChangeExpect}/>;
         });
         return (
             <div>
+                <h2>Patterns:</h2>
                 {patterns}
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}
