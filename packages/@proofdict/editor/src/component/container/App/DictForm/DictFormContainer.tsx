@@ -5,7 +5,9 @@ import { PrimaryButton, TextField } from "office-ui-fabric-react";
 import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dictionary/UpdateDictionaryPatternUseCase";
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
+import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
 
+require("./DictFormContainer.css");
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
     onChangeExpect = (input: string) => {
         this.useCase(createUpdateDictionaryExpectedUseCase()).executor(useCase =>
@@ -29,6 +31,20 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         );
     }
 
+    private createPatternsHelp = () => {
+        return <HelpCalloutButton>
+            <div className="DictFormContainer-patternsHelp">
+                <p>Patterns allow to use string or regexp-like string.</p>
+                <ul>
+                    <li><code>pattern</code> only match <b>pattern</b></li>
+                    <li><code>/pattern/i</code> match <b>pattern</b> and <b>PATTERN</b> etc..</li>
+                    <li><code>/\w+/i</code> match <b>a</b> and <b>ab</b> etc..</li>
+                </ul>
+                <p>If you want to know RegExp, please see <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN</a></p>
+            </div>
+        </HelpCalloutButton>
+    };
+
     private createPatterns() {
         const patterns = this.props.dictForm.patterns.map((expect, index) => {
             const onChangeExpect = (input: string) => {
@@ -40,7 +56,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         });
         return (
             <div>
-                <h2>Patterns:</h2>
+                <h2>Patterns: {this.createPatternsHelp()}</h2>
                 {patterns}
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}

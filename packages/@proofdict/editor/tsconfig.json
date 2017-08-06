@@ -1,10 +1,12 @@
-
 {
   "compilerOptions": {
     "outDir": "build/dist",
     "module": "es2015",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
