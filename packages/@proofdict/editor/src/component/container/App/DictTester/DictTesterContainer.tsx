@@ -24,7 +24,10 @@ export class DictTesterContainer extends BaseContainer<{
             return (
                 <Grid key={index}>
                     <GridCell col="6of12">
-                        <TextField defaultValue={input} onChanged={onChangeTestPattern}/>
+                        <TextField
+                            placeholder="any test string"
+                            defaultValue={input}
+                            onChanged={onChangeTestPattern}/>
                     </GridCell>
                     <GridCell col="6of12">
                     <span className="DictTesterContainer-expected">
@@ -47,6 +50,14 @@ export class DictTesterContainer extends BaseContainer<{
         return (
             <div className="DictTesterContainer">
                 <h2>Test Patterns</h2>
+                <Grid>
+                    <GridCell col="6of12">
+                        <span>Input</span>
+                    </GridCell>
+                    <GridCell col="6of12">
+                        <span>Output</span>
+                    </GridCell>
+                </Grid>
                 {testPatterns}
 
                 <PrimaryButton

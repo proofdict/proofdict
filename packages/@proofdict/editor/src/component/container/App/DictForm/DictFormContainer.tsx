@@ -6,6 +6,7 @@ import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dicti
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
+import { Grid } from "../../../ui-kit/Grid/Grid";
 
 require("./DictFormContainer.css");
 
@@ -26,7 +27,13 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         return (
             <div className="DictFormContainer">
                 <h2>Expected: {this.createExpectedHelp()}</h2>
-                <TextField defaultValue={this.props.dictForm.expect} onChanged={this.onChangeExpect}/>
+                <Grid>
+                    <span>1. Input expected result</span>
+                </Grid>
+                <TextField
+                    placeholder="e.g.) ECMAScript $1"
+                    defaultValue={this.props.dictForm.expect}
+                    onChanged={this.onChangeExpect}/>
                 {patterns}
             </div>
         );
@@ -69,11 +76,19 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                     useCase.execute(this.props.dictForm.dictionaryId, expect, input)
                 );
             };
-            return <TextField key={index} defaultValue={expect} onChanged={onChangeExpect}/>;
+            return <TextField
+                key={index}
+                placeholder="e.g.) /ECMAScript([0-9]+)/i"
+                defaultValue={expect}
+                onChanged={onChangeExpect}/>;
         });
         return (
             <div>
                 <h2>Patterns: {this.createPatternsHelp()}</h2>
+                <Grid>
+                    <span>2. Input match patterns</span>
+                </Grid>
+
                 {patterns}
                 <PrimaryButton
                     iconProps={{ iconName: "Add" }}

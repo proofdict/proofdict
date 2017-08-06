@@ -1,5 +1,6 @@
 import * as React from "react";
 import GridCell from "./GridCell";
+
 const classNames = require("classnames");
 require("./Grid.css");
 /**
@@ -18,7 +19,7 @@ export { GridCell };
 
 export interface GridProps {
     className?: string;
-    children: React.ReactChild[];
+    children: React.ReactChild | React.ReactChild[];
 }
 
 export class Grid extends React.Component<GridProps, {}> {

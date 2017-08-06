@@ -14,10 +14,10 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
         return (
             <div className="App">
                 <Grid>
-                    <GridCell col="6of12">
+                    <GridCell col="6of12" className="App-left">
                         <DictFormContainer dictForm={this.props.dictForm}/>
                     </GridCell>
-                    <GridCell col="6of12">
+                    <GridCell col="6of12" className="App-right">
                         <DictTesterContainer dictForm={this.props.dictForm} dictTester={this.props.dictTester}/>
                     </GridCell>
                 </Grid>
