@@ -6,7 +6,6 @@ import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dicti
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
-import { Grid } from "../../../ui-kit/Grid/Grid";
 
 require("./DictFormContainer.css");
 
@@ -27,9 +26,9 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         return (
             <div className="DictFormContainer">
                 <h2>Expected: {this.createExpectedHelp()}</h2>
-                <Grid>
-                    <span>1. Input expected result</span>
-                </Grid>
+                <p className="DictFormContainer-description">
+                    1. Input expected result
+                </p>
                 <TextField
                     placeholder="e.g.) ECMAScript $1"
                     defaultValue={this.props.dictForm.expect}
@@ -85,9 +84,9 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         return (
             <div>
                 <h2>Patterns: {this.createPatternsHelp()}</h2>
-                <Grid>
-                    <span>2. Input match patterns</span>
-                </Grid>
+                <p className="DictFormContainer-description">
+                    2. Input match patterns
+                </p>
 
                 {patterns}
                 <PrimaryButton

@@ -52,11 +52,14 @@ export class DictTesterContainer extends BaseContainer<{
         return (
             <div className="DictTesterContainer">
                 <h2>Test Patterns</h2>
+                <p className="DictTesterContainer-description">
+                    3. Add test patterns and check the output is correct.
+                </p>
                 <Grid className="DictTesterContainer-headerGrid">
-                    <GridCell col="6of12">
+                    <GridCell col="6of12" className="DictTesterContainer-headerCell">
                         <span>Input</span>
                     </GridCell>
-                    <GridCell col="6of12">
+                    <GridCell col="6of12" className="DictTesterContainer-headerCell">
                         <span>Output</span>
                     </GridCell>
                 </Grid>

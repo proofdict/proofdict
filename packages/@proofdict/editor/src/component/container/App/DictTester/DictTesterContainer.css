@@ -1,12 +1,15 @@
+.DictTesterContainer-headerGrid,
+.DictTesterContainer-inputOutputGrid {
+    height: 40px;
+}
+
 .DictTesterContainer-headerGrid {
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-bottom: 1px solid #ddd;
 }
 
-.DictTesterContainer-inputOutputGrid {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-}
-
+.DictTesterContainer-headerCell,
 .DictTesterContainer-inputCell,
 .DictTesterContainer-outputCell {
     vertical-align: middle;
