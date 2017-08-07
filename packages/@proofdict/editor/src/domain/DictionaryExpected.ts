@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-export class DictionaryExpect {
+export class DictionaryExpected {
     value: string;
 
     constructor(value: string) {

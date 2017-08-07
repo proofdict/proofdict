@@ -6,7 +6,7 @@ export class DictionaryPattern {
         this.value = value;
     }
 
-    equals(expect: DictionaryPattern) {
-        return this.value === expect.value;
+    equals(pattern: DictionaryPattern) {
+        return this.value === pattern.value;
     }
 }

@@ -2,14 +2,14 @@
 import { testPattern } from "../Prh";
 import { createDictionary } from "../../../domain/DictionaryFactory";
 import { DictionaryPattern } from "../../../domain/DictionaryPattern";
-import { DictionaryExpect } from "../../../domain/DictionaryExpect";
+import { DictionaryExpected } from "../../../domain/DictionaryExpected";
 import * as assert from "assert";
 import { DictionarySpec } from "../../../domain/DictionarySpec";
 
 describe("Prh#testPattern", () => {
     it("should handle regexp-like string", () => {
         const dictionary = createDictionary()
-            .inputExpect(new DictionaryExpect("jQuery"))
+            .inputExpected(new DictionaryExpected("jQuery"))
             .addPattern(new DictionaryPattern("/jquery/i"));
         const result = testPattern(
             dictionary,
@@ -22,7 +22,7 @@ describe("Prh#testPattern", () => {
     });
     it("should return spec", () => {
         const dictionary = createDictionary()
-            .inputExpect(new DictionaryExpect("expected"))
+            .inputExpected(new DictionaryExpected("expected"))
             .addPattern(new DictionaryPattern("pattern"));
         const result = testPattern(
             dictionary,
@@ -35,7 +35,7 @@ describe("Prh#testPattern", () => {
     });
     it("should return Error if invalid pattern", () => {
         const dictionary = createDictionary()
-            .inputExpect(new DictionaryExpect("/broken"))
+            .inputExpected(new DictionaryExpected("/broken"))
             .addPattern(new DictionaryPattern("/broken?:?*"));
         const spec = testPattern(
             dictionary,

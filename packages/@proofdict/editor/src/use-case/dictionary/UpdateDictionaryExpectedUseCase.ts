@@ -2,7 +2,7 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { DictionaryExpect } from "../../domain/DictionaryExpect";
+import { DictionaryExpected } from "../../domain/DictionaryExpected";
 import { createUpdateDictionarySpecStatusUseCase } from "./UpdateDictionarySpecStatusUseCase";
 
 export const createUpdateDictionaryExpectedUseCase = () => {
@@ -21,7 +21,7 @@ export class UpdateDictionaryExpectedUseCase extends UseCase {
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        const newDictionary = dictionary.inputExpect(new DictionaryExpect(pattern));
+        const newDictionary = dictionary.inputExpected(new DictionaryExpected(pattern));
         this.repo.dictionaryRepository.save(newDictionary);
         return this.context.useCase(createUpdateDictionarySpecStatusUseCase()).execute(newDictionary.id);
     }

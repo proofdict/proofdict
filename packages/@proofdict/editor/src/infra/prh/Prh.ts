@@ -18,7 +18,7 @@ export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Dicti
             version: 1,
             rules: patterns.map(pattern => {
                 return {
-                    expected: dictionary.expect.value,
+                    expected: dictionary.expected.value,
                     pattern: pattern
                 }
             })

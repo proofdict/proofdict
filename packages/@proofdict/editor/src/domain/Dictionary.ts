@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { DictionaryExpect } from "./DictionaryExpect";
+import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPattern } from "./DictionaryPattern";
 import { Entity, Identifier } from "../ddd-base";
 import { DictionaryPatterns } from "./DictionaryPatterns";
@@ -10,27 +10,27 @@ export class DictionaryIdentifier extends Identifier<string> {}
 
 export interface DictionaryArgs {
     id: DictionaryIdentifier;
-    expect: DictionaryExpect;
+    expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
 }
 
 export class Dictionary extends Entity<DictionaryIdentifier> {
-    expect: DictionaryExpect;
+    expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
 
     constructor(args: DictionaryArgs) {
         super(args.id);
-        this.expect = args.expect;
+        this.expected = args.expected;
         this.patterns = args.patterns;
         this.specs = args.specs;
     }
 
-    inputExpect(expect: DictionaryExpect) {
+    inputExpected(expected: DictionaryExpected) {
         return new Dictionary({
             ...this as Dictionary,
-            expect
+            expected: expected
         });
     }
 

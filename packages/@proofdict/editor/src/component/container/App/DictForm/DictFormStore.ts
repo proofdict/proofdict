@@ -5,25 +5,25 @@ import { DictionaryRepository } from "../../../../infra/repository/DictionaryRep
 
 export interface DictFormStateProps {
     dictionaryId: DictionaryIdentifier;
-    expect?: string;
+    expected?: string;
     patterns: string[];
 }
 
 export class DictFormState {
     dictionaryId: DictionaryIdentifier;
-    expect?: string;
+    expected?: string;
     patterns: string[];
 
     constructor(props: DictFormStateProps) {
         this.dictionaryId = props.dictionaryId;
-        this.expect = props.expect;
+        this.expected = props.expected;
         this.patterns = props.patterns;
     }
 
     update(dictionary: Dictionary) {
         return new DictFormState({
             dictionaryId: dictionary.id,
-            expect: dictionary.expect.value,
+            expected: dictionary.expected.value,
             patterns: dictionary.patterns.getPatternValues()
         });
     }
