@@ -5,7 +5,9 @@ import { AlminLogger } from "almin-logger";
 import { AppContainer } from "./component/container/App/AppContainer";
 import AlminReactContainer from "almin-react-container";
 import registerServiceWorker from "./registerServiceWorker";
-import "./index.css";
+
+require("./index.css");
+require("office-ui-fabric-react/dist/css/fabric.min.css");
 // FIXME: office-ui-fabric-react CSS warning hack
 if (process.env.NODE_ENV !== "production") {
     // console.clear();

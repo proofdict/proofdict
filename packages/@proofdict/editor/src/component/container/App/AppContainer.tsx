@@ -7,8 +7,6 @@ import { DictTesterContainer } from "./DictTester/DictTesterContainer";
 import { Grid } from "../../ui-kit/Grid/Grid";
 import GridCell from "../../ui-kit/Grid/GridCell";
 
-require("office-ui-fabric-react/dist/css/fabric.css");
-
 export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> {
     render() {
         return (
