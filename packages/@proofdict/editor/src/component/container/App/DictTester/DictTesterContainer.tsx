@@ -10,11 +10,13 @@ import { createAddNewSpecToDictionaryUseCase } from "../../../../use-case/dictio
 
 require("./DictTesterContainer.css");
 
-export class DictTesterContainer extends BaseContainer<{
-    dictForm: DictFormState;
-    dictTester: DictTesterState;
-},
-    {}> {
+export class DictTesterContainer extends BaseContainer<
+    {
+        dictForm: DictFormState;
+        dictTester: DictTesterState;
+    },
+    {}
+> {
     createTestPatterns = () => {
         return this.props.dictTester.inputs.map((input, index) => {
             const onChangeTestPattern = (newValue: string) => {
@@ -26,15 +28,12 @@ export class DictTesterContainer extends BaseContainer<{
             return (
                 <Grid key={index} className="DictTesterContainer-inputOutputGrid">
                     <GridCell col="6of12" className="DictTesterContainer-inputCell">
-                        <TextField
-                            placeholder="any test string"
-                            defaultValue={input}
-                            onChanged={onChangeTestPattern}/>
+                        <TextField placeholder="any test string" defaultValue={input} onChanged={onChangeTestPattern} />
                     </GridCell>
                     <GridCell col="6of12" className="DictTesterContainer-outputCell">
-                    <p className="DictTesterContainer-expected">
-                        {result}
-                    </p>
+                        <p className="DictTesterContainer-expected">
+                            {result}
+                        </p>
                     </GridCell>
                 </Grid>
             );
@@ -42,9 +41,9 @@ export class DictTesterContainer extends BaseContainer<{
     };
 
     private onClickAddNewPattern = () => {
-        this.useCase(createAddNewSpecToDictionaryUseCase()).executor(useCase => useCase.execute(
-            this.props.dictForm.dictionaryId
-        ));
+        this.useCase(createAddNewSpecToDictionaryUseCase()).executor(useCase =>
+            useCase.execute(this.props.dictForm.dictionaryId)
+        );
     };
 
     render() {
@@ -52,9 +51,7 @@ export class DictTesterContainer extends BaseContainer<{
         return (
             <div className="DictTesterContainer">
                 <h2>Test Patterns</h2>
-                <p className="DictTesterContainer-description">
-                    3. Add test patterns and check the output is correct.
-                </p>
+                <p className="DictTesterContainer-description">3. Add test patterns and check the output is correct.</p>
                 <Grid className="DictTesterContainer-headerGrid">
                     <GridCell col="6of12" className="DictTesterContainer-headerCell">
                         <span>Input</span>

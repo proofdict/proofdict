@@ -2,11 +2,23 @@
 import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPattern } from "./DictionaryPattern";
 import { Entity, Identifier } from "../ddd-base";
-import { DictionaryPatterns } from "./DictionaryPatterns";
-import { DictionarySpecs } from "./DictionarySpecs";
+import { DictionaryPatterns, DictionaryPatternsSerializer } from "./DictionaryPatterns";
+import { DictionarySpecs, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
+import { Serializer } from "../ddd-base/Serializer";
 
-export class DictionaryIdentifier extends Identifier<string> {}
+export class DictionaryIdentifier extends Identifier<string> {
+}
+
+export interface DictionaryJSON {
+    id: string;
+    expected: string;
+    patterns: string[];
+    specs: {
+        actual: string;
+        expected: string;
+    }[];
+}
 
 export interface DictionaryArgs {
     id: DictionaryIdentifier;
@@ -15,7 +27,27 @@ export interface DictionaryArgs {
     specs: DictionarySpecs;
 }
 
+export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
+    fromJSON(json) {
+        return new Dictionary({
+            id: new DictionaryIdentifier(json.id),
+            expected: new DictionaryExpected(json.expected),
+            patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
+            specs: DictionarySpecsSerializer.fromJSON(json.specs)
+        });
+    },
+    toJSON(dictionary) {
+        return {
+            id: dictionary.id.toValue(),
+            expected: dictionary.expected.value,
+            patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
+            specs: DictionarySpecsSerializer.toJSON(dictionary.specs)
+        }
+    }
+};
+
 export class Dictionary extends Entity<DictionaryIdentifier> {
+    id: DictionaryIdentifier;
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
@@ -55,6 +87,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
             patterns: this.patterns.remove(pattern)
         });
     }
+
     // specs
     addSpec(spec: DictionarySpec) {
         return new Dictionary({

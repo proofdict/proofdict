@@ -1,6 +1,11 @@
 // MIT © 2017 azu
 import { ValueObject } from "../ddd-base/ValueObject";
 
+export interface DictionarySpecJSON {
+    actual: string;
+    expected: string;
+}
+
 export interface DictionarySpecArgs {
     actual: string;
     expected?: string;

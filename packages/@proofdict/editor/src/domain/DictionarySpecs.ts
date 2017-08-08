@@ -1,6 +1,24 @@
 // MIT © 2017 azu
 import { splice } from "@immutable-array/prototype";
-import { DictionarySpec } from "./DictionarySpec";
+import { DictionarySpec, DictionarySpecJSON } from "./DictionarySpec";
+import { Serializer } from "../ddd-base/Serializer";
+
+
+export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySpecsJSON> = {
+    fromJSON(specs) {
+        return new DictionarySpecs(specs.map(spec => new DictionarySpec(spec)));
+    },
+    toJSON(entity) {
+        return entity.getSpecList().filter(spec => spec.isFilled).map(spec => {
+            return {
+                actual: spec.actual,
+                expected: spec.expected!
+            };
+        });
+    }
+};
+
+export type DictionarySpecsJSON = DictionarySpecJSON[];
 
 /**
  * Collection of DictionarySpec
@@ -21,7 +39,7 @@ export class DictionarySpecs {
     getExpectedResults() {
         return this.getSpecList().map(spec => {
             if (spec.isInvalid && spec.error) {
-                return spec.error.message
+                return spec.error.message;
             } else {
                 return spec.expected;
             }

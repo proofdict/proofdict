@@ -3,7 +3,7 @@ import { Engine } from "prh";
 import { Dictionary } from "../../domain/Dictionary";
 import { DictionarySpec } from "../../domain/DictionarySpec";
 
-const isSafeRegExp = require('safe-regex');
+const isSafeRegExp = require("safe-regex");
 
 export function testPattern(dictionary: Dictionary, spec: DictionarySpec): DictionarySpec {
     if (spec.actual.length === 0) {
@@ -20,7 +20,7 @@ export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Dicti
                 return {
                     expected: dictionary.expected.value,
                     pattern: pattern
-                }
+                };
             })
         });
 

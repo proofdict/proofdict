@@ -12,5 +12,3 @@ export const appLocator = {
         _context = context;
     }
 };
-
-

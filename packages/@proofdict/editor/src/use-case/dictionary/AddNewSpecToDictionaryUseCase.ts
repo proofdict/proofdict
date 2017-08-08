@@ -20,9 +20,11 @@ export class AddNewSpecToDictionaryUseCase extends UseCase {
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        const newDictionary = dictionary.addSpec(new DictionarySpec({
-            actual: ""
-        }));
+        const newDictionary = dictionary.addSpec(
+            new DictionarySpec({
+                actual: ""
+            })
+        );
         this.repo.dictionaryRepository.save(newDictionary);
     }
 }
