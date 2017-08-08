@@ -5,3 +5,4 @@ export { ValueObject } from "./ValueObject";
 export { NonNullableBaseRepository } from "./NonNullableBaseRepository";
 export { NullableBaseRepository } from "./NullableBaseRepository";
 export { RepositoryCore } from "./RepositoryCore";
+export { Serializer } from "./Serializer";
