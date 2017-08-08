@@ -1,13 +1,8 @@
-# proofdict
-
-
-## Installation
-
-- [ ] Describe the installation process
+# proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.github.io.svg?branch=master)](https://travis-ci.org/proofdict/proofdict.github.io)
 
 ## Usage
 
-- [ ] Write usage instructions
+Open <https://proofdict.github.io/>
 
 ## Tests
 
