@@ -31,7 +31,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                 <p className="DictFormContainer-description">1. Input expected result</p>
                 <TextField
                     placeholder="e.g.) ECMAScript $1"
-                    defaultValue={this.props.dictForm.expected}
+                    value={this.props.dictForm.expected}
                     onChanged={this.onChangeExpect}
                 />
                 {patterns}
@@ -108,7 +108,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                 <TextField
                     key={index}
                     placeholder="e.g.) /ECMAScript([0-9]+)/i"
-                    defaultValue={expect}
+                    value={expect}
                     onChanged={onChangeExpect}
                 />
             );

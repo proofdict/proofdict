@@ -3,6 +3,7 @@ import { StoreGroup } from "almin";
 import { DictFormStore } from "./DictForm/DictFormStore";
 import { dictionaryRepository } from "../../../infra/repository/DictionaryRepository";
 import { DictTesterStore } from "./DictTester/DictTesterStore";
+import { DictOutputStore } from "./DictOutput/DictOutputStore";
 
 if (process.env.NODE_ENV !== "production") {
     (window as any).profdict = {
@@ -15,6 +16,9 @@ export const appStoreGroup = new StoreGroup({
         dictionaryRepository
     }),
     dictTester: new DictTesterStore({
+        dictionaryRepository
+    }),
+    dictOutput: new DictOutputStore({
         dictionaryRepository
     })
 });

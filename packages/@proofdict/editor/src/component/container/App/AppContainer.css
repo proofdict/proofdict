@@ -11,16 +11,13 @@ body,
     margin: 0;
 }
 
-.App {
-    text-align: center;
-}
-
 .App-left {
     border-right: 1px dashed #3498db;
 }
 
 .App-left,
 .App-right {
+    text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
 }
