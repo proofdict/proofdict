@@ -17,8 +17,7 @@ export type DictionaryPatternsJSON = string[];
  * Collection of Patterns
  */
 export class DictionaryPatterns {
-    constructor(private patterns: DictionaryPattern[]) {
-    }
+    constructor(private patterns: DictionaryPattern[]) {}
 
     // read
     getPatternValues(): string[] {

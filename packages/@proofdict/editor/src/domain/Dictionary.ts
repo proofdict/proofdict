@@ -7,8 +7,7 @@ import { DictionarySpecs, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
 import { Serializer } from "../ddd-base/Serializer";
 
-export class DictionaryIdentifier extends Identifier<string> {
-}
+export class DictionaryIdentifier extends Identifier<string> {}
 
 export interface DictionaryJSON {
     id: string;
@@ -42,7 +41,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             expected: dictionary.expected.value,
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
             specs: DictionarySpecsSerializer.toJSON(dictionary.specs)
-        }
+        };
     }
 };
 

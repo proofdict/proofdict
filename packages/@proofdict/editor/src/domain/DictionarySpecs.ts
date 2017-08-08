@@ -3,7 +3,6 @@ import { splice } from "@immutable-array/prototype";
 import { DictionarySpec, DictionarySpecJSON } from "./DictionarySpec";
 import { Serializer } from "../ddd-base/Serializer";
 
-
 export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySpecsJSON> = {
     fromJSON(specs) {
         return new DictionarySpecs(specs.map(spec => new DictionarySpec(spec)));
@@ -24,8 +23,7 @@ export type DictionarySpecsJSON = DictionarySpecJSON[];
  * Collection of DictionarySpec
  */
 export class DictionarySpecs {
-    constructor(private specs: DictionarySpec[]) {
-    }
+    constructor(private specs: DictionarySpec[]) {}
 
     // read
     getSpecList(): DictionarySpec[] {
