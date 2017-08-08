@@ -1,8 +1,8 @@
-.DictOutput {
+.DictOutputContainer {
     padding: 1rem;
 }
 
-.DictOutput-textarea {
+.DictOutputContainer-textarea {
     font-size: 12px;
     width: 100%;
     min-height: 5em;

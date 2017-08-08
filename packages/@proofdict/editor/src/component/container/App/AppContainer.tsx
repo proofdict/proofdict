@@ -6,7 +6,7 @@ import { DictFormContainer } from "./DictForm/DictFormContainer";
 import { DictTesterContainer } from "./DictTester/DictTesterContainer";
 import { Grid } from "../../ui-kit/Grid/Grid";
 import GridCell from "../../ui-kit/Grid/GridCell";
-import { DictOutput } from "./DictOutput/DictOutput";
+import { DictOutputContainer } from "./DictOutput/DictOutputContainer";
 import { AppMenuContainer } from "./AppMenu/AppMenuContainer";
 
 export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> {
@@ -22,7 +22,7 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
                         <DictTesterContainer dictForm={this.props.dictForm} dictTester={this.props.dictTester} />
                     </GridCell>
                 </Grid>
-                <DictOutput dictOutput={this.props.dictOutput} />
+                <DictOutputContainer dictOutput={this.props.dictOutput} />
             </div>
         );
     }
