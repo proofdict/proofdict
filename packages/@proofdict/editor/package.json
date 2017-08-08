@@ -2,6 +2,11 @@
   "name": "proofdict",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://proofdict.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proofdict/proofdict.github.io"
+  },
   "dependencies": {
     "@immutable-array/prototype": "^1.0.2",
     "@types/jest": "^20.0.6",
