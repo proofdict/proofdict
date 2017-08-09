@@ -9,9 +9,7 @@
     border-bottom: 1px solid #ddd;
 }
 
-.DictTesterContainer-headerCell,
-.DictTesterContainer-inputCell,
-.DictTesterContainer-outputCell {
+.DictTesterContainer-headerCell {
     vertical-align: middle;
 }
 
@@ -19,6 +17,9 @@
     margin: 0;
     padding: 0;
     height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .DictTesterContainer-inputCell {
