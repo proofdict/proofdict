@@ -33,17 +33,4 @@ describe("Prh#testPattern", () => {
         assert.strictEqual(result.actual, "pattern");
         assert.strictEqual(result.expected, "expected");
     });
-    it("should return Error if invalid pattern", () => {
-        const dictionary = createDictionary()
-            .inputExpected(new DictionaryExpected("/broken"))
-            .addPattern(new DictionaryPattern("/broken?:?*"));
-        const spec = testPattern(
-            dictionary,
-            new DictionarySpec({
-                actual: "pattern"
-            })
-        );
-        assert.ok(spec.isInvalid, "inValid");
-        assert.ok(spec.error instanceof Error, "inValid");
-    });
 });
