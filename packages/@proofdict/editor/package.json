@@ -37,15 +37,17 @@
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
     "prettier": "^1.5.3",
-    "react-scripts-ts": "^2.5.0"
+    "react-scripts-ts": "^2.5.0",
+    "sw-precache": "^5.2.0"
   },
   "scripts": {
     "precommit": "lint-staged",
     "postcommit": "git reset",
     "prettier": "prettier --write --print-width 120 --tab-width 4 '**/*.{ts,tsx,css}'",
     "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test"
+    "build": "react-scripts-ts build && npm run update-sw-cache",
+    "test": "react-scripts-ts test",
+    "update-sw-cache": "sw-precache --config=sw-precache-config.js && mv service-worker.js build/"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx,css}": [

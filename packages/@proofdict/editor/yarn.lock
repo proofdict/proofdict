@@ -5314,7 +5314,7 @@ sw-precache-webpack-plugin@0.9.1:
     sw-precache "^5.0.0"
     uglify-js "^2.8.5"
 
-sw-precache@^5.0.0:
+sw-precache@^5.0.0, sw-precache@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/sw-precache/-/sw-precache-5.2.0.tgz#eb6225ce580ceaae148194578a0ad01ab7ea199c"
   dependencies:
