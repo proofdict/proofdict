@@ -63,9 +63,7 @@ describe("Prh", () => {
             return getUniqueTokens(dictionary).then(tokens => {
                 assert.deepEqual(tokens, [
                     {
-                        word_id: 120,
                         word_type: "UNKNOWN",
-                        word_position: 1,
                         surface_form: "ECMAScript",
                         pos: "名詞",
                         pos_detail_1: "固有名詞",
@@ -73,12 +71,12 @@ describe("Prh", () => {
                         pos_detail_3: "*",
                         conjugated_type: "*",
                         conjugated_form: "*",
-                        basic_form: "*"
+                        basic_form: "*",
+                        reading: undefined,
+                        pronunciation: undefined
                     },
                     {
-                        word_id: 10,
                         word_type: "UNKNOWN",
-                        word_position: 11,
                         surface_form: " ",
                         pos: "記号",
                         pos_detail_1: "空白",
@@ -86,7 +84,9 @@ describe("Prh", () => {
                         pos_detail_3: "*",
                         conjugated_type: "*",
                         conjugated_form: "*",
-                        basic_form: "*"
+                        basic_form: "*",
+                        reading: undefined,
+                        pronunciation: undefined
                     }
                 ]);
             });
