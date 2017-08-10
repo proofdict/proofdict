@@ -5,7 +5,21 @@ import { DictionarySpec } from "../../domain/DictionarySpec";
 
 const intersectionBy = require("lodash.intersectionby");
 
-export interface Token {
+export interface NormalizedToken {
+    word_type: string; // 単語タイプ(辞書に登録されている単語ならKNOWN, 未知語ならUNKNOWN)
+    surface_form: string; // 表層形
+    pos: string; // 品詞
+    pos_detail_1: string; // 品詞細分類1
+    pos_detail_2: string; // 品詞細分類2
+    pos_detail_3: string; // 品詞細分類3
+    conjugated_type: string; // 活用型
+    conjugated_form: string; // 活用形
+    basic_form: string; // 基本形
+    reading: string; // 読み
+    pronunciation: string; // 発音
+}
+
+export interface RawToken {
     word_id: number; // 辞書内での単語ID
     word_type: string; // 単語タイプ(辞書に登録されている単語ならKNOWN, 未知語ならUNKNOWN)
     word_position: number; // 単語の開始位置
@@ -21,12 +35,28 @@ export interface Token {
     pronunciation: string; // 発音
 }
 
-type GetTokenizer = (options?: { dicPath: string }) => Promise<{ tokenize: (text: string) => Array<Token> }>;
+type GetTokenizer = (options?: { dicPath: string }) => Promise<{ tokenize: (text: string) => Array<RawToken> }>;
 const getTokenizer: GetTokenizer = require("kuromojin").getTokenizer;
 
 const isSafeRegExp = require("safe-regex");
 
-export function getUniqueTokens(dictionary: Dictionary): Promise<Array<Token>> {
+export function normalizeToken(token: RawToken): NormalizedToken {
+    return {
+        word_type: token.word_type,
+        surface_form: token.surface_form,
+        pos: token.pos,
+        pos_detail_1: token.pos_detail_1,
+        pos_detail_2: token.pos_detail_2,
+        pos_detail_3: token.pos_detail_3,
+        conjugated_type: token.conjugated_type,
+        conjugated_form: token.conjugated_form,
+        basic_form: token.basic_form,
+        reading: token.reading,
+        pronunciation: token.pronunciation
+    };
+}
+
+export function getUniqueTokens(dictionary: Dictionary): Promise<Array<NormalizedToken>> {
     const options = process.env.PUBLIC_URL ? { dicPath: `${process.env.PUBLIC_URL}/dict` } : undefined;
     return getTokenizer(options).then(tokenizer => {
         const results: Array<Array<any>> = [];
@@ -38,9 +68,11 @@ export function getUniqueTokens(dictionary: Dictionary): Promise<Array<Token>> {
                 results.push(tokens);
             });
         });
-        // filber by same order and same word
-        return intersectionBy(...results, (word: any) => {
+        // filter by same order and same word
+        return intersectionBy(...results, (word: RawToken) => {
             return `${word.word_id}-${word.word_position}-${word.surface_form}`;
+        }).map((token: RawToken) => {
+            return normalizeToken(token);
         });
     });
 }

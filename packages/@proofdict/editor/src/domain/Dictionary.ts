@@ -3,9 +3,14 @@ import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPattern } from "./DictionaryPattern";
 import { Entity, Identifier } from "../ddd-base";
 import { DictionaryPatterns, DictionaryPatternsSerializer } from "./DictionaryPatterns";
-import { DictionarySpecs, DictionarySpecsSerializer } from "./DictionarySpecs";
+import { DictionarySpecs, DictionarySpecsJSON, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
 import { Serializer } from "../ddd-base/Serializer";
+import {
+    DictionaryWordClasses,
+    DictionaryWordClassesJSON,
+    DictionaryWordClassesSerializer
+} from "./DictionaryWordClasses";
 
 export class DictionaryIdentifier extends Identifier<string> {}
 
@@ -13,10 +18,8 @@ export interface DictionaryJSON {
     id: string;
     expected: string;
     patterns: string[];
-    specs: {
-        actual: string;
-        expected: string;
-    }[];
+    specs: DictionarySpecsJSON;
+    wordClasses: DictionaryWordClassesJSON;
 }
 
 export interface DictionaryArgs {
@@ -24,6 +27,7 @@ export interface DictionaryArgs {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
+    wordClasses: DictionaryWordClasses;
 }
 
 export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
@@ -32,7 +36,8 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             id: new DictionaryIdentifier(json.id),
             expected: new DictionaryExpected(json.expected),
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
-            specs: DictionarySpecsSerializer.fromJSON(json.specs)
+            specs: DictionarySpecsSerializer.fromJSON(json.specs),
+            wordClasses: DictionaryWordClassesSerializer.fromJSON(json.wordClasses)
         });
     },
     toJSON(dictionary) {
@@ -40,7 +45,8 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             id: dictionary.id.toValue(),
             expected: dictionary.expected.value,
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
-            specs: DictionarySpecsSerializer.toJSON(dictionary.specs)
+            specs: DictionarySpecsSerializer.toJSON(dictionary.specs),
+            wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
         };
     }
 };
@@ -50,12 +56,14 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
+    wordClasses: DictionaryWordClasses;
 
     constructor(args: DictionaryArgs) {
         super(args.id);
         this.expected = args.expected;
         this.patterns = args.patterns;
         this.specs = args.specs;
+        this.wordClasses = args.wordClasses;
     }
 
     inputExpected(expected: DictionaryExpected) {
@@ -109,10 +117,17 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
         });
     }
 
-    updateSpecList(newSpecs: DictionarySpec[]) {
+    updateSpecs(newSpecs: DictionarySpecs) {
         return new Dictionary({
             ...this as Dictionary,
-            specs: new DictionarySpecs(newSpecs)
+            specs: newSpecs
+        });
+    }
+
+    updateWordClasses(wordClasses: DictionaryWordClasses) {
+        return new Dictionary({
+            ...this as Dictionary,
+            wordClasses
         });
     }
 }

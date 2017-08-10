@@ -28,7 +28,8 @@ export class AppMenuContainer extends BaseContainer<{}, {}> {
                                 actual: "ES2015",
                                 expected: "ECMAScript 2015"
                             }
-                        ]
+                        ],
+                        wordClasses: []
                     })
                 );
             }

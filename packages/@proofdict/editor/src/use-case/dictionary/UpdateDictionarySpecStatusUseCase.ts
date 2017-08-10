@@ -2,8 +2,9 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { DictionarySpec } from "../../domain/DictionarySpec";
-import { testPattern } from "../../infra/prh/Prh";
+import { getUniqueTokens, testPattern } from "../../infra/prh/Prh";
+import { DictionaryWordClassesSerializer } from "../../domain/DictionaryWordClasses";
+import { DictionarySpecs } from "../../domain/DictionarySpecs";
 
 export const createUpdateDictionarySpecStatusUseCase = () => {
     return new UpdateDictionarySpecStatusUseCase({
@@ -25,11 +26,19 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        // update all status
-        const newSpecs = dictionary.specs.getSpecList().map(spec => {
+        // update all spec
+        const newSpecList = dictionary.specs.getSpecList().map(spec => {
             return testPattern(dictionary, spec);
         });
-        const newDictionary = dictionary.updateSpecList(newSpecs as DictionarySpec[]);
+        const specs = new DictionarySpecs(newSpecList);
+        const newDictionary = dictionary.updateSpecs(specs);
         this.args.dictionaryRepository.save(newDictionary);
+        // update all word class
+        return getUniqueTokens(newDictionary).then(tokens => {
+            const dictionaryWordClasses = DictionaryWordClassesSerializer.fromJSON(tokens);
+            const wordClassesDictionary = newDictionary.updateWordClasses(dictionaryWordClasses);
+            this.args.dictionaryRepository.save(wordClassesDictionary);
+            console.log(wordClassesDictionary);
+        });
     }
 }
