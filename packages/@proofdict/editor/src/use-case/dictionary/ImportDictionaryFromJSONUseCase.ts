@@ -2,6 +2,7 @@
 import { UseCase } from "almin";
 import { DictionaryJSON, DictionarySerializer } from "../../domain/Dictionary";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
+import { createUpdateDictionarySpecStatusUseCase } from "./UpdateDictionarySpecStatusUseCase";
 
 export const createImportDictionaryFromJSONUseCase = () => {
     return new ImportDictionaryFromJSONUseCase({
@@ -17,5 +18,8 @@ export class ImportDictionaryFromJSONUseCase extends UseCase {
     execute(json: DictionaryJSON) {
         const dictionary = DictionarySerializer.fromJSON(json);
         this.repo.dictionaryRepository.save(dictionary);
+        return this.context
+            .useCase(createUpdateDictionarySpecStatusUseCase())
+            .executor(useCase => useCase.execute(dictionary.id));
     }
 }

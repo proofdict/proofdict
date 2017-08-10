@@ -2,8 +2,8 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { testPattern } from "../../infra/prh/Prh";
 import { DictionarySpec } from "../../domain/DictionarySpec";
+import { testPattern } from "../../infra/prh/Prh";
 
 export const createUpdateDictionarySpecStatusUseCase = () => {
     return new UpdateDictionarySpecStatusUseCase({
@@ -12,12 +12,16 @@ export const createUpdateDictionarySpecStatusUseCase = () => {
 };
 
 export class UpdateDictionarySpecStatusUseCase extends UseCase {
-    constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
+    constructor(
+        private args: {
+            dictionaryRepository: DictionaryRepository;
+        }
+    ) {
         super();
     }
 
     execute(id: DictionaryIdentifier) {
-        const dictionary = this.repo.dictionaryRepository.findById(id);
+        const dictionary = this.args.dictionaryRepository.findById(id);
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
@@ -26,6 +30,6 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
             return testPattern(dictionary, spec);
         });
         const newDictionary = dictionary.updateSpecList(newSpecs as DictionarySpec[]);
-        this.repo.dictionaryRepository.save(newDictionary);
+        this.args.dictionaryRepository.save(newDictionary);
     }
 }

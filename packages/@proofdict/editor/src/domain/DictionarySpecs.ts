@@ -30,6 +30,10 @@ export class DictionarySpecs {
         return this.specs;
     }
 
+    getFilledSpecList(): DictionarySpec[] {
+        return this.specs.filter(spec => spec.isFilled);
+    }
+
     getActualPatterns() {
         return this.getSpecList().map(spec => spec.actual);
     }
