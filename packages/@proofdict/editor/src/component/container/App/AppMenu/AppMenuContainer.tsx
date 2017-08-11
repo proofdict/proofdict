@@ -25,7 +25,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                 return this.useCase(createImportDictionaryFromJSONUseCase()).executor(useCase =>
                     useCase.execute({
                         id: ulid(),
-                        description: "description of the dict",
+                        description: "ECMAScript and version has a space.",
                         expected: "ECMAScript $1",
                         patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
                         specs: [
