@@ -1,15 +1,17 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { CommandBar } from "office-ui-fabric-react";
 import { BaseContainer } from "../../BaseContainer";
 import { createImportDictionaryFromJSONUseCase } from "../../../../use-case/dictionary/ImportDictionaryFromJSONUseCase";
 import { createChangeDictionaryOutputFormatUseCase } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
-
-import * as classNames from "classnames";
+import { DictFormState } from "../DictForm/DictFormStore";
+import { createResetDictionaryUseCase } from "../../../../use-case/dictionary/ResetDictionaryUseCase";
 
 const ulid = require("ulid");
 
 export interface AppMenuContainerProps {
     className?: string;
+    dictForm: DictFormState;
 }
 
 export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
@@ -77,6 +79,17 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                         }
                     }
                 ]
+            }
+        },
+        {
+            key: "reset",
+            name: "Reset input",
+            icon: "Clear",
+            ariaLabel: "Reset input data",
+            onClick: () => {
+                return this.useCase(createResetDictionaryUseCase()).executor(useCase =>
+                    useCase.execute(this.props.dictForm.dictionaryId)
+                );
             }
         }
     ];

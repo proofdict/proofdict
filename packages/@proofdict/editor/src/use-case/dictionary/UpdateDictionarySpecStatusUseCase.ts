@@ -31,13 +31,18 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
             return testPattern(dictionary, spec);
         });
         const specs = new DictionarySpecs(newSpecList);
-        const newDictionary = dictionary.updateSpecs(specs);
-        this.args.dictionaryRepository.save(newDictionary);
+        const updatedSpecsDictionary = dictionary.updateSpecs(specs);
+        this.args.dictionaryRepository.save(updatedSpecsDictionary);
         // update all word class
-        return getUniqueTokens(newDictionary).then(tokens => {
+        return getUniqueTokens(updatedSpecsDictionary).then(tokens => {
             const dictionaryWordClasses = DictionaryWordClassesSerializer.fromJSON(tokens);
-            const wordClassesDictionary = newDictionary.updateWordClasses(dictionaryWordClasses);
-            this.args.dictionaryRepository.save(wordClassesDictionary);
+            const wordClassesDictionary = updatedSpecsDictionary.updateWordClasses(dictionaryWordClasses);
+            const oldDictionary = this.args.dictionaryRepository.findById(wordClassesDictionary.id);
+            // if already the dictionary updated by other usecase.
+            // This useCase should not continue to update.
+            if (oldDictionary === updatedSpecsDictionary) {
+                this.args.dictionaryRepository.save(wordClassesDictionary);
+            }
         });
     }
 }

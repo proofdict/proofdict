@@ -7,13 +7,21 @@ import { DictionaryDescription } from "./DictionaryDescription";
 
 const ulid = require("ulid");
 
-export const createDictionary = () => {
+const createEmptyDictionaryWithId = (id: string) => {
     return new Dictionary({
-        id: new DictionaryIdentifier(ulid()),
+        id: new DictionaryIdentifier(id),
         description: new DictionaryDescription(""),
         expected: new DictionaryExpected(""),
         patterns: new DictionaryPatterns([]),
         specs: new DictionarySpecs([]),
         wordClasses: new DictionaryWordClasses([])
     });
+};
+
+export const resetDictionary = (dictionary: Dictionary) => {
+    return createEmptyDictionaryWithId(dictionary.id.toValue());
+};
+
+export const createDictionary = () => {
+    return createEmptyDictionaryWithId(ulid());
 };

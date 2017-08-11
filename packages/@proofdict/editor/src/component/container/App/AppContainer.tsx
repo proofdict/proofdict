@@ -14,7 +14,7 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
     render() {
         return (
             <div className="App">
-                <AppMenuContainer className="App-menu" />
+                <AppMenuContainer className="App-menu" dictForm={this.props.dictForm} />
                 <Grid className="App-main">
                     <GridCell col="6of12" className="App-left">
                         <DictFormContainer dictForm={this.props.dictForm} />
