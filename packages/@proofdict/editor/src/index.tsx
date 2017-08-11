@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Context, Dispatcher } from "almin";
-import { AlminLogger } from "almin-logger";
 import { AppContainer } from "./component/container/App/AppContainer";
 import AlminReactContainer from "almin-react-container";
 import registerServiceWorker from "./registerServiceWorker";
@@ -23,6 +22,7 @@ const context = new Context({
 });
 appLocator.context = context;
 if (process.env.NODE_ENV !== "production") {
+    const { AlminLogger } = require("almin-logger");
     const logger = new AlminLogger();
     logger.startLogging(context);
 

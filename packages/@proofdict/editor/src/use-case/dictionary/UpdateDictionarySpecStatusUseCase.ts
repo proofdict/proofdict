@@ -38,7 +38,6 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
             const dictionaryWordClasses = DictionaryWordClassesSerializer.fromJSON(tokens);
             const wordClassesDictionary = newDictionary.updateWordClasses(dictionaryWordClasses);
             this.args.dictionaryRepository.save(wordClassesDictionary);
-            console.log(wordClassesDictionary);
         });
     }
 }
