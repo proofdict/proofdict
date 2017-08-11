@@ -4,9 +4,15 @@ import { BaseContainer } from "../../BaseContainer";
 import { createImportDictionaryFromJSONUseCase } from "../../../../use-case/dictionary/ImportDictionaryFromJSONUseCase";
 import { createChangeDictionaryOutputFormatUseCase } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
 
+import * as classNames from "classnames";
+
 const ulid = require("ulid");
 
-export class AppMenuContainer extends BaseContainer<{}, {}> {
+export interface AppMenuContainerProps {
+    className?: string;
+}
+
+export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
     menuItems = [
         {
             key: "newItem",
@@ -76,7 +82,7 @@ export class AppMenuContainer extends BaseContainer<{}, {}> {
 
     render() {
         return (
-            <header className="AppMenuContainer">
+            <header className={classNames("AppMenuContainer", this.props.className)}>
                 <CommandBar isSearchBoxVisible={false} items={this.menuItems} />
             </header>
         );

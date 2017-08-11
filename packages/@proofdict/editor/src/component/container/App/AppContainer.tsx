@@ -13,7 +13,7 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
     render() {
         return (
             <div className="App">
-                <AppMenuContainer />
+                <AppMenuContainer className="App-menu" />
                 <Grid className="App-grid">
                     <GridCell col="6of12" className="App-left">
                         <DictFormContainer dictForm={this.props.dictForm} />

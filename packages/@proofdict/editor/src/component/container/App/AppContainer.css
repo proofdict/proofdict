@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --App--maring-left: 1rem;
+    --App--maring-right: 1rem;
+}
+
 html,
 body,
 #root,
@@ -11,6 +16,16 @@ body,
     margin: 0;
 }
 
+.App {
+    padding-left: var(--App--maring-left);
+    padding-right: var(--App--maring-right);
+}
+
+.App-menu {
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+
 .App-left {
     border-right: 1px dashed #3498db;
 }
@@ -18,6 +33,4 @@ body,
 .App-left,
 .App-right {
     text-align: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
