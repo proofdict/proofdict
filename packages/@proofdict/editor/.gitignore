@@ -21,3 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 /build/
 !/public/dict/
+/tools/my-copy-task.sh
+/tools/output/
