@@ -133,9 +133,9 @@
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.0.tgz#fec7e6302e11c1cd307129d8ce1e6d5dca4a0283"
 
-"@types/react@^16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.2.tgz#0b31a73cdde6272b719e5b05a7df6d1e2654a804"
+"@types/react@16.0.1":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.1.tgz#c84c984bfa2c01e585d51e376df0ec7e13fadede"
 
 "@uifabric/styling@>=0.19.0 <1.0.0":
   version "0.19.0"
