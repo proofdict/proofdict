@@ -8,5 +8,6 @@ import { DictionaryJSON } from "../../domain/Dictionary";
  * @returns {string}
  */
 export const yamlFormatter = (json: DictionaryJSON): string => {
-    return yaml.safeDump(json);
+    const noUndefinedJson = JSON.parse(JSON.stringify(json));
+    return yaml.safeDump(noUndefinedJson);
 };
