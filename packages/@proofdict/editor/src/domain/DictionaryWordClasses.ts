@@ -25,4 +25,8 @@ export class DictionaryWordClasses {
     toList() {
         return this.dictionaryWordClassList;
     }
+
+    get hasWordClass() {
+        return this.dictionaryWordClassList.length > 0;
+    }
 }

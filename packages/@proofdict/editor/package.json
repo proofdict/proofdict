@@ -29,6 +29,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "safe-regex": "^1.1.0",
+    "sanitize-filename": "^1.6.1",
     "shallow-equal-object": "^1.0.1",
     "ulid": "^0.2.0"
   },
