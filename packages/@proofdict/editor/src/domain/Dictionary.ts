@@ -17,11 +17,11 @@ export class DictionaryIdentifier extends Identifier<string> {}
 
 export interface DictionaryJSON {
     id: string;
-    description?: string;
+    description: string;
     expected: string;
     patterns: string[];
     specs: DictionarySpecsJSON;
-    wordClasses: DictionaryWordClassesJSON;
+    wordClasses?: DictionaryWordClassesJSON;
 }
 
 export interface DictionaryArgs {
@@ -30,7 +30,7 @@ export interface DictionaryArgs {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
-    wordClasses: DictionaryWordClasses;
+    wordClasses?: DictionaryWordClasses;
 }
 
 export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
@@ -41,17 +41,22 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             expected: new DictionaryExpected(json.expected),
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
             specs: DictionarySpecsSerializer.fromJSON(json.specs),
-            wordClasses: DictionaryWordClassesSerializer.fromJSON(json.wordClasses)
+            wordClasses: json.wordClasses ? DictionaryWordClassesSerializer.fromJSON(json.wordClasses) : undefined
         });
     },
     toJSON(dictionary) {
+        const optional = dictionary.wordClasses
+            ? {
+                  wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
+              }
+            : {};
         return {
+            ...optional,
             id: dictionary.id.toValue(),
-            description: dictionary.description.hasValue ? dictionary.description.value : undefined,
+            description: dictionary.description.value,
             expected: dictionary.expected.value,
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
-            specs: DictionarySpecsSerializer.toJSON(dictionary.specs),
-            wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
+            specs: DictionarySpecsSerializer.toJSON(dictionary.specs)
         };
     }
 };
@@ -62,7 +67,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
-    wordClasses: DictionaryWordClasses;
+    wordClasses?: DictionaryWordClasses;
 
     constructor(args: DictionaryArgs) {
         super(args.id);

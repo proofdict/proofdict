@@ -2,7 +2,6 @@ import { Dictionary, DictionaryIdentifier } from "./Dictionary";
 import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPatterns } from "./DictionaryPatterns";
 import { DictionarySpecs } from "./DictionarySpecs";
-import { DictionaryWordClasses } from "./DictionaryWordClasses";
 import { DictionaryDescription } from "./DictionaryDescription";
 
 const ulid = require("ulid");
@@ -13,8 +12,7 @@ const createEmptyDictionaryWithId = (id: string) => {
         description: new DictionaryDescription(""),
         expected: new DictionaryExpected(""),
         patterns: new DictionaryPatterns([]),
-        specs: new DictionarySpecs([]),
-        wordClasses: new DictionaryWordClasses([])
+        specs: new DictionarySpecs([])
     });
 };
 

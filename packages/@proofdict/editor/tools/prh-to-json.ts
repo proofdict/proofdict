@@ -5,7 +5,7 @@ import { createSlugFromDictionary } from "../src/domain/DictionarySlugCreator";
 import * as path from "path";
 import * as fs from "fs";
 import { DictionarySerializer } from "../src/domain/Dictionary";
-import { jsonFormatter } from "../src/infra/formatter/JSONFormatter";
+import { yamlFormatter } from "../src/infra/formatter/YamlFormatter";
 
 /**
  * Usage: node ./prh-to-json.js input.yml /output/dir/
@@ -22,6 +22,8 @@ const jsonPromises = result.rules.map(prhRuleToDictionary);
 Promise.all(jsonPromises).then(dictionaries => {
     dictionaries.forEach(dictionary => {
         const slug = createSlugFromDictionary(dictionary);
-        fs.writeFileSync(path.join(outputDir, slug + ".json"), jsonFormatter(DictionarySerializer.toJSON(dictionary)), "utf-8");
+        fs.writeFileSync(path.join(outputDir, slug + ".yml"), yamlFormatter(DictionarySerializer.toJSON(dictionary)), "utf-8");
     });
+}).catch(error => {
+    console.error(error);
 });

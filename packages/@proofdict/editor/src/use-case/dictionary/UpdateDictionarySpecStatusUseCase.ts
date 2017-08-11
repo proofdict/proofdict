@@ -2,8 +2,7 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { getUniqueTokens, testPattern } from "../../infra/prh/Prh";
-import { DictionaryWordClassesSerializer } from "../../domain/DictionaryWordClasses";
+import { testPattern } from "../../infra/prh/Prh";
 import { DictionarySpecs } from "../../domain/DictionarySpecs";
 
 export const createUpdateDictionarySpecStatusUseCase = () => {
@@ -34,6 +33,7 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
         const updatedSpecsDictionary = dictionary.updateSpecs(specs);
         this.args.dictionaryRepository.save(updatedSpecsDictionary);
         // update all word class
+        /* Currently, disable
         return getUniqueTokens(updatedSpecsDictionary).then(tokens => {
             const dictionaryWordClasses = DictionaryWordClassesSerializer.fromJSON(tokens);
             const wordClassesDictionary = updatedSpecsDictionary.updateWordClasses(dictionaryWordClasses);
@@ -44,5 +44,6 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
                 this.args.dictionaryRepository.save(wordClassesDictionary);
             }
         });
+        */
     }
 }

@@ -33,11 +33,17 @@ function addSpecs(dictionary: Dictionary, rule: Rule): Dictionary {
     }, dictionary);
 }
 
-function addDescriotion(dictionary: Dictionary, rule: Rule): Dictionary {
+function addDescription(dictionary: Dictionary, rule: Rule): Dictionary {
     if (rule.raw.prh) {
         return dictionary.updateDescription(new DictionaryDescription(rule.raw.prh));
     }
     return dictionary;
+}
+
+export function addWordClass(dictionary: Dictionary): Promise<Dictionary> {
+    return getUniqueTokens(dictionary).then(tokens => {
+        return dictionary.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
+    });
 }
 
 export function prhRuleToDictionary(rule: Rule): Promise<Dictionary> {
@@ -45,8 +51,6 @@ export function prhRuleToDictionary(rule: Rule): Promise<Dictionary> {
     const expected = dictionary.inputExpected(new DictionaryExpected(rule.expected));
     const patterns = addPatterns(expected, rule);
     const specs = addSpecs(patterns, rule);
-    const description = addDescriotion(specs, rule);
-    return getUniqueTokens(description).then(tokens => {
-        return description.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
-    });
+    const description = addDescription(specs, rule);
+    return Promise.resolve(description);
 }
