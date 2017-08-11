@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --App--maring-left: 1rem;
-    --App--maring-right: 1rem;
-}
-
 html,
 body,
 #root,
@@ -16,14 +11,21 @@ body,
     margin: 0;
 }
 
+/* Margin outside of App*/
 .App {
-    padding-left: var(--App--maring-left);
-    padding-right: var(--App--maring-right);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
+/* But, Menu is full width */
 .App-menu {
     margin-right: -1rem;
     margin-left: -1rem;
+}
+
+.App-main {
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #3498db;
 }
 
 .App-left {

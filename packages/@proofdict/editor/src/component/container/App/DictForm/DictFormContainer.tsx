@@ -122,6 +122,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
 
                 {patterns}
                 <PrimaryButton
+                    tabIndex={-1}
                     iconProps={{ iconName: "Add" }}
                     text="Add New pattern"
                     onClick={this.onClickAddNewPattern}

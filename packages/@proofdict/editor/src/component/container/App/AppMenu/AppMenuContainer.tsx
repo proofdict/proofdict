@@ -23,6 +23,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                 return this.useCase(createImportDictionaryFromJSONUseCase()).executor(useCase =>
                     useCase.execute({
                         id: ulid(),
+                        description: "description of the dict",
                         expected: "ECMAScript $1",
                         patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
                         specs: [

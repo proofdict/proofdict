@@ -4,6 +4,7 @@ import { DictFormStore } from "./DictForm/DictFormStore";
 import { dictionaryRepository } from "../../../infra/repository/DictionaryRepository";
 import { DictTesterStore } from "./DictTester/DictTesterStore";
 import { DictOutputStore } from "./DictOutput/DictOutputStore";
+import { DictMetaStore } from "./DictMeta/DictMetaStore";
 
 if (process.env.NODE_ENV !== "production") {
     (window as any).profdict = {
@@ -19,6 +20,9 @@ export const appStoreGroup = new StoreGroup({
         dictionaryRepository
     }),
     dictOutput: new DictOutputStore({
+        dictionaryRepository
+    }),
+    dictMeta: new DictMetaStore({
         dictionaryRepository
     })
 });

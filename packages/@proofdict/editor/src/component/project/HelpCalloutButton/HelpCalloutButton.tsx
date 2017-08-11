@@ -48,6 +48,7 @@ export class HelpCalloutButton extends React.Component<HelpCalloutButtonProps, H
             <div className="HelpCalloutButton-wrapper">
                 {callout}
                 <IconButton
+                    tabIndex={-1}
                     className="HelpCalloutButton"
                     onClick={this.onClickButton}
                     iconProps={{ iconName: "Info" }}

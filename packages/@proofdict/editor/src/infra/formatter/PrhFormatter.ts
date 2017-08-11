@@ -3,7 +3,13 @@ import * as yaml from "js-yaml";
 import { DictionaryJSON } from "../../domain/Dictionary";
 
 export const modifyForPrh = (json: DictionaryJSON): Object => {
+    const description = json.description
+        ? {
+              prh: json.description
+          }
+        : {};
     return {
+        ...description,
         expected: json.expected,
         patterns: json.patterns,
         specs: json.specs.map(spec => {
