@@ -4,6 +4,8 @@ import { DictMetaState } from "./DictMetaStore";
 import { BaseContainer } from "../../BaseContainer";
 import { createUpdateDictionaryDescriptionUseCase } from "../../../../use-case/dictionary/UpdateDictionaryDescriptionUseCase";
 import { DictFormState } from "../DictForm/DictFormStore";
+import { TagInput } from "../../../project/TagInput/TagInput";
+import { createUpdateDictionaryTagsUseCase } from "../../../../use-case/dictionary/UpdateDictionaryTagsUseCase";
 
 export interface DictDescriptionContainerProps {
     dictMeta: DictMetaState;
@@ -16,15 +18,25 @@ export class DictMetaContainer extends BaseContainer<DictDescriptionContainerPro
             useCase.execute(this.props.dictForm.dictionaryId, newValue)
         );
     };
+    private onChangedTags = (tags: string[]) => {
+        this.useCase(createUpdateDictionaryTagsUseCase()).executor(useCase =>
+            useCase.execute(this.props.dictForm.dictionaryId, tags)
+        );
+    };
 
     render() {
         return (
             <div className="DictMetaContainer">
-                <h2>Description(Optional)</h2>
+                <h2>Description and Tags(Optional)</h2>
                 <TextField
                     placeholder="Description of the word"
                     value={this.props.dictMeta.description}
                     onChanged={this.onChangedDescription}
+                />
+                <TagInput
+                    tags={this.props.dictMeta.selectedTags}
+                    selectedTags={this.props.dictMeta.selectedTags}
+                    onChangeTags={this.onChangedTags}
                 />
             </div>
         );

@@ -38,6 +38,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                                 expected: "ECMAScript 2015"
                             }
                         ],
+                        tags: ["tag"],
                         wordClasses: []
                     })
                 );

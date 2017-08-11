@@ -12,6 +12,7 @@ import {
     DictionaryWordClassesSerializer
 } from "./DictionaryWordClasses";
 import { DictionaryDescription } from "./DictionaryDescription";
+import { DictionaryTags, DictionaryTagsJSON, DictionaryTagsSerializer } from "./DictionaryTags";
 
 export class DictionaryIdentifier extends Identifier<string> {}
 
@@ -21,6 +22,7 @@ export interface DictionaryJSON {
     expected: string;
     patterns: string[];
     specs: DictionarySpecsJSON;
+    tags: DictionaryTagsJSON;
     wordClasses?: DictionaryWordClassesJSON;
 }
 
@@ -30,6 +32,7 @@ export interface DictionaryArgs {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
+    tags: DictionaryTags;
     wordClasses?: DictionaryWordClasses;
 }
 
@@ -41,6 +44,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             expected: new DictionaryExpected(json.expected),
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
             specs: DictionarySpecsSerializer.fromJSON(json.specs),
+            tags: DictionaryTagsSerializer.fromJSON(json.tags),
             wordClasses: json.wordClasses ? DictionaryWordClassesSerializer.fromJSON(json.wordClasses) : undefined
         });
     },
@@ -56,7 +60,8 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             description: dictionary.description.value,
             expected: dictionary.expected.value,
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
-            specs: DictionarySpecsSerializer.toJSON(dictionary.specs)
+            specs: DictionarySpecsSerializer.toJSON(dictionary.specs),
+            tags: DictionaryTagsSerializer.toJSON(dictionary.tags)
         };
     }
 };
@@ -67,6 +72,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
     specs: DictionarySpecs;
+    tags: DictionaryTags;
     wordClasses?: DictionaryWordClasses;
 
     constructor(args: DictionaryArgs) {
@@ -75,6 +81,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
         this.expected = args.expected;
         this.patterns = args.patterns;
         this.specs = args.specs;
+        this.tags = args.tags;
         this.wordClasses = args.wordClasses;
     }
 
@@ -147,6 +154,13 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
         return new Dictionary({
             ...this as DictionaryArgs,
             description
+        });
+    }
+
+    updateTags(tags: DictionaryTags) {
+        return new Dictionary({
+            ...this as DictionaryArgs,
+            tags
         });
     }
 }
