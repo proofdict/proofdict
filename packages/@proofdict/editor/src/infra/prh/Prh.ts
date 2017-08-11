@@ -56,6 +56,11 @@ export function normalizeToken(token: RawToken): NormalizedToken {
     };
 }
 
+/**
+ * get unique tokens between expected and specs.
+ * @param {Dictionary} dictionary
+ * @returns {Promise<Array<NormalizedToken>>}
+ */
 export function getUniqueTokens(dictionary: Dictionary): Promise<Array<NormalizedToken>> {
     const options = process.env.PUBLIC_URL ? { dicPath: `${process.env.PUBLIC_URL}/dict` } : undefined;
     return getTokenizer(options).then(tokenizer => {
