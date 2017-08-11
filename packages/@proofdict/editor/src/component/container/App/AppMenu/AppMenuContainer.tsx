@@ -80,7 +80,9 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                     }
                 ]
             }
-        },
+        }
+    ];
+    farItems = [
         {
             key: "reset",
             name: "Reset input",
@@ -97,7 +99,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
     render() {
         return (
             <header className={classNames("AppMenuContainer", this.props.className)}>
-                <CommandBar isSearchBoxVisible={false} items={this.menuItems} />
+                <CommandBar isSearchBoxVisible={false} items={this.menuItems} farItems={this.farItems} />
             </header>
         );
     }
