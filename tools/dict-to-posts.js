@@ -40,7 +40,7 @@ function createSpecTable(filePath, json) {
     let hasSpec = specs && Array.isArray(specs) && specs.length > 0;
     if (!(hasSpec)) {
         const fileNameWithExt = path.basename(filePath);
-        return `No examples. [Welcome to Pull Request](https://github.com/jser/jser.info/edit/master/dict/${fileNameWithExt})!`
+        return `No examples. [Welcome to Pull Request](https://github.com/proofdict/proofdict/edit/master/dict/${fileNameWithExt})!`
     }
     const cells = [
         ['From', 'To']
