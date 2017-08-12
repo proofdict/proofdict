@@ -38,7 +38,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                                 expected: "ECMAScript 2015"
                             }
                         ],
-                        tags: ["tag"],
+                        tags: ["JavaScript"],
                         wordClasses: []
                     })
                 );
@@ -80,6 +80,16 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                         }
                     }
                 ]
+            }
+        },
+
+        {
+            key: "about",
+            name: "About",
+            icon: "Info",
+            ariaLabel: "About proofdict",
+            onClick: () => {
+                location.href = "https://proofdict.github.io/proofdict/about/";
             }
         }
     ];
