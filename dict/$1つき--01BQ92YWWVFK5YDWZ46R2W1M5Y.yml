@@ -1,0 +1,12 @@
+id: 01BQ92YWWVFK5YDWZ46R2W1M5Y
+description: ''
+expected: $1つき
+patterns:
+  - /(手|目|腰)付き/
+specs:
+  - actual: 目付き。
+    expected: 目つき。
+  - actual: 手付き。
+    expected: 手つき。
+tags:
+  - 表記統一

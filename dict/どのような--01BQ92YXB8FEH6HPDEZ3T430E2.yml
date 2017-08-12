@@ -1,0 +1,10 @@
+id: 01BQ92YXB8FEH6HPDEZ3T430E2
+description: ''
+expected: どのような
+patterns:
+  - /どういう(?!こと)/
+specs:
+  - actual: どういうものがthenableなのか
+    expected: どのようなものがthenableなのか
+tags:
+  - 表記統一

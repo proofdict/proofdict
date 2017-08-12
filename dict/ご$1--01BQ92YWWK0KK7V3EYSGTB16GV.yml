@@ -1,0 +1,12 @@
+id: 01BQ92YWWK0KK7V3EYSGTB16GV
+description: ''
+expected: ご$1
+patterns:
+  - /御(覧|意見)/
+specs:
+  - actual: 御覧ください
+    expected: ご覧ください
+  - actual: 御意見
+    expected: ご意見
+tags:
+  - 表記統一

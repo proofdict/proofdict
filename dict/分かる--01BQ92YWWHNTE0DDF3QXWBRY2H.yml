@@ -1,0 +1,8 @@
+id: 01BQ92YWWHNTE0DDF3QXWBRY2H
+description: ひらがなで書かず、漢字で書くと読みやすくなります
+expected: 分かる
+patterns:
+  - わかる
+specs: []
+tags:
+  - 表記統一

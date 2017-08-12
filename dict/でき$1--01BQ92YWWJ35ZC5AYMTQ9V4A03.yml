@@ -1,0 +1,10 @@
+id: 01BQ92YWWJ35ZC5AYMTQ9V4A03
+description: 漢字で書かず、ひらがなで書くと読みやすくなります
+expected: でき$1
+patterns:
+  - /出来(る|て|た|ま|上が)/
+specs:
+  - actual: 出来上がった
+    expected: でき上がった
+tags:
+  - 表記統一

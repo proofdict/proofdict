@@ -1,0 +1,14 @@
+id: 01BQ92YWWTK677A7VET6EJJF0S
+description: ''
+expected: $1だす
+patterns:
+  - /(うり|売り|送り|さし|差し|造り|創り|とり|取り|はき|よび|呼び|よみ|読み|動き|笑い)出す/
+specs:
+  - actual: （例）動き出す。
+    expected: （例）動きだす。
+  - actual: （例）笑い出す。
+    expected: （例）笑いだす。
+  - actual: 探しだす
+    expected: 探しだす
+tags:
+  - 表記統一

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ page.date | date: "%Y-%m-%d" }}
+            </time>
+            {% if page.author %}
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+            {% endif %}
+            {% if page.editURL %}
+            <a href="{{page.editURL}}" title="Edit this dictionary on GitHub"><span class="icon icon--github">{% include icon-github.svg %}</span>
+                Edit on
+                GitHub</a>
+            {% endif %}
+            {% if page.tags %}
+        <p class="post-item-tags post-meta">Tags:
+            {% for tag in page.tags %}
+            <span class="post-item-tag">{{tag}}</span>
+            {% endfor %}
+        </p>
+        {% endif %}
+        </p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+
+    {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+    {% endif %}
+</article>

@@ -1,0 +1,10 @@
+id: 01BQ92YWWSVR4YWNC0RM7AVXSP
+description: ''
+expected: 致す
+patterns:
+  - いたす
+specs:
+  - actual: （例）思いをいたす。
+    expected: （例）思いを致す。
+tags:
+  - 表記統一

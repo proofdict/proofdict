@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    <h1 class="page-heading">Posts</h1>
+
+    {{ content }}
+
+    <div class="post-list">
+        {% for post in site.posts %}
+        <div class="post-list-item">
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            <p class="post-item-tags">Tags:
+                {% for tag in post.tags %}
+                <span class="post-item-tag">{{tag}}</span>
+                {% endfor %}
+            </p>
+            <div class="post-content">
+                <p>{{post.description}}</p>
+                {% if post.specs.size > 0 %}
+                <table>
+                    <tr>
+                        <th>
+                            Before
+                        </th>
+                        <th>
+                            After
+                        </th>
+                    </tr>
+                    {% for spec in post.specs %}
+                    <tr>
+                        <td>{{spec.actual}}</td>
+                        <td>{{spec.expected}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>

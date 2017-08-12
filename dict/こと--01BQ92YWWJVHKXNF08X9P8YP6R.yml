@@ -1,0 +1,18 @@
+id: 01BQ92YWWJVHKXNF08X9P8YP6R
+description: 漢字で書かず、ひらがなで書くと読みやすくなります
+expected: $1こと
+patterns:
+  - /([ぁ-んァ-ヶ])事(?!情|件|前|後|例|実|体|態|項|者)/
+specs:
+  - actual: やましい事があるのでは?
+    expected: やましいことがあるのでは?
+  - actual: やましい事があるのでは?
+    expected: やましいことがあるのでは?
+  - actual: ある事
+    expected: あること
+  - actual: 記事
+    expected: 記事
+  - actual: 事件
+    expected: 事件
+tags:
+  - 表記統一

@@ -1,0 +1,8 @@
+id: 01BQ92YYBJP9EDR7KS993CMQAR
+description: ''
+expected: Virtual DOM
+patterns:
+  - /\bVirtualDOM\b|\bVirtualDom\b/
+specs: []
+tags:
+  - JavaScript

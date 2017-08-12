@@ -1,0 +1,14 @@
+id: 01BQ92YZ6QR8RJKA5Y8W2F9NMY
+description: ''
+expected: $1WebKit
+patterns:
+  - '/([^\-\w])webkit/i'
+specs:
+  - actual: これはwebkitです
+    expected: これはWebKitです
+  - actual: XXXwebkit
+    expected: XXXwebkit
+  - actual: node-webkit
+    expected: node-webkit
+tags:
+  - noun

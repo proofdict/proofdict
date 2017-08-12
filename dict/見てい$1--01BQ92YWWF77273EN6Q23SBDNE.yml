@@ -1,0 +1,10 @@
+id: 01BQ92YWWF77273EN6Q23SBDNE
+description: ''
+expected: 見てい$1
+patterns:
+  - /見て行(く|き)/
+specs:
+  - actual: では、実際にどのように書くかの例を見て行きたいと思います。
+    expected: では、実際にどのように書くかの例を見ていきたいと思います。
+tags:
+  - 表記統一

@@ -1,0 +1,10 @@
+id: 01BQ92YWWKKKX6HX0AKMPGKFG2
+description: ''
+expected: ください
+patterns:
+  - 下さい
+specs:
+  - actual: 提出して下さい。
+    expected: 提出してください。
+tags:
+  - 表記統一

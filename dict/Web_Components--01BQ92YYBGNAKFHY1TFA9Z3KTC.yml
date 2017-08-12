@@ -1,0 +1,12 @@
+id: 01BQ92YYBGNAKFHY1TFA9Z3KTC
+description: ''
+expected: Web Components
+patterns:
+  - WebComponents
+  - web components
+  - Web components
+specs:
+  - actual: WebComponentsについてのWeeklyメールマガジン
+    expected: Web ComponentsについてのWeeklyメールマガジン
+tags:
+  - JavaScript

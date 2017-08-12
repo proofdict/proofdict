@@ -1,0 +1,8 @@
+id: 01BQ92YYSD9K713DCXTFGNDENS
+description: ''
+expected: Leanpub
+patterns:
+  - '/[LlＬｌ][EeＥｅ][AaＡａ][NnＮｎ][PpＰｐ][UuＵｕ][BbＢｂ]/gmu'
+specs: []
+tags:
+  - noun

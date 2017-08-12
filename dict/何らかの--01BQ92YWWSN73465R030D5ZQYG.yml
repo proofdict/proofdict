@@ -1,0 +1,10 @@
+id: 01BQ92YWWSN73465R030D5ZQYG
+description: ''
+expected: 何らかの
+patterns:
+  - なんらかの
+specs:
+  - actual: なんらかの策。
+    expected: 何らかの策。
+tags:
+  - 表記統一

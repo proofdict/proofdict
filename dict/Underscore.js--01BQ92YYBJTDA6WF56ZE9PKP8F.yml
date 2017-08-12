@@ -1,0 +1,9 @@
+id: 01BQ92YYBJTDA6WF56ZE9PKP8F
+description: ''
+expected: Underscore.js
+patterns:
+  - >-
+    /[UuＵｕ][NnＮｎ][DdＤｄ][EeＥｅ][RrＲｒ][SsＳｓ][CcＣｃ][OoＯｏ][RrＲｒ][EeＥｅ].[JjＪｊ][SsＳｓ]/gmu
+specs: []
+tags:
+  - JavaScript

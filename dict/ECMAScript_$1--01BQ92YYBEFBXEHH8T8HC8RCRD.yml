@@ -1,0 +1,9 @@
+id: 01BQ92YYBEFBXEHH8T8HC8RCRD
+description: ''
+expected: ECMAScript $1
+patterns:
+  - '/ECMAScript([0-9]+)/'
+  - '/ECMA Script([0-9]+)/'
+specs: []
+tags:
+  - JavaScript

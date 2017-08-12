@@ -1,0 +1,8 @@
+id: 01BQ92YZ6R35HCYAZGN18RB35E
+description: ''
+expected: Windows
+patterns:
+  - '/[WwＷｗ][IiＩｉ][NnＮｎ][DdＤｄ][OoＯｏ][WwＷｗ][SsＳｓ]/gmu'
+specs: []
+tags:
+  - noun

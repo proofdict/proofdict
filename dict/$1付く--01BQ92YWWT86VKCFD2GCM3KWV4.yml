@@ -1,0 +1,12 @@
+id: 01BQ92YWWT86VKCFD2GCM3KWV4
+description: （動詞の場合）漢字を使う
+expected: $1付く
+patterns:
+  - /(気が|利子が)つく/
+specs:
+  - actual: 気がつく。
+    expected: 気が付く。
+  - actual: 利子がつく。
+    expected: 利子が付く。
+tags:
+  - 表記統一

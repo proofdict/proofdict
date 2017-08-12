@@ -1,0 +1,10 @@
+id: 01BQ92YWWV3Q8NHMZVPNRJZVT5
+description: ''
+expected: が欲しい
+patterns:
+  - がほしい
+specs:
+  - actual: この本がほしい
+    expected: この本が欲しい
+tags:
+  - 表記統一

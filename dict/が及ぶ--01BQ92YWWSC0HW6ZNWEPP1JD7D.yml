@@ -1,0 +1,10 @@
+id: 01BQ92YWWSC0HW6ZNWEPP1JD7D
+description: ''
+expected: が及ぶ
+patterns:
+  - がおよぶ
+specs:
+  - actual: （例）影響がおよぶ。
+    expected: （例）影響が及ぶ。
+tags:
+  - 表記統一

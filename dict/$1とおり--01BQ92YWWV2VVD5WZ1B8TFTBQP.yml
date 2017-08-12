@@ -1,0 +1,12 @@
+id: 01BQ92YWWV2VVD5WZ1B8TFTBQP
+description: ''
+expected: $1とおり
+patterns:
+  - /(思った|以下の)通り/
+specs:
+  - actual: （例）思った通り。
+    expected: （例）思ったとおり。
+  - actual: 以下の通りです。
+    expected: 以下のとおりです。
+tags:
+  - 表記統一

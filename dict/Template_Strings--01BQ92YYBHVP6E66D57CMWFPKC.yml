@@ -1,0 +1,9 @@
+id: 01BQ92YYBHVP6E66D57CMWFPKC
+description: ''
+expected: Template Strings
+patterns:
+  - /Template Strings/i
+  - /TemplateStrings/i
+specs: []
+tags:
+  - JavaScript

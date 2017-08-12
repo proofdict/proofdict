@@ -1,0 +1,8 @@
+id: 01BQ92YZ6Q0Y22BVKAVFC4VV1N
+description: ''
+expected: OCaml
+patterns:
+  - '/[OoＯｏ][CcＣｃ][AaＡａ][MmＭｍ][LlＬｌ]/gmu'
+specs: []
+tags:
+  - noun

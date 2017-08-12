@@ -1,0 +1,12 @@
+id: 01BQ92YWWG5V9WEMBM34ADHSYV
+description: 良し悪しを評価する表現は"良い"、しなくていい、など評価でない表現は"よい"を使います
+expected: よい
+patterns:
+  - /良い(?!例)/
+specs:
+  - actual: 良い
+    expected: よい
+  - actual: 良い例
+    expected: 良い例
+tags:
+  - 表記統一

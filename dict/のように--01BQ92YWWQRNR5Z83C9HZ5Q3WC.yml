@@ -1,0 +1,12 @@
+id: 01BQ92YWWQRNR5Z83C9HZ5Q3WC
+description: ''
+expected: のように
+patterns:
+  - /の様に/
+specs:
+  - actual: 一様に
+    expected: 一様に
+  - actual: 〜の様に
+    expected: 〜のように
+tags:
+  - 表記統一

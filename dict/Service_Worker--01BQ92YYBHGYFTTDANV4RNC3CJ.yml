@@ -1,0 +1,10 @@
+id: 01BQ92YYBHGYFTTDANV4RNC3CJ
+description: ''
+expected: Service Worker
+patterns:
+  - >-
+    /[SsＳｓ][EeＥｅ][RrＲｒ][VvＶｖ][IiＩｉ][CcＣｃ][EeＥｅ]
+    [WwＷｗ][OoＯｏ][RrＲｒ][KkＫｋ][EeＥｅ][RrＲｒ]/gmu
+specs: []
+tags:
+  - JavaScript

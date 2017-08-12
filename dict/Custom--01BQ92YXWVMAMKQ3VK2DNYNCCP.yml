@@ -1,0 +1,10 @@
+id: 01BQ92YXWVMAMKQ3VK2DNYNCCP
+description: ''
+expected: Custom
+patterns:
+  - /Custome\b/i
+specs:
+  - actual: WebVRをCustome Elementのタグを書くだけで出来るライブラリ
+    expected: WebVRをCustom Elementのタグを書くだけで出来るライブラリ
+tags:
+  - typo

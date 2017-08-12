@@ -1,0 +1,12 @@
+id: 01BQ92YYBHB83ZNFWK5WBA58B7
+description: ''
+expected: JavaScript
+patterns:
+  - /\bJava Script\b/i
+specs:
+  - actual: java script
+    expected: JavaScript
+  - actual: Java script
+    expected: JavaScript
+tags:
+  - JavaScript

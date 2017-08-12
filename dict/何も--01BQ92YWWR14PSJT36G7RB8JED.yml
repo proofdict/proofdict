@@ -1,0 +1,10 @@
+id: 01BQ92YWWR14PSJT36G7RB8JED
+description: ''
+expected: 何も
+patterns:
+  - なにも
+specs:
+  - actual: なにも知らない
+    expected: 何も知らない
+tags:
+  - 表記統一

@@ -1,0 +1,12 @@
+id: 01BQ92YYBJXRCA80R6BCA4SS7K
+description: ''
+expected: Angular
+patterns:
+  - /\bangular\b/
+specs:
+  - actual: angularJS
+    expected: angularJS
+  - actual: angular
+    expected: Angular
+tags:
+  - JavaScript

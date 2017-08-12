@@ -1,0 +1,14 @@
+id: 01BQ92YWWKSTXDNGWVVE10WF9T
+description: ''
+expected: $1さらに
+patterns:
+  - '/([\s。、\nぁ-んァ-ヶ])更に/'
+specs:
+  - actual: Aは加速した、更に加速した。
+    expected: Aは加速した、さらに加速した。
+  - actual: 加速すると更に加速した
+    expected: 加速するとさらに加速した
+  - actual: 変更に加えて
+    expected: 変更に加えて
+tags:
+  - 表記統一

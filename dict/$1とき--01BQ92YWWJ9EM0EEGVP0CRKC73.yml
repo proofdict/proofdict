@@ -1,0 +1,32 @@
+id: 01BQ92YWWJ9EM0EEGVP0CRKC73
+description: 漢字で書かず、ひらがなで書くと読みやすくなります
+expected: $1とき
+patterns:
+  - /(の)時(?!点|代|々|間)/
+specs:
+  - actual: その時
+    expected: そのとき
+  - actual: その時点
+    expected: その時点
+  - actual: その時代
+    expected: その時代
+  - actual: それまでの時間
+    expected: それまでの時間
+  - actual: 同時
+    expected: 同時
+  - actual: 実行時
+    expected: 実行時
+  - actual: 利用時
+    expected: 利用時
+  - actual: 開発時
+    expected: 開発時
+  - actual: 執筆時
+    expected: 執筆時
+  - actual: 時点
+    expected: 時点
+  - actual: 時代
+    expected: 時代
+  - actual: 時間
+    expected: 時間
+tags:
+  - 表記統一

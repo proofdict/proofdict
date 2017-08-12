@@ -1,0 +1,10 @@
+id: 01BQ92YWWVCS42N3CR4SPRPBB6
+description: ''
+expected: 凍りつく
+patterns:
+  - 凍り付く
+specs:
+  - actual: 凍り付く
+    expected: 凍りつく
+tags:
+  - 表記統一

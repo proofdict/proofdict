@@ -1,0 +1,11 @@
+id: 01BQ92YYBH2H42AT29Y4BP84FA
+description: ''
+expected: Touch Events
+patterns:
+  - /Touch Event/i
+  - /Touch Events/i
+specs:
+  - actual: Touch Event、Fullscreen APIなどのサポートなど
+    expected: Touch Events、Fullscreen APIなどのサポートなど
+tags:
+  - JavaScript

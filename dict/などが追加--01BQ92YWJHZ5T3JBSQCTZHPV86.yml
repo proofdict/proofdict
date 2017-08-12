@@ -1,0 +1,10 @@
+id: 01BQ92YWJHZ5T3JBSQCTZHPV86
+description: ''
+expected: などが追加
+patterns:
+  - など追加
+specs:
+  - actual: Class expressionやGeneratorのサポートなど追加されています。
+    expected: Class expressionやGeneratorのサポートなどが追加されています。
+tags:
+  - jser.info

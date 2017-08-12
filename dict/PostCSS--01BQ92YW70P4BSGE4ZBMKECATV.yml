@@ -1,0 +1,8 @@
+id: 01BQ92YW70P4BSGE4ZBMKECATV
+description: ''
+expected: PostCSS
+patterns:
+  - '/[PpＰｐ][OoＯｏ][SsＳｓ][TtＴｔ][CcＣｃ][SsＳｓ][SsＳｓ]/gmu'
+specs: []
+tags:
+  - CSS
