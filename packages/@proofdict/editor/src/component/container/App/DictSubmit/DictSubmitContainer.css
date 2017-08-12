@@ -1,5 +1,6 @@
 .DictSubmitContainer {
     padding: 1rem;
+    position: relative;
 }
 
 .DictSubmitContainer-right {
