@@ -11,8 +11,9 @@ import { DictionaryWordClassesSerializer } from "../DictionaryWordClasses";
 describe("createSlugFromDictionary", () => {
     describe("when empty dictionary", () => {
         it("should return empty string", () => {
-            const slug = createSlugFromDictionary(createDictionary());
-            assert.strictEqual(slug, "");
+            const dictionary = createDictionary();
+            const slug = createSlugFromDictionary(dictionary);
+            assert.ok(typeof slug === "string");
         });
     });
     describe("when ECMAScript dictionary", () => {
@@ -29,7 +30,7 @@ describe("createSlugFromDictionary", () => {
             return getUniqueTokens(dictionary).then(tokens => {
                 const targetDictionary = dictionary.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
                 const slug = createSlugFromDictionary(targetDictionary);
-                assert.strictEqual(slug, "ECMAScript_$1--名詞-記号");
+                assert.strictEqual(slug, `ECMAScript_$1--${targetDictionary.id.toValue()}`);
             });
         });
     });
