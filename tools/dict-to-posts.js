@@ -12,7 +12,6 @@ const del = require('del');
 
 const convertJsonToYamlHeader = (filePath, json) => {
     const fileNameWithExt = path.basename(filePath);
-    const fileName = path.basename(filePath, ".yml");
     const modifiedDate = getModifiedDate(filePath);
     const dumpData = yaml.safeDump(Object.assign({
         layout: "post",
@@ -20,7 +19,7 @@ const convertJsonToYamlHeader = (filePath, json) => {
         author: "azu",
         editURL: `https://github.com/proofdict/proofdict/edit/master/dict/${fileNameWithExt}`,
         date: modifiedDate,
-        permalink: `/dict/${json.id}`
+        permalink: `/proofdict/dict/${json.id}`
     }, json));
     return `---
 ${dumpData}
