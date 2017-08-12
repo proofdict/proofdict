@@ -1,4 +1,4 @@
-# proofdict
+# proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.svg?branch=master)](https://travis-ci.org/proofdict/proofdict)
 
 proofdict is a collection of dict.
 
