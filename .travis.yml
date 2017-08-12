@@ -8,7 +8,7 @@ after_success:
                              --iv "$encrypted_7bde748fd878_iv" \
                              --path-encrypted-key ".travis/github_deploy_key.enc"
 
-        $(npm bin)/update-branch --commands "npm run build:posts" \
+        $(npm bin)/update-branch --commands "npm run build" \
                                  --commit-message "Update website [skip ci]" \
                                  --directory "./public" \
                                  --distribution-branch "gh-pages" \

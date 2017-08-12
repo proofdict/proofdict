@@ -6,17 +6,20 @@
   "author": "azu",
   "license": "MIT",
   "files": [
-    "bin/",
-    "lib/",
-    "src/"
+    "dict/",
+    "index.js"
   ],
   "name": "proofdict",
   "version": "1.0.0",
   "description": "proofdict is a collection of dict.",
   "main": "lib/proofdict.js",
   "scripts": {
+    "build": "npm run build:dict && npm run build:posts",
+    "build:dict": "node tools/build-dict.js",
     "build:posts": "node tools/dict-to-posts.js",
-    "test": "mocha test/"
+    "pretest": "npm run build:dict",
+    "test": "mocha test/",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "dict"
@@ -29,15 +32,14 @@
     "url": "https://github.com/proofdict/proofdict/issues"
   },
   "homepage": "https://github.com/proofdict/proofdict",
-  "dependencies": {
-    "globby": "^6.1.0",
-    "js-yaml": "^3.9.1",
-    "markdown-table": "^1.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
     "del": "^3.0.0",
+    "globby": "^6.1.0",
+    "js-yaml": "^3.9.1",
     "make-dir": "^1.0.0",
+    "markdown-table": "^1.1.1",
     "mocha": "^3.5.0",
     "moment": "^2.18.1",
     "prh": "^3.1.1"
