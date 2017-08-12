@@ -1,6 +1,6 @@
 # proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.svg?branch=master)](https://travis-ci.org/proofdict/proofdict)
 
-proofdict is a collection of dict.
+Proofdict is a collection of dict.
 
 ## Install
 
@@ -8,9 +8,38 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install proofdict
 
-## Usage
+## Website
 
-- [ ] Write usage instructions
+Visit <https://proofdict.github.io/proofdict/>
+
+## API
+
+Get the dictionary as JSON
+
+- <https://proofdict.github.io/proofdict/dict.json>
+
+## Node module
+
+    const dictionaries = require("proofdict");
+    console.log(dictionaries);
+    /*
+    [
+        {
+            "id": "01BQ92YYBJQ3A865VJ3ASRPCHB",
+            "description": "",
+            "expected": ".js $1",
+            "patterns": [
+                "/.js([.0-9]+)/"
+            ],
+            "specs": [],
+            "tags": [
+                "JavaScript"
+            ]
+        },
+        ...
+    ]
+    */
+       
 
 ## Changelog
 
