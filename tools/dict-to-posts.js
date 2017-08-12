@@ -19,7 +19,7 @@ const convertJsonToYamlHeader = (filePath, json) => {
         author: "azu",
         editURL: `https://github.com/jser/jser.info/edit/master/dict/${fileNameWithExt}`,
         date: modifiedDate,
-        permalink: `/dict/${fileName}`
+        permalink: `/dict/${json.id}`
     }, json));
     return `---
 ${dumpData}
@@ -52,11 +52,7 @@ function createSpecTable(filePath, json) {
 
 }
 
-function outputMarkdown(filePath, outputFilePath) {
-    const json = loadYaml(filePath);
-    if (json === null) {
-        return
-    }
+function outputMarkdown(filePath, json, outputFilePath) {
     const header = convertJsonToYamlHeader(filePath, json);
     const specTable = createSpecTable(filePath, json);
     const body = `${header}
@@ -91,9 +87,13 @@ del([path.join(__dirname, "../public/_posts/build/*.md"), "!.gitkeep"], {
 }).then(paths => {
     const files = getDictFiles();
     files.forEach((filePath) => {
+        const json = loadYaml(filePath);
+        if (json === null) {
+            return
+        }
         const modifiedDate = getModifiedDate(filePath);
-        const fileName = moment.utc(modifiedDate).format("YYYY-MM-DD") + "-" + path.basename(filePath, ".yml") + ".md";
+        const fileName = moment.utc(modifiedDate).format("YYYY-MM-DD") + "-" + json.id + ".md";
         const markdownOutputFilePath = path.join(__dirname, "../public/_posts/build", `${fileName}`);
-        outputMarkdown(filePath, markdownOutputFilePath);
+        outputMarkdown(filePath, json, markdownOutputFilePath);
     });
 });
