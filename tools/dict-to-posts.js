@@ -7,6 +7,7 @@ const path = require("path");
 const { getModifiedDate } = require("./helper/git-date-helper");
 const table = require('markdown-table');
 const getDictFiles = require("./get-dict-files").getDictFiles;
+const makeDir = require('make-dir');
 const del = require('del');
 
 const convertJsonToYamlHeader = (filePath, json) => {
@@ -81,19 +82,22 @@ ${specTable}
 
 }
 
-
-del([path.join(__dirname, "../public/_posts/build/*.md"), "!.gitkeep"], {
-    force: true
-}).then(paths => {
-    const files = getDictFiles();
-    files.forEach((filePath) => {
-        const json = loadYaml(filePath);
-        if (json === null) {
-            return
-        }
-        const modifiedDate = getModifiedDate(filePath);
-        const fileName = moment.utc(modifiedDate).format("YYYY-MM-DD") + "-" + json.id + ".md";
-        const markdownOutputFilePath = path.join(__dirname, "../public/_posts/build", `${fileName}`);
-        outputMarkdown(filePath, json, markdownOutputFilePath);
+makeDir(path.join(__dirname, "../public/_posts/build/"))
+    .then(() => {
+        return del([path.join(__dirname, "../public/_posts/build/*.md"), "!.gitkeep"], {
+            force: true
+        });
+    })
+    .then(paths => {
+        const files = getDictFiles();
+        files.forEach((filePath) => {
+            const json = loadYaml(filePath);
+            if (json === null) {
+                return
+            }
+            const modifiedDate = getModifiedDate(filePath);
+            const fileName = moment.utc(modifiedDate).format("YYYY-MM-DD") + "-" + json.id + ".md";
+            const markdownOutputFilePath = path.join(__dirname, "../public/_posts/build", `${fileName}`);
+            outputMarkdown(filePath, json, markdownOutputFilePath);
+        });
     });
-});
