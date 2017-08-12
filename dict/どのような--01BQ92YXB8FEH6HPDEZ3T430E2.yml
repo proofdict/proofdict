@@ -1,5 +1,5 @@
 id: 01BQ92YXB8FEH6HPDEZ3T430E2
-description: ''
+description: '「どういう」は口語表現です'
 expected: どのような
 patterns:
   - /どういう(?!こと)/
