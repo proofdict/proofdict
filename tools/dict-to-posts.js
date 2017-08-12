@@ -19,7 +19,7 @@ const convertJsonToYamlHeader = (filePath, json) => {
         author: "azu",
         editURL: `https://github.com/proofdict/proofdict/edit/master/dict/${fileNameWithExt}`,
         date: modifiedDate,
-        permalink: `/proofdict/dict/${json.id}`
+        permalink: `/dict/${json.id}`
     }, json));
     return `---
 ${dumpData}
