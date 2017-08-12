@@ -12,7 +12,7 @@ It is sub project of [textlint](https://github.com/textlint/textlint "textlint")
 
 ## Purpose
 
-One word per one file
+One term per one file
 
 ## Add a term
 
