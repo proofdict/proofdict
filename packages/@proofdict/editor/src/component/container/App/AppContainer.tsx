@@ -9,6 +9,7 @@ import GridCell from "../../ui-kit/Grid/GridCell";
 import { DictOutputContainer } from "./DictOutput/DictOutputContainer";
 import { AppMenuContainer } from "./AppMenu/AppMenuContainer";
 import { DictMetaContainer } from "./DictMeta/DictMetaContainer";
+import { DictSubmitContainer } from "./DictSubmit/DictSubmitContainer";
 
 export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> {
     render() {
@@ -24,6 +25,7 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
                     </GridCell>
                 </Grid>
                 <DictMetaContainer dictMeta={this.props.dictMeta} dictForm={this.props.dictForm} />
+                <DictSubmitContainer dictForm={this.props.dictForm} />
                 <DictOutputContainer dictOutput={this.props.dictOutput} />
             </div>
         );

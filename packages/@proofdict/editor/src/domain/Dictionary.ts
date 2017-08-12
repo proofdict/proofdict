@@ -49,11 +49,12 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
         });
     },
     toJSON(dictionary) {
-        const optional = dictionary.wordClasses
-            ? {
-                  wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
-              }
-            : {};
+        const optional =
+            dictionary.wordClasses && dictionary.wordClasses.hasWordClass
+                ? {
+                      wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
+                  }
+                : {};
         return {
             ...optional,
             id: dictionary.id.toValue(),

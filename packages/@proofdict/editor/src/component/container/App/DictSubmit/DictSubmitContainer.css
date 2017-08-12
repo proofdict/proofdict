@@ -1,0 +1,14 @@
+.DictSubmitContainer {
+    padding: 1rem;
+}
+
+.DictSubmitContainer-right {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: auto;
+}
+
+.DictSubmitContainer-help {
+    padding: 0.2rem 1rem;
+}
