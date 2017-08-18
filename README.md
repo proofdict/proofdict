@@ -1,6 +1,6 @@
 # Proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.svg?branch=master)](https://travis-ci.org/proofdict/proofdict)
 
-Proofdict is a collection of dict.
+Proofdict is a collection of dictionary.
 
 ## Install
 
