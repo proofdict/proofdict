@@ -1,0 +1,43 @@
+{
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "textlint-rule-proofdict",
+  "version": "1.0.0",
+  "description": "textlint rule check text using proofdict.",
+  "main": "lib/textlint-rule-proofdict.js",
+  "scripts": {
+    "test": "textlint-scripts test",
+    "prepublish": "npm run --if-present build",
+    "build": "textlint-scripts build",
+    "watch": "textlint-scripts build --watch"
+  },
+  "keywords": [
+    "textlintrule"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proofdict/textlint-rule-proofdict.git"
+  },
+  "bugs": {
+    "url": "https://github.com/proofdict/textlint-rule-proofdict/issues"
+  },
+  "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
+  "devDependencies": {
+    "textlint-scripts": "^1.2.4"
+  },
+  "dependencies": {
+    "localstorage-ponyfill": "^1.0.1",
+    "prh": "^5.3.0",
+    "proofdict": "^1.1.0",
+    "textlint-rule-helper": "^2.0.0"
+  }
+}
