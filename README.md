@@ -20,8 +20,9 @@ Get the dictionary as JSON
 
 ## Node module
 
-    const dictionaries = require("proofdict");
-    console.log(dictionaries);
+    const { getProofdict, fetchProofdict} = require("proofdict");
+    // get local dictionary data.
+    console.log(getProofdict());
     /*
     [
         {
@@ -39,6 +40,11 @@ Get the dictionary as JSON
         ...
     ]
     */
+    
+    // fetch latest dictionary data from https://proofdict.github.io/proofdict/dict.json
+    fetchProofdict().then(dictionaries => { 
+        console.log(dictionaries)
+    });
        
 
 ## Changelog

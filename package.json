@@ -33,7 +33,9 @@
     "url": "https://github.com/proofdict/proofdict/issues"
   },
   "homepage": "https://github.com/proofdict/proofdict",
-  "dependencies": {},
+  "dependencies": {
+    "fetch-ponyfill": "^4.1.0"
+  },
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
     "del": "^3.0.0",
