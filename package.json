@@ -11,7 +11,7 @@
     "index.js"
   ],
   "name": "proofdict",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Proofdict is a collection of dictionary.",
   "main": "index.js",
   "scripts": {
