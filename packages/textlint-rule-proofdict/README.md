@@ -26,6 +26,8 @@ Via CLI
 textlint --rule proofdict README.md
 ```
 
+## Options
+
 
 ## Changelog
 

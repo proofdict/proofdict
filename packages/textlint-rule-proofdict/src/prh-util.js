@@ -30,11 +30,13 @@ export const forEachChange = (changeSet, str, onChangeOfMatch) => {
         const matchEndIndex = matchStartIndex + diff.matches[0].length;
         // actual => expected
         const actual = str.slice(diff.index + delta, diff.index + delta + diff.matches[0].length);
+        const description = diff.rule.raw.description;
         onChangeOfMatch({
             matchStartIndex,
             matchEndIndex,
             actual: actual,
-            expected: result
+            expected: result,
+            description: description
         });
         str = str.slice(0, diff.index + delta) + result + str.slice(diff.index + delta + diff.matches[0].length);
         delta += result.length - diff.matches[0].length;
