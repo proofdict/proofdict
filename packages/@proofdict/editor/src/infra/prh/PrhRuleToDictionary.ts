@@ -26,8 +26,8 @@ function addSpecs(dictionary: Dictionary, rule: Rule): Dictionary {
     return rule.specs.reduce((dict: Dictionary, spec) => {
         return dict.addSpec(
             new DictionarySpec({
-                actual: spec.from,
-                expected: spec.to
+                from: spec.from,
+                to: spec.to
             })
         );
     }, dictionary);

@@ -23,8 +23,8 @@ describe("createSlugFromDictionary", () => {
                 .addPattern(new DictionaryPattern("/es (\\d+)/i"))
                 .addSpec(
                     new DictionarySpec({
-                        actual: "--es 2015--es 6",
-                        expected: "--ECMAScript 2015--ECMAScript 6"
+                        from: "--es 2015--es 6",
+                        to: "--ECMAScript 2015--ECMAScript 6"
                     })
                 );
             return getUniqueTokens(dictionary).then(tokens => {

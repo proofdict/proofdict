@@ -19,7 +19,7 @@ export class CreateNewDictionaryUseCase extends UseCase {
         const dictionary = createDictionary()
             .inputExpected(new DictionaryExpected(""))
             .addPattern(new DictionaryPattern(""))
-            .addSpec(new DictionarySpec({ actual: "" }));
+            .addSpec(new DictionarySpec({ from: "" }));
         this.repo.dictionaryRepository.save(dictionary);
     }
 }

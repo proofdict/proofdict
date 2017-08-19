@@ -2,25 +2,25 @@
 import { ValueObject } from "../ddd-base/ValueObject";
 
 export interface DictionarySpecJSON {
-    actual: string;
-    expected: string;
+    from: string;
+    to: string;
 }
 
 export interface DictionarySpecArgs {
-    actual: string;
-    expected?: string;
+    from: string;
+    to?: string;
     error?: Error;
 }
 
 export class DictionarySpec extends ValueObject {
-    actual: string;
-    expected?: string;
+    from: string;
+    to?: string;
     error?: Error;
 
     constructor(args: DictionarySpecArgs) {
         super();
-        this.actual = args.actual;
-        this.expected = args.expected;
+        this.from = args.from;
+        this.to = args.to;
     }
 
     get isInvalid(): boolean {
@@ -28,10 +28,10 @@ export class DictionarySpec extends ValueObject {
     }
 
     get isFilled(): boolean {
-        if (!this.actual) {
+        if (!this.from) {
             return false;
         }
-        if (!this.expected) {
+        if (!this.to) {
             return false;
         }
         return true;
@@ -40,7 +40,7 @@ export class DictionarySpec extends ValueObject {
     updateExpected(expected: string) {
         return new DictionarySpec({
             ...this as DictionarySpecArgs,
-            expected
+            to: expected
         });
     }
 

@@ -10,8 +10,8 @@ export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySp
     toJSON(entity) {
         return entity.getSpecList().filter(spec => spec.isFilled).map(spec => {
             return {
-                actual: spec.actual,
-                expected: spec.expected!
+                from: spec.from,
+                to: spec.to!
             };
         });
     }
@@ -35,7 +35,7 @@ export class DictionarySpecs {
     }
 
     getActualPatterns() {
-        return this.getSpecList().map(spec => spec.actual);
+        return this.getSpecList().map(spec => spec.from);
     }
 
     getExpectedResults() {
@@ -43,7 +43,7 @@ export class DictionarySpecs {
             if (spec.isInvalid && spec.error) {
                 return spec.error.message;
             } else {
-                return spec.expected;
+                return spec.to;
             }
         });
     }
@@ -76,7 +76,7 @@ export class DictionarySpecs {
 
     findByActual(oldSpecActual: string): DictionarySpec | undefined {
         return this.specs.find(target => {
-            return target.actual === oldSpecActual;
+            return target.from === oldSpecActual;
         });
     }
 }

@@ -62,7 +62,7 @@ export class DictOutputStore extends Store<DictOutputState> {
     constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
         super();
         this.state = new DictOutputState({
-            format: "json",
+            format: "yml",
             output: ""
         });
     }

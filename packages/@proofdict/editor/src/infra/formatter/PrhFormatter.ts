@@ -14,8 +14,8 @@ export const modifyForPrh = (json: DictionaryJSON): Object => {
         patterns: json.patterns,
         specs: json.specs.map(spec => {
             return {
-                from: spec.actual,
-                to: spec.expected
+                from: spec.from,
+                to: spec.to
             };
         })
     };

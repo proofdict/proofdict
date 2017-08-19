@@ -28,7 +28,7 @@ export class UpdateDictionarySpecUseCase extends UseCase {
         const newDictionary = dictionary.updateSpec(
             oldSpec,
             new DictionarySpec({
-                actual: newSpecActual
+                from: newSpecActual
             })
         );
         this.repo.dictionaryRepository.save(newDictionary);

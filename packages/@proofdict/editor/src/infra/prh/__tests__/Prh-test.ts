@@ -15,11 +15,11 @@ describe("Prh", () => {
             const result = testPattern(
                 dictionary,
                 new DictionarySpec({
-                    actual: "JQUERY"
+                    from: "JQUERY"
                 })
             );
-            assert.strictEqual(result.actual, "JQUERY");
-            assert.strictEqual(result.expected, "jQuery");
+            assert.strictEqual(result.from, "JQUERY");
+            assert.strictEqual(result.to, "jQuery");
         });
         it("should return spec", () => {
             const dictionary = createDictionary()
@@ -28,11 +28,11 @@ describe("Prh", () => {
             const result = testPattern(
                 dictionary,
                 new DictionarySpec({
-                    actual: "pattern"
+                    from: "pattern"
                 })
             );
-            assert.strictEqual(result.actual, "pattern");
-            assert.strictEqual(result.expected, "expected");
+            assert.strictEqual(result.from, "pattern");
+            assert.strictEqual(result.to, "expected");
         });
     });
     describe("#getMatchExpectedWords", () => {
@@ -43,7 +43,7 @@ describe("Prh", () => {
             const words = getMatchExpectedWords(
                 dictionary,
                 new DictionarySpec({
-                    actual: "--es 2015--es 6"
+                    from: "--es 2015--es 6"
                 })
             );
             assert.deepEqual(words, ["ECMAScript 2015", "ECMAScript 6"]);
@@ -56,8 +56,8 @@ describe("Prh", () => {
                 .addPattern(new DictionaryPattern("/es (\\d+)/i"))
                 .addSpec(
                     new DictionarySpec({
-                        actual: "--es 2015--es 6",
-                        expected: "--ECMAScript 2015--ECMAScript 6"
+                        from: "--es 2015--es 6",
+                        to: "--ECMAScript 2015--ECMAScript 6"
                     })
                 );
             return getUniqueTokens(dictionary).then(tokens => {

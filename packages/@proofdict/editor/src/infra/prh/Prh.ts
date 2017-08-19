@@ -86,7 +86,7 @@ export function getUniqueTokens(dictionary: Dictionary): Promise<Array<Normalize
  * test dictionary match the spec, and return the result matched words.
  */
 export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySpec): string[] {
-    if (spec.actual.length === 0) {
+    if (spec.from.length === 0) {
         return [];
     }
     const patterns = dictionary.patterns.getPatternValuesWithoutEmpty();
@@ -113,7 +113,7 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
                 throw new Error(`${patterns[index]} is not safe regexp`);
             }
         });
-        const changeSet = engine.makeChangeSet("/web", spec.actual);
+        const changeSet = engine.makeChangeSet("/web", spec.from);
         return changeSet.diffs
             .map(diff => {
                 return diff.matches[0].replace(diff.pattern, diff.expected!);
@@ -125,7 +125,7 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
 }
 
 export function testPattern(dictionary: Dictionary, spec: DictionarySpec): DictionarySpec {
-    if (spec.actual.length === 0) {
+    if (spec.from.length === 0) {
         return spec;
     }
     const patterns = dictionary.patterns.getPatternValuesWithoutEmpty();
@@ -152,7 +152,7 @@ export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Dicti
                 throw new Error(`${patterns[index]} is not safe regexp`);
             }
         });
-        const expected = engine.replaceByRule("/web", spec.actual);
+        const expected = engine.replaceByRule("/web", spec.from);
         return spec.updateExpected(expected);
     } catch (error) {
         return spec.invalid(error);

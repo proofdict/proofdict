@@ -22,7 +22,7 @@ export class AddNewSpecToDictionaryUseCase extends UseCase {
         }
         const newDictionary = dictionary.addSpec(
             new DictionarySpec({
-                actual: ""
+                from: ""
             })
         );
         this.repo.dictionaryRepository.save(newDictionary);

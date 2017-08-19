@@ -30,12 +30,12 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                         patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
                         specs: [
                             {
-                                actual: "ES 5",
-                                expected: "ECMAScript 5"
+                                from: "ES 5",
+                                to: "ECMAScript 5"
                             },
                             {
-                                actual: "ES2015",
-                                expected: "ECMAScript 2015"
+                                from: "ES2015",
+                                to: "ECMAScript 2015"
                             }
                         ],
                         tags: ["JavaScript"],

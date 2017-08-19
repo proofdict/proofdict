@@ -32,8 +32,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "ES nextでは",
-        "expected": "ES.nextでは",
+        "from": "ES nextでは",
+        "to": "ES.nextでは",
       },
     ],
     "tags": Array [],
@@ -47,8 +47,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "ES6 classes",
-        "expected": "ES6 Classes",
+        "from": "ES6 classes",
+        "to": "ES6 Classes",
       },
     ],
     "tags": Array [],
@@ -64,8 +64,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "WebComponentsについてのWeeklyメールマガジン",
-        "expected": "Web ComponentsについてのWeeklyメールマガジン",
+        "from": "WebComponentsについてのWeeklyメールマガジン",
+        "to": "Web ComponentsについてのWeeklyメールマガジン",
       },
     ],
     "tags": Array [],
@@ -109,8 +109,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "javascript",
-        "expected": "JavaScript",
+        "from": "javascript",
+        "to": "JavaScript",
       },
     ],
     "tags": Array [],
@@ -124,12 +124,12 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "java script",
-        "expected": "JavaScript",
+        "from": "java script",
+        "to": "JavaScript",
       },
       Object {
-        "actual": "Java script",
-        "expected": "JavaScript",
+        "from": "Java script",
+        "to": "JavaScript",
       },
     ],
     "tags": Array [],
@@ -144,12 +144,12 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "MSEdgeの対応、pointer eventなど対応、",
-        "expected": "MSEdgeの対応、Pointer Eventsなど対応、",
+        "from": "MSEdgeの対応、pointer eventなど対応、",
+        "to": "MSEdgeの対応、Pointer Eventsなど対応、",
       },
       Object {
-        "actual": "pointer-events",
-        "expected": "pointer-events",
+        "from": "pointer-events",
+        "to": "pointer-events",
       },
     ],
     "tags": Array [],
@@ -164,8 +164,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "Touch Event、Fullscreen APIなどのサポートなど",
-        "expected": "Touch Events、Fullscreen APIなどのサポートなど",
+        "from": "Touch Event、Fullscreen APIなどのサポートなど",
+        "to": "Touch Events、Fullscreen APIなどのサポートなど",
       },
     ],
     "tags": Array [],
@@ -233,8 +233,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "多段SourceMapに対応",
-        "expected": "多段Source Mapに対応",
+        "from": "多段SourceMapに対応",
+        "to": "多段Source Mapに対応",
       },
     ],
     "tags": Array [],
@@ -258,12 +258,12 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "jquery",
-        "expected": "jQuery",
+        "from": "jquery",
+        "to": "jQuery",
       },
       Object {
-        "actual": "jquery-ui",
-        "expected": "jquery-ui",
+        "from": "jquery-ui",
+        "to": "jquery-ui",
       },
     ],
     "tags": Array [],
@@ -277,12 +277,12 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "redux",
-        "expected": "Redux",
+        "from": "redux",
+        "to": "Redux",
       },
       Object {
-        "actual": "redux-react",
-        "expected": "redux-react",
+        "from": "redux-react",
+        "to": "redux-react",
       },
     ],
     "tags": Array [],
@@ -306,12 +306,12 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "angularJS",
-        "expected": "angularJS",
+        "from": "angularJS",
+        "to": "angularJS",
       },
       Object {
-        "actual": "angular",
-        "expected": "Angular",
+        "from": "angular",
+        "to": "Angular",
       },
     ],
     "tags": Array [],
@@ -326,8 +326,8 @@ Array [
     ],
     "specs": Array [
       Object {
-        "actual": "Angular.js",
-        "expected": "AngularJS",
+        "from": "Angular.js",
+        "to": "AngularJS",
       },
     ],
     "tags": Array [],
