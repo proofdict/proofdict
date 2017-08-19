@@ -46,7 +46,7 @@ function createSpecTable(filePath, json) {
         ['From', 'To']
     ];
     specs.forEach(spec => {
-        cells.push([spec.actual, spec.expected]);
+        cells.push([spec.from, spec.to]);
     });
     return table(cells);
 
