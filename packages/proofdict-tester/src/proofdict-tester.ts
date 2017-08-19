@@ -21,9 +21,13 @@ export interface ProofdictSpec {
 
 export interface ProofdictTesterResultDetail {
     description?: string;
+    // original match start index, not replaced start index
     matchStartIndex: number;
+    // original match end index, not replaced start index
     matchEndIndex: number;
+    // match text
     actual: string;
+    // replace text for actual
     expected: string;
 }
 
@@ -31,6 +35,8 @@ export interface ProofdictTesterResult {
     // replaced result
     output: string;
     details: ProofdictTesterResultDetail[]
+    // This will be removed in the future
+    // @deprecated
     diffs: Diff[];
 }
 
@@ -89,30 +95,26 @@ export class ProofdictTester {
                     return;
                 }
             }
-            const result = diff.expected.replace(/\$([0-9]{1,2})/g, function (match, g1) {
-                const index = parseInt(g1, 10);
-                if (index === 0 || (diff.matches.length - 1) < index) {
-                    return match;
-                }
-                return diff.matches[index] || "";
-            });
+            const applied = diff.apply(currentString, deltaTestStartPosition);
+            if (applied == null) {
+                return;
+            }
             // matchStartIndex/matchEndIndex value is original position, not replaced position
             // textlint use original position
             const matchStartIndex = diff.index;
             const matchEndIndex = matchStartIndex + diff.matches[0].length;
-            // actual => expected
-            const actual = currentString.slice(diff.index + deltaTestStartPosition, diff.index + deltaTestStartPosition + diff.matches[0].length);
+            const actual = currentString.slice(matchStartIndex, matchEndIndex);
+            const expected = diff.newText!;
             const description = diff.rule && diff.rule.raw.description;
-            // forward delta
-            currentString = currentString.slice(0, diff.index + deltaTestStartPosition) + result + currentString.slice(diff.index + deltaTestStartPosition + diff.matches[0].length);
-            deltaTestStartPosition += result.length - diff.matches[0].length;
             results.push({
                 matchStartIndex,
                 matchEndIndex,
                 actual,
-                expected: result,
+                expected,
                 description
             });
+            currentString = applied.replaced;
+            deltaTestStartPosition = applied.newDelta;
         });
         return Promise.resolve({
             output: currentString,

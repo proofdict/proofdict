@@ -2,9 +2,8 @@
 import { Proofdict, ProofdictTester } from "../src/proofdict-tester";
 import * as assert from "assert";
 
-const { getProofdict } = require("proofdict");
 describe("ProofdictTester fixtures", () => {
-    const proofdict: Proofdict[] = getProofdict();
+    const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
     const tester = new ProofdictTester(proofdict);
     proofdict
         .filter(dict => dict.specs.length > 0)

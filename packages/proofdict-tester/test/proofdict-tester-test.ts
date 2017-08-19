@@ -2,11 +2,10 @@
 import { Proofdict, ProofdictTester } from "../src/proofdict-tester";
 import * as assert from "assert";
 
-const { getProofdict } = require("proofdict");
 describe("ProofdictTester", () => {
     describe("#replace", () => {
         it("should return replace result", () => {
-            const proofdict: Proofdict[] = getProofdict();
+            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester(proofdict);
             const text = "This is webkit desu.";
             return tester.replace(text).then(result => {
@@ -16,7 +15,7 @@ describe("ProofdictTester", () => {
     });
     describe("#match", () => {
         it("last noun pattern", () => {
-            const proofdict: Proofdict[] = getProofdict();
+            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester(proofdict);
             const text = "This is webkit";
             return tester.match(text).then(result => {
@@ -30,7 +29,7 @@ describe("ProofdictTester", () => {
             });
         });
         it("first noun pattern", () => {
-            const proofdict: Proofdict[] = getProofdict();
+            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester(proofdict);
             const text = "SourceMap is text.";
             return tester.match(text).then(result => {
@@ -44,7 +43,7 @@ describe("ProofdictTester", () => {
             });
         });
         it("non-noun pattern", () => {
-            const proofdict: Proofdict[] = getProofdict();
+            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester(proofdict);
             const text = "Workaound is typo.";
             return tester.match(text).then(result => {
