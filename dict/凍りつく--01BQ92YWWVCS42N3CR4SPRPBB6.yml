@@ -4,7 +4,7 @@ expected: 凍りつく
 patterns:
   - 凍り付く
 specs:
-  - actual: 凍り付く
-    expected: 凍りつく
+  - from: 凍り付く
+    to: 凍りつく
 tags:
   - 表記統一

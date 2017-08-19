@@ -2,7 +2,10 @@ id: 01BQ92YYBJK6WW9Y09W7TF1YTT
 description: 'See http://todomvc.com/'
 expected: TodoMVC
 patterns:
-  - '/[TtＴｔ][OoＯｏ][DdＤｄ][OoＯｏ][MmＭｍ][VvＶｖ][CcＣｃ]/gmu'
-specs: []
+  - /todomvc/i
+specs:
+  - from: todomvc is todo app.
+    to: TodoMVC is todo app.
 tags:
+  - noun
   - JavaScript

@@ -4,7 +4,7 @@ expected: 活気づく
 patterns:
   - 活気付く
 specs:
-  - actual: 活気付く
-    expected: 活気づく
+  - from: 活気付く
+    to: 活気づく
 tags:
   - 表記統一

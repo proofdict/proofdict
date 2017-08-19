@@ -1,8 +1,11 @@
 id: 01BQ92YZ6Q0Y22BVKAVFC4VV1N
-description: ''
+description: 'Reference http://ocaml.org/'
 expected: OCaml
 patterns:
-  - '/[OoＯｏ][CcＣｃ][AaＡａ][MmＭｍ][LlＬｌ]/gmu'
-specs: []
+  - /OCaml/i
+specs:
+  - from: ocaml
+    to: OCaml
 tags:
   - noun
+  - Programming

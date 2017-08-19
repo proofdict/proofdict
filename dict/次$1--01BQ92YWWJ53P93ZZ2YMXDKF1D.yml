@@ -4,13 +4,13 @@ expected: 次$1
 patterns:
   - '/(?:以下|下記)(の|に)/'
 specs:
-  - actual: 以下の
-    expected: 次の
-  - actual: 以下に
-    expected: 次に
-  - actual: 次回
-    expected: 次回
-  - actual: 下記の
-    expected: 次の
+  - from: 以下の
+    to: 次の
+  - from: 以下に
+    to: 次に
+  - from: 次回
+    to: 次回
+  - from: 下記の
+    to: 次の
 tags:
   - 表記統一

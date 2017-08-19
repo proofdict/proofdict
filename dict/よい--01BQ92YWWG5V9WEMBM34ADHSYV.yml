@@ -4,9 +4,9 @@ expected: よい
 patterns:
   - /良い(?!例)/
 specs:
-  - actual: 良い
-    expected: よい
-  - actual: 良い例
-    expected: 良い例
+  - from: 良い
+    to: よい
+  - from: 良い例
+    to: 良い例
 tags:
   - 表記統一

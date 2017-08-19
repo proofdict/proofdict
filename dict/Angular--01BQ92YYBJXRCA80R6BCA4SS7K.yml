@@ -1,12 +1,16 @@
 id: 01BQ92YYBJXRCA80R6BCA4SS7K
-description: ''
+description: 'Angular(1.x)'
 expected: Angular
 patterns:
-  - /\bangular\b/
+  - /angular/i
 specs:
-  - actual: angularJS
-    expected: angularJS
-  - actual: angular
-    expected: Angular
+  - from: angularJS
+    to: angularJS
+  - from: angular
+    to: Angular
+  # different term
+  - from: angulardart
+    to: angulardart
 tags:
+  - noun
   - JavaScript

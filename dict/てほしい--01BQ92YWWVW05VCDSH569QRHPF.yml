@@ -4,9 +4,9 @@ expected: てほしい
 patterns:
   - て欲しい
 specs:
-  - actual: 物が欲しい
-    expected: 物が欲しい
-  - actual: 考えて欲しい
-    expected: 考えてほしい
+  - from: 物が欲しい
+    to: 物が欲しい
+  - from: 考えて欲しい
+    to: 考えてほしい
 tags:
   - 表記統一

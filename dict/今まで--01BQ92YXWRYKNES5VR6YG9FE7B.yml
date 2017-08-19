@@ -4,7 +4,7 @@ expected: 今まで
 patterns:
   - 今ままで
 specs:
-  - actual: 今ままで`react`モジュールにあったAPIがそれぞれ以下のように移されています。
-    expected: 今まで`react`モジュールにあったAPIがそれぞれ以下のように移されています。
+  - from: 今ままで`react`モジュールにあったAPIがそれぞれ以下のように移されています。
+    to: 今まで`react`モジュールにあったAPIがそれぞれ以下のように移されています。
 tags:
   - typo

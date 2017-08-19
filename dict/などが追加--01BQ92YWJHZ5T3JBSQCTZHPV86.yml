@@ -4,7 +4,7 @@ expected: などが追加
 patterns:
   - など追加
 specs:
-  - actual: Class expressionやGeneratorのサポートなど追加されています。
-    expected: Class expressionやGeneratorのサポートなどが追加されています。
+  - from: Class expressionやGeneratorのサポートなど追加されています。
+    to: Class expressionやGeneratorのサポートなどが追加されています。
 tags:
   - jser.info

@@ -1,8 +1,11 @@
 id: 01BQ92YYBJCY50GECA6CQH874F
-description: ''
+description: 'Reference https://www.emberjs.com/'
 expected: Ember.js
 patterns:
-  - '/[EeＥｅ][MmＭｍ][BbＢｂ][EeＥｅ][RrＲｒ].[JjＪｊ][SsＳｓ]/gmu'
-specs: []
+  - /Ember\.js/i
+specs:
+  - from: ember.js
+    to: Ember.js
 tags:
+  - noun
   - JavaScript

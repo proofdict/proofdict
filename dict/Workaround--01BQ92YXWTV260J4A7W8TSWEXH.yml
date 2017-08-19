@@ -4,7 +4,7 @@ expected: Workaround
 patterns:
   - Workaound
 specs:
-  - actual: iOS7と8のquerySelectorバグの対処(Workaound)
-    expected: iOS7と8のquerySelectorバグの対処(Workaround)
+  - from: iOS7と8のquerySelectorバグの対処(Workaound)
+    to: iOS7と8のquerySelectorバグの対処(Workaround)
 tags:
   - typo

@@ -1,8 +1,12 @@
 id: 01BQ92YZ6R35HCYAZGN18RB35E
-description: ''
-expected: Windows
+description: 'Reference https://www.microsoft.com/windows'
+expected: Windows $1
 patterns:
-  - '/[WwＷｗ][IiＩｉ][NnＮｎ][DdＤｄ][OoＯｏ][WwＷｗ][SsＳｓ]/gmu'
-specs: []
+  - /Windows (\d+)/i
+specs:
+  - from: OK windows
+    to: OK windows
+  - from: windows 10
+    to: Windows 10
 tags:
   - noun

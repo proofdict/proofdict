@@ -4,7 +4,8 @@ expected: Flexbox
 patterns:
   - Fluxbox
 specs:
-  - actual: CSS Fluxboxでは
-    expected: CSS Flexboxでは
+  - from: CSS Fluxboxでは
+    to: CSS Flexboxでは
 tags:
+  - noun
   - CSS

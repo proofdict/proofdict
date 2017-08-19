@@ -4,11 +4,11 @@ expected: $1さらに
 patterns:
   - '/([\s。、\nぁ-んァ-ヶ])更に/'
 specs:
-  - actual: Aは加速した、更に加速した。
-    expected: Aは加速した、さらに加速した。
-  - actual: 加速すると更に加速した
-    expected: 加速するとさらに加速した
-  - actual: 変更に加えて
-    expected: 変更に加えて
+  - from: Aは加速した、更に加速した。
+    to: Aは加速した、さらに加速した。
+  - from: 加速すると更に加速した
+    to: 加速するとさらに加速した
+  - from: 変更に加えて
+    to: 変更に加えて
 tags:
   - 表記統一

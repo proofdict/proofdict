@@ -2,7 +2,9 @@ id: 01BQ92YYSF66CHGRP4MX5X6P0Q
 description: O'reilly is OK. But oreilly is not OK
 expected: Oreilly
 patterns:
-  - '/[OoＯｏ][RrＲｒ][EeＥｅ][IiＩｉ][LlＬｌ][LlＬｌ][YyＹｙ]/gmu'
-specs: []
+  - /Oreilly/i
+specs:
+  - from: oreilly
+    to: Oreilly
 tags:
   - noun

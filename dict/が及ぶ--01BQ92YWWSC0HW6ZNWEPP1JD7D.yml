@@ -4,7 +4,7 @@ expected: が及ぶ
 patterns:
   - がおよぶ
 specs:
-  - actual: （例）影響がおよぶ。
-    expected: （例）影響が及ぶ。
+  - from: （例）影響がおよぶ。
+    to: （例）影響が及ぶ。
 tags:
   - 表記統一

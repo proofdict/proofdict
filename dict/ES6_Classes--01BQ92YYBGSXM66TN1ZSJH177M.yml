@@ -4,7 +4,7 @@ expected: ES6 Classes
 patterns:
   - /\bES6 classes\b/i
 specs:
-  - actual: ES6 classes
-    expected: ES6 Classes
+  - from: ES6 classes
+    to: ES6 Classes
 tags:
   - JavaScript

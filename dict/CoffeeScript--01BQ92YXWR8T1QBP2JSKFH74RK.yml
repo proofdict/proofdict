@@ -4,7 +4,7 @@ expected: CoffeeScript
 patterns:
   - CoffeScript
 specs:
-  - actual: CoffeScriptからES6
-    expected: CoffeeScriptからES6
+  - from: CoffeScriptからES6
+    to: CoffeeScriptからES6
 tags:
   - typo

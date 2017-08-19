@@ -12,6 +12,71 @@ Install with [npm](https://www.npmjs.com/):
 
 Visit <https://proofdict.github.io/proofdict/>
 
+## Dictionary format
+
+```yml
+# `id` is unique string
+id: 01BQ92YYBEFBXEHH8T8HC8RCRD
+# `description` is a short comment
+description: 'Reference https://www.ecma-international.org/publications/standards/Ecma-262.htm'
+# `expected` is expected result
+# `$1` ... `$9` reference `patterns`'s capture word
+# This is same behavior with RegExp https://github.com/zeeshanu/learn-regex 
+expected: ECMAScript $1
+# `patterns` are match string or RegExp
+# RegExp should be started with `/` and be ended with `/`
+# Also, can use `()` for capturing
+patterns:
+  - /ECMAScript([0-9]+)/i
+  - /ECMA Script([0-9]+)/i
+# `specs` are test cases
+# `specs[n].from` is actual word
+# `specs[n].to` is expected word that is replaced result
+specs:
+  - from: ECMASCRIPT5
+    to: ECMAScript 5
+# `tags` are keywords
+# Some `tag` means special meaning
+tags:
+  - noun
+  - JavaScript
+```
+
+### Special `tag`
+
+Some `tag` means special meaning
+
+> `noun`
+
+`noun` needs strict match because idiom is not same meaning the noun.
+
+Example: `WebKit`
+
+Generally, `/webkit/i` match `node-webkit`, but that dict is not match `node-webkit`.
+Because, The dict has `noun` tag.
+
+Steps:
+
+1. `/webkit/i` match the text *1
+2. If `/[-\w]webkit/i` or `/webkit[-\w]/i` also match the text, ignore this*1 
+
+```yaml
+id: 01BQ92YZ6QR8RJKA5Y8W2F9NMY
+description: 'Reference https://webkit.org/'
+expected: WebKit
+patterns:
+  - /webkit/i
+specs:
+  - from: This is webkit
+    to: This is WebKit
+  - from: XXXwebkit
+    to: XXXwebkit
+  - from: node-webkit
+    to: node-webkit
+tags:
+  - noun
+```
+
 ## API
 
 Get the dictionary as JSON

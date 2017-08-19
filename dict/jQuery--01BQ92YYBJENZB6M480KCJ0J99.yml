@@ -4,9 +4,9 @@ expected: jQuery
 patterns:
   - /jquery(?!-)/i
 specs:
-  - actual: jquery
-    expected: jQuery
-  - actual: jquery-ui
-    expected: jquery-ui
+  - from: jquery
+    to: jQuery
+  - from: jquery-ui
+    to: jquery-ui
 tags:
   - JavaScript

@@ -5,7 +5,7 @@ patterns:
   - /HTML5Rocks/i
   - /HTML5Rock/i
 specs:
-  - actual: HTML5Rockに現在公開されている翻訳記事のまとめ
-    expected: HTML5 Rocksに現在公開されている翻訳記事のまとめ
+  - from: HTML5Rockに現在公開されている翻訳記事のまとめ
+    to: HTML5 Rocksに現在公開されている翻訳記事のまとめ
 tags:
   - noun

@@ -4,9 +4,9 @@ expected: $1付く
 patterns:
   - /(気が|利子が)つく/
 specs:
-  - actual: 気がつく。
-    expected: 気が付く。
-  - actual: 利子がつく。
-    expected: 利子が付く。
+  - from: 気がつく。
+    to: 気が付く。
+  - from: 利子がつく。
+    to: 利子が付く。
 tags:
   - 表記統一

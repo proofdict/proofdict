@@ -1,12 +1,12 @@
 id: 01BQ92YYBGNAKFHY1TFA9Z3KTC
-description: ''
+description: 'Reference https://w3c.github.io/webcomponents/explainer/'
 expected: Web Components
 patterns:
-  - WebComponents
-  - web components
-  - Web components
+  - /WebComponents/i
+  - /web components/i
 specs:
-  - actual: WebComponentsについてのWeeklyメールマガジン
-    expected: Web ComponentsについてのWeeklyメールマガジン
+  - from: WebComponentsについてのWeeklyメールマガジン
+    to: Web ComponentsについてのWeeklyメールマガジン
 tags:
+  - noun
   - JavaScript

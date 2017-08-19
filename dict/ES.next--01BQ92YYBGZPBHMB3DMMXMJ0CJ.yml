@@ -4,7 +4,7 @@ expected: ES.next
 patterns:
   - ES next
 specs:
-  - actual: ES nextでは
-    expected: ES.nextでは
+  - from: ES nextでは
+    to: ES.nextでは
 tags:
   - JavaScript

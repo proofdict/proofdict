@@ -4,7 +4,8 @@ expected: Virtual Machine
 patterns:
   - Virtual machine
 specs:
-  - actual: MSEdgeが使えるWindows 10のVirtual machine(VM)が公開された
-    expected: MSEdgeが使えるWindows 10のVirtual Machine(VM)が公開された
+  - from: MSEdgeが使えるWindows 10のVirtual machine(VM)が公開された
+    to: MSEdgeが使えるWindows 10のVirtual Machine(VM)が公開された
 tags:
   - noun
+  - opinion

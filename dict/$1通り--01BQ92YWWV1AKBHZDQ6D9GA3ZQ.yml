@@ -4,7 +4,7 @@ expected: $1通り
 patterns:
   - /(\d)とおり/
 specs:
-  - actual: (例)2とおりの方法
-    expected: (例)2通りの方法
+  - from: (例)2とおりの方法
+    to: (例)2通りの方法
 tags:
   - 表記統一

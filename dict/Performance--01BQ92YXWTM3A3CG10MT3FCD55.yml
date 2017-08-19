@@ -4,7 +4,7 @@ expected: Performance
 patterns:
   - /peformance/i
 specs:
-  - actual: ブラウザ上でどうやって計測するかやPeformance Timelineなどの仕様について
-    expected: ブラウザ上でどうやって計測するかやPerformance Timelineなどの仕様について
+  - from: ブラウザ上でどうやって計測するかやPeformance Timelineなどの仕様について
+    to: ブラウザ上でどうやって計測するかやPerformance Timelineなどの仕様について
 tags:
   - typo

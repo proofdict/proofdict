@@ -4,7 +4,7 @@ expected: ください
 patterns:
   - 下さい
 specs:
-  - actual: 提出して下さい。
-    expected: 提出してください。
+  - from: 提出して下さい。
+    to: 提出してください。
 tags:
   - 表記統一

@@ -4,9 +4,9 @@ expected: のように
 patterns:
   - /の様に/
 specs:
-  - actual: 一様に
-    expected: 一様に
-  - actual: 〜の様に
-    expected: 〜のように
+  - from: 一様に
+    to: 一様に
+  - from: 〜の様に
+    to: 〜のように
 tags:
   - 表記統一

@@ -4,7 +4,7 @@ expected: Foundation
 patterns:
   - Fundation
 specs:
-  - actual: Fundation
-    expected: Foundation
+  - from: Fundation
+    to: Foundation
 tags:
   - typo

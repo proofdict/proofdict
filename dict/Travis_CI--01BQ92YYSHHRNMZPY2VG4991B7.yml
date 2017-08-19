@@ -3,6 +3,8 @@ description: ''
 expected: Travis CI
 patterns:
   - /TravisCI/i
-specs: []
+specs:
+  - from: TravisCI is a service
+    to: Travis CI is a service
 tags:
   - noun

@@ -1,8 +1,10 @@
 id: 01BQ92YYSD9K713DCXTFGNDENS
-description: ''
+description: 'Reference https://leanpub.com/'
 expected: Leanpub
 patterns:
-  - '/[LlＬｌ][EeＥｅ][AaＡａ][NnＮｎ][PpＰｐ][UuＵｕ][BbＢｂ]/gmu'
-specs: []
+  - /leanpub/i
+specs:
+  - from: leanpub
+    to: Leanpub
 tags:
   - noun

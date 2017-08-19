@@ -4,15 +4,15 @@ expected: $1こと
 patterns:
   - /([ぁ-んァ-ヶ])事(?!情|件|前|後|例|実|体|態|項|者)/
 specs:
-  - actual: やましい事があるのでは?
-    expected: やましいことがあるのでは?
-  - actual: やましい事があるのでは?
-    expected: やましいことがあるのでは?
-  - actual: ある事
-    expected: あること
-  - actual: 記事
-    expected: 記事
-  - actual: 事件
-    expected: 事件
+  - from: やましい事があるのでは?
+    to: やましいことがあるのでは?
+  - from: やましい事があるのでは?
+    to: やましいことがあるのでは?
+  - from: ある事
+    to: あること
+  - from: 記事
+    to: 記事
+  - from: 事件
+    to: 事件
 tags:
   - 表記統一

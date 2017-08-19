@@ -1,11 +1,12 @@
 id: 01BQ92YYBH2H42AT29Y4BP84FA
-description: ''
+description: 'Reference https://www.w3.org/TR/touch-events/'
 expected: Touch Events
 patterns:
   - /Touch Event/i
   - /Touch Events/i
 specs:
-  - actual: Touch Event、Fullscreen APIなどのサポートなど
-    expected: Touch Events、Fullscreen APIなどのサポートなど
+  - from: Touch Event、Fullscreen APIなどのサポートなど
+    to: Touch Events、Fullscreen APIなどのサポートなど
 tags:
+  - noun
   - JavaScript

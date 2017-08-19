@@ -5,9 +5,9 @@ patterns:
   - /pointer event/i
   - /pointer events/i
 specs:
-  - actual: MSEdgeの対応、pointer eventなど対応、
-    expected: MSEdgeの対応、Pointer Eventsなど対応、
-  - actual: pointer-events
-    expected: pointer-events
+  - from: MSEdgeの対応、pointer eventなど対応、
+    to: MSEdgeの対応、Pointer Eventsなど対応、
+  - from: pointer-events
+    to: pointer-events
 tags:
   - JavaScript

@@ -4,9 +4,9 @@ expected: $1つき
 patterns:
   - /(手|目|腰)付き/
 specs:
-  - actual: 目付き。
-    expected: 目つき。
-  - actual: 手付き。
-    expected: 手つき。
+  - from: 目付き。
+    to: 目つき。
+  - from: 手付き。
+    to: 手つき。
 tags:
   - 表記統一

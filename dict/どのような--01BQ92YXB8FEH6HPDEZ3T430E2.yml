@@ -4,7 +4,7 @@ expected: どのような
 patterns:
   - /どういう(?!こと)/
 specs:
-  - actual: どういうものがthenableなのか
-    expected: どのようなものがthenableなのか
+  - from: どういうものがthenableなのか
+    to: どのようなものがthenableなのか
 tags:
   - 表記統一

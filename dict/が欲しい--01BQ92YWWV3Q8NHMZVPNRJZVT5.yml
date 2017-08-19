@@ -4,7 +4,7 @@ expected: が欲しい
 patterns:
   - がほしい
 specs:
-  - actual: この本がほしい
-    expected: この本が欲しい
+  - from: この本がほしい
+    to: この本が欲しい
 tags:
   - 表記統一

@@ -4,29 +4,29 @@ expected: $1とき
 patterns:
   - /(の)時(?!点|代|々|間)/
 specs:
-  - actual: その時
-    expected: そのとき
-  - actual: その時点
-    expected: その時点
-  - actual: その時代
-    expected: その時代
-  - actual: それまでの時間
-    expected: それまでの時間
-  - actual: 同時
-    expected: 同時
-  - actual: 実行時
-    expected: 実行時
-  - actual: 利用時
-    expected: 利用時
-  - actual: 開発時
-    expected: 開発時
-  - actual: 執筆時
-    expected: 執筆時
-  - actual: 時点
-    expected: 時点
-  - actual: 時代
-    expected: 時代
-  - actual: 時間
-    expected: 時間
+  - from: その時
+    to: そのとき
+  - from: その時点
+    to: その時点
+  - from: その時代
+    to: その時代
+  - from: それまでの時間
+    to: それまでの時間
+  - from: 同時
+    to: 同時
+  - from: 実行時
+    to: 実行時
+  - from: 利用時
+    to: 利用時
+  - from: 開発時
+    to: 開発時
+  - from: 執筆時
+    to: 執筆時
+  - from: 時点
+    to: 時点
+  - from: 時代
+    to: 時代
+  - from: 時間
+    to: 時間
 tags:
   - 表記統一

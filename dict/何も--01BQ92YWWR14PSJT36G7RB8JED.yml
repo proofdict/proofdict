@@ -4,7 +4,7 @@ expected: 何も
 patterns:
   - なにも
 specs:
-  - actual: なにも知らない
-    expected: 何も知らない
+  - from: なにも知らない
+    to: 何も知らない
 tags:
   - 表記統一

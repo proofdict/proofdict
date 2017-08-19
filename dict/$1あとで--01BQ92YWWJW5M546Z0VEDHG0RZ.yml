@@ -4,7 +4,7 @@ expected: $1あとで
 patterns:
   - /(して|した|、)後で/
 specs:
-  - actual: して後で
-    expected: してあとで
+  - from: して後で
+    to: してあとで
 tags:
   - 表記統一

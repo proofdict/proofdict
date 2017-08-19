@@ -4,7 +4,7 @@ expected: 何らかの
 patterns:
   - なんらかの
 specs:
-  - actual: なんらかの策。
-    expected: 何らかの策。
+  - from: なんらかの策。
+    to: 何らかの策。
 tags:
   - 表記統一

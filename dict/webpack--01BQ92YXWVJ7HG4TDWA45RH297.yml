@@ -4,7 +4,7 @@ expected: webpack
 patterns:
   - /\bwebpac(?!k)\b/
 specs:
-  - actual: webpacのビルド速度改善についてのスライド
-    expected: webpackのビルド速度改善についてのスライド
+  - from: webpacのビルド速度改善についてのスライド
+    to: webpackのビルド速度改善についてのスライド
 tags:
   - typo

@@ -1,11 +1,16 @@
 id: 01BQ92YYBJBBNRPR2WYHMDYPPG
-description: ''
-expected: Source Map
+description: 'Reference http://source-map.github.io/'
+expected: Source Map$1
 patterns:
-  - /Source Map/i
-  - /SourceMap/i
+  - /Source Map(s)?/i
+  - /SourceMap(s)?/i
 specs:
-  - actual: 多段SourceMapに対応
-    expected: 多段Source Mapに対応
+  - from: 多段SourceMapsに対応
+    to: 多段Source Mapsに対応
+  - from: 多段SourceMapに対応
+    to: 多段Source Mapに対応
+  - from: SourceMaps
+    to: Source Maps
 tags:
+  - noun
   - JavaScript

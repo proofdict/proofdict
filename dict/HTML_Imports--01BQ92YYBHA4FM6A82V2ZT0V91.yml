@@ -1,8 +1,11 @@
 id: 01BQ92YYBHA4FM6A82V2ZT0V91
-description: ''
+description: 'Reference https://www.w3.org/TR/html-imports/'
 expected: HTML Imports
 patterns:
-  - /\bHTML Import\b/
-specs: []
+  - /HTML Import/i
+specs:
+  - from: HTML import
+    to:   HTML Imports
 tags:
+  - noun
   - JavaScript

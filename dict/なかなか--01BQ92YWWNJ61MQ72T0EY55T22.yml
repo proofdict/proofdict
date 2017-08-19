@@ -4,7 +4,7 @@ expected: なかなか
 patterns:
   - 中々
 specs:
-  - actual: 中々できないことだ。
-    expected: なかなかできないことだ。
+  - from: 中々できないことだ。
+    to: なかなかできないことだ。
 tags:
   - 表記統一

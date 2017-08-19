@@ -4,9 +4,9 @@ expected: Redux
 patterns:
   - /redux(?!-)/i
 specs:
-  - actual: redux
-    expected: Redux
-  - actual: redux-react
-    expected: redux-react
+  - from: redux
+    to: Redux
+  - from: redux-react
+    to: redux-react
 tags:
   - JavaScript

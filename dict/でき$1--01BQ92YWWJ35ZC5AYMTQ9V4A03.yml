@@ -4,7 +4,7 @@ expected: でき$1
 patterns:
   - /出来(る|て|た|ま|上が)/
 specs:
-  - actual: 出来上がった
-    expected: でき上がった
+  - from: 出来上がった
+    to: でき上がった
 tags:
   - 表記統一

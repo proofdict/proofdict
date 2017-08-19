@@ -4,7 +4,7 @@ expected: Property
 patterns:
   - /propety/i
 specs:
-  - actual: propety
-    expected: Property
+  - from: propety
+    to: Property
 tags:
   - typo

@@ -4,9 +4,9 @@ expected: $1出す
 patterns:
   - /(探し|見つけ|見い)だす/
 specs:
-  - actual: 探しだす
-    expected: 探し出す
-  - actual: 見つけだす
-    expected: 見つけ出す
+  - from: 探しだす
+    to: 探し出す
+  - from: 見つけだす
+    to: 見つけ出す
 tags:
   - 表記統一

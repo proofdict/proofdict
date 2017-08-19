@@ -1,9 +1,9 @@
 id: 01BQ92YYBJTDA6WF56ZE9PKP8F
-description: ''
+description: 'Reference http://underscorejs.org/'
 expected: Underscore.js
 patterns:
-  - >-
-    /[UuＵｕ][NnＮｎ][DdＤｄ][EeＥｅ][RrＲｒ][SsＳｓ][CcＣｃ][OoＯｏ][RrＲｒ][EeＥｅ].[JjＪｊ][SsＳｓ]/gmu
+  - /underscore.js/i
 specs: []
 tags:
+  - noun
   - JavaScript

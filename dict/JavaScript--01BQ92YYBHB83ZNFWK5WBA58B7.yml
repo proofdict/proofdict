@@ -2,11 +2,12 @@ id: 01BQ92YYBHB83ZNFWK5WBA58B7
 description: ''
 expected: JavaScript
 patterns:
-  - /\bJava Script\b/i
+  - /Java Script/i
 specs:
-  - actual: java script
-    expected: JavaScript
-  - actual: Java script
-    expected: JavaScript
+  - from: java script
+    to: JavaScript
+  - from: Java script
+    to: JavaScript
 tags:
+  - noun
   - JavaScript

@@ -4,9 +4,9 @@ expected: かかわらず
 patterns:
   - /関わ?らず/
 specs:
-  - actual: 関わらず
-    expected: かかわらず
-  - actual: 関らず
-    expected: かかわらず
+  - from: 関わらず
+    to: かかわらず
+  - from: 関らず
+    to: かかわらず
 tags:
   - 表記統一

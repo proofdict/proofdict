@@ -4,9 +4,9 @@ expected: Import
 patterns:
   - Impport
 specs:
-  - actual: Dynamic Impport
-    expected: Dynamic Import
-  - actual: Impporter
-    expected: Importer
+  - from: Dynamic Impport
+    to: Dynamic Import
+  - from: Impporter
+    to: Importer
 tags:
   - typo
