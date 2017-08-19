@@ -9,4 +9,5 @@ specs:
   - from: 〜の様に
     to: 〜のように
 tags:
+  - opinion
   - 表記統一

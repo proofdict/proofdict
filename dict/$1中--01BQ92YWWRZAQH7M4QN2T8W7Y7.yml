@@ -5,4 +5,5 @@ patterns:
   - /(世界|日)じゅう/
 specs: []
 tags:
+  - opinion
   - 表記統一

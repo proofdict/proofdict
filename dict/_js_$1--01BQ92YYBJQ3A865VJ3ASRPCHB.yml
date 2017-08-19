@@ -1,8 +1,0 @@
-id: 01BQ92YYBJQ3A865VJ3ASRPCHB
-description: ''
-expected: .js $1
-patterns:
-  - '/.js([.0-9]+)/'
-specs: []
-tags:
-  - JavaScript

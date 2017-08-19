@@ -29,4 +29,5 @@ specs:
   - from: 時間
     to: 時間
 tags:
+  - opinion
   - 表記統一

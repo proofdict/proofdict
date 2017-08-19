@@ -7,4 +7,5 @@ specs:
   - from: この本がほしい
     to: この本が欲しい
 tags:
+  - opinion
   - 表記統一

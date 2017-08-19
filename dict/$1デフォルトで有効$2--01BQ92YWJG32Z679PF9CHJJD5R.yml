@@ -5,4 +5,5 @@ patterns:
   - '/(?:(が)デフォルト有効)|(?:デフォルト有効(に))/'
 specs: []
 tags:
+  - opinion
   - jser.info

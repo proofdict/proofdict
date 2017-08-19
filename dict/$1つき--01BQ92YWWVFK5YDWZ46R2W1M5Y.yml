@@ -9,4 +9,5 @@ specs:
   - from: 手付き。
     to: 手つき。
 tags:
+  - opinion
   - 表記統一

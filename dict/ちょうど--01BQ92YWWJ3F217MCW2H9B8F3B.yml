@@ -5,4 +5,5 @@ patterns:
   - /(丁度|調度)/
 specs: []
 tags:
+  - opinion
   - 表記統一

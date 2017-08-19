@@ -1,5 +1,5 @@
 id: 01BQ92YWJJF0HJ538KFP8N605N
-description: ''
+description: '「を」が抜けています'
 expected: 新規開発を終了
 patterns:
   - 新規開発終了

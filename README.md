@@ -77,6 +77,10 @@ tags:
   - noun
 ```
 
+> `opinion`
+
+`opinion` is opinion dictionary.
+
 ## API
 
 Get the dictionary as JSON

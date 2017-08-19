@@ -3,6 +3,8 @@ description: ''
 expected: リリース
 patterns:
   - リリーう
-specs: []
+specs:
+  - from: アプリをリリーう
+    to  : アプリをリリース
 tags:
   - typo

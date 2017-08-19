@@ -9,4 +9,5 @@ specs:
   - from: 以下の通りです。
     to: 以下のとおりです。
 tags:
+  - opinion
   - 表記統一

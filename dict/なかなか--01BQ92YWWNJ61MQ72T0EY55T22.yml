@@ -7,4 +7,5 @@ specs:
   - from: 中々できないことだ。
     to: なかなかできないことだ。
 tags:
+  - opinion
   - 表記統一

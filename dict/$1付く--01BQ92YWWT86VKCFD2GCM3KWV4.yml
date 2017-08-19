@@ -9,4 +9,5 @@ specs:
   - from: 利子がつく。
     to: 利子が付く。
 tags:
+  - opinion
   - 表記統一

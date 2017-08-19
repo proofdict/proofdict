@@ -1,8 +1,13 @@
 id: 01BQ92YXWK9BE72T24NA95YZEC
-description: ''
+description: 'ライブラリのtypoです'
 expected: ライブラリ
 patterns:
   - ライブライ
-specs: []
+  - ライブらい
+specs:
+  - from: ライブらい
+    to:   ライブラリ
+  - from: ライブライ
+    to:   ライブラリ
 tags:
   - typo

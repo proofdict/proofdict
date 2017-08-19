@@ -5,4 +5,5 @@ patterns:
   - /(\d+年\d+月\d+日)\s発売/
 specs: []
 tags:
+  - opinion
   - jser.info

@@ -9,4 +9,5 @@ specs:
   - from: 見つけだす
     to: 見つけ出す
 tags:
+  - opinion
   - 表記統一

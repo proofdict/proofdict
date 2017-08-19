@@ -13,4 +13,5 @@ specs:
   - from: 下記の
     to: 次の
 tags:
+  - opinion
   - 表記統一
