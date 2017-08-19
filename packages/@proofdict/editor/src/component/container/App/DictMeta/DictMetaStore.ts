@@ -6,15 +6,18 @@ import { Dictionary } from "../../../../domain/Dictionary";
 export interface DictMetaStateArgs {
     description: string;
     selectedTags: string[];
+    suggestTags: string[];
 }
 
 export class DictMetaState {
     description: string;
     selectedTags: string[];
+    suggestTags: string[];
 
     constructor(args: DictMetaStateArgs) {
         this.description = args.description;
         this.selectedTags = args.selectedTags;
+        this.suggestTags = args.suggestTags;
     }
 
     update(dictionary: Dictionary) {
@@ -33,7 +36,9 @@ export class DictMetaStore extends Store<DictMetaState> {
         super();
         this.state = new DictMetaState({
             description: "",
-            selectedTags: []
+            selectedTags: [],
+            // Special keywords is defined by https://github.com/proofdict/proofdict
+            suggestTags: ["noun", "opinion"]
         });
     }
 

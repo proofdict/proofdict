@@ -34,7 +34,7 @@ export class DictMetaContainer extends BaseContainer<DictDescriptionContainerPro
                     onChanged={this.onChangedDescription}
                 />
                 <TagInput
-                    tags={this.props.dictMeta.selectedTags}
+                    tags={this.props.dictMeta.suggestTags}
                     selectedTags={this.props.dictMeta.selectedTags}
                     onChangeTags={this.onChangedTags}
                 />
