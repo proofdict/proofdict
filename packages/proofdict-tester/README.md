@@ -1,4 +1,4 @@
-# proofdict-tester
+# proofdict-tester [![Build Status](https://travis-ci.org/proofdict/proofdict-tester.svg?branch=master)](https://travis-ci.org/proofdict/proofdict-tester)
 
 Test tool using proofdict.
 
