@@ -56,7 +56,8 @@ export class ProofdictTester {
                     patterns: isNoun ? dict.patterns.map(pattern => {
                         return wrapWordBoundaryToString(pattern);
                     }) : dict.patterns,
-                    tags: dict.tags
+                    tags: dict.tags,
+                    description: dict.description
                 }
             })
         });

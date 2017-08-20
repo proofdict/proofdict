@@ -23,6 +23,7 @@ describe("ProofdictTester", () => {
                 const [detail] = result.details;
                 assert.strictEqual(detail.actual, "webkit");
                 assert.strictEqual(detail.expected, "WebKit");
+                assert.strictEqual(detail.description, "Reference https://webkit.org/");
                 assert.strictEqual(detail.matchStartIndex, 8);
                 assert.strictEqual(detail.matchEndIndex, 14);
                 assert.strictEqual(text.slice(detail.matchStartIndex, detail.matchEndIndex), "webkit");

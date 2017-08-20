@@ -95,6 +95,10 @@
             {
                 "from": "（例）笑い出す。",
                 "to": "（例）笑いだす。"
+            },
+            {
+                "from": "探しだす",
+                "to": "探しだす"
             }
         ],
         "tags": [
@@ -144,7 +148,16 @@
         "patterns": [
             "/(思った|以下の)通り/"
         ],
-        "specs": [],
+        "specs": [
+            {
+                "from": "（例）思った通り。",
+                "to": "（例）思ったとおり。"
+            },
+            {
+                "from": "以下の通りです。",
+                "to": "以下のとおりです。"
+            }
+        ],
         "tags": [
             "opinion",
             "表記統一"
@@ -274,6 +287,28 @@
         ]
     },
     {
+        "id": "01BQ92YWWTQ4CWP3MQQHBBMP51",
+        "description": "",
+        "expected": "$1出す",
+        "patterns": [
+            "/(探し|見つけ|見い)だす/"
+        ],
+        "specs": [
+            {
+                "from": "探しだす",
+                "to": "探し出す"
+            },
+            {
+                "from": "見つけだす",
+                "to": "見つけ出す"
+            }
+        ],
+        "tags": [
+            "opinion",
+            "表記統一"
+        ]
+    },
+    {
         "id": "01BQ92YWJF8WXN0M9FE0S4QYW5",
         "description": "",
         "expected": "$1発売",
@@ -312,6 +347,10 @@
             "/angular/i"
         ],
         "specs": [
+            {
+                "from": "angularJS",
+                "to": "angularJS"
+            },
             {
                 "from": "angular",
                 "to": "Angular"
@@ -394,8 +433,8 @@
         ],
         "specs": [
             {
-                "from": "WebVRをCustome Elementのタグで書く",
-                "to": "WebVRをCustom Elementのタグで書く"
+                "from": "WebVRをCustome Elementのタグを書くだけで出来るライブラリ",
+                "to": "WebVRをCustom Elementのタグを書くだけで出来るライブラリ"
             }
         ],
         "tags": [
@@ -835,8 +874,8 @@
         ],
         "specs": [
             {
-                "from": "This is serviceworker?",
-                "to": "This is service worker?"
+                "from": "1serviceworker?",
+                "to": "1service worker?"
             },
             {
                 "from": "ServiceWorker",
@@ -874,19 +913,23 @@
     {
         "id": "01BQ92YYBJBBNRPR2WYHMDYPPG",
         "description": "Reference http://source-map.github.io/",
-        "expected": "Source Map",
+        "expected": "Source Map$1",
         "patterns": [
-            "/Source Map/i",
-            "/SourceMap/i"
+            "/Source Map(s)?/i",
+            "/SourceMap(s)?/i"
         ],
         "specs": [
+            {
+                "from": "多段SourceMapsに対応",
+                "to": "多段Source Mapsに対応"
+            },
             {
                 "from": "多段SourceMapに対応",
                 "to": "多段Source Mapに対応"
             },
             {
-                "from": "SourceMap",
-                "to": "Source Map"
+                "from": "SourceMaps",
+                "to": "Source Maps"
             }
         ],
         "tags": [
@@ -1851,6 +1894,28 @@
         ]
     },
     {
+        "id": "01BQ92YWWQRNR5Z83C9HZ5Q3WC",
+        "description": "",
+        "expected": "のように",
+        "patterns": [
+            "/の様に/"
+        ],
+        "specs": [
+            {
+                "from": "一様に",
+                "to": "一様に"
+            },
+            {
+                "from": "〜の様に",
+                "to": "〜のように"
+            }
+        ],
+        "tags": [
+            "opinion",
+            "表記統一"
+        ]
+    },
+    {
         "id": "01BQ92YWWJBQWSE1K2A8G5SJP9",
         "description": "漢字で書かず、ひらがなで書くと読みやすくなります",
         "expected": "はやる",
@@ -2130,8 +2195,8 @@
         ],
         "specs": [
             {
-                "from": "今ままで`react`モジュールにあった",
-                "to": "今まで`react`モジュールにあった"
+                "from": "今ままで`react`モジュールにあったAPIがそれぞれ以下のように移されています。",
+                "to": "今まで`react`モジュールにあったAPIがそれぞれ以下のように移されています。"
             }
         ],
         "tags": [
@@ -2229,6 +2294,25 @@
         "tags": [
             "opinion",
             "表記統一"
+        ]
+    },
+    {
+        "id": "01BQ92YWJJ4YPJA3E64EMYA2J8",
+        "description": "",
+        "expected": "使うべきではない言葉なので修正してください",
+        "patterns": [
+            "使うべきではない言葉なので修正してください",
+            "最強",
+            "常識的",
+            "最も優れた",
+            "知らない",
+            "知らなさそう",
+            "酷い"
+        ],
+        "specs": [],
+        "tags": [
+            "opinion",
+            "jser.info"
         ]
     },
     {
@@ -2387,8 +2471,8 @@
         ],
         "specs": [
             {
-                "from": "YUIは新規開発終了し、今後はYahoo内部向けの修正に留めるとのこと。",
-                "to": "YUIは新規開発を終了し、今後はYahoo内部向けの修正に留めるとのこと。"
+                "from": "YUIは新規開発終了し、今後はYahoo内部向けの修正に留めるとの事。",
+                "to": "YUIは新規開発を終了し、今後はYahoo内部向けの修正に留めるとの事。"
             }
         ],
         "tags": [
@@ -2416,10 +2500,6 @@
             "/(?:以下|下記)(の|に)/"
         ],
         "specs": [
-            {
-                "from": "それぞれ以下のように書かれています。",
-                "to": "それぞれ次のように書かれています。"
-            },
             {
                 "from": "以下の",
                 "to": "次の"
