@@ -2,6 +2,8 @@
 
 textlint rule check text using proofdict.
 
+webkit
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
@@ -28,6 +30,65 @@ textlint --rule proofdict README.md
 
 ## Options
 
+Default setting:
+
+```json
+{
+    // = AutoUpdate settings
+    // Automatically update proofdict source
+    "autoUpdate": false,
+    // 60sec(60 * 1000ms) by default
+    "autoUpdateInterval": 60000,
+    // If autoUpdate is failed, redirect to use cached proofdict
+    "autoFallback": false,
+    // = Tag settings
+    // Filter dictionary by whitelist or blacklist
+    // Default: Enable all terms of the dictionary.
+    // When set both options, this rule prefer whitelist to blacklist
+    "whitelistTags": [],
+    "blacklistTags": []
+}
+```
+
+
+### AutoUpdate(Default: false)
+
+If `autoUpdate` is true, this rule automatically update dictionary source.
+The fetched dictionary is put into `.cache/localstorage-ponyfill`.
+
+### Whitelist/Blacklist
+
+This rule use [proofdict](https://proofdict.github.io/proofdict/ "proofdict") as the source of dictionary.
+
+Each dictionary items has `tag`.
+
+For example, [WebKit](https://proofdict.github.io/proofdict/item/01BQ92YZ6QR8RJKA5Y8W2F9NMY "WebKit") has `noun` tag.
+
+You can setting enable/disable by `whitelistTags` and `blacklistTags`
+
+e.g.) Enable only "noun" tag.
+
+```json
+{
+    "rules": {
+        "proofdict": {
+          "whitelistTags": ["noun"]
+        }
+    }
+}
+```
+
+e.g.) Use items without `"opinion"` tag
+
+```json
+{
+    "rules": {
+        "proofdict": {
+          "blacklistTags": ["opinion"]
+        }
+    }
+}
+```
 
 ## Changelog
 

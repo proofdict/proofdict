@@ -2090,7 +2090,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prh@^5.3.0:
+prh@5.3.0, prh@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/prh/-/prh-5.3.0.tgz#d9b97467188623d3d3084aca8b076004251485b0"
   dependencies:
@@ -2106,9 +2106,15 @@ process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
-proofdict@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/proofdict/-/proofdict-1.1.0.tgz#0f1dfac4fc5f6a31a70a26ac4ca3c4f715009a4d"
+proofdict-tester@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/proofdict-tester/-/proofdict-tester-0.3.0.tgz#cb51f7a9c9284c84d27b57183670cccda297622a"
+  dependencies:
+    prh "5.3.0"
+
+proofdict@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/proofdict/-/proofdict-1.2.0.tgz#6a5b52f561cfc204b6dd1d876f93b93b5863b18e"
   dependencies:
     fetch-ponyfill "^4.1.0"
 
