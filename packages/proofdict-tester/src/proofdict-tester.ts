@@ -22,6 +22,9 @@ export interface ProofdictSpec {
 }
 
 export interface ProofdictTesterResultDetail {
+    // details url
+    url: string;
+    // additional description
     description?: string;
     // original match start index, not replaced start index
     matchStartIndex: number;
@@ -63,6 +66,7 @@ export class ProofdictTester {
             version: 1,
             rules: filteredProofdict.map(dict => {
                 return {
+                    id: dict.id,
                     expected: dict.expected,
                     patterns: isNoun(dict) ? dict.patterns.map(pattern => {
                         return wrapWordBoundaryToString(pattern);
@@ -113,7 +117,9 @@ export class ProofdictTester {
             const actual = currentString.slice(matchStartIndex, matchEndIndex);
             const expected = diff.newText!;
             const description = diff.rule && diff.rule.raw.description;
+            const url = diff.rule ? `https://proofdict.github.io/proofdict/item/${diff.rule!.raw.id}` : "https://proofdict.github.io/proofdict/";
             results.push({
+                url,
                 matchStartIndex,
                 matchEndIndex,
                 actual,
