@@ -1,8 +1,15 @@
 // MIT © 2017 azu
 
 // TODO: copy
-import { concat } from "prh/lib/utils/regexp";
+import { concat, parseRegExpString } from "prh/lib/utils/regexp";
 
+export const wrapWordBoundaryToString = (pattern: string): string => {
+    const regExp = parseRegExpString(pattern);
+    if (regExp === null) {
+        return pattern;
+    }
+    return wrapWordBoundary(regExp).toString();
+};
 export const wrapWordBoundary = (pattern: string | RegExp) => {
     let result;
     let flags;

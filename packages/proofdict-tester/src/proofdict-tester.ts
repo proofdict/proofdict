@@ -1,9 +1,8 @@
 // MIT © 2017 azu
 import { Diff, Engine } from "prh";
 import {
-    wrapHyphenWordBoundary, wrapWordBoundary
+    wrapHyphenWordBoundary, wrapWordBoundaryToString
 } from "./proofdict-tester-util";
-import { parseRegExpString } from "prh/lib/utils/regexp";
 
 export interface Proofdict {
     expected: string;
@@ -34,10 +33,11 @@ export interface ProofdictTesterResultDetail {
 export interface ProofdictTesterResult {
     // replaced result
     output: string;
+    // details output
     details: ProofdictTesterResultDetail[]
     // This will be removed in the future
     // @deprecated
-    diffs: Diff[];
+    diffs?: Diff[];
 }
 
 const NOUN_TAG = "noun";
@@ -54,11 +54,7 @@ export class ProofdictTester {
                 return {
                     expected: dict.expected,
                     patterns: isNoun ? dict.patterns.map(pattern => {
-                        const regExp = parseRegExpString(pattern);
-                        if (regExp === null) {
-                            return pattern;
-                        }
-                        return wrapWordBoundary(regExp).toString();
+                        return wrapWordBoundaryToString(pattern);
                     }) : dict.patterns,
                     tags: dict.tags
                 }
