@@ -15,7 +15,7 @@ tester.run("proofdict", rule, {
             errors: [
                 {
                     message:
-                        "jquery => jQuery\nSee https://proofdict.github.io/proofdict/item/01BQ92YYBJENZB6M480KCJ0J99",
+                        "jquery => jQuery\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
                     line: 2,
                     column: 1
                 }
@@ -31,7 +31,7 @@ tester.run("proofdict", rule, {
             errors: [
                 {
                     message:
-                        "jquery => jQuery\nSee https://proofdict.github.io/proofdict/item/01BQ92YYBJENZB6M480KCJ0J99",
+                        "jquery => jQuery\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
                     line: 1,
                     column: 1
                 }
@@ -46,7 +46,7 @@ tester.run("proofdict", rule, {
             errors: [
                 {
                     message:
-                        "どういう => どのような\n「どういう」は口語表現です\nSee https://proofdict.github.io/proofdict/item/01BQ92YXB8FEH6HPDEZ3T430E2",
+                        "どういう => どのような\n「どういう」は口語表現です\nSee https://proofdict.github.io/item/01BQ92YXB8FEH6HPDEZ3T430E2",
                     line: 1,
                     column: 1
                 }
