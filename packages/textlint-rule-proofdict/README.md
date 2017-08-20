@@ -1,8 +1,8 @@
-# textlint-rule-proofdict
+# textlint-rule-proofdict [![Build Status](https://travis-ci.org/proofdict/textlint-rule-proofdict.svg?branch=master)](https://travis-ci.org/proofdict/textlint-rule-proofdict) 
 
-textlint rule check text using proofdict.
+[textlint](https://github.com/textlint/textlint "textlint") rule check text using [proofdict](https://proofdict.github.io/proofdict/ "proofdict").
 
-webkit
+[proofdict](https://proofdict.github.io/proofdict/ "proofdict") is a opinionated dictionary. 
 
 ## Install
 
