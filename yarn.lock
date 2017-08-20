@@ -47,6 +47,10 @@ commandpost@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/commandpost/-/commandpost-1.2.0.tgz#b7e767cc90b3cfce33dd791b55648854accfe23e"
 
+commandpost@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/commandpost/-/commandpost-1.2.1.tgz#2e9c4c7508b9dc704afefaa91cab92ee6054cc68"
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -71,6 +75,10 @@ del@^3.0.0:
 diff@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
+
+diff@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.0.tgz#056695150d7aa93237ca7e378ac3b1682b7963b9"
 
 encoding@^0.1.11:
   version "0.1.12"
@@ -330,12 +338,26 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
+prh@5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/prh/-/prh-5.3.0.tgz#d9b97467188623d3d3084aca8b076004251485b0"
+  dependencies:
+    commandpost "^1.2.1"
+    diff "^3.3.0"
+    js-yaml "^3.9.1"
+
 prh@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/prh/-/prh-3.1.1.tgz#621f1529f91a23a05e1f3d878869c8a88eb566b4"
   dependencies:
     commandpost "^1.2.0"
     js-yaml "^3.9.1"
+
+proofdict-tester@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/proofdict-tester/-/proofdict-tester-0.1.1.tgz#54bde6862e14749ba672e5d2930544174707017b"
+  dependencies:
+    prh "5.3.0"
 
 rimraf@^2.2.8:
   version "2.6.1"
