@@ -353,9 +353,9 @@ prh@^3.1.1:
     commandpost "^1.2.0"
     js-yaml "^3.9.1"
 
-proofdict-tester@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/proofdict-tester/-/proofdict-tester-0.1.1.tgz#54bde6862e14749ba672e5d2930544174707017b"
+proofdict-tester@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/proofdict-tester/-/proofdict-tester-0.3.1.tgz#f3119ee5b73ffdda445d3d55545d9373183991b6"
   dependencies:
     prh "5.3.0"
 

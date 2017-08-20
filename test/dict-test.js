@@ -11,7 +11,7 @@ const { createDictionary } = require("../tools/build-dict");
 describe("dict", () => {
     it("all dict check", () => {
         const proofdict = createDictionary();
-        const tester = new ProofdictTester(proofdict);
+        const tester = new ProofdictTester({ dictionary: proofdict });
         const testSpec = (spec) => {
             return tester.match(spec.from).then(result => {
                 assert.ok(typeof result === "object", "should have result");
@@ -35,7 +35,9 @@ ${JSON.stringify(result, null, 4)}
         const baseName = path.basename(filePath, ".yml");
         it(`${baseName}`, () => {
             const json = yaml.safeLoad(fs.readFileSync(filePath, 'utf8'));
-            const tester = new ProofdictTester([json]);
+            const tester = new ProofdictTester({
+                dictionary: [json]
+            });
             const testSpec = (spec) => {
                 return tester.match(spec.from).then(result => {
                     assert.ok(typeof result === "object", "should have result");
