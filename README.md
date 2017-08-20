@@ -10,7 +10,7 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Website
 
-Visit <https://proofdict.github.io/proofdict/>
+Visit <https://proofdict.github.io/>
 
 ## Dictionary format
 
@@ -85,7 +85,7 @@ tags:
 
 Get the dictionary as JSON
 
-- <https://proofdict.github.io/proofdict/dict.json>
+- <https://proofdict.github.io/dict.json>
 
 ## Node module
 
