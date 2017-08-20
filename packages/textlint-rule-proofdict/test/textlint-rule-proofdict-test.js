@@ -38,17 +38,18 @@ tester.run("proofdict", rule, {
             ]
         },
         {
-            text: "どういうものがthenableなのか",
-            output: "どのようなものがthenableなのか",
+            text: "This is webkit.",
+            output: "This is WebKit.",
             options: {
-                autoUpdate: false
+                proofdict: require("./fixtures/proofdict.json")
             },
             errors: [
                 {
-                    message:
-                        "どういう => どのような\n「どういう」は口語表現です\nSee https://proofdict.github.io/item/01BQ92YXB8FEH6HPDEZ3T430E2",
+                    message: "webkit => WebKit\n"
+                    + "Reference https://webkit.org/\n"
+                    + "See https://proofdict.github.io/item/01BQ92YZ6QR8RJKA5Y8W2F9NMY",
                     line: 1,
-                    column: 1
+                    column: 9
                 }
             ]
         }
