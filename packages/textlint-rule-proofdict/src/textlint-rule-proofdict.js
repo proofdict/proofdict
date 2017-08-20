@@ -4,7 +4,6 @@ const { ProofdictTester } = require("proofdict-tester");
 const { getProofdict, fetchProofdict } = require("proofdict");
 const { createLocalStorage } = require("localstorage-ponyfill");
 const { RuleHelper } = require("textlint-rule-helper");
-const { Engine } = require("prh");
 const DefaultOptions = {
     // = AutoUpdate settings
     // Automatically update proofdict source
@@ -22,24 +21,6 @@ const DefaultOptions = {
     // For testing
     // set you proofdict json object
     "proofdict": undefined
-};
-/**
- *
- * @param {*} proofDict
- * @param {Function} predicateRule
- * @returns {Engine} prh engine
- */
-const createPrh = (proofDict, predicateRule) => {
-    return new Engine({
-        version: 1,
-        rules: proofDict.filter(predicateRule).map(data => {
-            return {
-                description: data.description.length > 0 ? data.description : undefined,
-                expected: data.expected,
-                patterns: data.patterns
-            };
-        })
-    });
 };
 const reporter = (context, options = DefaultOptions) => {
     const helper = new RuleHelper(context);
