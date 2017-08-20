@@ -1,5 +1,5 @@
 id: 01BQ92YYBJENZB6M480KCJ0J99
-description: ''
+description: 'Reference http://jquery.com/'
 expected: jQuery
 patterns:
   - /jquery(?!-)/i
