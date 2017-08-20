@@ -1,10 +1,10 @@
 // MIT © 2017 azu
-import { Proofdict, ProofdictTester } from "../src/proofdict-tester";
+import { ProofdictItem, ProofdictTester } from "../src/proofdict-tester";
 import * as assert from "assert";
 
 describe("ProofdictTester fixtures", () => {
-    const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
-    const tester = new ProofdictTester(proofdict);
+    const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+    const tester = new ProofdictTester({ dictionary: proofdict });
     proofdict
         .filter(dict => dict.specs.length > 0)
         .forEach(dict => {

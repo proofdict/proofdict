@@ -3,8 +3,11 @@ import { Diff, Engine } from "prh";
 import {
     wrapHyphenWordBoundary, wrapWordBoundaryToString
 } from "./proofdict-tester-util";
+import { filterByTags, isNoun } from "./TagFilter";
 
-export interface Proofdict {
+export type Proofdict = ProofdictItem[]
+
+export interface ProofdictItem {
     expected: string;
     patterns: string[];
     description: string;
@@ -40,20 +43,28 @@ export interface ProofdictTesterResult {
     diffs?: Diff[];
 }
 
-const NOUN_TAG = "noun";
+export interface ProofdictTesterOptions {
+    dictionary: Proofdict;
+    // Filter dictionary by whitelist or blacklist
+    // Default: Enable all terms of the dictionary.
+    // When set both options, this rule prefer whitelist to blacklist
+    whitelistTags?: string[];
+    blacklistTags?: string[];
+}
 
 export class ProofdictTester {
     private prhEngine: Engine;
+    private proofdict: Proofdict;
 
-    constructor(private proofdictData: Proofdict[]) {
-        this.proofdictData = proofdictData;
+    constructor(options: ProofdictTesterOptions) {
+        this.proofdict = options.dictionary;
+        const filteredProofdict = filterByTags(this.proofdict, options.whitelistTags, options.blacklistTags);
         this.prhEngine = new Engine({
             version: 1,
-            rules: proofdictData.map(dict => {
-                const isNoun = dict.tags.indexOf(NOUN_TAG) !== -1;
+            rules: filteredProofdict.map(dict => {
                 return {
                     expected: dict.expected,
-                    patterns: isNoun ? dict.patterns.map(pattern => {
+                    patterns: isNoun(dict) ? dict.patterns.map(pattern => {
                         return wrapWordBoundaryToString(pattern);
                     }) : dict.patterns,
                     tags: dict.tags,
@@ -82,8 +93,7 @@ export class ProofdictTester {
             }
             // Extension: "noun"
             // Automatically add word boundary to the patterns
-            const tags: string[] = diff.rule!.raw.tags;
-            if (tags.indexOf(NOUN_TAG) !== -1) {
+            if (isNoun(diff.rule!.raw)) {
                 const expectPatterns = wrapHyphenWordBoundary(diff.pattern);
                 const isExpected = expectPatterns.some(expectPattern => {
                     return expectPattern.test(currentString);

@@ -1,12 +1,12 @@
 // MIT © 2017 azu
-import { Proofdict, ProofdictTester } from "../src/proofdict-tester";
+import { ProofdictItem, ProofdictTester } from "../src/proofdict-tester";
 import * as assert from "assert";
 
 describe("ProofdictTester", () => {
     describe("#replace", () => {
         it("should return replace result", () => {
-            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
-            const tester = new ProofdictTester(proofdict);
+            const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+            const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "This is webkit desu.";
             return tester.replace(text).then(result => {
                 assert.strictEqual(result, "This is WebKit desu.")
@@ -15,8 +15,8 @@ describe("ProofdictTester", () => {
     });
     describe("#match", () => {
         it("last noun pattern", () => {
-            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
-            const tester = new ProofdictTester(proofdict);
+            const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+            const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "This is webkit";
             return tester.match(text).then(result => {
                 assert.strictEqual(result.details.length, 1);
@@ -30,8 +30,8 @@ describe("ProofdictTester", () => {
             });
         });
         it("first noun pattern", () => {
-            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
-            const tester = new ProofdictTester(proofdict);
+            const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+            const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "SourceMap is text.";
             return tester.match(text).then(result => {
                 assert.strictEqual(result.details.length, 1);
@@ -44,8 +44,8 @@ describe("ProofdictTester", () => {
             });
         });
         it("non-noun pattern", () => {
-            const proofdict: Proofdict[] = require("./fixtures/proofdict.json");
-            const tester = new ProofdictTester(proofdict);
+            const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+            const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "Workaound is typo.";
             return tester.match(text).then(result => {
                 assert.strictEqual(result.details.length, 1);
