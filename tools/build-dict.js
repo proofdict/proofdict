@@ -26,4 +26,9 @@ const createDictionary = () => {
     return dictionary;
 };
 // write dict.json
-fs.writeFileSync(outputPath, JSON.stringify(createDictionary(), null, 4), "utf-8");
+if (!module.parent) {
+    console.log("Write", outputPath);
+    fs.writeFileSync(outputPath, JSON.stringify(createDictionary(), null, 4), "utf-8");
+}
+
+module.exports.createDictionary = createDictionary;

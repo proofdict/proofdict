@@ -4,7 +4,7 @@ expected: Custom
 patterns:
   - /Custome\b/i
 specs:
-  - from: WebVRをCustome Elementのタグを書くだけで出来るライブラリ
-    to: WebVRをCustom Elementのタグを書くだけで出来るライブラリ
+  - from: WebVRをCustome Elementのタグで書く
+    to: WebVRをCustom Elementのタグで書く
 tags:
   - typo

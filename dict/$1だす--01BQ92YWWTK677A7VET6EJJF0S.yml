@@ -8,8 +8,6 @@ specs:
     to: （例）動きだす。
   - from: （例）笑い出す。
     to: （例）笑いだす。
-  - from: 探しだす
-    to: 探しだす
 tags:
   - opinion
   - 表記統一

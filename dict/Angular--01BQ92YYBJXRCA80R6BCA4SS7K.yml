@@ -4,8 +4,6 @@ expected: Angular
 patterns:
   - /angular/i
 specs:
-  - from: angularJS
-    to: angularJS
   - from: angular
     to: Angular
   # different term
