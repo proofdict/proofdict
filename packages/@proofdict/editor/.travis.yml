@@ -11,5 +11,5 @@ after_success:
         $(npm bin)/update-branch --commands "npm run build" \
                                  --commit-message "Update website [skip ci]" \
                                  --directory "./build" \
-                                 --distribution-branch "master" \
-                                 --source-branch "develop"
+                                 --distribution-branch "gh-pages" \
+                                 --source-branch "master"

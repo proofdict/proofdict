@@ -1,12 +1,14 @@
 # proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.github.io.svg?branch=master)](https://travis-ci.org/proofdict/proofdict.github.io)
 
+An Editor for [proofdict](https://proofdict.github.io/proofdict/ "proofdict").
+
 ## Usage
 
-Open <https://proofdict.github.io/>
+Open <https://proofdict.github.io/editor>
 
 ## Tests
 
-- [ ] Write How to Tests
+    npm test
 
 ## Contributing
 

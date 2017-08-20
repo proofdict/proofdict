@@ -2,10 +2,10 @@
   "name": "proofdict",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://proofdict.github.io/",
+  "homepage": "https://proofdict.github.io/editor",
   "repository": {
     "type": "git",
-    "url": "https://github.com/proofdict/proofdict.github.io"
+    "url": "https://github.com/proofdict/editor"
   },
   "dependencies": {
     "@immutable-array/prototype": "^1.0.2",
