@@ -2,13 +2,10 @@ sudo: false
 language: node_js
 node_js: stable
 after_success:
-- |2
+- |
 
   $(npm bin)/set-up-ssh --key "$encrypted_7bde748fd878_key" \
                        --iv "$encrypted_7bde748fd878_iv" \
                        --path-encrypted-key ".travis/github_deploy_key.enc"
 
   ./tools/push-to-github-io.sh
-before_install:
-- openssl aes-256-cbc -K $encrypted_7bde748fd878_key -iv $encrypted_7bde748fd878_iv
-  -in github_deploy_key.enc -out github_deploy_key -d
