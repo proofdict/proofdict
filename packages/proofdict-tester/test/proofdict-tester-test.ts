@@ -21,7 +21,7 @@ describe("ProofdictTester", () => {
             return tester.match(text).then(result => {
                 assert.strictEqual(result.details.length, 1);
                 const [detail] = result.details;
-                assert.strictEqual(detail.url, "https://proofdict.github.io/proofdict/item/01BQ92YZ6QR8RJKA5Y8W2F9NMY");
+                assert.strictEqual(detail.url, "https://proofdict.github.io/item/01BQ92YZ6QR8RJKA5Y8W2F9NMY");
                 assert.strictEqual(detail.actual, "webkit");
                 assert.strictEqual(detail.expected, "WebKit");
                 assert.strictEqual(detail.description, "Reference https://webkit.org/");
