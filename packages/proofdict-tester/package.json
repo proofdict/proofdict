@@ -44,6 +44,6 @@
     "typescript": "^2.4.2"
   },
   "dependencies": {
-    "prh": "^5.3.0"
+    "prh": "5.3.0"
   }
 }
