@@ -56,6 +56,19 @@ Default setting:
 If `autoUpdate` is true, this rule automatically update dictionary source.
 The fetched dictionary is put into `.cache/localstorage-ponyfill`.
 
+You should add `.cache/` to `.gitignore`
+
+```json
+{
+    "rules": {
+        "proofdict": {
+          "autoUpdate": true
+        }
+    }
+}
+```
+
+
 ### Whitelist/Blacklist
 
 This rule use [proofdict](https://proofdict.github.io/proofdict/ "proofdict") as the source of dictionary.
