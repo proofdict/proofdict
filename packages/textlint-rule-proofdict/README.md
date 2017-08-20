@@ -32,7 +32,7 @@ textlint --rule proofdict README.md
 
 Default setting:
 
-```json
+```json5
 {
     // = AutoUpdate settings
     // Automatically update proofdict source
