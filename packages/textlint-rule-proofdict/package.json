@@ -36,8 +36,8 @@
   },
   "dependencies": {
     "localstorage-ponyfill": "^1.0.1",
-    "proofdict": "^1.2.0",
-    "proofdict-tester": "0.3.0",
+    "proofdict": "^1.2.1",
+    "proofdict-tester": "^0.3.1",
     "textlint-rule-helper": "^2.0.0"
   }
 }

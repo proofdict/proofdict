@@ -15,7 +15,7 @@ tester.run("proofdict", rule, {
             errors: [
                 {
                     message:
-                        "jquery => jQuery\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
+                        "jquery => jQuery\nReference http://jquery.com/\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
                     line: 2,
                     column: 1
                 }
@@ -31,7 +31,7 @@ tester.run("proofdict", rule, {
             errors: [
                 {
                     message:
-                        "jquery => jQuery\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
+                        "jquery => jQuery\nReference http://jquery.com/\nSee https://proofdict.github.io/item/01BQ92YYBJENZB6M480KCJ0J99",
                     line: 1,
                     column: 1
                 }
