@@ -11,7 +11,7 @@
     "src/"
   ],
   "name": "proofdict-tester",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Test tool using proofdict.",
   "main": "lib/proofdict-tester.js",
   "scripts": {
