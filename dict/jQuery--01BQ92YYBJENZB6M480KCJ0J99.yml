@@ -9,4 +9,5 @@ specs:
   - from: jquery-ui
     to: jquery-ui
 tags:
+  - noun
   - JavaScript
