@@ -19,7 +19,7 @@ layout: default
             {% if page.tags %}
         <p class="post-item-tags post-meta">Tags:
             {% for tag in page.tags %}
-            <span class="post-item-tag">{{tag}}</span>
+            <span class="post-item-tag"><a href="{{ site.baseurl }}/tag/{{ tag }}"><code>{{ tag }}</code></a></span>
             {% endfor %}
         </p>
         {% endif %}

@@ -52,7 +52,20 @@ function createSpecTable(filePath, json) {
 
 }
 
-function outputMarkdown(filePath, json, outputFilePath) {
+// Create Tag Page
+// http://longqian.me/2017/02/09/github-jekyll-tag/
+function outputTagMarkdown(tag, outputFilePath) {
+    const header = `---
+layout: tagpage
+title: "Tag: ${tag}"
+tag: ${tag}
+permalink: /tag/${tag}/
+---
+`;
+    fs.writeFileSync(outputFilePath, header, "utf-8");
+}
+
+function outputPostMarkdown(filePath, json, outputFilePath) {
     const header = convertJsonToYamlHeader(filePath, json);
     const specTable = createSpecTable(filePath, json);
     const body = `${header}
@@ -89,14 +102,26 @@ makeDir(path.join(__dirname, "../public/_posts/build/"))
     })
     .then(paths => {
         const files = getDictFiles();
+        const tags = new Set();
         files.forEach((filePath) => {
             const json = loadYaml(filePath);
             if (json === null) {
                 return
             }
+            // post
             const modifiedDate = getModifiedDate(filePath);
             const fileName = moment.utc(modifiedDate).format("YYYY-MM-DD") + "-" + json.id + ".md";
             const markdownOutputFilePath = path.join(__dirname, "../public/_posts/build", `${fileName}`);
-            outputMarkdown(filePath, json, markdownOutputFilePath);
+            outputPostMarkdown(filePath, json, markdownOutputFilePath);
+
+            json.tags.forEach(tag => {
+                tags.add(tag);
+            });
         });
+
+        tags.forEach(tag => {
+            const fileName = moment.utc().format("YYYY-MM-DD") + "-tagpage-" + tag + ".md";
+            const markdownOutputFilePath = path.join(__dirname, "../public/_posts/build", `${fileName}`);
+            outputTagMarkdown(tag, markdownOutputFilePath);
+        })
     });
