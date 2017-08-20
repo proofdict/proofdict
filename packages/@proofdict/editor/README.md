@@ -2,6 +2,11 @@
 
 An Editor for [proofdict](https://proofdict.github.io/proofdict/ "proofdict").
 
+## Features
+
+- Create a dictionary item of proofdict format
+- Output the item to JSON, proofdict, prh
+
 ## Usage
 
 Open <https://proofdict.github.io/editor>
