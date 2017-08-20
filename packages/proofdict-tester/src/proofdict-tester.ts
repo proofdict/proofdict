@@ -117,7 +117,7 @@ export class ProofdictTester {
             const actual = currentString.slice(matchStartIndex, matchEndIndex);
             const expected = diff.newText!;
             const description = diff.rule && diff.rule.raw.description;
-            const url = diff.rule ? `https://proofdict.github.io/proofdict/item/${diff.rule!.raw.id}` : "https://proofdict.github.io/proofdict/";
+            const url = diff.rule ? `https://proofdict.github.io/item/${diff.rule!.raw.id}` : "https://proofdict.github.io/";
             results.push({
                 url,
                 matchStartIndex,
