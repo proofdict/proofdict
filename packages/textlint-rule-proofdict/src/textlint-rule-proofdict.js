@@ -1,9 +1,11 @@
 // MIT © 2017 azu
 "use strict";
-const { ProofdictTester } = require("proofdict-tester");
+
 const { getProofdict, fetchProofdict } = require("proofdict");
 const { createLocalStorage } = require("localstorage-ponyfill");
 const { RuleHelper } = require("textlint-rule-helper");
+import { createTester } from "./create-tester";
+
 const DefaultOptions = {
     // = AutoUpdate settings
     // Automatically update proofdict source
@@ -66,9 +68,8 @@ const reporter = (context, options = DefaultOptions) => {
                 const prrofDictData = localStorage.getItem("proofdict");
                 const loadedDictionary = prrofDictData ? JSON.parse(prrofDictData) : defaultDictionary;
                 const proofdict = customProofdict ? customProofdict : loadedDictionary;
-                const tester = new ProofdictTester({
-                    dictionary: proofdict
-                });
+                const lastUpdated = Number(localStorage.getItem("proofdict-lastUpdated", "0"));
+                const tester = createTester(lastUpdated, proofdict);
                 // check
                 const promises = targetNodes.map(node => {
                     if (helper.isChildNode(node, [Syntax.Link, Syntax.Image, Syntax.BlockQuote, Syntax.Emphasis])) {
