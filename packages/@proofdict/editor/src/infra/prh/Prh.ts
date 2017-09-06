@@ -1,7 +1,8 @@
 // MIT © 2017 azu
 import { Engine } from "prh";
-import { Dictionary } from "../../domain/Dictionary";
+import { Dictionary, DictionarySerializer } from "../../domain/Dictionary";
 import { DictionarySpec } from "../../domain/DictionarySpec";
+import { ProofdictTester } from "proofdict-tester";
 
 const intersectionBy = require("lodash.intersectionby");
 
@@ -94,6 +95,7 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
         return [];
     }
     try {
+        // FIXME: use proof-tester
         const engine = new Engine({
             version: 1,
             rules: patterns.map(pattern => {
@@ -124,37 +126,23 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
     }
 }
 
-export function testPattern(dictionary: Dictionary, spec: DictionarySpec): DictionarySpec {
+export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Promise<DictionarySpec> {
     if (spec.from.length === 0) {
-        return spec;
+        return Promise.resolve(spec);
     }
     const patterns = dictionary.patterns.getPatternValuesWithoutEmpty();
     if (patterns.length === 0) {
-        return spec;
+        return Promise.resolve(spec);
     }
-    try {
-        const engine = new Engine({
-            version: 1,
-            rules: patterns.map(pattern => {
-                return {
-                    expected: dictionary.expected.value,
-                    pattern: pattern
-                };
-            })
+    const tester = new ProofdictTester({
+        dictionary: [DictionarySerializer.toJSON(dictionary)]
+    });
+    return tester
+        .replace(spec.from)
+        .then(expected => {
+            return spec.updateExpected(expected);
+        })
+        .catch(error => {
+            return spec.invalid(error);
         });
-
-        engine.rules.forEach((rule, index) => {
-            const source = rule.pattern.source;
-            if (!isSafeRegExp(source)) {
-                throw new Error(`${patterns[index]} is not safe regexp`);
-            }
-            if ("(?:)" === source) {
-                throw new Error(`${patterns[index]} is not safe regexp`);
-            }
-        });
-        const expected = engine.replaceByRule("/web", spec.from);
-        return spec.updateExpected(expected);
-    } catch (error) {
-        return spec.invalid(error);
-    }
 }

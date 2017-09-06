@@ -8,11 +8,11 @@ import { DictionarySpec } from "../../../domain/DictionarySpec";
 
 describe("Prh", () => {
     describe("#testPattern", () => {
-        it("should handle regexp-like string", () => {
+        it("should handle regexp-like string", async () => {
             const dictionary = createDictionary()
                 .inputExpected(new DictionaryExpected("jQuery"))
                 .addPattern(new DictionaryPattern("/jquery/i"));
-            const result = testPattern(
+            const result = await testPattern(
                 dictionary,
                 new DictionarySpec({
                     from: "JQUERY"
@@ -21,11 +21,11 @@ describe("Prh", () => {
             assert.strictEqual(result.from, "JQUERY");
             assert.strictEqual(result.to, "jQuery");
         });
-        it("should return spec", () => {
+        it("should return spec", async () => {
             const dictionary = createDictionary()
                 .inputExpected(new DictionaryExpected("expected"))
                 .addPattern(new DictionaryPattern("pattern"));
-            const result = testPattern(
+            const result = await testPattern(
                 dictionary,
                 new DictionarySpec({
                     from: "pattern"

@@ -20,16 +20,17 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
         super();
     }
 
-    execute(id: DictionaryIdentifier) {
+    async execute(id: DictionaryIdentifier) {
         const dictionary = this.args.dictionaryRepository.findById(id);
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
         // update all spec
-        const newSpecList = dictionary.specs.getSpecList().map(spec => {
+        const newSpecPromises = dictionary.specs.getSpecList().map(async spec => {
             return testPattern(dictionary, spec);
         });
-        const specs = new DictionarySpecs(newSpecList);
+        const newSPecList = await Promise.all(newSpecPromises);
+        const specs = new DictionarySpecs(newSPecList);
         const updatedSpecsDictionary = dictionary.updateSpecs(specs);
         this.args.dictionaryRepository.save(updatedSpecsDictionary);
         // update all word class
