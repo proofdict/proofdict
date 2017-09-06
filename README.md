@@ -8,6 +8,10 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install proofdict
 
+## Integration textlint
+
+Use [textlint-rule-proofdict](https://github.com/proofdict/textlint-rule-proofdict "textlint-rule-proofdict")
+
 ## Website
 
 Visit <https://proofdict.github.io/>
