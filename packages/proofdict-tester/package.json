@@ -14,6 +14,7 @@
   "version": "0.3.2",
   "description": "Test tool using proofdict.",
   "main": "lib/proofdict-tester.js",
+  "types": "lib/proofdict-tester.d.ts",
   "scripts": {
     "test": "mocha test/",
     "build": "cross-env NODE_ENV=production tsc -p .",
