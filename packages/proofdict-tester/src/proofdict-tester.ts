@@ -83,8 +83,9 @@ export class ProofdictTester {
     }
 
     match(text: string): Promise<ProofdictTesterResult> {
-        // TODO: prh type is wrong?
-        const changeSet = this.prhEngine.makeChangeSet(<any> null, text);
+        // pass empty string for working in browser
+        // https://github.com/prh/prh/issues/29
+        const changeSet = this.prhEngine.makeChangeSet("", text);
         const sortedDiffs = changeSet.diffs.sort(function (a, b) {
             return a.index - b.index;
         });

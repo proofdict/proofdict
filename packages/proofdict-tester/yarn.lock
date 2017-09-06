@@ -306,17 +306,17 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
-prh@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/prh/-/prh-5.3.0.tgz#d9b97467188623d3d3084aca8b076004251485b0"
+prh@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/prh/-/prh-5.4.3.tgz#d3864a6de2f35c6603e33c700106dce01c22876d"
   dependencies:
     commandpost "^1.2.1"
     diff "^3.3.0"
     js-yaml "^3.9.1"
 
-proofdict@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/proofdict/-/proofdict-1.2.0.tgz#6a5b52f561cfc204b6dd1d876f93b93b5863b18e"
+proofdict@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/proofdict/-/proofdict-1.2.1.tgz#f6815831b0ab69e81698f3901bc2073ce62b5f1d"
   dependencies:
     fetch-ponyfill "^4.1.0"
 
@@ -390,9 +390,9 @@ tsconfig@^6.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-typescript@^2.4.2:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.1.tgz#ce7cc93ada3de19475cc9d17e3adea7aee1832aa"
+typescript@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.2.tgz#038a95f7d9bbb420b1bf35ba31d4c5c1dd3ffe34"
 
 user-home@^1.1.1:
   version "1.1.1"
