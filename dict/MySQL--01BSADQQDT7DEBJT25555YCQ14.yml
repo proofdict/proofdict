@@ -1,0 +1,12 @@
+id: 01BSADQQDT7DEBJT25555YCQ14
+description: 'Reference https://www.mysql.com/'
+expected: MySQL
+patterns:
+  - /mysql/i
+specs:
+  - from: mysql is a database.
+    to: MySQL is a database.
+  - from: Oracle mysql
+    to: Oracle MySQL
+tags:
+  - noun
