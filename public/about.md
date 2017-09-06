@@ -16,6 +16,6 @@ One term per one file
 
 ## Add a term
 
-Please use [online editor](https://proofdict.github.io/) and submit.
+Please use [online editor](https://proofdict.github.io/editor) and submit.
 
 [Proofdict]: https://github.com/proofdict  "proofdict"
