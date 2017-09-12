@@ -1,0 +1,10 @@
+id: 01BSTAWKTYGWP0XFMVSFDCYF0P
+description: Typo
+expected: 利用する
+patterns:
+  - 理容する
+specs:
+  - from: ネイティブのUIを理容する
+    to: ネイティブのUIを利用する
+tags:
+  - typo
