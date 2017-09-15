@@ -12,16 +12,20 @@ describe("dict", () => {
     it("all dict check", () => {
         const proofdict = createDictionary();
         const tester = new ProofdictTester({ dictionary: proofdict });
-        const testSpec = (spec) => {
+        const testSpec = spec => {
             return tester.match(spec.from).then(result => {
                 assert.ok(typeof result === "object", "should have result");
-                assert.strictEqual(result.output, spec.to, `Not pass
+                assert.strictEqual(
+                    result.output,
+                    spec.to,
+                    `Not pass
 From    : ${spec.from}
 To      : ${spec.to}                    
 Result  : ${result.output}
 Details : 
 ${JSON.stringify(result, null, 4)}                    
-`);
+`
+                );
             });
         };
         const promises = proofdict.map(dict => {
@@ -29,25 +33,28 @@ ${JSON.stringify(result, null, 4)}
             return Promise.all(specPromises);
         });
         return Promise.all(promises);
-
     });
     files.forEach(filePath => {
         const baseName = path.basename(filePath, ".yml");
         it(`${baseName}`, () => {
-            const json = yaml.safeLoad(fs.readFileSync(filePath, 'utf8'));
+            const json = yaml.safeLoad(fs.readFileSync(filePath, "utf8"));
             const tester = new ProofdictTester({
                 dictionary: [json]
             });
-            const testSpec = (spec) => {
+            const testSpec = spec => {
                 return tester.match(spec.from).then(result => {
                     assert.ok(typeof result === "object", "should have result");
-                    assert.strictEqual(result.output, spec.to, `Not pass
+                    assert.strictEqual(
+                        result.output,
+                        spec.to,
+                        `Not pass
 From    : ${spec.from}
 To      : ${spec.to}                    
 Result  : ${result.output}
 Details : 
 ${JSON.stringify(result, null, 4)}                                   
-at ${filePath}:1:1`);
+at ${filePath}:1:1`
+                    );
                 });
             };
             const promises = json.specs.map(spec => {
@@ -55,5 +62,5 @@ at ${filePath}:1:1`);
             });
             return Promise.all(promises);
         });
-    })
+    });
 });

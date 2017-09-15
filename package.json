@@ -20,7 +20,10 @@
     "build:posts": "node tools/dict-to-posts.js",
     "pretest": "npm run build:dict",
     "test": "mocha test/",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "precommit": "lint-staged",
+    "postcommit": "git reset",
+    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,css}'"
   },
   "keywords": [
     "dict"
@@ -40,12 +43,27 @@
     "@alrra/travis-scripts": "^3.0.1",
     "del": "^3.0.0",
     "globby": "^6.1.0",
+    "husky": "^0.14.3",
     "js-yaml": "^3.9.1",
+    "lint-staged": "^4.2.1",
     "make-dir": "^1.0.0",
     "markdown-table": "^1.1.1",
     "mocha": "^3.5.0",
     "moment": "^2.18.1",
+    "prettier": "^1.7.0",
     "prh": "^3.1.1",
     "proofdict-tester": "0.3.1"
+  },
+  "lint-staged": {
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx,css}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 4
   }
 }

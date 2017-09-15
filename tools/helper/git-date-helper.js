@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 "use strict";
-const execSync = require('child_process').execSync;
+const execSync = require("child_process").execSync;
 // http://stackoverflow.com/questions/2390199/finding-the-date-time-a-file-was-first-added-to-a-git-repository
 module.exports.getModifiedDate = function getModifiedDate(filePath) {
     try {

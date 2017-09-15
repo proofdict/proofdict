@@ -15,11 +15,11 @@ describe("index", () => {
             assert.ok(Array.isArray(dict.patterns));
             assert.ok(Array.isArray(dict.specs));
             assert.ok(Array.isArray(dict.tags));
-        })
+        });
     });
     describe("fetch", () => {
         it("should fetch dictionary", () => {
-            return fetchProofdict().then((dictionaries) => {
+            return fetchProofdict().then(dictionaries => {
                 assert.ok(Array.isArray(dictionaries));
                 assert.ok(dictionaries.length > 0);
                 const dict = dictionaries[0];
@@ -31,5 +31,5 @@ describe("index", () => {
                 assert.ok(Array.isArray(dict.tags));
             });
         });
-    })
+    });
 });
