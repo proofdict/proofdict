@@ -5,12 +5,12 @@ const yaml = require("js-yaml");
 const path = require("path");
 const getDictFiles = require("./get-dict-files").getDictFiles;
 const outputPath = path.join(__dirname, "../public/dict.json");
-const loadYaml = (filePath) => {
+const loadYaml = filePath => {
     try {
-        return yaml.safeLoad(fs.readFileSync(filePath, 'utf8'));
+        return yaml.safeLoad(fs.readFileSync(filePath, "utf8"));
     } catch (error) {
         console.error(error);
-        return null
+        return null;
     }
 };
 
