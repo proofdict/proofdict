@@ -1,0 +1,10 @@
+id: 01BTC79BCEWJHMFKQJZZEWKVET
+description: typo
+expected: 一行コメント
+patterns:
+  - 偉業コメント
+specs:
+  - from: 偉業コメントのサポート
+    to: 一行コメントのサポート
+tags:
+  - typo
