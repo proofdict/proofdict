@@ -1,0 +1,10 @@
+id: 01BTXTZ03GCFS3WQD6Z4M1G8S8
+description: typo
+expected: 行われています
+patterns:
+  - 行われいます
+specs:
+  - from: 変更が行われいます。
+    to: 変更が行われています。
+tags:
+  - typo
