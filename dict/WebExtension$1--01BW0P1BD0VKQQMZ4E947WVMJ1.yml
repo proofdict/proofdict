@@ -1,0 +1,20 @@
+id: 01BW0P1BD0VKQQMZ4E947WVMJ1
+description: >-
+  See
+  https://developer.mozilla.org/en-US/Add-ons/WebExtensions/What_are_WebExtensions
+expected: WebExtension$1
+patterns:
+  - /Web Extension(s)?/
+specs:
+  - from: Web Extension
+    to: WebExtension
+  - from: Extensions for Firefox are built using WebExtensions APIs
+    to: Extensions for Firefox are built using WebExtensions APIs
+  - from: >-
+      WebExtension APIs are designed to be compatible with Chrome and Opera
+      extensions
+    to: >-
+      WebExtension APIs are designed to be compatible with Chrome and Opera
+      extensions
+tags:
+  - noun
