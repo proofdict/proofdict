@@ -5,9 +5,12 @@ patterns:
   - /pointer event/i
   - /pointer events/i
 specs:
+  - from: MSEdgeの対応、pointer eventsなど対応、
+    to: MSEdgeの対応、Pointer Eventsなど対応、
   - from: MSEdgeの対応、pointer eventなど対応、
     to: MSEdgeの対応、Pointer Eventsなど対応、
   - from: pointer-events
     to: pointer-events
 tags:
   - JavaScript
+  - noun
