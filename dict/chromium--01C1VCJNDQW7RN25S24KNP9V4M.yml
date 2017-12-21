@@ -1,0 +1,12 @@
+id: 01C1VCJNDQW7RN25S24KNP9V4M
+description: A typo Chromium
+expected: $1hromium
+patterns:
+  - /(C)hronium/i
+specs:
+  - from: Chrome is Chronium
+    to: Chrome is Chromium
+  - from: Chrome is chronium
+    to: Chrome is chromium
+tags:
+  - noun
