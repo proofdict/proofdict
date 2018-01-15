@@ -2,7 +2,7 @@ id: 01BQ92YWWJ9EM0EEGVP0CRKC73
 description: 漢字で書かず、ひらがなで書くと読みやすくなります
 expected: $1とき
 patterns:
-  - /(の)時(?!点|代|々|間)/
+  - /(の)時(?!点|代|々|間|期)/
 specs:
   - from: その時
     to: そのとき
