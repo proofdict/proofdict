@@ -34,8 +34,8 @@ export interface Proofdict {
     expected: string;
     patterns: string[];
     description: string;
-    id: string;
-    specs: ProofdictSpec[];
+    id?: string;
+    specs?: ProofdictSpec[];
     tags: string[];
 }
 export interface ProofdictSpec {
