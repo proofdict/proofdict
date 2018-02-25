@@ -16,7 +16,7 @@
   "main": "lib/proofdict-tester.js",
   "types": "lib/proofdict-tester.d.ts",
   "scripts": {
-    "test": "mocha test/",
+    "test": "mocha \"test/*.ts\"",
     "build": "cross-env NODE_ENV=production tsc -p .",
     "watch": "tsc -p . --watch",
     "prepublish": "npm run --if-present build"
@@ -36,13 +36,13 @@
   },
   "homepage": "https://github.com/proofdict/proofdict-tester",
   "devDependencies": {
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^8.0.24",
-    "cross-env": "^5.0.5",
-    "mocha": "^3.5.0",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^9.4.6",
+    "cross-env": "^5.1.3",
+    "mocha": "^5.0.1",
     "proofdict": "^1.2.1",
-    "ts-node": "^3.3.0",
-    "typescript": "^2.5.2"
+    "ts-node": "^5.0.0",
+    "typescript": "^2.7.2"
   },
   "dependencies": {
     "prh": "^5.4.3"
