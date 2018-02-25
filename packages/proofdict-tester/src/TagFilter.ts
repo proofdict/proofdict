@@ -1,14 +1,14 @@
 // MIT © 2017 azu
-import { ProofdictItem, Proofdict } from "./proofdict-tester";
+import { ProofdictRule, Proofdict } from "./proofdict-tester";
 
 const NOUN_TAG = "noun";
 
 /**
  * Does the `dict` has "noun" tag?
- * @param {ProofdictItem} dict
+ * @param {ProofdictRule} dict
  * @returns {boolean}
  */
-export function isNoun(dict: ProofdictItem): boolean {
+export function isNoun(dict: ProofdictRule): boolean {
     return dict.tags.indexOf(NOUN_TAG) !== -1;
 }
 

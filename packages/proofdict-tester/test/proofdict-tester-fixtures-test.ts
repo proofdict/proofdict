@@ -1,9 +1,9 @@
 // MIT © 2017 azu
-import { ProofdictItem, ProofdictTester } from "../src/proofdict-tester";
+import { ProofdictRule, ProofdictTester } from "../src/proofdict-tester";
 import * as assert from "assert";
 
 describe("ProofdictTester fixtures", () => {
-    const proofdict: ProofdictItem[] = require("./fixtures/proofdict.json");
+    const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
     const tester = new ProofdictTester({ dictionary: proofdict });
     proofdict
         .filter(dict => dict.specs.length > 0)

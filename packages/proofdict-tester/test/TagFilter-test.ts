@@ -1,16 +1,16 @@
 // MIT © 2017 azu
-import { Proofdict, ProofdictItem } from "../src/proofdict-tester";
+import { Proofdict, ProofdictRule } from "../src/proofdict-tester";
 import { filterByTags } from "../src/TagFilter";
 import * as assert from "assert";
 
 const proofdict: Proofdict = require("./fixtures/proofdict.json");
 const shouldHaveTag = (tag: string) => {
-    return (item: ProofdictItem) => {
+    return (item: ProofdictRule) => {
         assert.ok(item.tags.indexOf(tag) !== -1, `item should have tag(${tag}). item: ${JSON.stringify(item)}`);
     };
 };
 const shouldNotHaveTag = (tag: string) => {
-    return (item: ProofdictItem) => {
+    return (item: ProofdictRule) => {
         assert.ok(item.tags.indexOf(tag) === -1, `item should not have tag(${tag}). item: ${JSON.stringify(item)}`);
     };
 };

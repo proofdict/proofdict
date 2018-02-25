@@ -5,15 +5,17 @@ import {
 } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
 
-export type Proofdict = ProofdictItem[]
+export type Proofdict = ProofdictRule[]
 
-export interface ProofdictItem {
+export interface ProofdictRule {
+    id?: string;
+    description?: string;
     expected: string;
     patterns: string[];
-    description: string;
-    id: string;
-    specs: ProofdictSpec[];
     tags: string[];
+    specs?: ProofdictSpec[];
+
+    [index: string]: any;
 }
 
 export interface ProofdictSpec {
@@ -22,8 +24,8 @@ export interface ProofdictSpec {
 }
 
 export interface ProofdictTesterResultDetail {
-    // details url
-    url: string;
+    // It is matched rule object
+    rule: ProofdictRule;
     // additional description
     description?: string;
     // original match start index, not replaced start index
@@ -118,9 +120,9 @@ export class ProofdictTester {
             const actual = currentString.slice(matchStartIndex, matchEndIndex);
             const expected = diff.newText!;
             const description = diff.rule && diff.rule.raw.description;
-            const url = diff.rule ? `https://proofdict.github.io/item/${diff.rule!.raw.id}` : "https://proofdict.github.io/";
+            const rule = diff.rule && diff.rule.raw;
             results.push({
-                url,
+                rule,
                 matchStartIndex,
                 matchEndIndex,
                 actual,
