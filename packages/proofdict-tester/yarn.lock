@@ -252,7 +252,7 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
-prh@^5.4.3:
+prh@5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/prh/-/prh-5.4.3.tgz#d3864a6de2f35c6603e33c700106dce01c22876d"
   dependencies:
