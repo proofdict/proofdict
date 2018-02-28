@@ -33,17 +33,17 @@ export class HelpCalloutButton extends React.Component<HelpCalloutButtonProps, H
     };
 
     render() {
-        const callout = this.state.isCalloutVisible
-            ? <Callout
-                  className="HelpCallout"
-                  role={"alertdialog"}
-                  gapSpace={0}
-                  targetElement={this.state.calloutTarget}
-                  onDismiss={this._onCalloutDismiss}
-              >
-                  {this.props.children}
-              </Callout>
-            : null;
+        const callout = this.state.isCalloutVisible ? (
+            <Callout
+                className="HelpCallout"
+                role={"alertdialog"}
+                gapSpace={0}
+                targetElement={this.state.calloutTarget}
+                onDismiss={this._onCalloutDismiss}
+            >
+                {this.props.children}
+            </Callout>
+        ) : null;
         return (
             <div className="HelpCalloutButton-wrapper">
                 {callout}

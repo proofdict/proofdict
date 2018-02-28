@@ -6,15 +6,22 @@ import { DictionaryIdentifier, DictionarySerializer } from "../../domain/Diction
 import { createNewFileURL } from "../../infra/github/GitHubNewFileCreator";
 import { createSlugFromDictionary } from "../../domain/Dictionary/DictionarySlugCreator";
 import { yamlFormatter } from "../../infra/formatter/YamlFormatter";
+import { SourceRepoRepository, sourceRepoRepository } from "../../infra/repository/SourceRepoRepository";
 
 export const createSubmitDictionaryToGitHubUseCase = () => {
     return new SubmitDictionaryToGitHubUseCase({
-        dictionaryRepository
+        dictionaryRepository,
+        sourceRepoRepository
     });
 };
 
 export class SubmitDictionaryToGitHubUseCase extends UseCase {
-    constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
+    constructor(
+        private repo: {
+            dictionaryRepository: DictionaryRepository;
+            sourceRepoRepository: SourceRepoRepository;
+        }
+    ) {
         super();
     }
 
@@ -23,8 +30,18 @@ export class SubmitDictionaryToGitHubUseCase extends UseCase {
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);
         }
-        const slug = createSlugFromDictionary(dictionary);
-        const url = createNewFileURL(slug + ".yml", yamlFormatter(DictionarySerializer.toJSON(dictionary)));
+        const sourceRepo = this.repo.sourceRepoRepository.get();
+        if (!sourceRepo) {
+            throw new Error("Not found sourceRepo");
+        }
+        const dictionaryPath = createSlugFromDictionary(dictionary);
+        const url = createNewFileURL({
+            owner: sourceRepo.owner,
+            repo: sourceRepo.repo,
+            branch: sourceRepo.branch,
+            fileNameWithExt: dictionaryPath + ".yml",
+            fileContent: yamlFormatter(DictionarySerializer.toJSON(dictionary))
+        });
         openURLinNewWindow(url);
     }
 }

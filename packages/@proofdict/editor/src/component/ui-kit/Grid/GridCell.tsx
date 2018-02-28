@@ -24,10 +24,6 @@ export interface GridCellProps {
 export default class GridCell extends React.Component<GridCellProps, {}> {
     render() {
         const col = `col-${this.props.col}`;
-        return (
-            <div className={classNames("GridCell", col, this.props.className)}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classNames("GridCell", col, this.props.className)}>{this.props.children}</div>;
     }
 }

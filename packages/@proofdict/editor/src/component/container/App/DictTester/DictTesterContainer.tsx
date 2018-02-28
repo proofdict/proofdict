@@ -31,9 +31,7 @@ export class DictTesterContainer extends BaseContainer<
                         <TextField placeholder="Any test string" value={input} onChanged={onChangeTestPattern} />
                     </GridCell>
                     <GridCell col="6of12" className="DictTesterContainer-outputCell">
-                        <p className="DictTesterContainer-expected">
-                            {result}
-                        </p>
+                        <p className="DictTesterContainer-expected">{result}</p>
                     </GridCell>
                 </Grid>
             );

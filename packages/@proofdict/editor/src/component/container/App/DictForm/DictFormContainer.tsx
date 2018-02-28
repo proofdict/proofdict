@@ -25,9 +25,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         const patterns = this.createPatterns();
         return (
             <div className="DictFormContainer">
-                <h2>
-                    Expected: {this.createExpectedHelp()}
-                </h2>
+                <h2>Expected: {this.createExpectedHelp()}</h2>
                 <p className="DictFormContainer-description">1. Input expected result</p>
                 <TextField
                     placeholder="e.g.) ECMAScript $1"
@@ -115,9 +113,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         });
         return (
             <div>
-                <h2>
-                    Patterns: {this.createPatternsHelp()}
-                </h2>
+                <h2>Patterns: {this.createPatternsHelp()}</h2>
                 <p className="DictFormContainer-description">2. Input match patterns</p>
 
                 {patterns}

@@ -24,10 +24,6 @@ export interface GridProps {
 
 export class Grid extends React.Component<GridProps, {}> {
     render() {
-        return (
-            <div className={classNames("Grid", this.props.className)}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classNames("Grid", this.props.className)}>{this.props.children}</div>;
     }
 }
