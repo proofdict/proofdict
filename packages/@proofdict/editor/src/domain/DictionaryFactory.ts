@@ -5,7 +5,7 @@ import { DictionarySpecs } from "./DictionarySpecs";
 import { DictionaryDescription } from "./DictionaryDescription";
 import { DictionaryTags } from "./DictionaryTags";
 
-const ulid = require("ulid");
+import { ulid } from "ulid";
 
 const createEmptyDictionaryWithId = (id: string) => {
     return new Dictionary({

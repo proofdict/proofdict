@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Creatable } from "react-select";
+
+const { Creatable } = require("react-select");
 import "react-select/dist/react-select.css";
 
 export interface TagInputProps {
@@ -8,14 +9,19 @@ export interface TagInputProps {
     onChangeTags: (tags: string[]) => void;
 }
 
+type SelectOption = {
+    label: string;
+    value: string;
+};
+
 export class TagInput extends React.Component<TagInputProps, {}> {
-    private logChange = (values: { label: string; value: string }[]) => {
+    private logChange = (values: SelectOption[]): void => {
         const tags = values.map(val => val.value);
         this.props.onChangeTags(tags);
     };
 
     render() {
-        const options = this.props.tags.map(tag => {
+        const options: SelectOption[] = this.props.tags.map(tag => {
             return {
                 label: tag,
                 value: tag

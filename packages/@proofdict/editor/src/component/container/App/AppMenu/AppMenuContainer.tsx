@@ -7,7 +7,7 @@ import { createChangeDictionaryOutputFormatUseCase } from "../../../../use-case/
 import { DictFormState } from "../DictForm/DictFormStore";
 import { createResetDictionaryUseCase } from "../../../../use-case/dictionary/ResetDictionaryUseCase";
 
-const ulid = require("ulid");
+import { ulid } from "ulid";
 
 export interface AppMenuContainerProps {
     className?: string;

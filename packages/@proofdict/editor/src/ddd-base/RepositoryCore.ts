@@ -8,6 +8,7 @@ export class RepositoryCore<T extends Identifier<any>, P extends Entity<any>> {
     private lastUsed: P | null;
 
     constructor() {
+        this.lastUsed = null;
         this.map = new MapLike<string, P>();
     }
 

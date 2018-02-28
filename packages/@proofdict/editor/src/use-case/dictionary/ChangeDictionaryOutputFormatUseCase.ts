@@ -7,8 +7,9 @@ export const createChangeDictionaryOutputFormatUseCase = () => {
 };
 
 export class ChangeDictionaryOutputFormatUseCasePayload extends Payload {
+    readonly type = "ChangeDictionaryOutputFormatUseCase";
     constructor(public format: DictOutputFormat) {
-        super({ type: "ChangeDictionaryOutputFormatUseCase" });
+        super();
     }
 }
 

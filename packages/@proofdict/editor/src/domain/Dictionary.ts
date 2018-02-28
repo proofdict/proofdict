@@ -78,6 +78,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
 
     constructor(args: DictionaryArgs) {
         super(args.id);
+        this.id = args.id;
         this.description = args.description;
         this.expected = args.expected;
         this.patterns = args.patterns;
@@ -88,7 +89,7 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
 
     inputExpected(expected: DictionaryExpected) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             expected: expected
         });
     }
@@ -96,21 +97,21 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     // patterns
     addPattern(pattern: DictionaryPattern) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             patterns: this.patterns.add(pattern)
         });
     }
 
     updatePattern(old: DictionaryPattern, newPattern: DictionaryPattern) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             patterns: this.patterns.update(old, newPattern)
         });
     }
 
     removePattern(pattern: DictionaryPattern) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             patterns: this.patterns.remove(pattern)
         });
     }
@@ -118,49 +119,49 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     // specs
     addSpec(spec: DictionarySpec) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             specs: this.specs.add(spec)
         });
     }
 
     updateSpec(oldSpec: DictionarySpec, newSpec: DictionarySpec) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             specs: this.specs.update(oldSpec, newSpec)
         });
     }
 
     removeSpec(spec: DictionarySpec) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             specs: this.specs.remove(spec)
         });
     }
 
     updateSpecs(newSpecs: DictionarySpecs) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             specs: newSpecs
         });
     }
 
     updateWordClasses(wordClasses: DictionaryWordClasses) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             wordClasses
         });
     }
 
     updateDescription(description: DictionaryDescription) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             description
         });
     }
 
     updateTags(tags: DictionaryTags) {
         return new Dictionary({
-            ...this as DictionaryArgs,
+            ...(this as DictionaryArgs),
             tags
         });
     }
