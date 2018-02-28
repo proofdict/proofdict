@@ -1,10 +1,10 @@
 // MIT © 2017 azu
 import { getMatchExpectedWords, getUniqueTokens, testPattern } from "../Prh";
-import { createDictionary } from "../../../domain/DictionaryFactory";
-import { DictionaryPattern } from "../../../domain/DictionaryPattern";
-import { DictionaryExpected } from "../../../domain/DictionaryExpected";
+import { createDictionary } from "../../../domain/Dictionary/DictionaryFactory";
+import { DictionaryPattern } from "../../../domain/Dictionary/DictionaryPattern";
+import { DictionaryExpected } from "../../../domain/Dictionary/DictionaryExpected";
 import * as assert from "assert";
-import { DictionarySpec } from "../../../domain/DictionarySpec";
+import { DictionarySpec } from "../../../domain/Dictionary/DictionarySpec";
 
 describe("Prh", () => {
     describe("#testPattern", () => {

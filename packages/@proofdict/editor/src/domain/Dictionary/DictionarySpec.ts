@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { ValueObject } from "../ddd-base/ValueObject";
+import { ValueObject } from "../../ddd-base/ValueObject";
 
 export interface DictionarySpecJSON {
     from: string;
@@ -39,14 +39,14 @@ export class DictionarySpec extends ValueObject {
 
     updateExpected(expected: string) {
         return new DictionarySpec({
-            ...this as DictionarySpecArgs,
+            ...(this as DictionarySpecArgs),
             to: expected
         });
     }
 
     invalid(error: Error) {
         return new DictionarySpec({
-            ...this as DictionarySpecArgs,
+            ...(this as DictionarySpecArgs),
             error
         });
     }

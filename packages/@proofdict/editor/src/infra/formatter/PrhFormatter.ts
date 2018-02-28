@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import * as yaml from "js-yaml";
-import { DictionaryJSON } from "../../domain/Dictionary";
+import { DictionaryJSON } from "../../domain/Dictionary/Dictionary";
 
 export const modifyForPrh = (json: DictionaryJSON): Object => {
     const description = json.description

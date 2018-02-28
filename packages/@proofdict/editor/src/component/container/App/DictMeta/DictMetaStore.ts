@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { Dictionary } from "../../../../domain/Dictionary";
+import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
 
 export interface DictMetaStateArgs {
     description: string;
@@ -22,7 +22,7 @@ export class DictMetaState {
 
     update(dictionary: Dictionary) {
         return new DictMetaState({
-            ...this as DictMetaStateArgs,
+            ...(this as DictMetaStateArgs),
             selectedTags: dictionary.tags.toValue(),
             description: dictionary.description.value
         });

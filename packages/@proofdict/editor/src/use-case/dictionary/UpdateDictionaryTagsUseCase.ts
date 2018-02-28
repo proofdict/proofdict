@@ -1,8 +1,8 @@
 // MIT © 2017 azu
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
-import { DictionaryIdentifier } from "../../domain/Dictionary";
-import { DictionaryTagsSerializer } from "../../domain/DictionaryTags";
+import { DictionaryIdentifier } from "../../domain/Dictionary/Dictionary";
+import { DictionaryTagsSerializer } from "../../domain/Dictionary/DictionaryTags";
 
 export const createUpdateDictionaryTagsUseCase = () => {
     return new UpdateDictionaryTagsUseCase({

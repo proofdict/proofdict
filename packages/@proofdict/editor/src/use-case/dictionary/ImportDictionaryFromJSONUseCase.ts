@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import { UseCase } from "almin";
-import { DictionaryJSON, DictionarySerializer } from "../../domain/Dictionary";
+import { DictionaryJSON, DictionarySerializer } from "../../domain/Dictionary/Dictionary";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { createUpdateDictionarySpecStatusUseCase } from "./UpdateDictionarySpecStatusUseCase";
 

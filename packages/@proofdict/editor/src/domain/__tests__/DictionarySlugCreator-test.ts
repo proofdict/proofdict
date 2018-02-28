@@ -1,12 +1,12 @@
 // MIT © 2017 azu
-import { createSlugFromDictionary } from "../DictionarySlugCreator";
-import { createDictionary } from "../DictionaryFactory";
+import { createSlugFromDictionary } from "../Dictionary/DictionarySlugCreator";
+import { createDictionary } from "../Dictionary/DictionaryFactory";
 import * as assert from "assert";
-import { DictionarySpec } from "../DictionarySpec";
-import { DictionaryPattern } from "../DictionaryPattern";
-import { DictionaryExpected } from "../DictionaryExpected";
+import { DictionarySpec } from "../Dictionary/DictionarySpec";
+import { DictionaryPattern } from "../Dictionary/DictionaryPattern";
+import { DictionaryExpected } from "../Dictionary/DictionaryExpected";
 import { getUniqueTokens } from "../../infra/prh/Prh";
-import { DictionaryWordClassesSerializer } from "../DictionaryWordClasses";
+import { DictionaryWordClassesSerializer } from "../Dictionary/DictionaryWordClasses";
 
 describe("createSlugFromDictionary", () => {
     describe("when empty dictionary", () => {

@@ -2,7 +2,7 @@
 import * as prh from "prh";
 import * as path from "path";
 import { prhRuleToDictionary } from "../PrhRuleToDictionary";
-import { Dictionary, DictionaryIdentifier, DictionarySerializer } from "../../../domain/Dictionary";
+import { Dictionary, DictionaryIdentifier, DictionarySerializer } from "../../../domain/Dictionary/Dictionary";
 import * as assert from "assert";
 
 describe("prhRuleToDictionary", () => {

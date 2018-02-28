@@ -1,13 +1,13 @@
 // MIT © 2017 azu
-import { Dictionary } from "../../domain/Dictionary";
+import { Dictionary } from "../../domain/Dictionary/Dictionary";
 import { Rule } from "prh/lib/rule";
-import { createDictionary } from "../../domain/DictionaryFactory";
-import { DictionaryExpected } from "../../domain/DictionaryExpected";
-import { DictionaryPattern } from "../../domain/DictionaryPattern";
-import { DictionarySpec } from "../../domain/DictionarySpec";
+import { createDictionary } from "../../domain/Dictionary/DictionaryFactory";
+import { DictionaryExpected } from "../../domain/Dictionary/DictionaryExpected";
+import { DictionaryPattern } from "../../domain/Dictionary/DictionaryPattern";
+import { DictionarySpec } from "../../domain/Dictionary/DictionarySpec";
 import { getUniqueTokens } from "./Prh";
-import { DictionaryWordClassesSerializer } from "../../domain/DictionaryWordClasses";
-import { DictionaryDescription } from "../../domain/DictionaryDescription";
+import { DictionaryWordClassesSerializer } from "../../domain/Dictionary/DictionaryWordClasses";
+import { DictionaryDescription } from "../../domain/Dictionary/DictionaryDescription";
 
 function addPatterns(dictionary: Dictionary, rule: Rule): Dictionary {
     const pattern = rule.raw.pattern || rule.raw.patterns;

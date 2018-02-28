@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { Dictionary, DictionarySerializer } from "../../../../domain/Dictionary";
+import { Dictionary, DictionarySerializer } from "../../../../domain/Dictionary/Dictionary";
 import { jsonFormatter } from "../../../../infra/formatter/JSONFormatter";
 import { ChangeDictionaryOutputFormatUseCasePayload } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
 import { yamlFormatter } from "../../../../infra/formatter/YamlFormatter";
@@ -40,7 +40,7 @@ export class DictOutputState {
             return this;
         }
         return new DictOutputState({
-            ...this as DictOutputStateProps,
+            ...(this as DictOutputStateProps),
             output
         });
     }
@@ -48,7 +48,7 @@ export class DictOutputState {
     reduce(payload: ChangeDictionaryOutputFormatUseCasePayload) {
         if (payload instanceof ChangeDictionaryOutputFormatUseCasePayload) {
             return new DictOutputState({
-                ...this as DictOutputStateProps,
+                ...(this as DictOutputStateProps),
                 format: payload.format
             });
         }

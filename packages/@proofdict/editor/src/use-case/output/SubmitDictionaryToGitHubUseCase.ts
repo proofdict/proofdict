@@ -2,9 +2,9 @@
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
 import { openURLinNewWindow } from "../../infra/window/WindowOpen";
-import { DictionaryIdentifier, DictionarySerializer } from "../../domain/Dictionary";
+import { DictionaryIdentifier, DictionarySerializer } from "../../domain/Dictionary/Dictionary";
 import { createNewFileURL } from "../../infra/github/GitHubNewFileCreator";
-import { createSlugFromDictionary } from "../../domain/DictionarySlugCreator";
+import { createSlugFromDictionary } from "../../domain/Dictionary/DictionarySlugCreator";
 import { yamlFormatter } from "../../infra/formatter/YamlFormatter";
 
 export const createSubmitDictionaryToGitHubUseCase = () => {

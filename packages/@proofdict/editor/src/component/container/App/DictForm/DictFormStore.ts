@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import { Store } from "almin";
-import { Dictionary, DictionaryIdentifier } from "../../../../domain/Dictionary";
+import { Dictionary, DictionaryIdentifier } from "../../../../domain/Dictionary/Dictionary";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 
 export interface DictFormStateProps {

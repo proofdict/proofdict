@@ -1,11 +1,11 @@
 // MIT © 2017 azu
 import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPattern } from "./DictionaryPattern";
-import { Entity, Identifier } from "../ddd-base";
+import { Entity, Identifier } from "ddd-base";
 import { DictionaryPatterns, DictionaryPatternsSerializer } from "./DictionaryPatterns";
 import { DictionarySpecs, DictionarySpecsJSON, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
-import { Serializer } from "../ddd-base/Serializer";
+import { Serializer } from "../../ddd-base/Serializer";
 import {
     DictionaryWordClasses,
     DictionaryWordClassesJSON,

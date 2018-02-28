@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import { DictionaryWordClass, DictionaryWordClassJSON } from "./DictionaryWordClass";
-import { Serializer } from "../ddd-base/Serializer";
+import { Serializer } from "../../ddd-base/Serializer";
 
 export const DictionaryWordClassesSerializer: Serializer<DictionaryWordClasses, DictionaryWordClassesJSON> = {
     fromJSON(wordClasses) {
