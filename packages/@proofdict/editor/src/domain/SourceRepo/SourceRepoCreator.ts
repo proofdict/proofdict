@@ -11,7 +11,7 @@ export const createSourceRepo = ({
     owner,
     repo,
     branch = "master",
-    proofdictDataPath = "_data/dict"
+    proofdictDataPath = "_data/proofdict"
 }: createSourceRepoArgs) => {
     const slug = `${owner}/${repo}/${branch}`;
     return new SourceRepo({

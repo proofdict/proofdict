@@ -39,6 +39,7 @@ export class SubmitDictionaryToGitHubUseCase extends UseCase {
             owner: sourceRepo.owner,
             repo: sourceRepo.repo,
             branch: sourceRepo.branch,
+            proofdictDataPath: sourceRepo.proofdictDataPath,
             fileNameWithExt: dictionaryPath + ".yml",
             fileContent: yamlFormatter(DictionarySerializer.toJSON(dictionary))
         });
