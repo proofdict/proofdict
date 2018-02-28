@@ -127,6 +127,7 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
 }
 
 export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Promise<DictionarySpec> {
+    let tester: ProofdictTester;
     if (spec.from.length === 0) {
         return Promise.resolve(spec);
     }
@@ -134,9 +135,14 @@ export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Promi
     if (patterns.length === 0) {
         return Promise.resolve(spec);
     }
-    const tester = new ProofdictTester({
-        dictionary: [DictionarySerializer.toJSON(dictionary)]
-    });
+    try {
+        const dictionaryJSON = DictionarySerializer.toJSON(dictionary);
+        tester = new ProofdictTester({
+            dictionary: [dictionaryJSON]
+        });
+    } catch (error) {
+        return Promise.resolve(spec.invalid(error));
+    }
     return tester
         .replace(spec.from)
         .then(expected => {

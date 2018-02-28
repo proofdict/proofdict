@@ -7,10 +7,6 @@ import registerServiceWorker from "./registerServiceWorker";
 
 require("./index.css");
 require("office-ui-fabric-react/dist/css/fabric.min.css");
-// FIXME: office-ui-fabric-react CSS warning hack
-if (process.env.NODE_ENV !== "production") {
-    // console.clear();
-}
 
 import { appStoreGroup } from "./component/container/App/AppStoreGroup";
 import { appLocator } from "./AppLocator";
@@ -30,8 +26,11 @@ if (process.env.NODE_ENV !== "production") {
     const devTools = new AlminDevTools(context);
     devTools.connect();
 }
-context.useCase(createCreateNewDictionaryUseCase()).executor(useCase => useCase.execute()).then(() => {
-    const App = AlminReactContainer.create(AppContainer, context);
-    ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
-    registerServiceWorker();
-});
+context
+    .useCase(createCreateNewDictionaryUseCase())
+    .executor(useCase => useCase.execute())
+    .then(() => {
+        const App = AlminReactContainer.create(AppContainer, context);
+        ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
+        registerServiceWorker();
+    });
