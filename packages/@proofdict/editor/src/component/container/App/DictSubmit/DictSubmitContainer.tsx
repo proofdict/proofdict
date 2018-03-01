@@ -50,7 +50,7 @@ export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps,
                         onClick={this.onClickSubmitButton}
                         disabled={this.props.dictSubmit.disabled}
                     >
-                        Submit to GitHub
+                        Save to GitHub
                     </PrimaryButton>
                 </div>
             </div>
