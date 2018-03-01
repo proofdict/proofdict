@@ -30,7 +30,7 @@ describe("createSlugFromDictionary", () => {
             return getUniqueTokens(dictionary).then(tokens => {
                 const targetDictionary = dictionary.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
                 const slug = createSlugFromDictionary(targetDictionary);
-                assert.strictEqual(slug, `ECMAScript_$1--${targetDictionary.id.toValue()}`);
+                assert.strictEqual(slug, `ECMAScript_$1`);
             });
         });
     });
