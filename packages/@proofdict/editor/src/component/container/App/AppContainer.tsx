@@ -25,7 +25,7 @@ export class AppContainer extends BaseContainer<typeof appStoreGroup.state, {}> 
                     </GridCell>
                 </Grid>
                 <DictMetaContainer dictMeta={this.props.dictMeta} dictForm={this.props.dictForm} />
-                <DictSubmitContainer dictForm={this.props.dictForm} />
+                <DictSubmitContainer dictForm={this.props.dictForm} dictSubmit={this.props.dictSubmit} />
                 <DictOutputContainer dictOutput={this.props.dictOutput} />
             </div>
         );

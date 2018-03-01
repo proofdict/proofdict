@@ -13,5 +13,5 @@ const escapeName = (fileName: string) => {
  * @returns {string}
  */
 export function createSlugFromDictionary(dictionary: Dictionary): string {
-    return sanitizeFileName(escapeName(`${dictionary.expected.value}--${dictionary.id.toValue()}`));
+    return sanitizeFileName(escapeName(dictionary.expected.value));
 }

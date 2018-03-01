@@ -5,11 +5,13 @@ import { createSubmitDictionaryToGitHubUseCase } from "../../../../use-case/outp
 import { BaseContainer } from "../../BaseContainer";
 import { DictFormState } from "../DictForm/DictFormStore";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
+import { DictSubmitState } from "./DictSubmitStore";
 
 require("./DictSubmitContainer.css");
 
 export interface DictSubmitContainerProps {
     dictForm: DictFormState;
+    dictSubmit: DictSubmitState;
 }
 
 export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps, {}> {
@@ -43,7 +45,11 @@ export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps,
             <div className="DictSubmitContainer">
                 <div className="DictSubmitContainer-right">
                     {this.createSubmitButtonHelp()}
-                    <PrimaryButton className="DictSubmitContainer-submitButton" onClick={this.onClickSubmitButton}>
+                    <PrimaryButton
+                        className="DictSubmitContainer-submitButton"
+                        onClick={this.onClickSubmitButton}
+                        disabled={this.props.dictSubmit.disabled}
+                    >
                         Submit to GitHub
                     </PrimaryButton>
                 </div>

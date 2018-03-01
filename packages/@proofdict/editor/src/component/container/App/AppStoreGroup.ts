@@ -1,10 +1,12 @@
 // MIT © 2017 azu
 import { StoreGroup } from "almin";
-import { DictFormStore } from "./DictForm/DictFormStore";
 import { dictionaryRepository } from "../../../infra/repository/DictionaryRepository";
+import { sourceRepoRepository } from "../../../infra/repository/SourceRepoRepository";
+import { DictFormStore } from "./DictForm/DictFormStore";
 import { DictTesterStore } from "./DictTester/DictTesterStore";
 import { DictOutputStore } from "./DictOutput/DictOutputStore";
 import { DictMetaStore } from "./DictMeta/DictMetaStore";
+import { DictSubmitStore } from "./DictSubmit/DictSubmitStore";
 
 if (process.env.NODE_ENV !== "production") {
     (window as any).profdict = {
@@ -24,5 +26,8 @@ export const appStoreGroup = new StoreGroup({
     }),
     dictMeta: new DictMetaStore({
         dictionaryRepository
+    }),
+    dictSubmit: new DictSubmitStore({
+        sourceRepoRepository
     })
 });
