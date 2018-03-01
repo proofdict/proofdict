@@ -4,7 +4,7 @@ const { Creatable } = require("react-select");
 import "react-select/dist/react-select.css";
 
 export interface TagInputProps {
-    tags: string[];
+    suggestedTags: string[];
     selectedTags: string[];
     onChangeTags: (tags: string[]) => void;
 }
@@ -21,14 +21,16 @@ export class TagInput extends React.Component<TagInputProps, {}> {
     };
 
     render() {
-        const options: SelectOption[] = this.props.tags.map(tag => {
+        // All options that include current selected tags
+        const options: SelectOption[] = [...this.props.suggestedTags, ...this.props.selectedTags].map(tag => {
             return {
                 label: tag,
                 value: tag
             };
         });
-        // tags[]
+        //
         const selectedTagValue = this.props.selectedTags.join(",");
+        console.log(selectedTagValue);
 
         return (
             <Creatable

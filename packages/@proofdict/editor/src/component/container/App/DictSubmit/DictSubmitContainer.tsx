@@ -25,7 +25,7 @@ export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps,
                     <h2>What is this?</h2>
                     <p>You can submit your term to proofdict project.</p>
                     <ul style={{ listStyleType: "decimal " }}>
-                        <li>Press "Submit to GitHub"</li>
+                        <li>Press "Save to GitHub"</li>
                         <li>
                             <a href="https://help.github.com/articles/creating-new-files/">Creating new files</a>
                         </li>
@@ -33,9 +33,6 @@ export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps,
                             Send a <a href="https://help.github.com/articles/about-pull-requests/">pull requests</a>
                         </li>
                     </ul>
-                    <p>
-                        <a href="https://proofdict.github.io/proofdict/">proofdict dictionary is here</a>
-                    </p>
                 </div>
             </HelpCalloutButton>
         );
