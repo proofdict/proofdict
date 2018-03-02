@@ -1,9 +1,12 @@
 id: 01BQ92YYBHB83ZNFWK5WBA58B7
-description: ''
+description: 'JavaScript is not Java Script'
 expected: JavaScript
 patterns:
+  - /javascript/i
   - /Java Script/i
 specs:
+  - from: javascript
+    to: JavaScript
   - from: java script
     to: JavaScript
   - from: Java script
