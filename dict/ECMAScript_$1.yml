@@ -7,6 +7,8 @@ patterns:
 specs:
   - from: ECMASCRIPT5
     to: ECMAScript 5
+  - from: ecmascript2015
+    to: ECMAScript 2015
 tags:
   - noun
   - JavaScript

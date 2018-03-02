@@ -1,5 +1,5 @@
 id: 01BQ92YXWVMAMKQ3VK2DNYNCCP
-description: ''
+description: 'Customのtypoです'
 expected: Custom
 patterns:
   - /Custome\b/i
