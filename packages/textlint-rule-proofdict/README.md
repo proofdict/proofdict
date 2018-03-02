@@ -17,7 +17,9 @@ Via `.textlintrc`(Recommended)
 ```json
 {
     "rules": {
-        "proofdict": true
+        "proofdict": {
+          "dictURL": "https://azu.github.io/proofdict/"
+        }
     }
 }
 ```
@@ -30,44 +32,45 @@ textlint --rule proofdict README.md
 
 ## Options
 
-Default setting:
-
 ```json5
 {
-    // = AutoUpdate settings
-    // Automatically update proofdict source
-    "autoUpdate": false,
-    // 60sec(60 * 1000ms) by default
-    "autoUpdateInterval": 60000,
-    // If autoUpdate is failed, redirect to use cached proofdict
-    "autoFallback": false,
+    // If you want to use live-proofdict
+    // Proofdict-style dictionary URL
+    // Example: "https://azu.github.io/proofdict/"
+    // If you want to specific JSON end point, please pass object.
+    // `dictURL; { jsonAPI: string, ruleBase: string }`
+    "dictURL": undefined,
+    // If you want to use local proofdict
+    // dictPath is glob style path
+    // TODO: Not implement yet
+    "dictPath": undefined,
+    // Default: 60sec(60 * 1000ms)
+    "autoUpdateInterval": 60 * 1000,
     // = Tag settings
     // Filter dictionary by whitelist or blacklist
     // Default: Enable all terms of the dictionary.
     // When set both options, this rule prefer whitelist to blacklist
     "whitelistTags": [],
-    "blacklistTags": []
-}
+    "blacklistTags": [],
+};
 ```
 
+### `dictURL`
 
-### AutoUpdate(Default: false)
+`dictURL` is required option.
+You must set your dictionary website url.
 
-If `autoUpdate` is true, this rule automatically update dictionary source.
-The fetched dictionary is put into `.cache/localstorage-ponyfill`.
+For example, set `https://azu.github.io/proof-dictionary/` to `dictURL`.
+This url fetch dictionary data from `https://azu.github.io/proof-dictionary/dictionary.json`.
 
-You should add `.cache/` to `.gitignore`
+If you want to custom API end point, pass object instead of string.
 
-```json
-{
-    "rules": {
-        "proofdict": {
-          "autoUpdate": true
-        }
-    }
+```json5.
+"dictURL": { 
+   "jsonAPI": "https://azu.github.io/proof-dictionary/custom-dict.json",
+   "ruleBase": "https://azu.github.io/proof-dictionary/item/",
 }
-```
-
+``` 
 
 ### Whitelist/Blacklist
 

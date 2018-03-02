@@ -32,12 +32,16 @@
   },
   "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
   "devDependencies": {
-    "textlint-scripts": "^1.2.4"
+    "textlint-scripts": "^1.4.2"
   },
   "dependencies": {
+    "@types/url-join": "^0.8.2",
+    "debug": "^3.1.0",
+    "fetch-ponyfill": "^5.0.1",
     "localstorage-ponyfill": "^1.0.1",
     "proofdict": "^1.2.1",
-    "proofdict-tester": "^0.3.1",
-    "textlint-rule-helper": "^2.0.0"
+    "proofdict-tester": "^1.0.0",
+    "textlint-rule-helper": "^2.0.0",
+    "url-join": "^4.0.0"
   }
 }
