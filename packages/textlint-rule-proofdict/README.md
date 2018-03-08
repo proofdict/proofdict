@@ -18,7 +18,7 @@ Via `.textlintrc`(Recommended)
 {
     "rules": {
         "proofdict": {
-          "dictURL": "https://azu.github.io/proofdict/"
+          "dictURL": "https://azu.github.io/proof-dictionary/"
         }
     }
 }
