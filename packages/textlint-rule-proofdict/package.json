@@ -11,7 +11,7 @@
     "src/"
   ],
   "name": "textlint-rule-proofdict",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "textlint rule check text using proofdict.",
   "main": "lib/textlint-rule-proofdict.js",
   "scripts": {
