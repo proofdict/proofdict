@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const meow = require("meow");
-const execute = require("../lib/cli");
+const execute = require("../lib/cli").execute;
 const cli = meow(
     `
     Usage
