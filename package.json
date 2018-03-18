@@ -57,7 +57,7 @@
     "tabWidth": 4
   },
   "workspaces": [
-    "website/",
+    "website",
     "packages/*",
     "packages/@proofdict/*"
   ]
