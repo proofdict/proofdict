@@ -2,6 +2,7 @@
 "use strict";
 const fetch = require("fetch-ponyfill")().fetch;
 const debug = require("debug")("textlint-rule-proofdict");
+
 function delayPromise(ms) {
     return new Promise(function(resolve) {
         setTimeout(resolve, ms);
@@ -20,7 +21,7 @@ function timeoutPromise(promise, ms) {
 export function fetchProofdict({ URL }) {
     return timeoutPromise(fetch(URL), 5000).then(res => {
         if (!res.ok) {
-            throw Error(res.statusText);
+            throw Error(`Proofdict is not found: ${URL}`);
         }
         return res.json();
     }).catch(error => {
