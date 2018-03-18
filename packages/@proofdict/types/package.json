@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/types",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "TypeDefinition for proofdict",
   "homepage": "https://github.com/proofdict/proofdict/tree/master/packages/@proofdict/types/",
   "bugs": {
