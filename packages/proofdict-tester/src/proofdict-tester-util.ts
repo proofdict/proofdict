@@ -8,7 +8,8 @@ export const wrapWordBoundaryToString = (pattern: string): string => {
     if (regExp === null) {
         return pattern;
     }
-    return wrapWordBoundary(regExp).toString();
+    const wrapWordPattern = wrapWordBoundary(regExp);
+    return wrapWordPattern.toString();
 };
 export const wrapWordBoundary = (pattern: string | RegExp) => {
     let result;

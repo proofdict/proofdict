@@ -54,6 +54,30 @@ describe("ProofdictTester", () => {
                 assert.strictEqual(text.slice(detail.matchStartIndex, detail.matchEndIndex), "SourceMap");
             });
         });
+
+        it("noun + regexp pattern", () => {
+            const tester = new ProofdictTester({
+                dictionary: [
+                    {
+                        "id": "01BQ92YYBH2EZP1E4KVNDMXYV9",
+                        "description": "",
+                        "expected": "Pointer Events",
+                        "patterns": [
+                            "/pointer event/i",
+                            "/pointer events/i"
+                        ],
+                        "tags": [
+                            "JavaScript",
+                            "noun"
+                        ]
+                    }
+                ]
+            });
+            const text = "Pointer Events is an event.";
+            return tester.match(text).then(result => {
+                assert.strictEqual(result.details.length, 0);
+            });
+        });
         it("non-noun pattern", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
