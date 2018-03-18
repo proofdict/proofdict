@@ -11,3 +11,4 @@ after_success:
   $(npm bin)/set-up-ssh --key "$encrypted_7bde748fd878_key" \
                        --iv "$encrypted_7bde748fd878_iv" \
                        --path-encrypted-key ".travis/github_deploy_key.enc"
+  bash ./tools/push-to-github-io.sh
