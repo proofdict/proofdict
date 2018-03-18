@@ -1139,9 +1139,9 @@ fetch-ponyfill@^4.1.0:
   dependencies:
     node-fetch "~1.7.1"
 
-fetch-ponyfill@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/fetch-ponyfill/-/fetch-ponyfill-5.0.1.tgz#2789ec179c1de357f60f9fd49e154a8b3fd8cd1b"
+fetch-ponyfill@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/fetch-ponyfill/-/fetch-ponyfill-6.0.0.tgz#1809503d4e3f966920708bb296114e1b69c0c477"
   dependencies:
     node-fetch "~2.0.0"
 

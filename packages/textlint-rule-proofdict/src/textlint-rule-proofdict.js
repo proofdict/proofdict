@@ -1,11 +1,12 @@
 // MIT © 2017 azu
 "use strict";
 const debug = require("debug")("textlint-rule-proofdict");
-const { createLocalStorage } = require("localstorage-ponyfill");
 const { RuleHelper } = require("textlint-rule-helper");
-import { createTester } from "./create-tester";
+import { createTester, getDictionary } from "./create-tester";
 import { fetchProofdict } from "./fetch-proofdict";
 import { getDictJSONURL, getRuleURL } from "./proofdict-repo-util";
+import { MODE } from "./mode";
+import { storage } from "./dictionary-storage";
 
 const DefaultOptions = {
     // If you want to use live-proofdict
@@ -28,16 +29,11 @@ const DefaultOptions = {
     "blacklistTags": [],
     // For testing
     // set you proofdict json object
-    "proofdict": undefined
+    "proofdict": undefined,
+    // Disable cache for tester
+    "disableProofdictTesterCache": false
 };
 
-/**
- * @type {{LOCAL: string, NETWORK: string}}
- */
-const MODE = {
-    LOCAL: "LOCAL",
-    NETWORK: "NETWORK"
-};
 const reporter = (context, options = DefaultOptions) => {
     const helper = new RuleHelper(context);
     const { Syntax, RuleError, report, getSource, fixer } = context;
@@ -52,24 +48,28 @@ Please set dictURL or dictPath to .textlintrc.`))
     const mode = options.dictURL ? MODE.NETWORK : MODE.LOCAL;
     const whitelistTags = Array.isArray(options.whitelistTags) ? options.whitelistTags : DefaultOptions.whitelistTags;
     const blacklistTags = Array.isArray(options.blacklistTags) ? options.blacklistTags : DefaultOptions.blacklistTags;
+    const disableTesterCache = options.disableProofdictTesterCache !== undefined
+                                        ? options.disableProofdictTesterCache
+                                        : DefaultOptions.disableProofdictTesterCache;
     const autoUpdateInterval = options.autoUpdateInterval !== undefined
-        ? options.autoUpdateInterval
-        : DefaultOptions.autoUpdateInterval;
-    const localStorage = createLocalStorage();
+                               ? options.autoUpdateInterval
+                               : DefaultOptions.autoUpdateInterval;
     const targetNodes = [];
     const addQueue = node => targetNodes.push(node);
     let promiseQueue = null;
     return {
         [Syntax.Document]() {
             // default: 0
-            const lastUpdated = Number(localStorage.getItem("proofdict-lastUpdated", "0"));
-            const isExpired = lastUpdated + autoUpdateInterval < Date.now();
+            const lastUpdated = Number(storage.getItem("proofdict-lastUpdated", "-1"));
+            const isExpired = lastUpdated <= 0
+                              ? true
+                              : Date.now() - lastUpdated > autoUpdateInterval;
             if (mode === MODE.NETWORK && isExpired) {
                 const jsonAPIURL = getDictJSONURL(options);
                 promiseQueue = fetchProofdict({ URL: jsonAPIURL })
                     .then(dictionary => {
-                        localStorage.setItem("proofdict", JSON.stringify(dictionary));
-                        localStorage.setItem("proofdict-lastUpdated", Date.now());
+                        storage.setItem("proofdict", JSON.stringify(dictionary));
+                        storage.setItem("proofdict-lastUpdated", Date.now());
                     })
                     .catch(error => {
                         debug("Fetch is failed", error);
@@ -84,34 +84,14 @@ Please set dictURL or dictPath to .textlintrc.`))
         },
         [`${Syntax.Document}:exit`]() {
             return promiseQueue.then(() => {
-                const getDict = (options) => {
-                    // prefer `dictionary` option
-                    if (options.proofdict !== undefined) {
-                        return options.proofdict;
-                    }
-                    let proofDictData;
-                    // NETWORK
-                    if (options.dictURL) {
-                        try {
-                            const cachedProofdict = localStorage.getItem("proofdict");
-                            proofDictData = JSON.parse(cachedProofdict);
-                        } catch (error) {
-                            localStorage.removeItem("proofdict");
-                        }
-                    }
-                    // LOCAL
-                    if (options.dictPath) {
-                        // TODO: not implemented
-                    }
-                    return proofDictData;
-                };
-                const dictionary = getDict(options);
-                const lastUpdated = Number(localStorage.getItem("proofdict-lastUpdated", "0"));
+                const dictionary = getDictionary(options, mode);
+                const lastUpdated = Number(storage.getItem("proofdict-lastUpdated", "0"));
                 const tester = createTester({
                     dictionary,
                     lastUpdated,
                     whitelistTags,
-                    blacklistTags
+                    blacklistTags,
+                    disableTesterCache
                 });
                 // check
                 const promises = targetNodes.map(node => {

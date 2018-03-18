@@ -2,26 +2,26 @@ const TextLintTester = require("textlint-tester");
 const tester = new TextLintTester();
 // rule
 import rule from "../src/textlint-rule-proofdict";
+// IN testing , disable tester cache
+const disableProofdictTesterCache = true;
+const defaultOptions = {
+    disableProofdictTesterCache,
+    proofdict: require("./fixtures/proofdict.json")
+};
 // ruleName, rule, { valid, invalid }
 tester.run("proofdict", rule, {
     valid: [
         {
             text: "jQuery",
-            options: {
-                proofdict: require("./fixtures/proofdict.json")
-            }
+            options: defaultOptions
         },
         {
             text: "WebKit",
-            options: {
-                proofdict: require("./fixtures/proofdict.json")
-            }
+            options: defaultOptions
         },
         {
             text: "WebKit",
-            options: {
-                proofdict: require("./fixtures/proofdict.json")
-            }
+            options: defaultOptions
         },
     ],
     invalid: [
@@ -29,7 +29,8 @@ tester.run("proofdict", rule, {
             text: "texlint check your texts.\n" + "jquery is libray.\n",
             output: "texlint check your texts.\n" + "jQuery is libray.\n",
             options: {
-                dictURL: "https://proofdict.github.io/proof-dictionary/"
+                dictURL: "https://proofdict.github.io/proof-dictionary/",
+                disableProofdictTesterCache
             },
             errors: [
                 {
@@ -44,7 +45,8 @@ tester.run("proofdict", rule, {
             text: "jquery",
             output: "jQuery",
             options: {
-                dictURL: "https://proofdict.github.io/proof-dictionary/"
+                dictURL: "https://proofdict.github.io/proof-dictionary/",
+                disableProofdictTesterCache
             },
             errors: [
                 {
@@ -59,7 +61,34 @@ tester.run("proofdict", rule, {
             text: "This is webkit.",
             output: "This is WebKit.",
             options: {
-                proofdict: require("./fixtures/proofdict.json")
+                proofdict: [
+                    {
+                        "id": "01BQ92YZ6QR8RJKA5Y8W2F9NMY",
+                        "description": "Reference https://webkit.org/",
+                        "expected": "WebKit",
+                        "patterns": [
+                            "/webkit/i"
+                        ],
+                        "specs": [
+                            {
+                                "from": "これはwebkitです",
+                                "to": "これはWebKitです"
+                            },
+                            {
+                                "from": "XXXwebkit",
+                                "to": "XXXwebkit"
+                            },
+                            {
+                                "from": "node-webkit",
+                                "to": "node-webkit"
+                            }
+                        ],
+                        "tags": [
+                            "noun"
+                        ]
+                    }
+                ],
+                disableProofdictTesterCache
             },
             errors: [
                 {

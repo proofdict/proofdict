@@ -37,7 +37,7 @@
   "dependencies": {
     "@types/url-join": "^0.8.2",
     "debug": "^3.1.0",
-    "fetch-ponyfill": "^5.0.1",
+    "fetch-ponyfill": "^6.0.0",
     "localstorage-ponyfill": "^1.0.1",
     "proofdict": "^1.2.1",
     "proofdict-tester": "^1.0.0",

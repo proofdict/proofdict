@@ -10,7 +10,7 @@ export function getDictJSONURL(options) {
     if (typeof options.dictURL === "object" && typeof options.dictURL.jsonAPI === "string") {
         return options.dictURL.jsonAPI;
     }
-    return urlJoin(options.dictURL, "dict.json");
+    return urlJoin(options.dictURL, "dictionary.json");
 }
 
 /**
