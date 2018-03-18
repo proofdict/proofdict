@@ -2,6 +2,8 @@
 
 A CLI for @proofdict/tester.
 
+This tools validate proof-style dictionary.
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
@@ -10,7 +12,12 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
-- [ ] Write usage instructions
+    Usage
+      $ proofdict-tester [path|glob]
+
+    Examples
+      $ proofdict-tester "dict/*.yml"
+
 
 ## Changelog
 

@@ -1,25 +1,10 @@
 // MIT © 2017 azu
 import { Diff, Engine } from "prh";
+import { ProofdictRule } from "@proofdict/types";
 import { wrapHyphenWordBoundary, wrapWordBoundaryToString } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
-
+export { ProofdictRule, ProofdictRuleSpec } from "@proofdict/types";
 export type Proofdict = ProofdictRule[];
-
-export interface ProofdictRule {
-    id?: string;
-    description?: string;
-    expected: string;
-    patterns: string[];
-    tags: string[];
-    specs?: ProofdictSpec[];
-
-    [index: string]: any;
-}
-
-export interface ProofdictSpec {
-    from: string;
-    to: string;
-}
 
 export interface ProofdictTesterResultDetail {
     // It is matched rule object

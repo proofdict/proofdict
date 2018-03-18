@@ -16,7 +16,7 @@ Use [textlint-rule-proofdict](https://github.com/proofdict/textlint-rule-proofdi
 
 Visit <https://proofdict.github.io/>
 
-## Dictionary format
+## Proofdict format
 
 ```yml
 # `id` is unique string
@@ -45,6 +45,12 @@ tags:
   - noun
   - JavaScript
 ```
+
+### Example
+
+```yaml
+```
+
 
 ### Special `tag`
 

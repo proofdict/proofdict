@@ -14,6 +14,6 @@ export const execute = (globPattern: string[]) => {
         throw new Error(`This file is not supported: ${filePath}`);
     });
     return Promise.all(promises).then(() => {
-        return `Validate ${fileList.length} files!`;
+        return `Pass ${fileList.length} files!`;
     });
 };

@@ -1,0 +1,13 @@
+id: 01BQ92YYBHB83ZNFWK5WBA58B7
+description: 'JavaScript is not Java Script'
+expected: JavaScript
+patterns:
+  - /javascript/i
+  - /Java Script/i
+specs:
+  # invalid
+  - from: Javascript
+    to: JavaScript
+tags:
+  - noun
+  - JavaScript

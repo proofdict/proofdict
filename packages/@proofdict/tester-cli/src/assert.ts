@@ -13,14 +13,15 @@ export const assertProofdictJSON = (dictionary: Proofdict) => {
         }
         const specPromises = dict.specs.map(spec => {
             return tester.match(spec.from).then(result => {
-                assert.ok(typeof result === "object", "should have result");
                 assert.strictEqual(
                     result.output,
                     spec.to,
                     `This rule's spec is invalid:
+Expected: ${spec.to}
+Actual  : ${result.output}
+---
 From    : ${spec.from}
-To      : ${spec.to}                    
-Result  : ${result.output}
+To      : ${spec.to}
 Details : 
 ${JSON.stringify(result, null, 4)}                    
 `
