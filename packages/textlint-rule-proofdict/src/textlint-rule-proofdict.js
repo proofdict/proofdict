@@ -70,9 +70,6 @@ Please set dictURL or dictPath to .textlintrc.`))
                     .then(dictionary => {
                         storage.setItem("proofdict", JSON.stringify(dictionary));
                         storage.setItem("proofdict-lastUpdated", Date.now());
-                    })
-                    .catch(error => {
-                        debug("Fetch is failed", error);
                     });
             } else {
                 promiseQueue = Promise.resolve();

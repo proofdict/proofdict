@@ -1,7 +1,7 @@
 // MIT © 2018 azu
 "use strict";
 const fetch = require("fetch-ponyfill")().fetch;
-
+const debug = require("debug")("textlint-rule-proofdict");
 function delayPromise(ms) {
     return new Promise(function(resolve) {
         setTimeout(resolve, ms);
@@ -25,6 +25,7 @@ export function fetchProofdict({ URL }) {
         return res.json();
     }).catch(error => {
         if (error.name === "TimeoutError") {
+            debug("TimeoutError", error);
             return;
         }
         return Promise.reject(error);
