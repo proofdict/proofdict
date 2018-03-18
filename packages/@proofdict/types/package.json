@@ -13,8 +13,8 @@
     "lib/",
     "src/"
   ],
-  "main": "lib/types.js",
-  "types": "lib/types.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
