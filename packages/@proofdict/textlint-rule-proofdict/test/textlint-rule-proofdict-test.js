@@ -22,7 +22,7 @@ tester.run("proofdict", rule, {
         {
             text: "WebKit",
             options: defaultOptions
-        },
+        }
     ],
     invalid: [
         {
@@ -63,37 +63,32 @@ tester.run("proofdict", rule, {
             options: {
                 proofdict: [
                     {
-                        "id": "01BQ92YZ6QR8RJKA5Y8W2F9NMY",
-                        "description": "Reference https://webkit.org/",
-                        "expected": "WebKit",
-                        "patterns": [
-                            "/webkit/i"
-                        ],
-                        "specs": [
+                        id: "01BQ92YZ6QR8RJKA5Y8W2F9NMY",
+                        description: "Reference https://webkit.org/",
+                        expected: "WebKit",
+                        patterns: ["/webkit/i"],
+                        specs: [
                             {
-                                "from": "これはwebkitです",
-                                "to": "これはWebKitです"
+                                from: "これはwebkitです",
+                                to: "これはWebKitです"
                             },
                             {
-                                "from": "XXXwebkit",
-                                "to": "XXXwebkit"
+                                from: "XXXwebkit",
+                                to: "XXXwebkit"
                             },
                             {
-                                "from": "node-webkit",
-                                "to": "node-webkit"
+                                from: "node-webkit",
+                                to: "node-webkit"
                             }
                         ],
-                        "tags": [
-                            "noun"
-                        ]
+                        tags: ["noun"]
                     }
                 ],
                 disableProofdictTesterCache
             },
             errors: [
                 {
-                    message: "webkit => WebKit\n"
-                    + "Reference https://webkit.org/",
+                    message: "webkit => WebKit\n" + "Reference https://webkit.org/",
                     line: 1,
                     column: 9
                 }

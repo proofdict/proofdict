@@ -2,7 +2,6 @@
 "use strict";
 const { createLocalStorage } = require("localstorage-ponyfill");
 
-
 class Storage {
     constructor() {
         this.localStorage = createLocalStorage();
@@ -14,7 +13,7 @@ class Storage {
 
     setItem(name, value) {
         return this.localStorage.setItem(name, value);
-    };
+    }
 
     removeItem(name) {
         return this.localStorage.removeItem(name);

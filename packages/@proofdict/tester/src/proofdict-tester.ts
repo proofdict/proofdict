@@ -1,11 +1,9 @@
 // MIT © 2017 azu
 import { Diff, Engine } from "prh";
-import {
-    wrapHyphenWordBoundary, wrapWordBoundaryToString
-} from "./proofdict-tester-util";
+import { wrapHyphenWordBoundary, wrapWordBoundaryToString } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
 
-export type Proofdict = ProofdictRule[]
+export type Proofdict = ProofdictRule[];
 
 export interface ProofdictRule {
     id?: string;
@@ -42,7 +40,7 @@ export interface ProofdictTesterResult {
     // replaced result
     output: string;
     // details output
-    details: ProofdictTesterResultDetail[]
+    details: ProofdictTesterResultDetail[];
     // This will be removed in the future
     // @deprecated
     diffs?: Diff[];
@@ -70,12 +68,14 @@ export class ProofdictTester {
                 return {
                     id: dict.id,
                     expected: dict.expected,
-                    patterns: isNoun(dict) ? dict.patterns.map(pattern => {
-                        return wrapWordBoundaryToString(pattern);
-                    }) : dict.patterns,
+                    patterns: isNoun(dict)
+                        ? dict.patterns.map(pattern => {
+                              return wrapWordBoundaryToString(pattern);
+                          })
+                        : dict.patterns,
                     tags: dict.tags,
                     description: dict.description
-                }
+                };
             })
         });
     }
@@ -88,7 +88,7 @@ export class ProofdictTester {
         // pass empty string for working in browser
         // https://github.com/prh/prh/issues/29
         const changeSet = this.prhEngine.makeChangeSet("", text);
-        const sortedDiffs = changeSet.diffs.sort(function (a, b) {
+        const sortedDiffs = changeSet.diffs.sort(function(a, b) {
             return a.index - b.index;
         });
         let deltaTestStartPosition = 0;

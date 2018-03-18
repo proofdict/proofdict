@@ -35,8 +35,5 @@ export const wrapHyphenWordBoundary = (pattern: string | RegExp) => {
     } else {
         throw new Error(`unknown type: ${pattern}`);
     }
-    return [
-        concat(["-", result], flags),
-        concat([result, "-"], flags)
-    ]
+    return [concat(["-", result], flags), concat([result, "-"], flags)];
 };

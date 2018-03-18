@@ -9,7 +9,7 @@ describe("ProofdictTester", () => {
             const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "This is webkit desu.";
             return tester.replace(text).then(result => {
-                assert.strictEqual(result, "This is WebKit desu.")
+                assert.strictEqual(result, "This is WebKit desu.");
             });
         });
     });
@@ -22,15 +22,11 @@ describe("ProofdictTester", () => {
                 assert.strictEqual(result.details.length, 1);
                 const [detail] = result.details;
                 assert.deepStrictEqual(detail.rule, {
-                    "id": "01BQ92YZ6QR8RJKA5Y8W2F9NMY",
-                    "description": "Reference https://webkit.org/",
-                    "expected": "WebKit",
-                    "patterns": [
-                        "/\\bwebkit\\b/i"
-                    ],
-                    "tags": [
-                        "noun"
-                    ]
+                    id: "01BQ92YZ6QR8RJKA5Y8W2F9NMY",
+                    description: "Reference https://webkit.org/",
+                    expected: "WebKit",
+                    patterns: ["/\\bwebkit\\b/i"],
+                    tags: ["noun"]
                 });
                 assert.strictEqual(detail.actual, "webkit");
                 assert.strictEqual(detail.expected, "WebKit");
@@ -59,17 +55,11 @@ describe("ProofdictTester", () => {
             const tester = new ProofdictTester({
                 dictionary: [
                     {
-                        "id": "01BQ92YYBH2EZP1E4KVNDMXYV9",
-                        "description": "",
-                        "expected": "Pointer Events",
-                        "patterns": [
-                            "/pointer event/i",
-                            "/pointer events/i"
-                        ],
-                        "tags": [
-                            "JavaScript",
-                            "noun"
-                        ]
+                        id: "01BQ92YYBH2EZP1E4KVNDMXYV9",
+                        description: "",
+                        expected: "Pointer Events",
+                        patterns: ["/pointer event/i", "/pointer events/i"],
+                        tags: ["JavaScript", "noun"]
                     }
                 ]
             });

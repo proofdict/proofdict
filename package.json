@@ -1,59 +1,49 @@
 {
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "name": "proofdict",
+  "version": "1.2.1",
+  "private": true,
+  "description": "Proofdict is a collection of dictionary.",
+  "keywords": [
+    "dict"
+  ],
+  "homepage": "https://github.com/proofdict/proofdict",
+  "bugs": {
+    "url": "https://github.com/proofdict/proofdict/issues"
   },
-  "author": "azu",
   "license": "MIT",
+  "author": "azu",
   "files": [
     "dict/",
     "public/dict.json",
     "index.js"
   ],
-  "name": "proofdict",
-  "version": "1.2.1",
-  "description": "Proofdict is a collection of dictionary.",
   "main": "index.js",
-  "scripts": {
-    "build": "npm run build:dict && npm run build:posts",
-    "build:dict": "node tools/build-dict.js",
-    "build:posts": "node tools/dict-to-posts.js",
-    "pretest": "npm run build:dict",
-    "test": "mocha test/",
-    "prepublish": "npm run build",
-    "precommit": "lint-staged",
-    "postcommit": "git reset",
-    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,css}'"
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   },
-  "keywords": [
-    "dict"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/proofdict/proofdict.git"
   },
-  "bugs": {
-    "url": "https://github.com/proofdict/proofdict/issues"
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "precommit": "lint-staged",
+    "postcommit": "git reset",
+    "prepublish": "npm run build",
+    "publish": "lerna publish --conventional-commits",
+    "test": "lerna run test",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}'"
   },
-  "homepage": "https://github.com/proofdict/proofdict",
-  "dependencies": {
-    "fetch-ponyfill": "^4.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
-    "del": "^3.0.0",
     "globby": "^6.1.0",
     "husky": "^0.14.3",
-    "js-yaml": "^3.9.1",
     "lerna": "^2.9.0",
     "lint-staged": "^4.2.1",
-    "make-dir": "^1.0.0",
-    "markdown-table": "^1.1.1",
-    "mocha": "^3.5.0",
-    "moment": "^2.18.1",
-    "prettier": "^1.7.0",
-    "prh": "^3.1.1",
-    "proofdict-tester": "0.3.1"
+    "prettier": "^1.7.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -64,5 +54,9 @@
   "prettier": {
     "printWidth": 120,
     "tabWidth": 4
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "packages/@proofdict/*"
+  ]
 }

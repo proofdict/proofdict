@@ -3,7 +3,7 @@
 import { MODE } from "./mode";
 import { storage } from "./dictionary-storage";
 
-const { ProofdictTester } = require("proofdict-tester");
+const { ProofdictTester } = require("@proofdict/tester");
 let currentTester = null;
 let checkedLastTime = -1;
 /**
@@ -26,7 +26,6 @@ export const createTester = ({ lastUpdated, dictionary, whitelistTags, blacklist
     }
     return currentTester;
 };
-
 
 /**
  * @param options

@@ -10,7 +10,7 @@
     "lib/",
     "src/"
   ],
-  "name": "proofdict-tester",
+  "name": "@proofdict/tester",
   "version": "1.0.0",
   "description": "Test tool using proofdict.",
   "main": "lib/proofdict-tester.js",

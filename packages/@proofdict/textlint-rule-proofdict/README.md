@@ -1,4 +1,4 @@
-# textlint-rule-proofdict [![Build Status](https://travis-ci.org/proofdict/textlint-rule-proofdict.svg?branch=master)](https://travis-ci.org/proofdict/textlint-rule-proofdict) 
+# @proofdict/textlint-rule-proofdict
 
 [textlint](https://github.com/textlint/textlint "textlint") rule check text using [proofdict](https://proofdict.github.io/proofdict/ "proofdict").
 
@@ -8,7 +8,7 @@
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install textlint-rule-proofdict
+    npm install @proofdict/textlint-rule-proofdict
 
 ## Usage
 
@@ -17,7 +17,7 @@ Via `.textlintrc`(Recommended)
 ```json
 {
     "rules": {
-        "proofdict": {
+        "@proofdict/proofdict": {
           "dictURL": "https://azu.github.io/proof-dictionary/"
         }
     }
@@ -87,7 +87,7 @@ e.g.) Enable only "noun" tag.
 ```json
 {
     "rules": {
-        "proofdict": {
+        "@proofdict/proofdict": {
           "whitelistTags": ["noun"]
         }
     }
@@ -99,16 +99,13 @@ e.g.) Use items without `"opinion"` tag
 ```json
 {
     "rules": {
-        "proofdict": {
+        "@proofdict/proofdict": {
           "blacklistTags": ["opinion"]
         }
     }
 }
 ```
 
-## Changelog
-
-See [Releases page](https://github.com/proofdict/textlint-rule-proofdict/releases).
 
 ## Running tests
 
@@ -120,7 +117,7 @@ Install devDependencies and Run `npm test`:
 
 Pull requests and stars are always welcome.
 
-For bugs and feature requests, [please create an issue](https://github.com/proofdict/textlint-rule-proofdict/issues).
+For bugs and feature requests, [please create an issue](https://github.com/proofdict/proofdict/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

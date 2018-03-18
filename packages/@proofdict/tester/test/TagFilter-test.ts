@@ -61,5 +61,5 @@ describe("TagFilter", () => {
                 shouldHaveTag("noun")(item);
             });
         });
-    })
+    });
 });
