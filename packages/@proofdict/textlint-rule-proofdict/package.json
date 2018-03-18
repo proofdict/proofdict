@@ -18,7 +18,8 @@
     "test": "textlint-scripts test",
     "prepublish": "npm run --if-present build",
     "build": "textlint-scripts build",
-    "watch": "textlint-scripts build --watch"
+    "watch": "textlint-scripts build --watch",
+    "clean": "rimraf lib/"
   },
   "keywords": [
     "textlintrule"
@@ -32,6 +33,7 @@
   },
   "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
   "devDependencies": {
+    "rimraf": "^2.6.2",
     "textlint-scripts": "^1.4.2"
   },
   "dependencies": {

@@ -19,7 +19,8 @@
     "test": "mocha \"test/*.ts\"",
     "build": "cross-env NODE_ENV=production tsc -p .",
     "watch": "tsc -p . --watch",
-    "prepublish": "npm run --if-present build"
+    "prepublish": "npm run --if-present build",
+    "clean": "rimraf lib/"
   },
   "keywords": [
     "prooftest",
@@ -41,6 +42,7 @@
     "cross-env": "^5.1.4",
     "mocha": "^5.0.4",
     "proofdict": "^1.2.1",
+    "rimraf": "^2.6.2",
     "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
   },

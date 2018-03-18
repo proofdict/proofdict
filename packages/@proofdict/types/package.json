@@ -28,12 +28,14 @@
     "prepublish": "npm run --if-present build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
-    "watch": "tsc -p . --watch"
+    "watch": "tsc -p . --watch",
+    "clean": "rimraf lib/"
   },
   "devDependencies": {
     "@types/node": "^9.4.7",
     "cross-env": "^5.1.4",
     "prettier": "^1.9.2",
+    "rimraf": "^2.6.2",
     "typescript": "^2.7.2"
   },
   "prettier": {

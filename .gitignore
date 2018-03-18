@@ -82,7 +82,7 @@ crashlytics.properties
 crashlytics-build.properties
 
 
-pacakges/**/lib
+packages/**/lib
 /public/_posts/build/
 !/public/_posts/build/.gitkeep
 /public/dict.json

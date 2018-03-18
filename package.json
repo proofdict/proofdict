@@ -29,10 +29,10 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "clearn": "lerna run clearn",
+    "clean": "lerna run clean",
     "precommit": "lint-staged",
     "postcommit": "git reset",
-    "prepublish": "yarn run clearn && yarn run build",
+    "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish --conventional-commits",
     "test": "lerna run test",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css}'"
