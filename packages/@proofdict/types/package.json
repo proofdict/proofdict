@@ -1,0 +1,44 @@
+{
+  "name": "@proofdict/types",
+  "version": "1.0.0",
+  "description": "TypeDefinition for proofdict",
+  "homepage": "https://github.com/proofdict/proofdict/tree/master/packages/@proofdict/types/",
+  "bugs": {
+    "url": "https://github.com/proofdict/proofdict/issues"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/types.js",
+  "types": "lib/types.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proofdict/proofdict.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tsc -p .",
+    "prepublish": "npm run --if-present build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "watch": "tsc -p . --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.7",
+    "cross-env": "^5.1.4",
+    "prettier": "^1.9.2",
+    "typescript": "^2.7.2"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 4
+  }
+}

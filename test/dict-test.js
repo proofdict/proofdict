@@ -12,24 +12,23 @@ describe("dict", () => {
     it("all dict check", () => {
         const proofdict = createDictionary();
         const tester = new ProofdictTester({ dictionary: proofdict });
-        const testSpec = spec => {
-            return tester.match(spec.from).then(result => {
-                assert.ok(typeof result === "object", "should have result");
-                assert.strictEqual(
-                    result.output,
-                    spec.to,
-                    `Not pass
+        const promises = proofdict.map(dict => {
+            const specPromises = dict.specs.map(spec => {
+                return tester.match(spec.from).then(result => {
+                    assert.ok(typeof result === "object", "should have result");
+                    assert.strictEqual(
+                        result.output,
+                        spec.to,
+                        `Not pass
 From    : ${spec.from}
 To      : ${spec.to}                    
 Result  : ${result.output}
 Details : 
 ${JSON.stringify(result, null, 4)}                    
 `
-                );
+                    );
+                });
             });
-        };
-        const promises = proofdict.map(dict => {
-            const specPromises = dict.specs.map(testSpec);
             return Promise.all(specPromises);
         });
         return Promise.all(promises);
