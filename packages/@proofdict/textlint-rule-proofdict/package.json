@@ -32,6 +32,9 @@
     "url": "https://github.com/proofdict/textlint-rule-proofdict/issues"
   },
   "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "rimraf": "^2.6.2",
     "textlint-scripts": "^1.4.2"

@@ -32,6 +32,9 @@
     "type": "git",
     "url": "https://github.com/proofdict/proofdict-tester.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/proofdict/proofdict-tester/issues"
   },
