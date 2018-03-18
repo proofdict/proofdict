@@ -6,8 +6,8 @@ declare parentDir=$(cd $(dirname $(cd $(dirname $0);pwd));pwd)
 declare repositoryUrl="git@github.com:proofdict/proofdict.github.io.git"
 declare toBranch="master"
 declare commitMessage="Update website [skip ci]"
-declare commands="npm run build"
-declare distDir="${parentDir}/public"
+declare commands="npm run website"
+declare distDir="${parentDir}/website/build/proofdict"
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then

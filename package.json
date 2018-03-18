@@ -28,8 +28,9 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
+    "build": "lerna run build --ignore website",
     "clean": "lerna run clean",
+    "website": "lerna run build --scope website",
     "precommit": "lint-staged",
     "postcommit": "git reset",
     "prepublish": "yarn run clean && yarn run build",
@@ -56,6 +57,7 @@
     "tabWidth": 4
   },
   "workspaces": [
+    "website/",
     "packages/*",
     "packages/@proofdict/*"
   ]
