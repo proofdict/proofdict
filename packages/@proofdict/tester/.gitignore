@@ -1,5 +1,5 @@
 ### https://raw.github.com/github/gitignore/608690d6b9a78c2a003affc792e49a84905b3118/Node.gitignore
-.cache
+
 # Logs
 logs
 *.log
@@ -83,7 +83,3 @@ crashlytics-build.properties
 
 
 /lib
-/public/_posts/build/
-!/public/_posts/build/.gitkeep
-/public/dict.json
-/_site/
