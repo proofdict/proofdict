@@ -20,7 +20,7 @@ tester.run("proofdict", rule, {
             options: defaultOptions
         },
         {
-            text: "WebKit",
+            text: `[webkit link](https://webkit.org/)`,
             options: defaultOptions
         },
         {
