@@ -1,6 +1,5 @@
 // MIT © 2017 azu
 "use strict";
-const debug = require("debug")("textlint-rule-proofdict");
 const { RuleHelper } = require("textlint-rule-helper");
 import { createTester, getDictionary } from "./create-tester";
 import { fetchProofdict } from "./fetch-proofdict";

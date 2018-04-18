@@ -22,6 +22,10 @@ tester.run("proofdict", rule, {
         {
             text: "WebKit",
             options: defaultOptions
+        },
+        {
+            text: `[webkit link](https://webkit.org/)`,
+            options: defaultOptions
         }
     ],
     invalid: [
