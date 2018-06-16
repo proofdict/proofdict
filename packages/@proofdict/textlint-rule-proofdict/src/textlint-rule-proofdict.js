@@ -7,6 +7,7 @@ import { getDictJSONURL, getRuleURL } from "./proofdict-repo-util";
 import { MODE } from "./mode";
 import { storage } from "./dictionary-storage";
 
+const debug = require("debug")("textlint-rule-proofdict");
 const DefaultOptions = {
     // If you want to use live-proofdict
     // Proofdict-style dictionary URL
@@ -66,10 +67,14 @@ Please set dictURL or dictPath to .textlintrc.`)
             const isExpired = lastUpdated <= 0 ? true : Date.now() - lastUpdated > autoUpdateInterval;
             if (mode === MODE.NETWORK && isExpired) {
                 const jsonAPIURL = getDictJSONURL(options);
-                promiseQueue = fetchProofdict({ URL: jsonAPIURL }).then(dictionary => {
-                    storage.setItem("proofdict", JSON.stringify(dictionary));
-                    storage.setItem("proofdict-lastUpdated", Date.now());
-                });
+                promiseQueue = fetchProofdict({ URL: jsonAPIURL })
+                    .then(dictionary => {
+                        storage.setItem("proofdict", JSON.stringify(dictionary));
+                        storage.setItem("proofdict-lastUpdated", Date.now());
+                    })
+                    .catch(error => {
+                        debug("error is happened, but this rule fallback to storage", error);
+                    });
             } else {
                 promiseQueue = Promise.resolve();
             }
@@ -81,6 +86,10 @@ Please set dictURL or dictPath to .textlintrc.`)
         [`${Syntax.Document}:exit`]() {
             return promiseQueue.then(() => {
                 const dictionary = getDictionary(options, mode);
+                if (!dictionary) {
+                    debug("Can not fetch rules from local and network. stop to lint.");
+                    return;
+                }
                 const lastUpdated = Number(storage.getItem("proofdict-lastUpdated", "0"));
                 const tester = createTester({
                     dictionary,
