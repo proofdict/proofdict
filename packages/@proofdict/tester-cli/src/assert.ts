@@ -32,11 +32,28 @@ ${JSON.stringify(result, null, 4)}
     });
     return Promise.all(promises);
 };
+
+export const isProofdictRule = (v: any): v is ProofdictRule => {
+    if (!v) {
+        return false;
+    }
+    return true;
+};
+
+export const isProofdict = (v: any): v is Proofdict => {
+    if (!v) {
+        return false;
+    }
+    return true;
+};
 /**
  * Assert each json
  */
 export const assertJSON = (filePath: string) => {
-    const json: Proofdict = safeLoad(fs.readFileSync(filePath, "utf8"));
+    const json = safeLoad(fs.readFileSync(filePath, "utf8"));
+    if (!isProofdict(json)) {
+        throw new Error(`${filePath} is undefined`);
+    }
     return assertProofdictJSON(json);
 };
 
@@ -44,7 +61,10 @@ export const assertJSON = (filePath: string) => {
  * Assert: Each dictionary
  */
 export const assertYAML = (filePath: string) => {
-    const json: ProofdictRule = safeLoad(fs.readFileSync(filePath, "utf8"));
+    const json = safeLoad(fs.readFileSync(filePath, "utf8"));
+    if (!isProofdictRule(json)) {
+        throw new Error(`${filePath} is undefined`);
+    }
     if (!json.specs) {
         return Promise.resolve([]);
     }
