@@ -16,9 +16,7 @@ export interface DictSubmitContainerProps {
 
 export class DictSubmitContainer extends BaseContainer<DictSubmitContainerProps, {}> {
     private onClickSubmitButton = () => {
-        this.useCase(createSubmitDictionaryToGitHubUseCase()).executor(useCase =>
-            useCase.execute(this.props.dictForm.dictionaryId)
-        );
+        this.useCase(createSubmitDictionaryToGitHubUseCase()).execute(this.props.dictForm.dictionaryId);
     };
     private createSubmitButtonHelp = () => {
         return (

@@ -32,8 +32,6 @@ export class UpdateDictionarySpecUseCase extends UseCase {
             })
         );
         this.repo.dictionaryRepository.save(newDictionary);
-        return this.context
-            .useCase(createUpdateDictionarySpecStatusUseCase())
-            .executor(useCase => useCase.execute(newDictionary.id));
+        return this.context.useCase(createUpdateDictionarySpecStatusUseCase()).execute(newDictionary.id);
     }
 }

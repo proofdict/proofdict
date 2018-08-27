@@ -14,14 +14,10 @@ export interface DictDescriptionContainerProps {
 
 export class DictMetaContainer extends BaseContainer<DictDescriptionContainerProps, {}> {
     private onChangedDescription = (newValue: string) => {
-        this.useCase(createUpdateDictionaryDescriptionUseCase()).executor(useCase =>
-            useCase.execute(this.props.dictForm.dictionaryId, newValue)
-        );
+        this.useCase(createUpdateDictionaryDescriptionUseCase()).execute(this.props.dictForm.dictionaryId, newValue);
     };
     private onChangedTags = (tags: string[]) => {
-        this.useCase(createUpdateDictionaryTagsUseCase()).executor(useCase =>
-            useCase.execute(this.props.dictForm.dictionaryId, tags)
-        );
+        this.useCase(createUpdateDictionaryTagsUseCase()).execute(this.props.dictForm.dictionaryId, tags);
     };
 
     render() {

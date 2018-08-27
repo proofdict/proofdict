@@ -22,26 +22,24 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
             icon: "Upload",
             ariaLabel: "Import example",
             onClick: () => {
-                return this.useCase(createImportDictionaryFromJSONUseCase()).executor(useCase =>
-                    useCase.execute({
-                        id: ulid(),
-                        description: "ECMAScript and version has a space.",
-                        expected: "ECMAScript $1",
-                        patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
-                        specs: [
-                            {
-                                from: "ES 5",
-                                to: "ECMAScript 5"
-                            },
-                            {
-                                from: "ES2015",
-                                to: "ECMAScript 2015"
-                            }
-                        ],
-                        tags: ["JavaScript"],
-                        wordClasses: []
-                    })
-                );
+                return this.useCase(createImportDictionaryFromJSONUseCase()).execute({
+                    id: ulid(),
+                    description: "ECMAScript and version has a space.",
+                    expected: "ECMAScript $1",
+                    patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
+                    specs: [
+                        {
+                            from: "ES 5",
+                            to: "ECMAScript 5"
+                        },
+                        {
+                            from: "ES2015",
+                            to: "ECMAScript 2015"
+                        }
+                    ],
+                    tags: ["JavaScript"],
+                    wordClasses: []
+                });
             }
         },
         {
@@ -56,27 +54,21 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                         key: "json",
                         name: "JSON",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).executor(useCase =>
-                                useCase.execute("json")
-                            );
+                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("json");
                         }
                     },
                     {
                         key: "yml",
                         name: "YAML",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).executor(useCase =>
-                                useCase.execute("yml")
-                            );
+                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("yml");
                         }
                     },
                     {
                         key: "prh",
                         name: "prh",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).executor(useCase =>
-                                useCase.execute("prh")
-                            );
+                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("prh");
                         }
                     }
                 ]
@@ -100,9 +92,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
             icon: "Clear",
             ariaLabel: "Reset input data",
             onClick: () => {
-                return this.useCase(createResetDictionaryUseCase()).executor(useCase =>
-                    useCase.execute(this.props.dictForm.dictionaryId)
-                );
+                return this.useCase(createResetDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
             }
         }
     ];

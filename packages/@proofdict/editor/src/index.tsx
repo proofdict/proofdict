@@ -36,13 +36,11 @@ context
         const query = parseQuery<{ owner: string; repo: string; branch: string; proofdictRelativePath: string }>(
             location.href
         );
-        await transactionContext.useCase(createInitializeUseCase()).executor(useCase =>
-            useCase.execute({
-                owner: query.owner,
-                repo: query.repo
-            })
-        );
-        await transactionContext.useCase(createCreateNewDictionaryUseCase()).executor(useCase => useCase.execute());
+        await transactionContext.useCase(createInitializeUseCase()).execute({
+            owner: query.owner,
+            repo: query.repo
+        });
+        await transactionContext.useCase(createCreateNewDictionaryUseCase()).execute();
         transactionContext.commit();
     })
     .then(() => {

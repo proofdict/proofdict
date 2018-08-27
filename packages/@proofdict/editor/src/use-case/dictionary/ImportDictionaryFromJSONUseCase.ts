@@ -18,8 +18,6 @@ export class ImportDictionaryFromJSONUseCase extends UseCase {
     execute(json: DictionaryJSON) {
         const dictionary = DictionarySerializer.fromJSON(json);
         this.repo.dictionaryRepository.save(dictionary);
-        return this.context
-            .useCase(createUpdateDictionarySpecStatusUseCase())
-            .executor(useCase => useCase.execute(dictionary.id));
+        return this.context.useCase(createUpdateDictionarySpecStatusUseCase()).execute(dictionary.id);
     }
 }

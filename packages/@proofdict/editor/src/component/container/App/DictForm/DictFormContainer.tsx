@@ -11,14 +11,10 @@ require("./DictFormContainer.css");
 
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
     onChangeExpect = (input: string) => {
-        this.useCase(createUpdateDictionaryExpectedUseCase()).executor(useCase =>
-            useCase.execute(this.props.dictForm.dictionaryId, input)
-        );
+        this.useCase(createUpdateDictionaryExpectedUseCase()).execute(this.props.dictForm.dictionaryId, input);
     };
     onClickAddNewPattern = () => {
-        this.useCase(createAddNewPatternToDictionaryUseCase()).executor(useCase =>
-            useCase.execute(this.props.dictForm.dictionaryId)
-        );
+        this.useCase(createAddNewPatternToDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
     };
 
     render() {
@@ -98,8 +94,10 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
     private createPatterns() {
         const patterns = this.props.dictForm.patterns.map((expect, index) => {
             const onChangeExpect = (input: string) => {
-                this.useCase(createUpdateDictionaryPatternUseCase()).executor(useCase =>
-                    useCase.execute(this.props.dictForm.dictionaryId, expect, input)
+                this.useCase(createUpdateDictionaryPatternUseCase()).execute(
+                    this.props.dictForm.dictionaryId,
+                    expect,
+                    input
                 );
             };
             return (
