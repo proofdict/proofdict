@@ -16,6 +16,10 @@ export interface ProofdictRule {
      */
     patterns: string[];
     /**
+     * Ignored string from matches
+     */
+    regexpMustEmpty: string;
+    /**
      * Tags
      */
     tags: string[];
