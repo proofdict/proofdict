@@ -16,6 +16,7 @@ export interface ProofdictRule {
     description?: string;
     expected: string;
     patterns: string[];
+    regexpMustEmpty: string;
     tags: string[];
     specs?: ProofdictRuleSpec[];
     [index: string]: any;
