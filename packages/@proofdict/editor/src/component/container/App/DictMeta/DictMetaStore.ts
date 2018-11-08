@@ -1,7 +1,9 @@
 // MIT © 2017 azu
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
+import memoize from "micro-memoize";
+import { DictionaryDescription } from "../../../../domain/Dictionary/DictionaryDescription";
+import { DictionaryTags } from "../../../../domain/Dictionary/DictionaryTags";
 
 export interface DictMetaStateArgs {
     description: string;
@@ -19,15 +21,17 @@ export class DictMetaState {
         this.selectedTags = args.selectedTags;
         this.suggestTags = args.suggestTags;
     }
-
-    update(dictionary: Dictionary) {
+}
+// TODO: state is change always
+export const memorizedFactory = memoize(
+    (state: DictMetaState, tags: DictionaryTags, description: DictionaryDescription) => {
         return new DictMetaState({
-            ...(this as DictMetaStateArgs),
-            selectedTags: dictionary.tags.toValue(),
-            description: dictionary.description.value
+            ...state,
+            selectedTags: tags.toValue(),
+            description: description.value
         });
     }
-}
+);
 
 export class DictMetaStore extends Store<DictMetaState> {
     state: DictMetaState;
@@ -44,7 +48,7 @@ export class DictMetaStore extends Store<DictMetaState> {
 
     receivePayload() {
         const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(this.state.update(dictionary));
+        this.setState(memorizedFactory(this.state, dictionary.tags, dictionary.description));
     }
 
     getState(): DictMetaState {

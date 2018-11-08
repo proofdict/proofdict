@@ -20,6 +20,10 @@ export class DictionaryPatterns {
     constructor(private patterns: DictionaryPattern[]) {}
 
     // read
+    getPatterns(): DictionaryPattern[] {
+        return this.patterns;
+    }
+
     getPatternValues(): string[] {
         return this.patterns.map(pattern => pattern.value);
     }
@@ -37,7 +41,6 @@ export class DictionaryPatterns {
         const index = this.patterns.findIndex(targetPattern => {
             return targetPattern.equals(oldExpect);
         });
-        console.log(index);
         if (index === -1) {
             return this;
         }

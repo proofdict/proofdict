@@ -6,6 +6,7 @@ import { jsonFormatter } from "../../../../infra/formatter/JSONFormatter";
 import { ChangeDictionaryOutputFormatUseCasePayload } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
 import { yamlFormatter } from "../../../../infra/formatter/YamlFormatter";
 import { prhFormatter } from "../../../../infra/formatter/PrhFormatter";
+import memoize from "micro-memoize";
 
 export type DictOutputFormat = "json" | "yml" | "prh";
 
@@ -23,7 +24,7 @@ export class DictOutputState {
         this.format = props.format;
     }
 
-    private createOutput(dictionary: Dictionary, format: DictOutputFormat): string {
+    createOutput(dictionary: Dictionary, format: DictOutputFormat): string {
         if (format === "json") {
             return jsonFormatter(DictionarySerializer.toJSON(dictionary));
         } else if (format === "yml") {
@@ -56,6 +57,13 @@ export class DictOutputState {
     }
 }
 
+export const memorizedFactory = memoize((state: DictOutputState, dictionary: Dictionary) => {
+    return new DictOutputState({
+        ...state,
+        output: state.createOutput(dictionary, state.format)
+    });
+});
+
 export class DictOutputStore extends Store<DictOutputState> {
     state: DictOutputState;
 
@@ -69,7 +77,7 @@ export class DictOutputStore extends Store<DictOutputState> {
 
     receivePayload(payload: any) {
         const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(this.state.reduce(payload).update(dictionary));
+        this.setState(memorizedFactory(this.state.reduce(payload), dictionary));
     }
 
     getState(): DictOutputState {

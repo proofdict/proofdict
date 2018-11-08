@@ -16,10 +16,7 @@ export class UpdateDictionaryPatternUseCase extends UseCase {
         super();
     }
 
-    execute(id: DictionaryIdentifier, oldExpect: string, newExpect?: string) {
-        if (!newExpect) {
-            return;
-        }
+    execute(id: DictionaryIdentifier, oldExpect: string, newExpect: string) {
         const dictionary = this.repo.dictionaryRepository.findById(id);
         if (!dictionary) {
             throw new Error(`Not found dictionary:${id}`);

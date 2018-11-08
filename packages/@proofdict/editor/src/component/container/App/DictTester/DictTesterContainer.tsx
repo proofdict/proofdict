@@ -19,7 +19,7 @@ export class DictTesterContainer extends BaseContainer<
 > {
     createTestPatterns = () => {
         return this.props.dictTester.inputs.map((input, index) => {
-            const onChangeTestPattern = (event: any, newValue?: string) => {
+            const onChangeTestPattern = (event: any, newValue: string = "") => {
                 this.useCase(createUpdateDictionarySpecUseCase()).execute(
                     this.props.dictForm.dictionaryId,
                     input,

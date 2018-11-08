@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BaseContainer } from "../../BaseContainer";
 import { DictFormState } from "./DictFormStore";
-import { PrimaryButton, TextField } from "office-ui-fabric-react";
+import { Checkbox, PrimaryButton, TextField } from "office-ui-fabric-react";
 import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dictionary/UpdateDictionaryPatternUseCase";
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
@@ -95,20 +95,43 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
 
     private createPatterns() {
         const patterns = this.props.dictForm.patterns.map((expect, index) => {
-            const onChangeExpect = (event: any, input?: string) => {
+            const onChangeExpect = (event: any, input: string = "") => {
                 this.useCase(createUpdateDictionaryPatternUseCase()).execute(
                     this.props.dictForm.dictionaryId,
-                    expect,
+                    expect.value,
                     input
                 );
             };
+            const onChange = (event?: React.FormEvent<HTMLElement | HTMLInputElement>, checked?: boolean) => {
+                if (checked) {
+                    this.useCase(createUpdateDictionaryPatternUseCase()).execute(
+                        this.props.dictForm.dictionaryId,
+                        expect.value,
+                        expect.addWordBoundary()
+                    );
+                } else {
+                    this.useCase(createUpdateDictionaryPatternUseCase()).execute(
+                        this.props.dictForm.dictionaryId,
+                        expect.value,
+                        expect.trimWorkBoundary()
+                    );
+                }
+            };
             return (
-                <TextField
-                    key={index}
-                    placeholder="e.g.) /ECMAScript([0-9]+)/i"
-                    value={expect}
-                    onChange={onChangeExpect}
-                />
+                <div key={index}>
+                    <TextField
+                        key={index}
+                        placeholder="e.g.) /ECMAScript([0-9]+)/i"
+                        value={expect.trimWorkBoundary()}
+                        onChange={onChangeExpect}
+                    />
+                    <Checkbox
+                        label="Wrap word boundary"
+                        disabled={!expect.isRegExpLike}
+                        checked={expect.hasWrappedWordBoundary}
+                        onChange={onChange}
+                    />
+                </div>
             );
         });
         return (

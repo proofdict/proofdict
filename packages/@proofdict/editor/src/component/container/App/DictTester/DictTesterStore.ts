@@ -2,6 +2,7 @@
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
+import memoize from "micro-memoize";
 
 export interface DictTesterStateProps {
     inputs: string[];
@@ -24,14 +25,14 @@ export class DictTesterState implements DictTesterStateProps {
     hasOutput(inputIndex: number): boolean {
         return this.outputs[inputIndex] !== undefined;
     }
-
-    update(dictionary: Dictionary) {
-        return new DictTesterState({
-            inputs: dictionary.specs.getActualPatterns(),
-            outputs: dictionary.specs.getExpectedResults()
-        });
-    }
 }
+
+export const memorizedFactory = memoize((state: DictTesterState, dictionary: Dictionary) => {
+    return new DictTesterState({
+        inputs: dictionary.specs.getActualPatterns(),
+        outputs: dictionary.specs.getExpectedResults()
+    });
+});
 
 export class DictTesterStore extends Store<DictTesterState> {
     state: DictTesterState;
@@ -46,7 +47,7 @@ export class DictTesterStore extends Store<DictTesterState> {
 
     receivePayload() {
         const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(this.state.update(dictionary));
+        this.setState(memorizedFactory(this.state, dictionary));
     }
 
     getState(): DictTesterState {

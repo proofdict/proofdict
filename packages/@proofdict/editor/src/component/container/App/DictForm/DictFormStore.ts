@@ -2,30 +2,32 @@
 import { Store } from "almin";
 import { Dictionary, DictionaryIdentifier } from "../../../../domain/Dictionary/Dictionary";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
+import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
+import memoize from "micro-memoize";
 
 export interface DictFormStateProps {
     dictionaryId: DictionaryIdentifier;
     expected?: string;
-    patterns: string[];
+    patterns: DictionaryPattern[];
 }
+
+export const memorizedFactory = memoize((state: DictFormState, dictionary: Dictionary) => {
+    return new DictFormState({
+        dictionaryId: dictionary.id,
+        expected: dictionary.expected.value,
+        patterns: dictionary.patterns.getPatterns()
+    });
+});
 
 export class DictFormState {
     dictionaryId: DictionaryIdentifier;
     expected?: string;
-    patterns: string[];
+    patterns: DictionaryPattern[];
 
     constructor(props: DictFormStateProps) {
         this.dictionaryId = props.dictionaryId;
         this.expected = props.expected;
         this.patterns = props.patterns;
-    }
-
-    update(dictionary: Dictionary) {
-        return new DictFormState({
-            dictionaryId: dictionary.id,
-            expected: dictionary.expected.value,
-            patterns: dictionary.patterns.getPatternValues()
-        });
     }
 }
 
@@ -43,7 +45,7 @@ export class DictFormStore extends Store<DictFormState> {
 
     receivePayload() {
         const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(this.state.update(dictionary));
+        this.setState(memorizedFactory(this.state, dictionary));
     }
 
     getState(): DictFormState {

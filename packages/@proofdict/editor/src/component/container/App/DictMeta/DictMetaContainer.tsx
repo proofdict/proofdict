@@ -13,13 +13,8 @@ export interface DictDescriptionContainerProps {
 }
 
 export class DictMetaContainer extends BaseContainer<DictDescriptionContainerProps, {}> {
-    private onChangedDescription = (event: any, newValue?: string) => {
-        if (newValue) {
-            this.useCase(createUpdateDictionaryDescriptionUseCase()).execute(
-                this.props.dictForm.dictionaryId,
-                newValue
-            );
-        }
+    private onChangedDescription = (event: any, newValue: string = "") => {
+        this.useCase(createUpdateDictionaryDescriptionUseCase()).execute(this.props.dictForm.dictionaryId, newValue);
     };
     private onChangedTags = (tags: string[]) => {
         this.useCase(createUpdateDictionaryTagsUseCase()).execute(this.props.dictForm.dictionaryId, tags);

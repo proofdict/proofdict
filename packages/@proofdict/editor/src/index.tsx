@@ -19,7 +19,8 @@ require("office-ui-fabric-react/dist/css/fabric.min.css");
 const context = new Context({
     store: appStoreGroup,
     options: {
-        strict: true
+        strict: true,
+        performanceProfile: true
     }
 });
 appLocator.context = context;
@@ -27,10 +28,6 @@ if (process.env.NODE_ENV !== "production") {
     const { AlminLogger } = require("almin-logger");
     const logger = new AlminLogger();
     logger.startLogging(context);
-
-    const AlminDevTools = require("almin-devtools");
-    const devTools = new AlminDevTools(context);
-    devTools.connect();
 }
 context
     .transaction("Initialize", async transactionContext => {
