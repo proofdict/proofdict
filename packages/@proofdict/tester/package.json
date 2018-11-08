@@ -11,7 +11,7 @@
     "src/"
   ],
   "name": "@proofdict/tester",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Test tool using proofdict.",
   "main": "lib/proofdict-tester.js",
   "types": "lib/proofdict-tester.d.ts",
@@ -50,7 +50,7 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
-    "@proofdict/types": "^2.2.0",
+    "@proofdict/types": "^2.2.1",
     "prh": "5.4.3"
   }
 }

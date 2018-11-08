@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/tester-cli",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A CLI for @proofdict/tester.",
   "keywords": [
     "cli",
@@ -58,8 +58,8 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "@proofdict/tester": "^2.2.0",
-    "@proofdict/types": "^2.2.0",
+    "@proofdict/tester": "^2.2.1",
+    "@proofdict/types": "^2.2.1",
     "@types/globby": "^6.1.0",
     "@types/js-yaml": "^3.10.1",
     "@types/meow": "^4.0.1",
