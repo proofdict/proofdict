@@ -38,7 +38,7 @@ export class HelpCalloutButton extends React.Component<HelpCalloutButtonProps, H
                 className="HelpCallout"
                 role={"alertdialog"}
                 gapSpace={0}
-                targetElement={this.state.calloutTarget}
+                target={this.state.calloutTarget}
                 onDismiss={this._onCalloutDismiss}
             >
                 {this.props.children}

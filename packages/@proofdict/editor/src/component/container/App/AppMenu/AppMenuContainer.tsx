@@ -22,7 +22,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
             icon: "Upload",
             ariaLabel: "Import example",
             onClick: () => {
-                return this.useCase(createImportDictionaryFromJSONUseCase()).execute({
+                this.useCase(createImportDictionaryFromJSONUseCase()).execute({
                     id: ulid(),
                     description: "ECMAScript and version has a space.",
                     expected: "ECMAScript $1",
@@ -54,21 +54,21 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                         key: "json",
                         name: "JSON",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("json");
+                            this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("json");
                         }
                     },
                     {
                         key: "yml",
                         name: "YAML",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("yml");
+                            this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("yml");
                         }
                     },
                     {
                         key: "prh",
                         name: "prh",
                         onClick: () => {
-                            return this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("prh");
+                            this.useCase(createChangeDictionaryOutputFormatUseCase()).execute("prh");
                         }
                     }
                 ]
@@ -92,7 +92,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
             icon: "Clear",
             ariaLabel: "Reset input data",
             onClick: () => {
-                return this.useCase(createResetDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
+                this.useCase(createResetDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
             }
         }
     ];
@@ -100,7 +100,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
     render() {
         return (
             <header className={classNames("AppMenuContainer", this.props.className)}>
-                <CommandBar isSearchBoxVisible={false} items={this.menuItems} farItems={this.farItems} />
+                <CommandBar items={this.menuItems} farItems={this.farItems} />
             </header>
         );
     }

@@ -13,8 +13,13 @@ export interface DictDescriptionContainerProps {
 }
 
 export class DictMetaContainer extends BaseContainer<DictDescriptionContainerProps, {}> {
-    private onChangedDescription = (newValue: string) => {
-        this.useCase(createUpdateDictionaryDescriptionUseCase()).execute(this.props.dictForm.dictionaryId, newValue);
+    private onChangedDescription = (event: any, newValue?: string) => {
+        if (newValue) {
+            this.useCase(createUpdateDictionaryDescriptionUseCase()).execute(
+                this.props.dictForm.dictionaryId,
+                newValue
+            );
+        }
     };
     private onChangedTags = (tags: string[]) => {
         this.useCase(createUpdateDictionaryTagsUseCase()).execute(this.props.dictForm.dictionaryId, tags);
@@ -27,7 +32,7 @@ export class DictMetaContainer extends BaseContainer<DictDescriptionContainerPro
                 <TextField
                     placeholder="Description of the word"
                     value={this.props.dictMeta.description}
-                    onChanged={this.onChangedDescription}
+                    onChange={this.onChangedDescription}
                 />
                 <TagInput
                     suggestedTags={this.props.dictMeta.suggestTags}

@@ -10,8 +10,10 @@ import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCallou
 require("./DictFormContainer.css");
 
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
-    onChangeExpect = (input: string) => {
-        this.useCase(createUpdateDictionaryExpectedUseCase()).execute(this.props.dictForm.dictionaryId, input);
+    onChangeExpect = (event: any, input?: string) => {
+        if (input) {
+            this.useCase(createUpdateDictionaryExpectedUseCase()).execute(this.props.dictForm.dictionaryId, input);
+        }
     };
     onClickAddNewPattern = () => {
         this.useCase(createAddNewPatternToDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
@@ -26,7 +28,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                 <TextField
                     placeholder="e.g.) ECMAScript $1"
                     value={this.props.dictForm.expected}
-                    onChanged={this.onChangeExpect}
+                    onChange={this.onChangeExpect}
                 />
                 {patterns}
             </div>
@@ -93,7 +95,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
 
     private createPatterns() {
         const patterns = this.props.dictForm.patterns.map((expect, index) => {
-            const onChangeExpect = (input: string) => {
+            const onChangeExpect = (event: any, input?: string) => {
                 this.useCase(createUpdateDictionaryPatternUseCase()).execute(
                     this.props.dictForm.dictionaryId,
                     expect,
@@ -105,7 +107,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                     key={index}
                     placeholder="e.g.) /ECMAScript([0-9]+)/i"
                     value={expect}
-                    onChanged={onChangeExpect}
+                    onChange={onChangeExpect}
                 />
             );
         });

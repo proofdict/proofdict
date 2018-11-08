@@ -19,7 +19,7 @@ export class DictTesterContainer extends BaseContainer<
 > {
     createTestPatterns = () => {
         return this.props.dictTester.inputs.map((input, index) => {
-            const onChangeTestPattern = (newValue: string) => {
+            const onChangeTestPattern = (event: any, newValue?: string) => {
                 this.useCase(createUpdateDictionarySpecUseCase()).execute(
                     this.props.dictForm.dictionaryId,
                     input,
@@ -30,7 +30,7 @@ export class DictTesterContainer extends BaseContainer<
             return (
                 <Grid key={index} className="DictTesterContainer-inputOutputGrid">
                     <GridCell col="6of12" className="DictTesterContainer-inputCell">
-                        <TextField placeholder="Any test string" value={input} onChanged={onChangeTestPattern} />
+                        <TextField placeholder="Any test string" value={input} onChange={onChangeTestPattern} />
                     </GridCell>
                     <GridCell col="6of12" className="DictTesterContainer-outputCell">
                         <p className="DictTesterContainer-expected">{result}</p>
