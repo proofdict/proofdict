@@ -239,21 +239,21 @@ almin-devtools@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/almin-devtools/-/almin-devtools-0.4.0.tgz#7874e05ec0d6d9453c1ea118aa5e72e21fcc64e2"
 
-almin-logger@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/almin-logger/-/almin-logger-6.2.2.tgz#5b5cef84023163c9a836837d2377c935c2dde807"
+almin-logger@^6.2.3:
+  version "6.2.3"
+  resolved "https://registry.npmjs.org/almin-logger/-/almin-logger-6.2.3.tgz#b70592d3e63e211c0e61e1bd27409976f341d6b0"
   dependencies:
     map-like "^2.0.0"
 
-almin-react-container@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/almin-react-container/-/almin-react-container-0.7.2.tgz#719efad7258cea38b608fbb2b3c67bd12b0f2736"
+almin-react-container@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.npmjs.org/almin-react-container/-/almin-react-container-0.7.3.tgz#b790d619cea0f6cb1aa36ec5958fc8cfa7333a7b"
   dependencies:
     shallow-equal-object "^1.0.1"
 
-almin@^0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/almin/-/almin-0.18.0.tgz#4896991b10c4345acc1b9f34332e2c4ce0b8aa25"
+almin@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.npmjs.org/almin/-/almin-0.18.1.tgz#fa5df7a11b6c04e5fead36fd42d8884c724af6f7"
   dependencies:
     map-like "^2.0.0"
     shallow-equal-object "^1.0.1"
