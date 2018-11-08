@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { Store } from "almin";
+import { Payload, Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { Dictionary, DictionarySerializer } from "../../../../domain/Dictionary/Dictionary";
 import { jsonFormatter } from "../../../../infra/formatter/JSONFormatter";
@@ -7,6 +7,7 @@ import { ChangeDictionaryOutputFormatUseCasePayload } from "../../../../use-case
 import { yamlFormatter } from "../../../../infra/formatter/YamlFormatter";
 import { prhFormatter } from "../../../../infra/formatter/PrhFormatter";
 import memoize from "micro-memoize";
+import { NonNullableRepository, NullableRepository } from "ddd-base";
 
 export type DictOutputFormat = "json" | "yml" | "prh";
 
@@ -46,7 +47,7 @@ export class DictOutputState {
         });
     }
 
-    reduce(payload: ChangeDictionaryOutputFormatUseCasePayload) {
+    reduce(payload: Payload | ChangeDictionaryOutputFormatUseCasePayload) {
         if (payload instanceof ChangeDictionaryOutputFormatUseCasePayload) {
             return new DictOutputState({
                 ...(this as DictOutputStateProps),
@@ -64,6 +65,36 @@ export const memorizedFactory = memoize((state: DictOutputState, dictionary: Dic
     });
 });
 
+type NonUndefined<T> = T extends undefined ? never : T;
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
+type GetEntityType<R extends NonNullableRepository<any> | NullableRepository<any>> = NonUndefined<ReturnType<R["get"]>>;
+export const createHooks = <State, T extends NonNullableRepository<any>>(store: Store<State>, repository: T) => {
+    const createUsePayload = <State>(store: Store<State>) => {
+        type PayloadHandler = (payload: Payload) => any;
+        return (handler: PayloadHandler) => {
+            const payloadHandlers: PayloadHandler[] = [];
+            store.onDispatch(payload => {
+                payloadHandlers.forEach(handler => handler(payload));
+            });
+            payloadHandlers.push(handler);
+        };
+    };
+    const createUseEntity = (repository: T) => {
+        type DomainHandler = (state: State, entity: GetEntityType<T>) => any;
+        const domainHandlers: DomainHandler[] = [];
+        repository.events.onSave(event => {
+            domainHandlers.forEach(handler => handler(store.getState(), event.entity));
+        });
+        return (handler: DomainHandler) => {
+            domainHandlers.push(handler);
+        };
+    };
+    return {
+        usePayload: createUsePayload(store),
+        useEntity: createUseEntity(repository)
+    };
+};
+
 export class DictOutputStore extends Store<DictOutputState> {
     state: DictOutputState;
 
@@ -72,6 +103,13 @@ export class DictOutputStore extends Store<DictOutputState> {
         this.state = new DictOutputState({
             format: "yml",
             output: ""
+        });
+        const { usePayload, useEntity } = createHooks(this, repo.dictionaryRepository);
+        usePayload(payload => {
+            this.setState(this.state.reduce(payload));
+        });
+        useEntity((state, dictionary) => {
+            this.setState(memorizedFactory(state, dictionary));
         });
     }
 
