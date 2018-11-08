@@ -34,6 +34,20 @@ describe("Prh", () => {
             assert.strictEqual(result.from, "pattern");
             assert.strictEqual(result.to, "expected");
         });
+        it("should correct", async () => {
+            const dictionary = createDictionary()
+                .inputExpected(new DictionaryExpected("ECMAScript $1"))
+                .addPattern(new DictionaryPattern("/ES (\\d+)/i"))
+                .addPattern(new DictionaryPattern("/ES(\\d+)/i"));
+            const result = await testPattern(
+                dictionary,
+                new DictionarySpec({
+                    from: "ES2015"
+                })
+            );
+            assert.strictEqual(result.from, "ES2015");
+            assert.strictEqual(result.to, "ECMAScript 2015");
+        });
     });
     describe("#getMatchExpectedWords", () => {
         it("should return match test", () => {

@@ -2,7 +2,7 @@
 import { Engine } from "prh";
 import { Dictionary, DictionarySerializer } from "../../domain/Dictionary/Dictionary";
 import { DictionarySpec } from "../../domain/Dictionary/DictionarySpec";
-import { ProofdictTester } from "proofdict-tester";
+import { ProofdictTester } from "@proofdict/tester";
 
 const intersectionBy = require("lodash.intersectionby");
 

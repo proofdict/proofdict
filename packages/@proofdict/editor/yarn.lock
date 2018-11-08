@@ -134,6 +134,17 @@
   version "1.8.36"
   resolved "https://registry.npmjs.org/@microsoft/load-themed-styles/-/load-themed-styles-1.8.36.tgz#70651172556c283bb83568df5e99239a7b97566c"
 
+"@proofdict/tester@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/@proofdict/tester/-/tester-2.2.1.tgz#f0bff7e39a1d326db36804f033a93116de10fe7d"
+  dependencies:
+    "@proofdict/types" "^2.2.1"
+    prh "5.4.3"
+
+"@proofdict/types@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/@proofdict/types/-/types-2.2.1.tgz#1f7dd2c8576e86a2b7fb54e64d0736b7ad4ba10f"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -6702,12 +6713,6 @@ promise@^7.1.1:
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
   dependencies:
     asap "~2.0.3"
-
-proofdict-tester@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/proofdict-tester/-/proofdict-tester-1.0.0.tgz#3c2270f6a421c938e3bdaf66da0ccb0211954f45"
-  dependencies:
-    prh "5.4.3"
 
 prop-types@^15.5.10, prop-types@^15.6.0:
   version "15.6.1"

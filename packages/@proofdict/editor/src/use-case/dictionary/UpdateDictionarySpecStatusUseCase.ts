@@ -29,8 +29,8 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
         const newSpecPromises = dictionary.specs.getSpecList().map(async spec => {
             return testPattern(dictionary, spec);
         });
-        const newSPecList = await Promise.all(newSpecPromises);
-        const specs = new DictionarySpecs(newSPecList);
+        const newSpecList = await Promise.all(newSpecPromises);
+        const specs = new DictionarySpecs(newSpecList);
         const updatedSpecsDictionary = dictionary.updateSpecs(specs);
         this.args.dictionaryRepository.save(updatedSpecsDictionary);
         // update all word class

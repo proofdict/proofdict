@@ -30,7 +30,7 @@
     "normalize.css": "^7.0.0",
     "office-ui-fabric-react": "^6.100.1",
     "prh": "^5.4.3",
-    "proofdict-tester": "^1.0.0",
+    "@proofdict/tester": "^2.2.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-select": "^2.1.1",
