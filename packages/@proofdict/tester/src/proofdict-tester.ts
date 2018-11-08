@@ -3,6 +3,7 @@ import { Diff, Engine } from "prh";
 import { ProofdictRule } from "@proofdict/types";
 import { wrapHyphenWordBoundary, wrapWordBoundaryToString } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
+
 export { ProofdictRule, ProofdictRuleSpec } from "@proofdict/types";
 export type Proofdict = ProofdictRule[];
 
@@ -49,20 +50,41 @@ export class ProofdictTester {
         const filteredProofdict = filterByTags(this.proofdict, options.whitelistTags, options.blacklistTags);
         this.prhEngine = new Engine({
             version: 1,
-            rules: filteredProofdict.map(dict => {
-                return {
+            rules: this.splitRuleToEachPattern(filteredProofdict)
+        });
+    }
+
+    /**
+     * split pattern to each rules
+     * It avoid prh multiple capture issue
+     * https://github.com/prh/prh/issues/32
+     * @param dictionary
+     */
+    private splitRuleToEachPattern(dictionary: Proofdict) {
+        const results: {
+            id?: string;
+            expected: string;
+            patterns: string[];
+            tags: string[];
+            description?: string;
+        }[] = [];
+        dictionary.map(dict => {
+            const patterns = isNoun(dict)
+                ? dict.patterns.map(pattern => {
+                      return wrapWordBoundaryToString(pattern);
+                  })
+                : dict.patterns;
+            patterns.forEach(pattern => {
+                results.push({
                     id: dict.id,
                     expected: dict.expected,
-                    patterns: isNoun(dict)
-                        ? dict.patterns.map(pattern => {
-                              return wrapWordBoundaryToString(pattern);
-                          })
-                        : dict.patterns,
+                    patterns: [pattern],
                     tags: dict.tags,
                     description: dict.description
-                };
-            })
+                });
+            });
         });
+        return results;
     }
 
     replace(text: string): Promise<string> {
