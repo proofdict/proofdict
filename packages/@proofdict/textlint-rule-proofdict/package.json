@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "rimraf": "^2.6.2",
-    "textlint-scripts": "^1.4.2"
+    "textlint-scripts": "^2.1.0"
   },
   "dependencies": {
     "@proofdict/tester": "^2.2.0",
@@ -46,7 +46,7 @@
     "fetch-ponyfill": "^6.0.0",
     "localstorage-ponyfill": "^1.0.1",
     "proofdict": "^1.2.1",
-    "textlint-rule-helper": "^2.0.0",
+    "textlint-rule-helper": "^2.0.1",
     "url-join": "^4.0.0"
   }
 }

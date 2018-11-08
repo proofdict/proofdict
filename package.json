@@ -31,8 +31,6 @@
     "build": "lerna run build --ignore website",
     "clean": "lerna run clean",
     "website": "lerna run build --scope website",
-    "precommit": "lint-staged",
-    "postcommit": "git reset",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish --conventional-commits",
     "test": "lerna run test",
@@ -41,10 +39,10 @@
   "dependencies": {},
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
-    "husky": "^0.14.3",
-    "lerna": "^2.9.0",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.1"
+    "husky": "^1.1.3",
+    "lerna": "^3.4.3",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.15.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -60,5 +58,11 @@
     "website",
     "packages/*",
     "packages/@proofdict/*"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "post-commit": "git reset",
+      "pre-commit": "lint-staged"
+    }
+  }
 }
