@@ -5,7 +5,7 @@ import { Entity, Identifier } from "ddd-base";
 import { DictionaryPatterns, DictionaryPatternsSerializer } from "./DictionaryPatterns";
 import { DictionarySpecs, DictionarySpecsJSON, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
-import { Serializer } from "../../ddd-base/Serializer";
+import { Serializer } from "ddd-base";
 import {
     DictionaryWordClasses,
     DictionaryWordClassesJSON,
@@ -26,7 +26,7 @@ export interface DictionaryJSON {
     wordClasses?: DictionaryWordClassesJSON;
 }
 
-export interface DictionaryArgs {
+export interface DictionaryProps {
     id: DictionaryIdentifier;
     description: DictionaryDescription;
     expected: DictionaryExpected;
@@ -67,7 +67,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
     }
 };
 
-export class Dictionary extends Entity<DictionaryIdentifier> {
+export class Dictionary extends Entity<DictionaryProps> {
     id: DictionaryIdentifier;
     description: DictionaryDescription;
     expected: DictionaryExpected;
@@ -76,20 +76,20 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     tags: DictionaryTags;
     wordClasses?: DictionaryWordClasses;
 
-    constructor(args: DictionaryArgs) {
-        super(args.id);
-        this.id = args.id;
-        this.description = args.description;
-        this.expected = args.expected;
-        this.patterns = args.patterns;
-        this.specs = args.specs;
-        this.tags = args.tags;
-        this.wordClasses = args.wordClasses;
+    constructor(props: DictionaryProps) {
+        super(props);
+        this.id = props.id;
+        this.description = props.description;
+        this.expected = props.expected;
+        this.patterns = props.patterns;
+        this.specs = props.specs;
+        this.tags = props.tags;
+        this.wordClasses = props.wordClasses;
     }
 
     inputExpected(expected: DictionaryExpected) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             expected: expected
         });
     }
@@ -97,21 +97,21 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     // patterns
     addPattern(pattern: DictionaryPattern) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             patterns: this.patterns.add(pattern)
         });
     }
 
     updatePattern(old: DictionaryPattern, newPattern: DictionaryPattern) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             patterns: this.patterns.update(old, newPattern)
         });
     }
 
     removePattern(pattern: DictionaryPattern) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             patterns: this.patterns.remove(pattern)
         });
     }
@@ -119,49 +119,49 @@ export class Dictionary extends Entity<DictionaryIdentifier> {
     // specs
     addSpec(spec: DictionarySpec) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             specs: this.specs.add(spec)
         });
     }
 
     updateSpec(oldSpec: DictionarySpec, newSpec: DictionarySpec) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             specs: this.specs.update(oldSpec, newSpec)
         });
     }
 
     removeSpec(spec: DictionarySpec) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             specs: this.specs.remove(spec)
         });
     }
 
     updateSpecs(newSpecs: DictionarySpecs) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             specs: newSpecs
         });
     }
 
     updateWordClasses(wordClasses: DictionaryWordClasses) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             wordClasses
         });
     }
 
     updateDescription(description: DictionaryDescription) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             description
         });
     }
 
     updateTags(tags: DictionaryTags) {
         return new Dictionary({
-            ...(this as DictionaryArgs),
+            ...(this as DictionaryProps),
             tags
         });
     }

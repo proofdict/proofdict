@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { splice } from "@immutable-array/prototype";
 import { DictionarySpec, DictionarySpecJSON } from "./DictionarySpec";
-import { Serializer } from "../../ddd-base/Serializer";
+import { Serializer } from "ddd-base";
 
 export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySpecsJSON> = {
     fromJSON(specs) {

@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { ValueObject } from "../../ddd-base/ValueObject";
+import { ValueObject } from "ddd-base";
 
 export interface DictionarySpecJSON {
     from: string;
@@ -12,15 +12,15 @@ export interface DictionarySpecArgs {
     error?: Error;
 }
 
-export class DictionarySpec extends ValueObject {
+export class DictionarySpec extends ValueObject<DictionarySpecArgs> {
     from: string;
     to?: string;
     error?: Error;
 
-    constructor(args: DictionarySpecArgs) {
-        super();
-        this.from = args.from;
-        this.to = args.to;
+    constructor(props: DictionarySpecArgs) {
+        super(props);
+        this.from = props.from;
+        this.to = props.to;
     }
 
     get isInvalid(): boolean {

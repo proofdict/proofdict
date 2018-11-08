@@ -22,6 +22,7 @@ export class DictMetaState {
         this.suggestTags = args.suggestTags;
     }
 }
+
 // TODO: state is change always
 export const memorizedFactory = memoize(
     (state: DictMetaState, tags: DictionaryTags, description: DictionaryDescription) => {

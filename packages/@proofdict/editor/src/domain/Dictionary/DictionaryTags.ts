@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import { DictionaryTag, DictionaryTagJSON } from "./DictionaryTag";
-import { Serializer } from "../../ddd-base/Serializer";
+import { Serializer } from "ddd-base";
 
 export type DictionaryTagsJSON = DictionaryTagJSON[];
 

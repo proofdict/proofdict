@@ -24,10 +24,11 @@
     "almin-logger": "^6.2.3",
     "almin-react-container": "^0.7.3",
     "classnames": "^2.2.6",
-    "ddd-base": "^0.3.1",
+    "ddd-base": "^0.9.0",
     "js-yaml": "^3.12.0",
     "kuromojin": "^1.4.0",
     "lodash.intersectionby": "^4.7.0",
+    "micro-memoize": "^2.1.2",
     "normalize.css": "^7.0.0",
     "office-ui-fabric-react": "^6.100.1",
     "prh": "^5.4.3",
@@ -37,8 +38,7 @@
     "safe-regex": "^2.0.1",
     "sanitize-filename": "^1.6.1",
     "shallow-equal-object": "^1.1.1",
-    "ulid": "^2.3.0",
-    "micro-memoize": "^2.1.2"
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",

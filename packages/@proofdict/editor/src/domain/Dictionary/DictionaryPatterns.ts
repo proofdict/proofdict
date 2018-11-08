@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { splice } from "@immutable-array/prototype";
 import { DictionaryPattern } from "./DictionaryPattern";
-import { Serializer } from "../../ddd-base/Serializer";
+import { Serializer } from "ddd-base";
 
 export const DictionaryPatternsSerializer: Serializer<DictionaryPatterns, DictionaryPatternsJSON> = {
     fromJSON(patternStrings) {
