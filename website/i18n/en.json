@@ -4,10 +4,18 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "A dictionary engine that based on one rule per one file.",
-    "usage": "Usage",
-    "Usage": "Usage",
-    "GItHub": "GItHub",
-    "GetStarted": "GetStarted"
+    "docs": {
+      "usage": {
+        "title": "Usage"
+      }
+    },
+    "links": {
+      "Usage": "Usage",
+      "GItHub": "GItHub"
+    },
+    "categories": {
+      "GetStarted": "GetStarted"
+    }
   },
   "pages-strings": {
     "Help Translate|recruit community translators for your project": "Help Translate",
