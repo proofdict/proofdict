@@ -2,19 +2,15 @@
 
 Proofdict is a collection of dictionary.
 
-## Install
+## Website
 
-Install with [npm](https://www.npmjs.com/):
+See website for using it.
 
-    npm install proofdict
+- <https://proofdict.github.io/>
 
 ## Integration textlint
 
 Use [textlint-rule-proofdict](https://github.com/proofdict/textlint-rule-proofdict "textlint-rule-proofdict")
-
-## Website
-
-Visit <https://proofdict.github.io/>
 
 ## Proofdict format
 
@@ -33,12 +29,18 @@ expected: ECMAScript $1
 patterns:
   - /ECMAScript([0-9]+)/i
   - /ECMA Script([0-9]+)/i
+# `allows` define ignore patterns
+#  If `allows` pattern are matched, just ignore it
+allows:
+  - ECMASCRIPT1
 # `specs` are test cases
 # `specs[n].from` is actual word
 # `specs[n].to` is expected word that is replaced result
 specs:
   - from: ECMASCRIPT5
     to: ECMAScript 5
+  - from: ECMASCRIPT1
+    to: ECMASCRIPT1 # because "ECMASCRIPT1" is allowed
 # `tags` are keywords
 # Some `tag` means special meaning
 tags:
@@ -49,82 +51,38 @@ tags:
 ### Example
 
 ```yaml
-```
-
-
-### Special `tag`
-
-Some `tag` means special meaning
-
-> `noun`
-
-`noun` needs strict match because idiom is not same meaning the noun.
-
-Example: `WebKit`
-
-Generally, `/webkit/i` match `node-webkit`, but that dict is not match `node-webkit`.
-Because, The dict has `noun` tag.
-
-Steps:
-
-1. `/webkit/i` match the text *1
-2. If `/[-\w]webkit/i` or `/webkit[-\w]/i` also match the text, ignore this*1 
-
-```yaml
-id: 01BQ92YZ6QR8RJKA5Y8W2F9NMY
-description: 'Reference https://webkit.org/'
-expected: WebKit
+id: JavaScript
+description: 'JavaScript is not Java Script'
+expected: JavaScript
 patterns:
-  - /webkit/i
+  - /javascript/i
+  - /Java Script/i
+allows:
+  - {{COMBINATION_WORD}} # allow "x-javascript"
 specs:
-  - from: This is webkit
-    to: This is WebKit
-  - from: XXXwebkit
-    to: XXXwebkit
-  - from: node-webkit
-    to: node-webkit
+  - from: javascript
+    to: JavaScript
+  - from: java script
+    to: JavaScript
+  - from: Java script
+    to: JavaScript
 tags:
   - noun
+  - JavaScript
 ```
 
-> `opinion`
+## modules
 
-`opinion` is opinion dictionary.
+This repository is monorepo.
 
-## API
+This repository includes following modules.
 
-Get the dictionary as JSON
-
-- <https://proofdict.github.io/dict.json>
-
-## Node module
-
-    const { getProofdict, fetchProofdict} = require("proofdict");
-    // get local dictionary data.
-    console.log(getProofdict());
-    /*
-    [
-        {
-            "id": "01BQ92YYBJQ3A865VJ3ASRPCHB",
-            "description": "",
-            "expected": ".js $1",
-            "patterns": [
-                "/.js([.0-9]+)/"
-            ],
-            "specs": [],
-            "tags": [
-                "JavaScript"
-            ]
-        },
-        ...
-    ]
-    */
-    
-    // fetch latest dictionary data from https://proofdict.github.io/proofdict/dict.json
-    fetchProofdict().then(dictionaries => { 
-        console.log(dictionaries)
-    });
-       
+- [@proofdict/tester](packages/@proofdict/tester)
+    - core logic 
+- [@proofdict/tester-cli](packages/@proofdict/tester-cli)
+    - run test for dictionary 
+- [@proofdict/textlint-rule-proofdict](packages/@proofdict/textlint-rule-proofdict)
+    - textlint rule for proofdict's dictionary
 
 ## Changelog
 
