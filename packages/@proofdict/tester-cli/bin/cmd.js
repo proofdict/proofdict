@@ -15,7 +15,9 @@ const cli = meow(
 execute(cli.input)
     .then(message => {
         console.log(message);
+        process.exit(0);
     })
     .catch(error => {
         console.error(error);
+        process.exit(1);
     });
