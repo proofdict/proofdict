@@ -1,8 +1,9 @@
 // MIT © 2017 azu
 import { Diff, Engine } from "prh";
 import { ProofdictRule } from "@proofdict/types";
-import { wrapHyphenWordBoundary, wrapWordBoundaryToString } from "./proofdict-tester-util";
+import { createCombinationPatterns, wrapWordBoundaryToString } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
+import { AllowPatterns } from "./AllowPatterns";
 
 export { ProofdictRule, ProofdictRuleSpec } from "@proofdict/types";
 export type Proofdict = ProofdictRule[];
@@ -60,14 +61,8 @@ export class ProofdictTester {
      * https://github.com/prh/prh/issues/32
      * @param dictionary
      */
-    private splitRuleToEachPattern(dictionary: Proofdict) {
-        const results: {
-            id?: string;
-            expected: string;
-            patterns: string[];
-            tags: string[];
-            description?: string;
-        }[] = [];
+    private splitRuleToEachPattern(dictionary: Proofdict): Proofdict {
+        const results: Proofdict = [];
         dictionary.map(dict => {
             const patterns = isNoun(dict)
                 ? dict.patterns.map(pattern => {
@@ -76,11 +71,9 @@ export class ProofdictTester {
                 : dict.patterns;
             patterns.forEach(pattern => {
                 results.push({
-                    id: dict.id,
-                    expected: dict.expected,
+                    ...dict,
                     patterns: [pattern],
-                    tags: dict.tags,
-                    description: dict.description
+                    specs: [] // remove specs because proodict has difference logic to prh
                 });
             });
         });
@@ -105,10 +98,17 @@ export class ProofdictTester {
             if (!diff.expected) {
                 return;
             }
+            // "allows"
+            // match it and ignore
+            const allowPatterns = new AllowPatterns(diff.rule!.raw);
+            if (allowPatterns.match(currentString)) {
+                return;
+            }
+            // Deprecated: should use "allow"
             // Extension: "noun"
             // Automatically add word boundary to the patterns
             if (isNoun(diff.rule!.raw)) {
-                const expectPatterns = wrapHyphenWordBoundary(diff.pattern);
+                const expectPatterns = createCombinationPatterns(diff.pattern);
                 const isExpected = expectPatterns.some(expectPattern => {
                     return expectPattern.test(currentString);
                 });

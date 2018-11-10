@@ -16,6 +16,11 @@ export interface ProofdictRule {
      */
     patterns: string[];
     /**
+     * Allow patterns that are consist of string or regexp-like string, or typical pattern string {{}}.
+     * If this pattern is match, just ignore it.
+     */
+    allows?: string[];
+    /**
      * Tags
      */
     tags: string[];
