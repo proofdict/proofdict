@@ -96,7 +96,7 @@ This repository includes following modules.
 - [@proofdict/tester](packages/@proofdict/tester)
     - core logic 
 - [@proofdict/tester-cli](packages/@proofdict/tester-cli)
-    - run test for dictionary 
+    - run test for dictionary from CLI
 - [@proofdict/textlint-rule-proofdict](packages/@proofdict/textlint-rule-proofdict)
     - textlint rule for proofdict's dictionary
 
