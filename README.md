@@ -48,6 +48,20 @@ tags:
   - JavaScript
 ```
 
+This format is similar with [prh](https://github.com/prh/prh).
+Proofdict includes some additional features. 
+
+### `allows`
+
+`allows` has defined typical patterns.
+
+#### typical patterns
+
+- `{{COMBINATION_WORD}}`: ignore combination word like `node-webkit`
+   
+When `pattern` is `webkit` and set `allows` to `{{COMBINATION_WORD}}"`, ignore `/-webkit/` and `webkit-`.
+As a result, this pattern match `webkit`, but does not match `node-webkit`.
+
 ### Example
 
 ```yaml
@@ -66,6 +80,8 @@ specs:
     to: JavaScript
   - from: Java script
     to: JavaScript
+  - from: x-javascript
+    to: x-javascript
 tags:
   - noun
   - JavaScript
@@ -114,3 +130,7 @@ For bugs and feature requests, [please create an issue](https://github.com/proof
 ## License
 
 MIT © azu
+
+## Acknowledge
+
+- [prh/prh](https://github.com/prh/prh)
