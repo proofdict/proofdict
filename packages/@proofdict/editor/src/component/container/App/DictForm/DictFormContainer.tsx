@@ -6,8 +6,33 @@ import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dicti
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
+import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
 
 require("./DictFormContainer.css");
+
+export interface DictPatternProps {
+    pattern: DictionaryPattern;
+    onChangeInput: (event: React.FormEvent<HTMLElement | HTMLInputElement>, input?: string) => void;
+    onChangeCheckbox: (event?: React.FormEvent<HTMLElement | HTMLInputElement>, checked?: boolean) => void;
+}
+
+export function DictPattern(props: DictPatternProps) {
+    return (
+        <div className={"DictPattern"}>
+            <TextField
+                placeholder="e.g.) /ECMAScript([0-9]+)/i"
+                value={props.pattern.trimWorkBoundary()}
+                onChange={props.onChangeInput}
+            />
+            <Checkbox
+                label="Wrap word boundary"
+                disabled={!props.pattern.isRegExpLike}
+                checked={props.pattern.hasWrappedWordBoundary}
+                onChange={props.onChangeCheckbox}
+            />
+        </div>
+    );
+}
 
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
     onChangeExpect = (event: any, input?: string) => {
@@ -94,44 +119,36 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
     };
 
     private createPatterns() {
-        const patterns = this.props.dictForm.patterns.map((expect, index) => {
-            const onChangeExpect = (event: any, input: string = "") => {
+        const patterns = this.props.dictForm.patterns.map((pattern, index) => {
+            const onChangeInput = (event: any, input: string = "") => {
                 this.useCase(createUpdateDictionaryPatternUseCase()).execute(
                     this.props.dictForm.dictionaryId,
-                    expect.value,
+                    pattern.value,
                     input
                 );
             };
-            const onChange = (event?: React.FormEvent<HTMLElement | HTMLInputElement>, checked?: boolean) => {
+            const onChangeCheckbox = (event?: React.FormEvent<HTMLElement | HTMLInputElement>, checked?: boolean) => {
                 if (checked) {
                     this.useCase(createUpdateDictionaryPatternUseCase()).execute(
                         this.props.dictForm.dictionaryId,
-                        expect.value,
-                        expect.addWordBoundary()
+                        pattern.value,
+                        pattern.addWordBoundary()
                     );
                 } else {
                     this.useCase(createUpdateDictionaryPatternUseCase()).execute(
                         this.props.dictForm.dictionaryId,
-                        expect.value,
-                        expect.trimWorkBoundary()
+                        pattern.value,
+                        pattern.trimWorkBoundary()
                     );
                 }
             };
             return (
-                <div key={index}>
-                    <TextField
-                        key={index}
-                        placeholder="e.g.) /ECMAScript([0-9]+)/i"
-                        value={expect.trimWorkBoundary()}
-                        onChange={onChangeExpect}
-                    />
-                    <Checkbox
-                        label="Wrap word boundary"
-                        disabled={!expect.isRegExpLike}
-                        checked={expect.hasWrappedWordBoundary}
-                        onChange={onChange}
-                    />
-                </div>
+                <DictPattern
+                    key={index}
+                    pattern={pattern}
+                    onChangeInput={onChangeInput}
+                    onChangeCheckbox={onChangeCheckbox}
+                />
             );
         });
         return (
