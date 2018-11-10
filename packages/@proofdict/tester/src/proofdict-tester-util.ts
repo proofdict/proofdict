@@ -73,11 +73,23 @@ export const wrapWordBoundary = (pattern: string | RegExp) => {
     }
     return concat(["\\b", result, "\\b"], flags);
 };
-export const wrapHyphenWordBoundary = (pattern: string | RegExp) => {
+
+/**
+ * input: webkit
+ * output: [/-webkit/, /webkit-/]
+ * @param pattern
+ */
+export const createCombinationPatterns = (pattern: string | RegExp): RegExp[] => {
     let result;
     let flags;
     if (typeof pattern === "string") {
-        result = pattern;
+        const regExp = parseRegExpString(pattern);
+        if (regExp) {
+            result = regExp.source;
+            flags = regExp.flags;
+        } else {
+            result = pattern;
+        }
     } else if (pattern instanceof RegExp) {
         result = pattern.source;
         flags = pattern.flags;

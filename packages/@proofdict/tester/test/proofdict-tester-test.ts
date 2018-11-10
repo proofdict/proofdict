@@ -14,6 +14,24 @@ describe("ProofdictTester", () => {
         });
     });
     describe("#match", () => {
+        it("match but allowed", () => {
+            const tester = new ProofdictTester({
+                dictionary: [
+                    {
+                        id: "match-but-allowed",
+                        description: "Reference https://webkit.org/",
+                        expected: "WebKit",
+                        patterns: ["/\\bwebkit\\b/i"],
+                        allows: ["{{COMBINATION_WORD}}"],
+                        tags: []
+                    }
+                ]
+            });
+            const text = "This is node-webkit";
+            return tester.match(text).then(result => {
+                assert.strictEqual(result.details.length, 0);
+            });
+        });
         it("last noun pattern", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
@@ -26,7 +44,8 @@ describe("ProofdictTester", () => {
                     description: "Reference https://webkit.org/",
                     expected: "WebKit",
                     patterns: ["/\\bwebkit\\b/i"],
-                    tags: ["noun"]
+                    tags: ["noun"],
+                    specs: []
                 });
                 assert.strictEqual(detail.actual, "webkit");
                 assert.strictEqual(detail.expected, "WebKit");
@@ -50,7 +69,6 @@ describe("ProofdictTester", () => {
                 assert.strictEqual(text.slice(detail.matchStartIndex, detail.matchEndIndex), "SourceMap");
             });
         });
-
         it("noun + regexp pattern", () => {
             const tester = new ProofdictTester({
                 dictionary: [
