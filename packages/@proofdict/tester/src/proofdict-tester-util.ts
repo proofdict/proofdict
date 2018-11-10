@@ -1,7 +1,56 @@
 // MIT © 2017 azu
 
-// TODO: copy
-import { concat, parseRegExpString } from "prh/lib/utils/regexp";
+const regexpRegexp = /^\/(.*)\/([gimy]*)$/;
+
+export function concat(args: (string | RegExp)[], flags?: string): RegExp {
+    let prevFlags = flags || "";
+    let foundRegExp = false;
+    const result = args.reduce<string>((p, c) => {
+        if (typeof c === "string") {
+            return p + c;
+        } else if (c instanceof RegExp) {
+            c.flags.split("").sort();
+            const currentFlags = c.flags
+                .split("")
+                .sort()
+                .join("");
+            if (foundRegExp) {
+                if (prevFlags !== currentFlags) {
+                    throw new Error(`combining different flags ${prevFlags} and ${currentFlags}.
+The pattern ${c} has different flag with other patterns.`);
+                }
+            }
+            prevFlags = currentFlags;
+            foundRegExp = true;
+            return p + c.source;
+        } else {
+            throw new Error(`unknown type: ${c}`);
+        }
+    }, "");
+    return new RegExp(result, prevFlags);
+}
+
+export function addBoundary(arg: string | RegExp): RegExp {
+    let result: string;
+    let flags = "";
+    if (typeof arg === "string") {
+        result = arg;
+    } else if (arg instanceof RegExp) {
+        result = arg.source;
+        flags = arg.flags;
+    } else {
+        throw new Error(`unknown type: ${arg}`);
+    }
+    return concat(["\\b", result, "\\b"], flags);
+}
+
+export function parseRegExpString(str: string): RegExp | null {
+    const result = str.match(regexpRegexp);
+    if (!result) {
+        return null;
+    }
+    return new RegExp(result[1], result[2]);
+}
 
 export const wrapWordBoundaryToString = (pattern: string): string => {
     const regExp = parseRegExpString(pattern);
