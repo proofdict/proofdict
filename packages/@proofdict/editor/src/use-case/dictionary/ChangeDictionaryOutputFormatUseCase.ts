@@ -1,20 +1,29 @@
 // MIT © 2017 azu
 import { Payload, UseCase } from "almin";
-import { DictOutputFormat } from "../../component/container/App/DictOutput/DictOutputStore";
+import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
+import { DictOutputFormatType, formatDictionary } from "../../domain/Dictionary/DictionaryFormatter";
 
 export const createChangeDictionaryOutputFormatUseCase = () => {
-    return new ChangeDictionaryOutputFormatUseCase();
+    return new ChangeDictionaryOutputFormatUseCase({
+        dictionaryRepository
+    });
 };
 
 export class ChangeDictionaryOutputFormatUseCasePayload extends Payload {
     readonly type = "ChangeDictionaryOutputFormatUseCase";
-    constructor(public format: DictOutputFormat) {
+
+    constructor(public format: DictOutputFormatType, public output: string) {
         super();
     }
 }
 
 export class ChangeDictionaryOutputFormatUseCase extends UseCase {
-    execute(format: DictOutputFormat) {
-        this.dispatch(new ChangeDictionaryOutputFormatUseCasePayload(format));
+    constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
+        super();
+    }
+
+    execute(type: DictOutputFormatType) {
+        const dictionary = this.repo.dictionaryRepository.get();
+        this.dispatch(new ChangeDictionaryOutputFormatUseCasePayload(type, formatDictionary(dictionary, type)));
     }
 }
