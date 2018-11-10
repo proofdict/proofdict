@@ -19,7 +19,7 @@ require("office-ui-fabric-react/dist/css/fabric.min.css");
 const context = new Context({
     store: appStoreGroup,
     options: {
-        strict: true,
+        strict: false,
         performanceProfile: true
     }
 });

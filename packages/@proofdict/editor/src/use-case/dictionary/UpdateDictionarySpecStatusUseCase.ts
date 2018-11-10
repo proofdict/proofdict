@@ -30,7 +30,9 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
             return testPattern(dictionary, spec);
         });
         const newSpecList = await Promise.all(newSpecPromises);
-        const specs = new DictionarySpecs(newSpecList);
+        const specs = new DictionarySpecs({
+            specs: newSpecList
+        });
         const updatedSpecsDictionary = dictionary.updateSpecs(specs);
         this.args.dictionaryRepository.save(updatedSpecsDictionary);
         // update all word class

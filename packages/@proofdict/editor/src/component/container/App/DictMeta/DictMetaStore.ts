@@ -2,54 +2,70 @@
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import memoize from "micro-memoize";
+import { createHooks } from "../../../../hooks/almin-hook";
+import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
 import { DictionaryDescription } from "../../../../domain/Dictionary/DictionaryDescription";
 import { DictionaryTags } from "../../../../domain/Dictionary/DictionaryTags";
 
-export interface DictMetaStateArgs {
-    description: string;
-    selectedTags: string[];
+export interface DictMetaStateProps {
+    dp_description?: DictionaryDescription;
+    dp_selectedTags?: DictionaryTags;
     suggestTags: string[];
 }
 
 export class DictMetaState {
-    description: string;
-    selectedTags: string[];
+    private dp_description?: DictionaryDescription;
+    private dp_selectedTags?: DictionaryTags;
     suggestTags: string[];
 
-    constructor(args: DictMetaStateArgs) {
-        this.description = args.description;
-        this.selectedTags = args.selectedTags;
-        this.suggestTags = args.suggestTags;
+    constructor(props: DictMetaStateProps) {
+        this.dp_description = props.dp_description;
+        this.dp_selectedTags = props.dp_selectedTags;
+        this.suggestTags = props.suggestTags;
+    }
+
+    get description() {
+        if (!this.dp_description) {
+            return "";
+        }
+        return this.dp_description.value;
+    }
+
+    get selectedTags() {
+        if (!this.dp_selectedTags) {
+            return [];
+        }
+        return this.dp_selectedTags.toValue();
     }
 }
 
-// TODO: state is change always
-export const memorizedFactory = memoize(
-    (state: DictMetaState, tags: DictionaryTags, description: DictionaryDescription) => {
-        return new DictMetaState({
+export const domainToProps = memoize(
+    (state: DictMetaState, tags: DictionaryTags, description: DictionaryDescription): DictMetaStateProps => {
+        return {
             ...state,
-            selectedTags: tags.toValue(),
-            description: description.value
-        });
+            dp_selectedTags: tags,
+            dp_description: description
+        };
     }
 );
+
+export const createState = (state: DictMetaState, dictionary: Dictionary): DictMetaState => {
+    return new DictMetaState(domainToProps(state, dictionary.tags, dictionary.description));
+};
 
 export class DictMetaStore extends Store<DictMetaState> {
     state: DictMetaState;
 
-    constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
+    constructor(repo: { dictionaryRepository: DictionaryRepository }) {
         super();
         this.state = new DictMetaState({
-            description: "",
-            selectedTags: [],
             // Special keywords is defined by https://github.com/proofdict/proofdict
             suggestTags: ["noun", "opinion"]
         });
-    }
-
-    receivePayload() {
-        const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(memorizedFactory(this.state, dictionary.tags, dictionary.description));
+        const { useEntity } = createHooks(this, [repo.dictionaryRepository]);
+        useEntity((state, [dictionary]) => {
+            this.setState(createState(this.state, dictionary));
+        });
     }
 
     getState(): DictMetaState {

@@ -139,6 +139,9 @@ export class Dictionary extends Entity<DictionaryProps> {
     }
 
     updateSpecs(newSpecs: DictionarySpecs) {
+        if (newSpecs.equals(this.specs)) {
+            return this;
+        }
         return new Dictionary({
             ...(this as DictionaryProps),
             specs: newSpecs

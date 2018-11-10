@@ -14,7 +14,9 @@ const createEmptyDictionaryWithId = (id: string) => {
         expected: new DictionaryExpected(""),
         patterns: new DictionaryPatterns([]),
         tags: new DictionaryTags([]),
-        specs: new DictionarySpecs([])
+        specs: new DictionarySpecs({
+            specs: []
+        })
     });
 };
 

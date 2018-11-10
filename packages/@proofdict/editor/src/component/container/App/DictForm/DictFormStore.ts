@@ -4,6 +4,7 @@ import { Dictionary, DictionaryIdentifier } from "../../../../domain/Dictionary/
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
 import memoize from "micro-memoize";
+import { createHooks } from "../../../../hooks/almin-hook";
 
 export interface DictFormStateProps {
     dictionaryId: DictionaryIdentifier;
@@ -41,11 +42,10 @@ export class DictFormStore extends Store<DictFormState> {
             dictionaryId: dictionary.id,
             patterns: []
         });
-    }
-
-    receivePayload() {
-        const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(memorizedFactory(this.state, dictionary));
+        const { useEntity } = createHooks(this, [repo.dictionaryRepository]);
+        useEntity((state, [dictionary]) => {
+            this.setState(memorizedFactory(state, dictionary));
+        });
     }
 
     getState(): DictFormState {

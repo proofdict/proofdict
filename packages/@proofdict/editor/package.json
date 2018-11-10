@@ -24,7 +24,7 @@
     "almin-logger": "^6.2.3",
     "almin-react-container": "^0.7.3",
     "classnames": "^2.2.6",
-    "ddd-base": "^0.9.0",
+    "ddd-base": "^0.9.1",
     "js-yaml": "^3.12.0",
     "kuromojin": "^1.4.0",
     "lodash.intersectionby": "^4.7.0",

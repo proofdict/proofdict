@@ -3,6 +3,7 @@ import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
 import memoize from "micro-memoize";
+import { createHooks } from "../../../../hooks/almin-hook";
 
 export interface DictTesterStateProps {
     inputs: string[];
@@ -37,17 +38,16 @@ export const memorizedFactory = memoize((state: DictTesterState, dictionary: Dic
 export class DictTesterStore extends Store<DictTesterState> {
     state: DictTesterState;
 
-    constructor(private repo: { dictionaryRepository: DictionaryRepository }) {
+    constructor(repo: { dictionaryRepository: DictionaryRepository }) {
         super();
         this.state = new DictTesterState({
             inputs: [],
             outputs: []
         });
-    }
-
-    receivePayload() {
-        const dictionary = this.repo.dictionaryRepository.get();
-        this.setState(memorizedFactory(this.state, dictionary));
+        const { useEntity } = createHooks(this, [repo.dictionaryRepository]);
+        useEntity((state, [dictionary]) => {
+            this.setState(memorizedFactory(this.state, dictionary));
+        });
     }
 
     getState(): DictTesterState {

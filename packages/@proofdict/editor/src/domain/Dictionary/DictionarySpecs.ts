@@ -1,11 +1,13 @@
 // MIT © 2017 azu
 import { splice } from "@immutable-array/prototype";
 import { DictionarySpec, DictionarySpecJSON } from "./DictionarySpec";
-import { Serializer } from "ddd-base";
+import { Serializer, ValueObject } from "ddd-base";
 
 export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySpecsJSON> = {
     fromJSON(specs) {
-        return new DictionarySpecs(specs.map(spec => new DictionarySpec(spec)));
+        return new DictionarySpecs({
+            specs: specs.map(spec => new DictionarySpec(spec))
+        });
     },
     toJSON(entity) {
         return entity
@@ -22,11 +24,20 @@ export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySp
 
 export type DictionarySpecsJSON = DictionarySpecJSON[];
 
+export interface DictionarySpecsProps {
+    specs: DictionarySpec[];
+}
+
 /**
  * Collection of DictionarySpec
  */
-export class DictionarySpecs {
-    constructor(private specs: DictionarySpec[]) {}
+export class DictionarySpecs extends ValueObject<DictionarySpecsProps> {
+    private specs: DictionarySpec[];
+
+    constructor(props: DictionarySpecsProps) {
+        super(props);
+        this.specs = this.props.specs;
+    }
 
     // read
     getSpecList(): DictionarySpec[] {
@@ -53,7 +64,9 @@ export class DictionarySpecs {
 
     // write
     add(spec: DictionarySpec) {
-        return new DictionarySpecs(this.specs.concat(spec));
+        return new DictionarySpecs({
+            specs: this.specs.concat(spec)
+        });
     }
 
     update(oldSpec: DictionarySpec, newSpec: DictionarySpec) {
@@ -64,7 +77,9 @@ export class DictionarySpecs {
             return this;
         }
         const newSpecs = splice(this.specs, index, 1, newSpec);
-        return new DictionarySpecs(newSpecs);
+        return new DictionarySpecs({
+            specs: newSpecs
+        });
     }
 
     remove(spec: DictionarySpec) {
@@ -74,7 +89,9 @@ export class DictionarySpecs {
         if (index === -1) {
             return this;
         }
-        return new DictionarySpecs(splice(this.specs, index, 1));
+        return new DictionarySpecs({
+            specs: splice(this.specs, index, 1)
+        });
     }
 
     findByActual(oldSpecActual: string): DictionarySpec | undefined {

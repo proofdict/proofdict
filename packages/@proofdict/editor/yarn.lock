@@ -2437,9 +2437,9 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-ddd-base@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.npmjs.org/ddd-base/-/ddd-base-0.9.0.tgz#15fd8e4a7e6b38b69525e469b6e087d8601bcf4d"
+ddd-base@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npmjs.org/ddd-base/-/ddd-base-0.9.1.tgz#3b478fff3c8557cebfb0fe2978d220bf2671bd34"
   dependencies:
     map-like "^2.0.0"
     shallow-equal-object "^1.1.1"
