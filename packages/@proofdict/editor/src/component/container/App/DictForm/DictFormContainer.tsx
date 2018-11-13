@@ -232,7 +232,9 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
         return (
             <div>
                 <h2>Allows: {this.createAllowsHelp()}</h2>
-                <p className="DictFormContainer-description">2-B. Input allow pattern(Optional)</p>
+                <p className="DictFormContainer-description">
+                    2-B. If want to define ignore pattern, Input allow patterns
+                </p>
 
                 {allows}
                 <PrimaryButton
