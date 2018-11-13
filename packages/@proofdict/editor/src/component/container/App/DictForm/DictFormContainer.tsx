@@ -7,6 +7,9 @@ import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dict
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
 import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
+import { DictionaryAllow } from "../../../../domain/Dictionary/DictionaryAllow";
+import { createAddNewAllowToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewAllowToDictionaryUseCase";
+import { createUpdateDictionaryAllowUseCase } from "../../../../use-case/dictionary/UpdateDictionaryAllowUseCase";
 
 require("./DictFormContainer.css");
 
@@ -34,6 +37,19 @@ export function DictPattern(props: DictPatternProps) {
     );
 }
 
+export interface DictAllowProps {
+    allow: DictionaryAllow;
+    onChangeInput: (event: React.FormEvent<HTMLElement | HTMLInputElement>, input?: string) => void;
+}
+
+export function DictAllow(props: DictAllowProps) {
+    return (
+        <div className={"DictAllow"}>
+            <TextField placeholder="e.g.) /ECMAScript/i" value={props.allow.value} onChange={props.onChangeInput} />
+        </div>
+    );
+}
+
 export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }, {}> {
     onChangeExpect = (event: any, input?: string) => {
         if (input) {
@@ -43,9 +59,13 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
     onClickAddNewPattern = () => {
         this.useCase(createAddNewPatternToDictionaryUseCase()).execute(this.props.dictForm.dictionaryId);
     };
+    onClickAddAllowPattern = (value?: string) => {
+        this.useCase(createAddNewAllowToDictionaryUseCase()).execute(this.props.dictForm.dictionaryId, value);
+    };
 
     render() {
         const patterns = this.createPatterns();
+        const allows = this.createAllows();
         return (
             <div className="DictFormContainer">
                 <h2>Expected: {this.createExpectedHelp()}</h2>
@@ -56,6 +76,7 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                     onChange={this.onChangeExpect}
                 />
                 {patterns}
+                {allows}
             </div>
         );
     }
@@ -91,6 +112,36 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
             </HelpCalloutButton>
         );
     };
+    private createAllowsHelp = () => {
+        return (
+            <HelpCalloutButton>
+                <div className="DictFormContainer-allowsHelp">
+                    <p>Allows defined ignoring pattern that is String or RegExp-like String</p>
+                    <ul>
+                        <li>
+                            <code>allow</code> only match <b>allow</b>
+                        </li>
+                        <li>
+                            <code>/allow/i</code> match <b>allow</b> and <b>allow</b> etc..
+                        </li>
+                        <li>
+                            <code>/\w+/i</code> match <b>a</b> and <b>ab</b> etc..
+                        </li>
+                        <li>
+                            <code>{`{{COMBINATION_WORD}}`}</code> is special keyword.
+                        </li>
+                    </ul>
+                    <p>
+                        If you want to know RegExp, please see{" "}
+                        <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">
+                            MDN
+                        </a>
+                    </p>
+                </div>
+            </HelpCalloutButton>
+        );
+    };
+
     private createPatternsHelp = () => {
         return (
             <HelpCalloutButton>
@@ -160,8 +211,54 @@ export class DictFormContainer extends BaseContainer<{ dictForm: DictFormState }
                 <PrimaryButton
                     tabIndex={-1}
                     iconProps={{ iconName: "Add" }}
-                    text="Add New pattern"
+                    text="Add pattern"
                     onClick={this.onClickAddNewPattern}
+                />
+            </div>
+        );
+    }
+
+    private createAllows() {
+        const allows = this.props.dictForm.allows.map((allow, index) => {
+            const onChangeInput = (event: any, input: string = "") => {
+                this.useCase(createUpdateDictionaryAllowUseCase()).execute(
+                    this.props.dictForm.dictionaryId,
+                    allow.value,
+                    input
+                );
+            };
+            return <DictAllow key={index} allow={allow} onChangeInput={onChangeInput} />;
+        });
+        return (
+            <div>
+                <h2>Allows: {this.createAllowsHelp()}</h2>
+                <p className="DictFormContainer-description">2-B. Input allow pattern(Optional)</p>
+
+                {allows}
+                <PrimaryButton
+                    tabIndex={-1}
+                    iconProps={{ iconName: "Add" }}
+                    text="Add allow pattern"
+                    menuProps={{
+                        items: [
+                            {
+                                key: "empty",
+                                text: "Add empty filed",
+                                iconProps: { iconName: "FieldEmpty" },
+                                onClick: () => {
+                                    this.onClickAddAllowPattern();
+                                }
+                            },
+                            {
+                                key: "{{COMBINATION_WORD}}",
+                                text: "Add {{COMBINATION_WORD}}",
+                                iconProps: { iconName: "LocaleLanguage" },
+                                onClick: () => {
+                                    this.onClickAddAllowPattern("{{COMBINATION_WORD}}");
+                                }
+                            }
+                        ]
+                    }}
                 />
             </div>
         );

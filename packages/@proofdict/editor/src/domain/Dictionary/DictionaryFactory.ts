@@ -6,6 +6,7 @@ import { DictionaryDescription } from "./DictionaryDescription";
 import { DictionaryTags } from "./DictionaryTags";
 
 import { ulid } from "ulid";
+import { DictionaryAllows } from "./DictionaryAllows";
 
 const createEmptyDictionaryWithId = (id: string) => {
     return new Dictionary({
@@ -13,6 +14,7 @@ const createEmptyDictionaryWithId = (id: string) => {
         description: new DictionaryDescription(""),
         expected: new DictionaryExpected(""),
         patterns: new DictionaryPatterns([]),
+        allows: new DictionaryAllows([]),
         tags: new DictionaryTags([]),
         specs: new DictionarySpecs({
             specs: []

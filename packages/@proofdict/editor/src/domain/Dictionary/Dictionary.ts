@@ -3,6 +3,7 @@ import { DictionaryExpected } from "./DictionaryExpected";
 import { DictionaryPattern } from "./DictionaryPattern";
 import { Entity, Identifier } from "ddd-base";
 import { DictionaryPatterns, DictionaryPatternsSerializer } from "./DictionaryPatterns";
+import { DictionaryAllowsSerializer } from "./DictionaryAllows";
 import { DictionarySpecs, DictionarySpecsJSON, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
 import { Serializer } from "ddd-base";
@@ -13,6 +14,8 @@ import {
 } from "./DictionaryWordClasses";
 import { DictionaryDescription } from "./DictionaryDescription";
 import { DictionaryTags, DictionaryTagsJSON, DictionaryTagsSerializer } from "./DictionaryTags";
+import { DictionaryAllows } from "./DictionaryAllows";
+import { DictionaryAllow } from "./DictionaryAllow";
 
 export class DictionaryIdentifier extends Identifier<string> {}
 
@@ -21,6 +24,7 @@ export interface DictionaryJSON {
     description: string;
     expected: string;
     patterns: string[];
+    allows: string[];
     specs: DictionarySpecsJSON;
     tags: DictionaryTagsJSON;
     wordClasses?: DictionaryWordClassesJSON;
@@ -31,6 +35,7 @@ export interface DictionaryProps {
     description: DictionaryDescription;
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
+    allows: DictionaryAllows;
     specs: DictionarySpecs;
     tags: DictionaryTags;
     wordClasses?: DictionaryWordClasses;
@@ -43,6 +48,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             description: new DictionaryDescription(json.description || ""),
             expected: new DictionaryExpected(json.expected),
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
+            allows: DictionaryAllowsSerializer.fromJSON(json.allows),
             specs: DictionarySpecsSerializer.fromJSON(json.specs),
             tags: DictionaryTagsSerializer.fromJSON(json.tags),
             wordClasses: json.wordClasses ? DictionaryWordClassesSerializer.fromJSON(json.wordClasses) : undefined
@@ -61,6 +67,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             description: dictionary.description.value,
             expected: dictionary.expected.value,
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
+            allows: DictionaryAllowsSerializer.toJSON(dictionary.allows),
             specs: DictionarySpecsSerializer.toJSON(dictionary.specs),
             tags: DictionaryTagsSerializer.toJSON(dictionary.tags)
         };
@@ -72,6 +79,7 @@ export class Dictionary extends Entity<DictionaryProps> {
     description: DictionaryDescription;
     expected: DictionaryExpected;
     patterns: DictionaryPatterns;
+    allows: DictionaryAllows;
     specs: DictionarySpecs;
     tags: DictionaryTags;
     wordClasses?: DictionaryWordClasses;
@@ -82,6 +90,7 @@ export class Dictionary extends Entity<DictionaryProps> {
         this.description = props.description;
         this.expected = props.expected;
         this.patterns = props.patterns;
+        this.allows = props.allows;
         this.specs = props.specs;
         this.tags = props.tags;
         this.wordClasses = props.wordClasses;
@@ -113,6 +122,28 @@ export class Dictionary extends Entity<DictionaryProps> {
         return new Dictionary({
             ...(this as DictionaryProps),
             patterns: this.patterns.remove(pattern)
+        });
+    }
+
+    // allows
+    addAllow(allow: DictionaryAllow) {
+        return new Dictionary({
+            ...(this as DictionaryProps),
+            allows: this.allows.add(allow)
+        });
+    }
+
+    updateAllow(old: DictionaryAllow, newPattern: DictionaryAllow) {
+        return new Dictionary({
+            ...(this as DictionaryProps),
+            allows: this.allows.update(old, newPattern)
+        });
+    }
+
+    removeAllow(allow: DictionaryAllow) {
+        return new Dictionary({
+            ...(this as DictionaryProps),
+            allows: this.allows.remove(allow)
         });
     }
 

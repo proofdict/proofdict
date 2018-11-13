@@ -27,6 +27,7 @@ export class AppMenuContainer extends BaseContainer<AppMenuContainerProps, {}> {
                     description: "ECMAScript and version has a space.",
                     expected: "ECMAScript $1",
                     patterns: ["/ES (\\d+)/i", "/ES(\\d+)/i"],
+                    allows: [],
                     specs: [
                         {
                             from: "ES 5",
