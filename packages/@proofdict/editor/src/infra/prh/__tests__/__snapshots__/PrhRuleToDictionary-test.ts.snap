@@ -3,6 +3,7 @@
 exports[`prh.yml-to-json 1`] = `
 Array [
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "ECMAScript $1",
     "id": "fixed",
@@ -14,6 +15,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Ecma標準",
     "id": "fixed",
@@ -24,6 +26,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "ES.next",
     "id": "fixed",
@@ -39,6 +42,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "ES6 Classes",
     "id": "fixed",
@@ -54,6 +58,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Web Components",
     "id": "fixed",
@@ -71,6 +76,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "localStorage",
     "id": "fixed",
@@ -81,6 +87,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "sessionStorage",
     "id": "fixed",
@@ -91,6 +98,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "HTML Imports",
     "id": "fixed",
@@ -101,6 +109,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "JavaScript",
     "id": "fixed",
@@ -116,6 +125,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "JavaScript",
     "id": "fixed",
@@ -135,6 +145,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Pointer Events",
     "id": "fixed",
@@ -155,6 +166,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Touch Events",
     "id": "fixed",
@@ -171,6 +183,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Web Audio API",
     "id": "fixed",
@@ -183,6 +196,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Service Worker",
     "id": "fixed",
@@ -193,6 +207,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Template Strings",
     "id": "fixed",
@@ -204,6 +219,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": ".js $1",
     "id": "fixed",
@@ -214,6 +230,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "See http://todomvc.com/",
     "expected": "TodoMVC",
     "id": "fixed",
@@ -224,6 +241,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Source Map",
     "id": "fixed",
@@ -240,6 +258,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Virtual DOM",
     "id": "fixed",
@@ -250,6 +269,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "jQuery",
     "id": "fixed",
@@ -269,6 +289,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Redux",
     "id": "fixed",
@@ -288,6 +309,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Underscore.js",
     "id": "fixed",
@@ -298,6 +320,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Angular",
     "id": "fixed",
@@ -317,6 +340,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "AngularJS",
     "id": "fixed",
@@ -333,6 +357,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Ember.js",
     "id": "fixed",
@@ -343,6 +368,7 @@ Array [
     "tags": Array [],
   },
   Object {
+    "allows": Array [],
     "description": "",
     "expected": "Ember.js",
     "id": "fixed",
