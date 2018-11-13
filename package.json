@@ -28,7 +28,7 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build --ignore website",
+    "build": "lerna run build --ignore website --ignore @proofdict/editor",
     "clean": "lerna run clean",
     "website": "lerna run build --scope website",
     "prepublish": "yarn run clean && yarn run build",
@@ -54,10 +54,18 @@
     "printWidth": 120,
     "tabWidth": 4
   },
-  "workspaces": [
-    "packages/@proofdict/*",
-    "website"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/@proofdict/*",
+      "website"
+    ],
+    "nohoist": [
+      "**/@types/mocha",
+      "**/@types/mocha/**",
+      "**/@types/jest",
+      "**/@types/jest/**"
+    ]
+  },
   "husky": {
     "hooks": {
       "post-commit": "git reset",

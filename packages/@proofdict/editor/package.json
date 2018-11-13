@@ -1,5 +1,5 @@
 {
-  "name": "proofdict",
+  "name": "@proofdict/editor",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://proofdict.github.io/editor",

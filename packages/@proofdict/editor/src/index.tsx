@@ -13,6 +13,7 @@ import { initializeIcons } from "@uifabric/icons";
 
 // Register icons and pull the fonts from the default SharePoint cdn:
 initializeIcons();
+require("normalize.css/normalize.css");
 require("./index.css");
 require("office-ui-fabric-react/dist/css/fabric.min.css");
 
