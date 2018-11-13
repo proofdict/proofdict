@@ -27,11 +27,11 @@ const DefaultOptions: RuleOption = {
     // Default: 60sec(60 * 1000ms)
     autoUpdateInterval: 60 * 1000,
     // = Tag settings
-    // Filter dictionary by whitelist or blacklist
+    // Filter dictionary by allow or deny
     // Default: Enable all terms of the dictionary.
-    // When set both options, this rule prefer whitelist to blacklist
-    whitelistTags: [],
-    blacklistTags: [],
+    // When set both options, this rule prefer allowTags to denyTags
+    allowTags: [],
+    denyTags: [],
     // For testing
     // set you proofdict json object
     proofdict: undefined,
@@ -55,8 +55,8 @@ Please set dictURL or dictPath to .textlintrc.`)
         };
     }
     const mode = options.dictURL ? MODE.NETWORK : MODE.LOCAL;
-    const whitelistTags = Array.isArray(options.whitelistTags) ? options.whitelistTags : DefaultOptions.whitelistTags;
-    const blacklistTags = Array.isArray(options.blacklistTags) ? options.blacklistTags : DefaultOptions.blacklistTags;
+    const allowTags = Array.isArray(options.allowTags) ? options.allowTags : DefaultOptions.allowTags;
+    const denyTags = Array.isArray(options.denyTags) ? options.denyTags : DefaultOptions.denyTags;
     const disableTesterCache =
         options.disableProofdictTesterCache !== undefined
             ? options.disableProofdictTesterCache
@@ -100,8 +100,8 @@ Please set dictURL or dictPath to .textlintrc.`)
                 const tester = createTester({
                     dictionary,
                     lastUpdated,
-                    whitelistTags,
-                    blacklistTags,
+                    allowTags: allowTags,
+                    denyTags: denyTags,
                     disableTesterCache
                 });
                 // check

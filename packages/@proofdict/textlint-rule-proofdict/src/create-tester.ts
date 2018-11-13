@@ -7,49 +7,41 @@ import { RuleOption } from "./RuleOptions";
 
 let currentTester: null | ProofdictTester = null;
 let checkedLastTime = -1;
-/**
- * @param {number} lastUpdated
- * @param {*} dictionary
- * @param {string[]} whitelistTags
- * @param {string[]}  blacklistTags
- * @param {boolean}  disableTesterCache
- * @returns {ProofdictTester}
- */
 export const createTester = ({
     lastUpdated,
     dictionary,
-    whitelistTags,
-    blacklistTags,
+    allowTags,
+    denyTags,
     disableTesterCache
 }: {
     lastUpdated: number;
     dictionary: Proofdict;
-    whitelistTags: string[];
-    blacklistTags: string[];
+    allowTags: string[];
+    denyTags: string[];
     disableTesterCache: boolean;
 }): ProofdictTester => {
     if (disableTesterCache) {
         checkedLastTime = lastUpdated;
         currentTester = new ProofdictTester({
             dictionary,
-            whitelistTags,
-            blacklistTags
+            allowTags: allowTags,
+            denyTags: denyTags
         });
         return currentTester;
     } else if (currentTester === null) {
         checkedLastTime = lastUpdated;
         currentTester = new ProofdictTester({
             dictionary,
-            whitelistTags,
-            blacklistTags
+            allowTags: allowTags,
+            denyTags: denyTags
         });
         return currentTester;
     } else if (checkedLastTime < lastUpdated) {
         checkedLastTime = lastUpdated;
         currentTester = new ProofdictTester({
             dictionary,
-            whitelistTags,
-            blacklistTags
+            allowTags: allowTags,
+            denyTags: denyTags
         });
         return currentTester;
     }
