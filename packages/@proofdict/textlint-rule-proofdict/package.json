@@ -1,52 +1,62 @@
 {
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "name": "@proofdict/textlint-rule-proofdict",
+  "version": "2.2.1",
+  "description": "textlint rule check text using proofdict.",
+  "keywords": [
+    "textlintrule"
+  ],
+  "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
+  "bugs": {
+    "url": "https://github.com/proofdict/textlint-rule-proofdict/issues"
   },
-  "author": "azu",
   "license": "MIT",
+  "author": "azu",
   "files": [
     "bin/",
     "lib/",
     "src/"
   ],
-  "name": "@proofdict/textlint-rule-proofdict",
-  "version": "2.2.1",
-  "description": "textlint rule check text using proofdict.",
   "main": "lib/textlint-rule-proofdict.js",
-  "scripts": {
-    "test": "textlint-scripts test",
-    "prepublish": "npm run --if-present build",
-    "build": "textlint-scripts build",
-    "watch": "textlint-scripts build --watch",
-    "clean": "rimraf lib/"
+  "types": "lib/textlint-rule-proofdict.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   },
-  "keywords": [
-    "textlintrule"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/proofdict/textlint-rule-proofdict.git"
   },
-  "bugs": {
-    "url": "https://github.com/proofdict/textlint-rule-proofdict/issues"
-  },
-  "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "rimraf": "^2.6.2",
-    "textlint-scripts": "^2.1.0"
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tsc -p .",
+    "clean": "rimraf lib/",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha \"test/**/*.{js,ts}\"",
+    "watch": "tsc -p . --watch"
   },
   "dependencies": {
     "@proofdict/tester": "^2.2.1",
     "@types/url-join": "^0.8.2",
+    "@textlint/kernel": "^3.0.0",
     "debug": "^3.1.0",
     "fetch-ponyfill": "^6.0.0",
     "localstorage-ponyfill": "^1.0.1",
     "proofdict": "^1.2.1",
     "textlint-rule-helper": "^2.0.1",
     "url-join": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.6",
+    "@types/url-join": "^0.8.2",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "textlint-scripts": "^2.1.0",
+    "ts-node": "^7.0.1",
+    "ts-node-test-register": "^4.0.0",
+    "typescript": "^3.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

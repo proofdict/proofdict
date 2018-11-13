@@ -1,14 +1,19 @@
 // MIT © 2017 azu
 "use strict";
-const { RuleHelper } = require("textlint-rule-helper");
+import { RuleOption } from "./RuleOptions";
+import { TextlintRuleReporter } from "@textlint/kernel";
 import { createTester, getDictionary } from "./create-tester";
 import { fetchProofdict } from "./fetch-proofdict";
 import { getDictJSONURL, getRuleURL } from "./proofdict-repo-util";
 import { MODE } from "./mode";
 import { storage } from "./dictionary-storage";
+import { TxtNode } from "@textlint/ast-node-types";
+
+const { RuleHelper } = require("textlint-rule-helper");
 
 const debug = require("debug")("textlint-rule-proofdict");
-const DefaultOptions = {
+
+const DefaultOptions: RuleOption = {
     // If you want to use live-proofdict
     // Proofdict-style dictionary URL
     // Example: "https://example.github.io/proof-dictionary/"
@@ -34,7 +39,8 @@ const DefaultOptions = {
     disableProofdictTesterCache: false
 };
 
-const reporter = (context, options = DefaultOptions) => {
+// TODO: https://github.com/textlint/textlint/issues/554
+const reporter: TextlintRuleReporter = (context, options: any = DefaultOptions) => {
     const helper = new RuleHelper(context);
     const { Syntax, RuleError, report, getSource, fixer } = context;
     if (!options.dictURL && !options.dictPath && !options.proofdict) {
@@ -57,9 +63,9 @@ Please set dictURL or dictPath to .textlintrc.`)
             : DefaultOptions.disableProofdictTesterCache;
     const autoUpdateInterval =
         options.autoUpdateInterval !== undefined ? options.autoUpdateInterval : DefaultOptions.autoUpdateInterval;
-    const targetNodes = [];
-    const addQueue = node => targetNodes.push(node);
-    let promiseQueue = null;
+    const targetNodes: TxtNode[] = [];
+    const addQueue = (node: TxtNode) => targetNodes.push(node);
+    let promiseQueue: Promise<void> = Promise.resolve();
     return {
         [Syntax.Document]() {
             // default: 0
@@ -88,7 +94,7 @@ Please set dictURL or dictPath to .textlintrc.`)
                 const dictionary = getDictionary(options, mode);
                 if (!dictionary) {
                     debug("Can not fetch rules from local and network. stop to lint.");
-                    return;
+                    return [];
                 }
                 const lastUpdated = Number(storage.getItem("proofdict-lastUpdated", "0"));
                 const tester = createTester({
@@ -130,7 +136,8 @@ Please set dictURL or dictPath to .textlintrc.`)
         }
     };
 };
-module.exports = {
+
+export default {
     linter: reporter,
     fixer: reporter
 };
