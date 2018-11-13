@@ -1,9 +1,8 @@
 {
   "lerna": "2.9.0",
   "packages": [
-    "website",
-    "packages/*",
-    "packages/@proofdict/*"
+    "packages/@proofdict/*",
+    "website"
   ],
   "version": "2.2.1",
   "npmClient": "yarn",

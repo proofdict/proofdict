@@ -55,9 +55,8 @@
     "tabWidth": 4
   },
   "workspaces": [
-    "website",
-    "packages/*",
-    "packages/@proofdict/*"
+    "packages/@proofdict/*",
+    "website"
   ],
   "husky": {
     "hooks": {
