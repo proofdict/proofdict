@@ -30,7 +30,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --ignore website --ignore @proofdict/editor",
     "clean": "lerna run clean",
-    "website": "lerna run build --scope website",
+    "website": "lerna run build --scope website --scope @proofdict/editor && cp -rf ./packages/@proofdict/editor/build ./website/build/proofdict/editor",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish --conventional-commits",
     "test": "lerna run test",
