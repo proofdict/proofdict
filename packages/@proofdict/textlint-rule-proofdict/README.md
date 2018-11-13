@@ -47,12 +47,12 @@ textlint --rule proofdict README.md
     // Default: 60sec(60 * 1000ms)
     "autoUpdateInterval": 60 * 1000,
     // = Tag settings
-    // Filter dictionary by whitelist or blacklist
+    // Filter dictionary by allow or deny
     // Default: Enable all terms of the dictionary.
-    // When set both options, this rule prefer whitelist to blacklist
-    "whitelistTags": [],
-    "blacklistTags": [],
-};
+    // When set both options, this rule prefer allowTags to denyTags
+    "allowTags": [],
+    "denyTags": [],
+}
 ```
 
 ### `dictURL`
@@ -72,7 +72,7 @@ If you want to custom API end point, pass object instead of string.
 }
 ``` 
 
-### Whitelist/Blacklist
+### AllowTags/DenyTags
 
 This rule use [proofdict](https://proofdict.github.io/proofdict/ "proofdict") as the source of dictionary.
 
@@ -80,7 +80,7 @@ Each dictionary items has `tag`.
 
 For example, [WebKit](https://proofdict.github.io/proofdict/item/01BQ92YZ6QR8RJKA5Y8W2F9NMY "WebKit") has `noun` tag.
 
-You can setting enable/disable by `whitelistTags` and `blacklistTags`
+You can setting enable/disable by `allowTags` and `denyTags`
 
 e.g.) Enable only "noun" tag.
 
@@ -88,7 +88,7 @@ e.g.) Enable only "noun" tag.
 {
     "rules": {
         "@proofdict/proofdict": {
-          "whitelistTags": ["noun"]
+          "allowTags": ["noun"]
         }
     }
 }
@@ -100,7 +100,7 @@ e.g.) Use items without `"opinion"` tag
 {
     "rules": {
         "@proofdict/proofdict": {
-          "blacklistTags": ["opinion"]
+          "denyTags": ["opinion"]
         }
     }
 }

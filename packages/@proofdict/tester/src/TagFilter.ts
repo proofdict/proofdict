@@ -12,15 +12,15 @@ export function isNoun(dict: ProofdictRule): boolean {
     return dict.tags.indexOf(NOUN_TAG) !== -1;
 }
 
-export function filterByTags(dictionary: Proofdict, whitelistTags: string[] = [], blacklistTags: string[] = []) {
-    if (whitelistTags.length > 0) {
+export function filterByTags(dictionary: Proofdict, allowTags: string[] = [], denyTags: string[] = []) {
+    if (allowTags.length > 0) {
         return dictionary.filter(item => {
-            return whitelistTags.every(whitelistTags => item.tags.indexOf(whitelistTags) !== -1);
+            return allowTags.every(allowTag => item.tags.indexOf(allowTag) !== -1);
         });
     }
-    if (blacklistTags.length > 0) {
+    if (denyTags.length > 0) {
         return dictionary.filter(item => {
-            return !item.tags.some(tag => blacklistTags.indexOf(tag) !== -1);
+            return !item.tags.some(tag => denyTags.indexOf(tag) !== -1);
         });
     }
     return dictionary;

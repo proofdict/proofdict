@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { Diff, Engine } from "prh";
+import { Engine } from "prh";
 import { ProofdictRule } from "@proofdict/types";
 import { createCombinationPatterns, wrapWordBoundaryToString } from "./proofdict-tester-util";
 import { filterByTags, isNoun } from "./TagFilter";
@@ -28,18 +28,15 @@ export interface ProofdictTesterResult {
     output: string;
     // details output
     details: ProofdictTesterResultDetail[];
-    // This will be removed in the future
-    // @deprecated
-    diffs?: Diff[];
 }
 
 export interface ProofdictTesterOptions {
     dictionary: Proofdict;
-    // Filter dictionary by whitelist or blacklist
+    // Filter dictionary by allow or deny
     // Default: Enable all terms of the dictionary.
-    // When set both options, this rule prefer whitelist to blacklist
-    whitelistTags?: string[];
-    blacklistTags?: string[];
+    // When set both options, this rule prefer allowTags to denyTags
+    allowTags?: string[];
+    denyTags?: string[];
 }
 
 export class ProofdictTester {
@@ -48,7 +45,7 @@ export class ProofdictTester {
 
     constructor(options: ProofdictTesterOptions) {
         this.proofdict = options.dictionary;
-        const filteredProofdict = filterByTags(this.proofdict, options.whitelistTags, options.blacklistTags);
+        const filteredProofdict = filterByTags(this.proofdict, options.allowTags, options.denyTags);
         this.prhEngine = new Engine({
             version: 1,
             rules: this.splitRuleToEachPattern(filteredProofdict)
@@ -141,8 +138,7 @@ export class ProofdictTester {
         });
         return Promise.resolve({
             output: currentString,
-            details: results,
-            diffs: sortedDiffs
+            details: results
         });
     }
 }

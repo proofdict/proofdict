@@ -17,8 +17,8 @@ export interface RuleOption {
     // Filter dictionary by whitelist or blacklist
     // Default: Enable all terms of the dictionary.
     // When set both options, this rule prefer whitelist to blacklist
-    whitelistTags: string[];
-    blacklistTags: string[];
+    allowTags: string[];
+    denyTags: string[];
     // For testing
     // set you proofdict json object
     proofdict?: Proofdict;
