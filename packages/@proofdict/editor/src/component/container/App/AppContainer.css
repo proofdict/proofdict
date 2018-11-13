@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Margin outside of App*/
+.App {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* But, Menu is full width */
+.App-menu {
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+
+.App-main {
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #3498db;
+}
+
+.App-left {
+    border-right: 1px dashed #3498db;
+}
+
+.App-left,
+.App-right {
+    text-align: center;
+}

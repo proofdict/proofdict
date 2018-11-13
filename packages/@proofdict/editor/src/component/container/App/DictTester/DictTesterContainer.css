@@ -1,0 +1,38 @@
+.DictTesterContainer-headerGrid,
+.DictTesterContainer-inputOutputGrid {
+    height: 40px;
+}
+
+.DictTesterContainer-headerGrid {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ddd;
+}
+
+.DictTesterContainer-headerCell {
+    vertical-align: middle;
+}
+
+.DictTesterContainer-expected {
+    margin: 0;
+    padding: 0;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.DictTesterContainer-inputCell {
+    position: relative;
+}
+
+.DictTesterContainer-inputCell::after {
+    content: "";
+    position: absolute;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 16px solid #3498db;
+    right: -16px;
+    top: 0;
+    z-index: 1;
+}

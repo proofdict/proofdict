@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prh.yml-to-json 1`] = `
+Array [
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "ECMAScript $1",
+    "id": "fixed",
+    "patterns": Array [
+      "/ECMAScript([0-9]+)/",
+      "/ECMA Script([0-9]+)/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Ecma標準",
+    "id": "fixed",
+    "patterns": Array [
+      "ECMA標準",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "ES.next",
+    "id": "fixed",
+    "patterns": Array [
+      "ES next",
+    ],
+    "specs": Array [
+      Object {
+        "from": "ES nextでは",
+        "to": "ES.nextでは",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "ES6 Classes",
+    "id": "fixed",
+    "patterns": Array [
+      "/[EeＥｅ][SsＳｓ][6６] [CcＣｃ][LlＬｌ][AaＡａ][SsＳｓ][SsＳｓ][EeＥｅ][SsＳｓ]/gmu",
+    ],
+    "specs": Array [
+      Object {
+        "from": "ES6 classes",
+        "to": "ES6 Classes",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Web Components",
+    "id": "fixed",
+    "patterns": Array [
+      "WebComponents",
+      "web components",
+      "Web components",
+    ],
+    "specs": Array [
+      Object {
+        "from": "WebComponentsについてのWeeklyメールマガジン",
+        "to": "Web ComponentsについてのWeeklyメールマガジン",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "localStorage",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\blocalstorage\\\\b/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "sessionStorage",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\bsession storage\\\\b|\\\\bsessionstorage\\\\b/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "HTML Imports",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\bHTML Import\\\\b/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "JavaScript",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\b[JjＪｊ][AaＡａ][VvＶｖ][AaＡａ][SsＳｓ][CcＣｃ][RrＲｒ][IiＩｉ][PpＰｐ][TtＴｔ]\\\\b/gmu",
+    ],
+    "specs": Array [
+      Object {
+        "from": "javascript",
+        "to": "JavaScript",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "JavaScript",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\bJava Script\\\\b/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "java script",
+        "to": "JavaScript",
+      },
+      Object {
+        "from": "Java script",
+        "to": "JavaScript",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Pointer Events",
+    "id": "fixed",
+    "patterns": Array [
+      "/pointer event/i",
+      "/pointer events/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "MSEdgeの対応、pointer eventなど対応、",
+        "to": "MSEdgeの対応、Pointer Eventsなど対応、",
+      },
+      Object {
+        "from": "pointer-events",
+        "to": "pointer-events",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Touch Events",
+    "id": "fixed",
+    "patterns": Array [
+      "/Touch Event/i",
+      "/Touch Events/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "Touch Event、Fullscreen APIなどのサポートなど",
+        "to": "Touch Events、Fullscreen APIなどのサポートなど",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Web Audio API",
+    "id": "fixed",
+    "patterns": Array [
+      "/WebAudio API/i",
+      "/Web AudioAPI/i",
+      "/Web Audio API/i",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Service Worker",
+    "id": "fixed",
+    "patterns": Array [
+      "/[SsＳｓ][EeＥｅ][RrＲｒ][VvＶｖ][IiＩｉ][CcＣｃ][EeＥｅ] [WwＷｗ][OoＯｏ][RrＲｒ][KkＫｋ][EeＥｅ][RrＲｒ]/gmu",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Template Strings",
+    "id": "fixed",
+    "patterns": Array [
+      "/Template Strings/i",
+      "/TemplateStrings/i",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": ".js $1",
+    "id": "fixed",
+    "patterns": Array [
+      "/.js([.0-9]+)/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "See http://todomvc.com/",
+    "expected": "TodoMVC",
+    "id": "fixed",
+    "patterns": Array [
+      "/[TtＴｔ][OoＯｏ][DdＤｄ][OoＯｏ][MmＭｍ][VvＶｖ][CcＣｃ]/gmu",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Source Map",
+    "id": "fixed",
+    "patterns": Array [
+      "/Source Map/i",
+      "/SourceMap/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "多段SourceMapに対応",
+        "to": "多段Source Mapに対応",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Virtual DOM",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\bVirtualDOM\\\\b|\\\\bVirtualDom\\\\b/",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "jQuery",
+    "id": "fixed",
+    "patterns": Array [
+      "/jquery(?!-)/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "jquery",
+        "to": "jQuery",
+      },
+      Object {
+        "from": "jquery-ui",
+        "to": "jquery-ui",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Redux",
+    "id": "fixed",
+    "patterns": Array [
+      "/redux(?!-)/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "redux",
+        "to": "Redux",
+      },
+      Object {
+        "from": "redux-react",
+        "to": "redux-react",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Underscore.js",
+    "id": "fixed",
+    "patterns": Array [
+      "/[UuＵｕ][NnＮｎ][DdＤｄ][EeＥｅ][RrＲｒ][SsＳｓ][CcＣｃ][OoＯｏ][RrＲｒ][EeＥｅ].[JjＪｊ][SsＳｓ]/gmu",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Angular",
+    "id": "fixed",
+    "patterns": Array [
+      "/\\\\b[AaＡａ][NnＮｎ][GgＧｇ][UuＵｕ][LlＬｌ][AaＡａ][RrＲｒ]\\\\b/gmu",
+    ],
+    "specs": Array [
+      Object {
+        "from": "angularJS",
+        "to": "angularJS",
+      },
+      Object {
+        "from": "angular",
+        "to": "Angular",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "AngularJS",
+    "id": "fixed",
+    "patterns": Array [
+      "/Angular\\\\.js/i",
+      "/angularjs/i",
+    ],
+    "specs": Array [
+      Object {
+        "from": "Angular.js",
+        "to": "AngularJS",
+      },
+    ],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Ember.js",
+    "id": "fixed",
+    "patterns": Array [
+      "/[EeＥｅ][MmＭｍ][BbＢｂ][EeＥｅ][RrＲｒ].[JjＪｊ][SsＳｓ]/gmu",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+  Object {
+    "allows": Array [],
+    "description": "",
+    "expected": "Ember.js",
+    "id": "fixed",
+    "patterns": Array [
+      "EmberJS",
+    ],
+    "specs": Array [],
+    "tags": Array [],
+  },
+]
+`;

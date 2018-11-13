@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "module": "commonjs",
+    "outDir": "tools/output"
+  },
+  "include": [
+    "src/**/*",
+    "tools/*"
+  ],
+  "exclude": [
+    "__tests__/**/*",
+    "tools/output/**/*",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}
