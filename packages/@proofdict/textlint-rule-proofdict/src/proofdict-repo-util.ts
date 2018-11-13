@@ -1,16 +1,24 @@
 // MIT © 2018 azu
 "use strict";
-const urlJoin = require("url-join");
+import * as urlJoin from "url-join";
+import { RuleOption } from "./RuleOptions";
 
 /**
  * @param options
  * @returns {string}
  */
-export function getDictJSONURL(options) {
-    if (typeof options.dictURL === "object" && typeof options.dictURL.jsonAPI === "string") {
+export function getDictJSONURL(options: RuleOption) {
+    if (
+        typeof options.dictURL === "object" &&
+        typeof options.dictURL.jsonAPI === "string" &&
+        typeof options.dictURL.ruleBase === "string"
+    ) {
         return options.dictURL.jsonAPI;
     }
-    return urlJoin(options.dictURL, "dictionary.json");
+    if (typeof options.dictURL === "string") {
+        return urlJoin(options.dictURL, "dictionary.json");
+    }
+    throw new Error("options.dictURL is undefined");
 }
 
 /**
@@ -18,7 +26,7 @@ export function getDictJSONURL(options) {
  * @param rule
  * @returns {string|undefined}
  */
-export function getRuleURL(options, rule) {
+export function getRuleURL(options: RuleOption, rule: any) {
     if (!rule) {
         return;
     }
@@ -30,4 +38,5 @@ export function getRuleURL(options, rule) {
     if (options.dictURL) {
         return `${options.dictURL}#${encodeURIComponent(rule.id)}`;
     }
+    return;
 }
