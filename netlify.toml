@@ -1,7 +1,7 @@
 [build]
-  command = "yarn run website"
+  command = "yarn run bootstrap && yarn run website"
   publish = "website/build/proofdict"
 
 [build.environment]
   NODE_VERSION = "--lts=dubnium"
-  YARN_VERSION = "1.9.4"
+  YARN_VERSION = "1.12.3"

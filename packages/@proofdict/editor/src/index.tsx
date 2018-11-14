@@ -34,14 +34,19 @@ context
     .transaction("Initialize", async transactionContext => {
         // ?owner=a&repo=b is minimal case
         // ?owner=a&repo=b&branch=gh-pages
-        const query = parseQuery<{ owner: string; repo: string; branch: string; proofdictRelativePath: string }>(
-            location.href
-        );
+        const query = parseQuery<{
+            owner: string;
+            repo: string;
+            branch: string;
+            proofdictRelativePath: string;
+            dictionaryContent: string;
+            dictionaryType: string;
+        }>(location.href);
         await transactionContext.useCase(createInitializeUseCase()).execute({
             owner: query.owner,
             repo: query.repo
         });
-        await transactionContext.useCase(createCreateNewDictionaryUseCase()).execute();
+        await transactionContext.useCase(createCreateNewDictionaryUseCase()).execute(query.dictionaryContent);
         transactionContext.commit();
     })
     .then(() => {
