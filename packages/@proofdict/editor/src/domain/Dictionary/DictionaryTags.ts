@@ -5,7 +5,7 @@ import { Serializer } from "ddd-base";
 export type DictionaryTagsJSON = DictionaryTagJSON[];
 
 export const DictionaryTagsSerializer: Serializer<DictionaryTags, DictionaryTagsJSON> = {
-    fromJSON(json) {
+    fromJSON(json = []) {
         return new DictionaryTags(json.map(tag => new DictionaryTag(tag)));
     },
     toJSON(entity) {

@@ -4,7 +4,7 @@ import { DictionaryAllow } from "./DictionaryAllow";
 import { Serializer } from "ddd-base";
 
 export const DictionaryAllowsSerializer: Serializer<DictionaryAllows, DictionaryAllowsJSON> = {
-    fromJSON(patternStrings) {
+    fromJSON(patternStrings = []) {
         return new DictionaryAllows(
             patternStrings.map(
                 value =>

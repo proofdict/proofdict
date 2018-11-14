@@ -4,7 +4,7 @@ import { DictionaryPattern } from "./DictionaryPattern";
 import { Serializer } from "ddd-base";
 
 export const DictionaryPatternsSerializer: Serializer<DictionaryPatterns, DictionaryPatternsJSON> = {
-    fromJSON(patternStrings) {
+    fromJSON(patternStrings = []) {
         return new DictionaryPatterns(patternStrings.map(pattern => new DictionaryPattern(pattern)));
     },
     toJSON(entity) {

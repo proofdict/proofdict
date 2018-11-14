@@ -4,7 +4,7 @@ import { DictionarySpec, DictionarySpecJSON } from "./DictionarySpec";
 import { Serializer, ValueObject } from "ddd-base";
 
 export const DictionarySpecsSerializer: Serializer<DictionarySpecs, DictionarySpecsJSON> = {
-    fromJSON(specs) {
+    fromJSON(specs = []) {
         return new DictionarySpecs({
             specs: specs.map(spec => new DictionarySpec(spec))
         });
