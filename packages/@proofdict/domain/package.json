@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/domain",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Proofdict's domain.",
   "keywords": [
     "proofdict"
@@ -40,8 +40,8 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "ddd-base": "^0.9.1",
     "@immutable-array/prototype": "^1.0.4",
+    "ddd-base": "^0.9.1",
     "sanitize-filename": "^1.6.1"
   },
   "devDependencies": {

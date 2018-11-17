@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/proofdict/textlint-rule-proofdict/compare/v2.2.1...v3.0.0) (2018-11-17)
+
+
+### Bug Fixes
+
+* **deps:** remove unused "proofdict" ([132206d](https://github.com/proofdict/textlint-rule-proofdict/commit/132206d)), closes [#10](https://github.com/proofdict/textlint-rule-proofdict/issues/10)
+
+
+
+
+
 ## [2.2.1](https://github.com/proofdict/textlint-rule-proofdict/compare/v2.2.0...v2.2.1) (2018-11-08)
 
 **Note:** Version bump only for package @proofdict/textlint-rule-proofdict

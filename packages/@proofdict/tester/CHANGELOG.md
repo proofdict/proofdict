@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/proofdict/proofdict-tester/compare/v2.2.1...v3.0.0) (2018-11-17)
+
+
+### Bug Fixes
+
+* **deps:** remove unused "proofdict" ([132206d](https://github.com/proofdict/proofdict-tester/commit/132206d)), closes [#10](https://github.com/proofdict/proofdict-tester/issues/10)
+
+
+### Features
+
+* **tester:** implement "allows" field ([#17](https://github.com/proofdict/proofdict-tester/issues/17)) ([fc888a2](https://github.com/proofdict/proofdict-tester/commit/fc888a2)), closes [#19](https://github.com/proofdict/proofdict-tester/issues/19)
+
+
+
+
+
 ## [2.2.1](https://github.com/proofdict/proofdict-tester/compare/v2.2.0...v2.2.1) (2018-11-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/proofdict/proofdict/compare/v2.2.1...v3.0.0) (2018-11-17)
+
+
+### Features
+
+* **tester:** implement "allows" field ([#17](https://github.com/proofdict/proofdict/issues/17)) ([fc888a2](https://github.com/proofdict/proofdict/commit/fc888a2)), closes [#19](https://github.com/proofdict/proofdict/issues/19)
+
+
+
+
+
 ## [2.2.1](https://github.com/proofdict/proofdict/compare/v2.2.0...v2.2.1) (2018-11-08)
 
 **Note:** Version bump only for package @proofdict/types

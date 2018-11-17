@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/proofdict/proofdict/compare/v2.2.1...v3.0.0) (2018-11-17)
+
+
+### Bug Fixes
+
+* **tester-cli:** exit with 1 ([5a05c16](https://github.com/proofdict/proofdict/commit/5a05c16)), closes [#16](https://github.com/proofdict/proofdict/issues/16)
+
+
+
+
+
 ## [2.2.1](https://github.com/proofdict/proofdict/compare/v2.2.0...v2.2.1) (2018-11-08)
 
 **Note:** Version bump only for package @proofdict/tester-cli
