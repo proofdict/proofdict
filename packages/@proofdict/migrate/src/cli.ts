@@ -12,6 +12,12 @@ export const runMigrate = (filePathList: string[], scriptName: keyof typeof migr
     filePathList.forEach(filePath => {
         const content = fs.readFileSync(filePath, "utf-8");
         const migrationScript = migrations[scriptName];
-        migrationScript(content, filePath);
+        console.log(`- Start: ${filePath}`);
+        const output = migrationScript(content, filePath);
+        if (content !== output) {
+            fs.writeFileSync(filePath, output, "utf-8");
+            console.log(`- Update: ${filePath}`);
+        }
+        console.log(`- Finish: ${filePath}`);
     });
 };
