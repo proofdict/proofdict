@@ -5338,12 +5338,6 @@ feed@^1.1.0:
   dependencies:
     xml "^1.0.1"
 
-fetch-ponyfill@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/fetch-ponyfill/-/fetch-ponyfill-4.1.0.tgz#ae3ce5f732c645eab87e4ae8793414709b239893"
-  dependencies:
-    node-fetch "~1.7.1"
-
 fetch-ponyfill@^6.0.0:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/fetch-ponyfill/-/fetch-ponyfill-6.0.2.tgz#bc2d92afd0140e39518beccd2fd0682ab4491cb6"
@@ -8766,13 +8760,6 @@ node-fetch-npm@^2.0.2:
     json-parse-better-errors "^1.0.0"
     safe-buffer "^5.1.1"
 
-node-fetch@~1.7.1:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
-
 node-fetch@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
@@ -10014,12 +10001,6 @@ promzard@^0.3.0:
   resolved "https://registry.npmjs.org/promzard/-/promzard-0.3.0.tgz#26a5d6ee8c7dee4cb12208305acfb93ba382a9ee"
   dependencies:
     read "1"
-
-proofdict@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/proofdict/-/proofdict-1.2.1.tgz#f6815831b0ab69e81698f3901bc2073ce62b5f1d"
-  dependencies:
-    fetch-ponyfill "^4.1.0"
 
 prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2:
   version "15.6.2"
