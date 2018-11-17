@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
+import { Dictionary } from "@proofdict/domain";
 import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
 

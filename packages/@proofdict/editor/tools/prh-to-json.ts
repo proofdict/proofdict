@@ -1,12 +1,10 @@
 // MIT © 2017 azu
 import * as prh from "prh";
 import { prhRuleToDictionary } from "../src/infra/prh/PrhRuleToDictionary";
-import { createSlugFromDictionary } from "../src/domain/Dictionary/DictionarySlugCreator";
+import { createSlugFromDictionary, DictionarySerializer, DictionaryTagsSerializer } from "@proofdict/domain";
 import * as path from "path";
 import * as fs from "fs";
-import { DictionarySerializer } from "../src/domain/Dictionary/Dictionary";
 import { yamlFormatter } from "../src/infra/formatter/YamlFormatter";
-import { DictionaryTagsSerializer } from "../src/domain/Dictionary/DictionaryTags";
 
 /**
  * Usage: node ./prh-to-json.js input.yml /output/dir/

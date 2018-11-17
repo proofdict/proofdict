@@ -1,11 +1,9 @@
 // MIT © 2017 azu
 import { Store } from "almin";
-import { Dictionary, DictionaryIdentifier } from "../../../../domain/Dictionary/Dictionary";
+import { Dictionary, DictionaryAllow, DictionaryIdentifier, DictionaryPattern } from "@proofdict/domain";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
 import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
-import { DictionaryAllow } from "../../../../domain/Dictionary/DictionaryAllow";
 
 export interface DictFormStateProps {
     dictionaryId: DictionaryIdentifier;

@@ -1,4 +1,4 @@
-import { Dictionary, DictionarySerializer } from "./Dictionary";
+import { Dictionary, DictionarySerializer } from "@proofdict/domain";
 import { prhFormatter } from "../../infra/formatter/PrhFormatter";
 import { jsonFormatter } from "../../infra/formatter/JSONFormatter";
 import { yamlFormatter } from "../../infra/formatter/YamlFormatter";

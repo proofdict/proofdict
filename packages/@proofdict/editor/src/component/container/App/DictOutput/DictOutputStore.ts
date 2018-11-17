@@ -1,11 +1,11 @@
 // MIT © 2017 azu
 import { Payload, Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
+import { Dictionary } from "@proofdict/domain";
 import { ChangeDictionaryOutputFormatUseCasePayload } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
 import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
-import { DictOutputFormatType, formatDictionary } from "../../../../domain/Dictionary/DictionaryFormatter";
+import { DictOutputFormatType, formatDictionary } from "../../../../domain/service/DictionaryFormatter";
 
 export interface DictOutputStateProps {
     output: string;

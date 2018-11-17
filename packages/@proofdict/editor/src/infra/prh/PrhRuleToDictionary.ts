@@ -1,13 +1,13 @@
 // MIT © 2017 azu
-import { Dictionary } from "../../domain/Dictionary/Dictionary";
+import {
+    createDictionary,
+    Dictionary,
+    DictionaryDescription,
+    DictionaryExpected,
+    DictionaryPattern,
+    DictionarySpec
+} from "@proofdict/domain";
 import { Rule } from "prh/lib/rule";
-import { createDictionary } from "../../domain/Dictionary/DictionaryFactory";
-import { DictionaryExpected } from "../../domain/Dictionary/DictionaryExpected";
-import { DictionaryPattern } from "../../domain/Dictionary/DictionaryPattern";
-import { DictionarySpec } from "../../domain/Dictionary/DictionarySpec";
-import { getUniqueTokens } from "./Prh";
-import { DictionaryWordClassesSerializer } from "../../domain/Dictionary/DictionaryWordClasses";
-import { DictionaryDescription } from "../../domain/Dictionary/DictionaryDescription";
 
 function addPatterns(dictionary: Dictionary, rule: Rule): Dictionary {
     const pattern = rule.raw.pattern || rule.raw.patterns;
@@ -38,12 +38,6 @@ function addDescription(dictionary: Dictionary, rule: Rule): Dictionary {
         return dictionary.updateDescription(new DictionaryDescription(rule.raw.prh));
     }
     return dictionary;
-}
-
-export function addWordClass(dictionary: Dictionary): Promise<Dictionary> {
-    return getUniqueTokens(dictionary).then(tokens => {
-        return dictionary.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
-    });
 }
 
 export function prhRuleToDictionary(rule: Rule): Promise<Dictionary> {

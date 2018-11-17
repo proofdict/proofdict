@@ -1,7 +1,6 @@
 // MIT © 2017 azu
 import { Engine } from "prh";
-import { Dictionary, DictionarySerializer } from "../../domain/Dictionary/Dictionary";
-import { DictionarySpec } from "../../domain/Dictionary/DictionarySpec";
+import { Dictionary, DictionarySerializer, DictionarySpec } from "@proofdict/domain";
 import { ProofdictTester } from "@proofdict/tester";
 
 const intersectionBy = require("lodash.intersectionby");

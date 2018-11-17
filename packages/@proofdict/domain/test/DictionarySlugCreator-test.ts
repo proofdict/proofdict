@@ -1,12 +1,10 @@
 // MIT © 2017 azu
-import { createSlugFromDictionary } from "../Dictionary/DictionarySlugCreator";
-import { createDictionary } from "../Dictionary/DictionaryFactory";
+import { createSlugFromDictionary } from "../src/Dictionary/DictionarySlugCreator";
+import { createDictionary } from "../src/Dictionary/DictionaryFactory";
 import * as assert from "assert";
-import { DictionarySpec } from "../Dictionary/DictionarySpec";
-import { DictionaryPattern } from "../Dictionary/DictionaryPattern";
-import { DictionaryExpected } from "../Dictionary/DictionaryExpected";
-import { getUniqueTokens } from "../../infra/prh/Prh";
-import { DictionaryWordClassesSerializer } from "../Dictionary/DictionaryWordClasses";
+import { DictionarySpec } from "../src";
+import { DictionaryPattern } from "../src";
+import { DictionaryExpected } from "../src";
 
 describe("createSlugFromDictionary", () => {
     describe("when empty dictionary", () => {
@@ -27,11 +25,8 @@ describe("createSlugFromDictionary", () => {
                         to: "--ECMAScript 2015--ECMAScript 6"
                     })
                 );
-            return getUniqueTokens(dictionary).then(tokens => {
-                const targetDictionary = dictionary.updateWordClasses(DictionaryWordClassesSerializer.fromJSON(tokens));
-                const slug = createSlugFromDictionary(targetDictionary);
-                assert.strictEqual(slug, `ECMAScript_$1`);
-            });
+            const slug = createSlugFromDictionary(dictionary);
+            assert.strictEqual(slug, `ECMAScript_$1`);
         });
     });
 });

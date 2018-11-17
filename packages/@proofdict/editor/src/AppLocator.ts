@@ -1,5 +1,6 @@
 // MIT © 2017 azu
 import { Context } from "almin";
+
 /**
  * Locator is a singleton.
  */
