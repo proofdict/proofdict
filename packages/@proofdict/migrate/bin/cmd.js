@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const meow = require("meow");
 const glob = require("glob");
 const runMigrate = require("../lib/cli").runMigrate;
