@@ -29,4 +29,9 @@ const cli = meow(
 
 const filePathList = glob.sync(cli.input[0]);
 const scriptName = cli.flags.script;
-runMigrate(filePathList, scriptName);
+try {
+    runMigrate(filePathList, scriptName);
+} catch (error) {
+    console.error(error);
+    cli.showHelp(1);
+}

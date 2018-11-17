@@ -1,7 +1,8 @@
 import * as fs from "fs";
+import * as nounToAllows from "./migrations/noun-to-allows";
 
 export const migrations = {
-    "noun-to-allows": require("./migrations/noun-to-allows")
+    "noun-to-allows": nounToAllows.migrate
 };
 export const migrationNames = Object.keys(migrations);
 export const runMigrate = (filePathList: string[], scriptName: keyof typeof migrations): void => {
