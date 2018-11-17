@@ -20,6 +20,9 @@
   ],
   "main": "lib/cli.js",
   "types": "lib/cli.d.ts",
+  "bin": {
+    "proofdict-migrate": "./bin/cmd.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"
