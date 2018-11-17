@@ -1450,6 +1450,10 @@
   version "10.12.7"
   resolved "https://registry.npmjs.org/@types/node/-/node-10.12.7.tgz#195808b2d4b2e7c33e75e7d9b24aeee88f94660d"
 
+"@types/node@^10.12.9":
+  version "10.12.9"
+  resolved "https://registry.npmjs.org/@types/node/-/node-10.12.9.tgz#a07bfa74331471e1dc22a47eb72026843f7b95c8"
+
 "@types/prop-types@*", "@types/prop-types@^15.5.6":
   version "15.5.6"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
@@ -9913,6 +9917,10 @@ preserve@^0.2.0:
 prettier@^1.15.1:
   version "1.15.1"
   resolved "https://registry.npmjs.org/prettier/-/prettier-1.15.1.tgz#06c67106afb1b40e74b002353b2079cc7e0e67bf"
+
+prettier@^1.15.2:
+  version "1.15.2"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
 
 pretty-bytes@^4.0.2:
   version "4.0.2"

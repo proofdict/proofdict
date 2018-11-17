@@ -3,9 +3,7 @@ import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
-import { Dictionary } from "../../../../domain/Dictionary/Dictionary";
-import { DictionaryDescription } from "../../../../domain/Dictionary/DictionaryDescription";
-import { DictionaryTags } from "../../../../domain/Dictionary/DictionaryTags";
+import { Dictionary, DictionaryDescription, DictionaryTags } from "@proofdict/domain";
 
 export interface DictMetaStateProps {
     dp_description?: DictionaryDescription;

@@ -1,8 +1,7 @@
 // MIT © 2017 azu
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
-import { DictionaryIdentifier } from "../../domain/Dictionary/Dictionary";
-import { resetDictionary } from "../../domain/Dictionary/DictionaryFactory";
+import { DictionaryIdentifier, resetDictionary } from "@proofdict/domain";
 
 export const createResetDictionaryUseCase = () => {
     return new ResetDictionaryUseCase({

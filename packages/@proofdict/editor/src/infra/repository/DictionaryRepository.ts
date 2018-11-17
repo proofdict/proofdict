@@ -1,7 +1,6 @@
 // MIT © 2017 azu
-import { Dictionary } from "../../domain/Dictionary/Dictionary";
+import { createDictionary, Dictionary } from "@proofdict/domain";
 import { NonNullableRepository } from "ddd-base";
-import { createDictionary } from "../../domain/Dictionary/DictionaryFactory";
 
 export class DictionaryRepository extends NonNullableRepository<Dictionary> {}
 

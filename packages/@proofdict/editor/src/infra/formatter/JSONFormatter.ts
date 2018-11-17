@@ -1,5 +1,5 @@
 // MIT © 2017 azu
-import { DictionaryJSON } from "../../domain/Dictionary/Dictionary";
+import { DictionaryJSON } from "@proofdict/domain";
 
 /**
  * Output as JSON String

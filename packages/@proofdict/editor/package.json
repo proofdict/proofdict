@@ -8,6 +8,7 @@
     "url": "https://github.com/proofdict/editor"
   },
   "dependencies": {
+    "@proofdict/domain": "^1.0.0",
     "@immutable-array/prototype": "^1.0.4",
     "@proofdict/tester": "^2.2.1",
     "@types/classnames": "^2.2.6",

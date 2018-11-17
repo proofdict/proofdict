@@ -7,11 +7,6 @@ import { DictionaryAllowsSerializer } from "./DictionaryAllows";
 import { DictionarySpecs, DictionarySpecsJSON, DictionarySpecsSerializer } from "./DictionarySpecs";
 import { DictionarySpec } from "./DictionarySpec";
 import { Serializer } from "ddd-base";
-import {
-    DictionaryWordClasses,
-    DictionaryWordClassesJSON,
-    DictionaryWordClassesSerializer
-} from "./DictionaryWordClasses";
 import { DictionaryDescription } from "./DictionaryDescription";
 import { DictionaryTags, DictionaryTagsJSON, DictionaryTagsSerializer } from "./DictionaryTags";
 import { DictionaryAllows } from "./DictionaryAllows";
@@ -27,7 +22,6 @@ export interface DictionaryJSON {
     allows: string[];
     specs: DictionarySpecsJSON;
     tags: DictionaryTagsJSON;
-    wordClasses?: DictionaryWordClassesJSON;
 }
 
 export interface DictionaryProps {
@@ -38,7 +32,6 @@ export interface DictionaryProps {
     allows: DictionaryAllows;
     specs: DictionarySpecs;
     tags: DictionaryTags;
-    wordClasses?: DictionaryWordClasses;
 }
 
 export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
@@ -50,19 +43,11 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
             allows: DictionaryAllowsSerializer.fromJSON(json.allows),
             specs: DictionarySpecsSerializer.fromJSON(json.specs),
-            tags: DictionaryTagsSerializer.fromJSON(json.tags),
-            wordClasses: json.wordClasses ? DictionaryWordClassesSerializer.fromJSON(json.wordClasses) : undefined
+            tags: DictionaryTagsSerializer.fromJSON(json.tags)
         });
     },
     toJSON(dictionary) {
-        const optional =
-            dictionary.wordClasses && dictionary.wordClasses.hasWordClass
-                ? {
-                      wordClasses: DictionaryWordClassesSerializer.toJSON(dictionary.wordClasses)
-                  }
-                : {};
         return {
-            ...optional,
             id: dictionary.id.toValue(),
             description: dictionary.description.value,
             expected: dictionary.expected.value,
@@ -82,7 +67,6 @@ export class Dictionary extends Entity<DictionaryProps> {
     allows: DictionaryAllows;
     specs: DictionarySpecs;
     tags: DictionaryTags;
-    wordClasses?: DictionaryWordClasses;
 
     constructor(props: DictionaryProps) {
         super(props);
@@ -93,7 +77,6 @@ export class Dictionary extends Entity<DictionaryProps> {
         this.allows = props.allows;
         this.specs = props.specs;
         this.tags = props.tags;
-        this.wordClasses = props.wordClasses;
     }
 
     inputExpected(expected: DictionaryExpected) {
@@ -176,13 +159,6 @@ export class Dictionary extends Entity<DictionaryProps> {
         return new Dictionary({
             ...(this as DictionaryProps),
             specs: newSpecs
-        });
-    }
-
-    updateWordClasses(wordClasses: DictionaryWordClasses) {
-        return new Dictionary({
-            ...(this as DictionaryProps),
-            wordClasses
         });
     }
 

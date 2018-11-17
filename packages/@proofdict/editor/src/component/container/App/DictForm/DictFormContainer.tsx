@@ -6,8 +6,7 @@ import { createUpdateDictionaryPatternUseCase } from "../../../../use-case/dicti
 import { createUpdateDictionaryExpectedUseCase } from "../../../../use-case/dictionary/UpdateDictionaryExpectedUseCase";
 import { createAddNewPatternToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewPatternToDictionaryUseCase";
 import { HelpCalloutButton } from "../../../project/HelpCalloutButton/HelpCalloutButton";
-import { DictionaryPattern } from "../../../../domain/Dictionary/DictionaryPattern";
-import { DictionaryAllow } from "../../../../domain/Dictionary/DictionaryAllow";
+import { DictionaryAllow, DictionaryPattern } from "@proofdict/domain";
 import { createAddNewAllowToDictionaryUseCase } from "../../../../use-case/dictionary/AddNewAllowToDictionaryUseCase";
 import { createUpdateDictionaryAllowUseCase } from "../../../../use-case/dictionary/UpdateDictionaryAllowUseCase";
 

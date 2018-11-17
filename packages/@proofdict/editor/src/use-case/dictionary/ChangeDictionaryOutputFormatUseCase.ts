@@ -1,7 +1,7 @@
 // MIT © 2017 azu
 import { Payload, UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
-import { DictOutputFormatType, formatDictionary } from "../../domain/Dictionary/DictionaryFormatter";
+import { DictOutputFormatType, formatDictionary } from "../../domain/service/DictionaryFormatter";
 
 export const createChangeDictionaryOutputFormatUseCase = () => {
     return new ChangeDictionaryOutputFormatUseCase({

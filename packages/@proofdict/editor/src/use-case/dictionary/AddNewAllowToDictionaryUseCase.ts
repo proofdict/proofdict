@@ -1,8 +1,7 @@
 // MIT © 2017 azu
 import { UseCase } from "almin";
 import { dictionaryRepository, DictionaryRepository } from "../../infra/repository/DictionaryRepository";
-import { DictionaryIdentifier } from "../../domain/Dictionary/Dictionary";
-import { createAllow } from "../../domain/Dictionary/DictionaryAllowFactory";
+import { createAllow, DictionaryIdentifier } from "@proofdict/domain";
 
 export const createAddNewAllowToDictionaryUseCase = () => {
     return new AddNewAllowToDictionaryUseCase({

@@ -1,0 +1,61 @@
+{
+  "name": "@proofdict/domain",
+  "version": "1.0.0",
+  "description": "Proofdict's domain.",
+  "keywords": [
+    "proofdict"
+  ],
+  "homepage": "https://github.com/proofdict/proofdict/tree/master/packages/@proofdict/domain/",
+  "bugs": {
+    "url": "https://github.com/proofdict/proofdict/issues"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proofdict/proofdict.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tsc -p .",
+    "clean": "rimraf lib/",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha \"test/**/*.ts\"",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "watch": "tsc -p . --watch"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4
+  },
+  "dependencies": {
+    "ddd-base": "^0.9.1",
+    "@immutable-array/prototype": "^1.0.4",
+    "sanitize-filename": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.9",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.2",
+    "rimraf": "^2.6.2",
+    "ts-node": "^7.0.1",
+    "ts-node-test-register": "^4.0.0",
+    "typescript": "^3.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import { DictionaryPattern } from "../DictionaryPattern";
+import { DictionaryPattern } from "../src";
 
 describe("DictionaryPattern", function() {
     describe("/pattern/", () => {

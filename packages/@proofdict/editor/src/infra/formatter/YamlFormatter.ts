@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import * as yaml from "js-yaml";
-import { DictionaryJSON } from "../../domain/Dictionary/Dictionary";
+import { DictionaryJSON } from "@proofdict/domain";
 
 /**
  * Output as Yaml String
