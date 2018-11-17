@@ -21,7 +21,7 @@ export class DictSubmitStore extends Store<DictSubmitState> {
         const { useEntity } = createHooks(this, [repo.sourceRepoRepository]);
         useEntity((state, [sourceRepo]) => {
             this.setState({
-                disabled: sourceRepo !== undefined
+                disabled: sourceRepo === undefined
             });
         });
     }
