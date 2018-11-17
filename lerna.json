@@ -4,7 +4,7 @@
     "packages/@proofdict/*",
     "website"
   ],
-  "version": "3.0.0",
+  "version": "3.0.1",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
