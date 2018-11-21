@@ -1,55 +1,45 @@
 // MIT © 2017 azu
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
-import memoize from "micro-memoize";
+import { Dictionary } from "@proofdict/domain";
+import { createShallowEqualSelector } from "../../../../hooks/selector";
 import { createHooks } from "../../../../hooks/almin-hook";
-import { Dictionary, DictionaryDescription, DictionaryTags } from "@proofdict/domain";
 
 export interface DictMetaStateProps {
-    dp_description?: DictionaryDescription;
-    dp_selectedTags?: DictionaryTags;
+    description: string;
+    selectedTags: string[];
     suggestTags: string[];
 }
 
 export class DictMetaState {
-    private dp_description?: DictionaryDescription;
-    private dp_selectedTags?: DictionaryTags;
+    description: string;
+    selectedTags: string[];
     suggestTags: string[];
 
     constructor(props: DictMetaStateProps) {
-        this.dp_description = props.dp_description;
-        this.dp_selectedTags = props.dp_selectedTags;
+        this.description = props.description;
+        this.selectedTags = props.selectedTags;
         this.suggestTags = props.suggestTags;
-    }
-
-    get description() {
-        if (!this.dp_description) {
-            return "";
-        }
-        return this.dp_description.value;
-    }
-
-    get selectedTags() {
-        if (!this.dp_selectedTags) {
-            return [];
-        }
-        return this.dp_selectedTags.toValue();
     }
 }
 
-export const domainToProps = memoize(
-    (state: DictMetaState, tags: DictionaryTags, description: DictionaryDescription): DictMetaStateProps => {
-        return {
-            ...state,
-            dp_selectedTags: tags,
-            dp_description: description
-        };
-    }
-);
-
-export const createState = (state: DictMetaState, dictionary: Dictionary): DictMetaState => {
-    return new DictMetaState(domainToProps(state, dictionary.tags, dictionary.description));
+const dictionarySelector = (state: DictMetaState, dictionary: Dictionary) => {
+    return {
+        suggestTags: state.suggestTags,
+        tags: dictionary.tags,
+        description: dictionary.description
+    };
 };
+
+const stateSelector = createShallowEqualSelector(
+    dictionarySelector,
+    ({ suggestTags, description, tags }) =>
+        new DictMetaState({
+            suggestTags: suggestTags,
+            selectedTags: tags.toValue(),
+            description: description.value
+        })
+);
 
 export class DictMetaStore extends Store<DictMetaState> {
     state: DictMetaState;
@@ -57,12 +47,14 @@ export class DictMetaStore extends Store<DictMetaState> {
     constructor(repo: { dictionaryRepository: DictionaryRepository }) {
         super();
         this.state = new DictMetaState({
+            description: "",
+            selectedTags: [],
             // Special keywords is defined by https://github.com/proofdict/proofdict
             suggestTags: ["noun", "opinion"]
         });
         const { useEntity } = createHooks(this, [repo.dictionaryRepository]);
         useEntity((state, [dictionary]) => {
-            this.setState(createState(this.state, dictionary));
+            this.setState(stateSelector(this.state, dictionary));
         });
     }
 

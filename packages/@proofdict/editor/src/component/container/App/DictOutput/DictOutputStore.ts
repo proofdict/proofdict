@@ -3,9 +3,9 @@ import { Payload, Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { Dictionary } from "@proofdict/domain";
 import { ChangeDictionaryOutputFormatUseCasePayload } from "../../../../use-case/dictionary/ChangeDictionaryOutputFormatUseCase";
-import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
 import { DictOutputFormatType, formatDictionary } from "../../../../domain/service/DictionaryFormatter";
+import { createShallowEqualSelector } from "../../../../hooks/selector";
 
 export interface DictOutputStateProps {
     output: string;
@@ -33,10 +33,17 @@ export class DictOutputState {
     }
 }
 
-export const memorizedFactory = memoize((state: DictOutputState, dictionary: Dictionary) => {
+const propsSelector = (state: DictOutputState, dictionary: Dictionary) => {
+    return {
+        format: state.format,
+        dictionary: dictionary
+    };
+};
+
+const stateSelector = createShallowEqualSelector(propsSelector, ({ format, dictionary }) => {
     return new DictOutputState({
-        ...state,
-        output: formatDictionary(dictionary, state.format)
+        format: format,
+        output: formatDictionary(dictionary, format)
     });
 });
 
@@ -54,7 +61,7 @@ export class DictOutputStore extends Store<DictOutputState> {
             this.setState(this.state.reduce(payload));
         });
         useEntity((state, [dictionary]) => {
-            this.setState(memorizedFactory(state, dictionary));
+            this.setState(stateSelector(state, dictionary));
         });
     }
 

@@ -2,8 +2,8 @@
 import { Store } from "almin";
 import { DictionaryRepository } from "../../../../infra/repository/DictionaryRepository";
 import { Dictionary } from "@proofdict/domain";
-import memoize from "micro-memoize";
 import { createHooks } from "../../../../hooks/almin-hook";
+import { createShallowEqualSelector } from "../../../../hooks/selector";
 
 export interface DictTesterStateProps {
     inputs: string[];
@@ -28,10 +28,14 @@ export class DictTesterState implements DictTesterStateProps {
     }
 }
 
-export const memorizedFactory = memoize((state: DictTesterState, dictionary: Dictionary) => {
+const specSelector = (state: DictTesterState, dictionary: Dictionary) => {
+    return dictionary.specs;
+};
+
+const stateSelector = createShallowEqualSelector(specSelector, specs => {
     return new DictTesterState({
-        inputs: dictionary.specs.getActualPatterns(),
-        outputs: dictionary.specs.getExpectedResults()
+        inputs: specs.getActualPatterns(),
+        outputs: specs.getExpectedResults()
     });
 });
 
@@ -46,7 +50,7 @@ export class DictTesterStore extends Store<DictTesterState> {
         });
         const { useEntity } = createHooks(this, [repo.dictionaryRepository]);
         useEntity((state, [dictionary]) => {
-            this.setState(memorizedFactory(this.state, dictionary));
+            this.setState(stateSelector(this.state, dictionary));
         });
     }
 
