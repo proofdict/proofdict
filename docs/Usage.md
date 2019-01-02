@@ -97,7 +97,7 @@ Edit `.textlintrc` as below:
 {
     "rules": {
         "@proofdict/proofdict": {
-          "dictURL": "https://<your-name>.github.io/proof-dictionary/"
+            "dictURL": "https://<your-name>.github.io/proof-dictionary/"
         }
     }
 }
