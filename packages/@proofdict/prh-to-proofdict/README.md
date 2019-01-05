@@ -7,6 +7,8 @@ Migration tool that convert prh.yml to proof-dictionary.
 Install with [npm](https://www.npmjs.com/):
 
     npm install @proofdict/prh-to-proofdict
+    # or
+    npx @proofdict/prh-to-proofdict
 
 ## Usage
 
