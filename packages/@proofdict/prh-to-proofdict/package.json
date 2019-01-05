@@ -1,0 +1,62 @@
+{
+  "name": "@proofdict/prh-to-proofdict",
+  "version": "1.0.0",
+  "description": "Migration tool that convert prh.yml to proof-dictionary.",
+  "keywords": [
+    "prh",
+    "proofdict"
+  ],
+  "homepage": "https://github.com/proofdict/proofdict/tree/master/packages/@proofdict/prh-to-proofdict/",
+  "bugs": {
+    "url": "https://github.com/proofdict/proofdict/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proofdict/proofdict.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/prh-to-proofdict.js",
+  "types": "lib/prh-to-proofdict.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tsc -p .",
+    "clean": "rimraf lib/",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepublish": "npm run --if-present build",
+    "watch": "tsc -p . --watch"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4
+  },
+  "dependencies": {
+    "@proofdict/domain": "^3.0.0",
+    "prh": "^5.4.3",
+    "js-yaml": "^3.12.0",
+    "meow": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "ts-node": "^7.0.1",
+    "ts-node-test-register": "^4.0.0",
+    "typescript": "^3.2.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
