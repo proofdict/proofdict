@@ -19,7 +19,7 @@ Install with [npm](https://www.npmjs.com/):
       - noun-to-allows
 
     Examples
-      $ npx @proofdict/migrate "proof-dictionary/**/*.yaml" --script noun-to-allows
+      $ npx @proofdict/migrate "proof-dictionary/**/*.yml" --script noun-to-allows
 
 ## Changelog
 
