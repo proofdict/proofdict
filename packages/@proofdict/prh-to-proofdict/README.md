@@ -10,7 +10,15 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
-- [ ] Write usage instructions
+    Usage
+      $ prh-to-proofdict <input>
+ 
+    Options
+      --outDir -o output directory
+      --defaultTag  add tags to dictionary
+ 
+    Examples
+      $ prh-to-proofdict ./prh.yml --outDir ./_data/proofdict/
 
 ## Changelog
 
