@@ -59,7 +59,7 @@ Proofdict includes some additional features.
 
 - `{{COMBINATION_WORD}}`: ignore combination word like `node-webkit`
    
-When `pattern` is `webkit` and set `allows` to `{{COMBINATION_WORD}}"`, ignore `/-webkit/` and `webkit-`.
+When `pattern` is `webkit` and set `allows` to `{{COMBINATION_WORD}}`, ignore `/-webkit/` and `webkit-`.
 As a result, this pattern match `webkit`, but does not match `node-webkit`.
 
 ### Example
