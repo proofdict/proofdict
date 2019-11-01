@@ -36,7 +36,6 @@
   "dependencies": {
     "@proofdict/tester": "^3.0.0",
     "@textlint/kernel": "^3.1.9",
-    "@types/url-join": "^4.0.0",
     "debug": "^4.1.1",
     "fetch-ponyfill": "^6.1.0",
     "localstorage-ponyfill": "^1.0.2",
@@ -47,7 +46,7 @@
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.3",
-    "@types/url-join": "^0.8.2",
+    "@types/url-join": "^4.0.0",
     "cross-env": "^6.0.3",
     "mocha": "^6.2.2",
     "rimraf": "^3.0.0",

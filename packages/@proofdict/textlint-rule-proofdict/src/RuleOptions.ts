@@ -25,3 +25,9 @@ export interface RuleOption {
     // Disable cache for tester
     disableProofdictTesterCache: boolean;
 }
+
+export type RuleOptions =
+    | RuleOption
+    | {
+          dicts: RuleOption[];
+      };

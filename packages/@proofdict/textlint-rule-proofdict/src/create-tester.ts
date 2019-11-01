@@ -53,7 +53,7 @@ export const createTester = ({
  * @param {string} mode
  * @returns {*}
  */
-export const getDictionary = (options: RuleOption, mode: string): any => {
+export const getDictionary = (options: RuleOption, mode: MODE): any => {
     // prefer `dictionary` option
     if (options.proofdict !== undefined) {
         return options.proofdict;
