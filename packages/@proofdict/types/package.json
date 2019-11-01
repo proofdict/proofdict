@@ -34,11 +34,11 @@
     "clean": "rimraf lib/"
   },
   "devDependencies": {
-    "@types/node": "^10.12.3",
-    "cross-env": "^5.1.4",
-    "prettier": "^1.15.1",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.1.6"
+    "@types/node": "^12.12.3",
+    "cross-env": "^6.0.3",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.4"
   },
   "prettier": {
     "singleQuote": false,

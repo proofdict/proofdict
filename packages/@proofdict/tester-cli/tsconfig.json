@@ -9,6 +9,7 @@
     "sourceMap": true,
     "declaration": true,
     "jsx": "preserve",
+"esModuleInterop": true,
     "lib": [
       "es2017",
       "dom"

@@ -1,6 +1,6 @@
 // MIT © 2018 azu
 "use strict";
-import * as urlJoin from "url-join";
+import urlJoin from "url-join";
 import { RuleOption } from "./RuleOptions";
 
 /**

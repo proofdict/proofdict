@@ -42,15 +42,15 @@
     "clean": "rimraf lib/"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.3",
-    "cross-env": "^5.1.4",
-    "mocha": "^5.0.4",
-    "prettier": "^1.15.1",
-    "rimraf": "^2.6.2",
-    "ts-node": "^7.0.1",
-    "ts-node-test-register": "^4.0.0",
-    "typescript": "^3.1.6"
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.3",
+    "cross-env": "^6.0.3",
+    "mocha": "^6.2.2",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "ts-node-test-register": "^8.0.1",
+    "typescript": "^3.6.4"
   },
   "prettier": {
     "singleQuote": false,
@@ -60,11 +60,11 @@
   "dependencies": {
     "@proofdict/tester": "^3.0.0",
     "@proofdict/types": "^3.0.0",
-    "@types/globby": "^6.1.0",
-    "@types/js-yaml": "^3.10.1",
-    "@types/meow": "^4.0.1",
-    "globby": "^8.0.1",
-    "js-yaml": "^3.11.0",
-    "meow": "^4.0.0"
+    "@types/globby": "^9.1.0",
+    "@types/js-yaml": "^3.12.1",
+    "@types/meow": "^5.0.0",
+    "globby": "^10.0.1",
+    "js-yaml": "^3.13.1",
+    "meow": "^5.0.0"
   }
 }
