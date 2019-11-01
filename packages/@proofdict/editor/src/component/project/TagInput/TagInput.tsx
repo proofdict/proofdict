@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { Creatable } from "react-select";
-import { ValueType } from "react-select/lib/types";
+import Select from "react-select";
+import { ValueType } from "react-select/src/types";
 
 export interface TagInputProps {
     suggestedTags: string[];
@@ -42,7 +42,7 @@ export class TagInput extends React.Component<TagInputProps, {}> {
             };
         });
         return (
-            <Creatable
+            <Select
                 className="TagInput"
                 name="form-field-name"
                 value={selectedTagValue}
