@@ -40,16 +40,16 @@
   },
   "homepage": "https://github.com/proofdict/proofdict-tester",
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.3",
-    "cross-env": "^5.1.4",
-    "mocha": "^5.0.4",
-    "rimraf": "^2.6.2",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.6"
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.3",
+    "cross-env": "^6.0.3",
+    "mocha": "^6.2.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   },
   "dependencies": {
     "@proofdict/types": "^3.0.0",
-    "prh": "5.4.3"
+    "prh": "5.4.4"
   }
 }

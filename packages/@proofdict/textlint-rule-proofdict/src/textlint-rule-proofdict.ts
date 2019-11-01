@@ -1,13 +1,13 @@
 // MIT © 2017 azu
 "use strict";
 import { RuleOption } from "./RuleOptions";
-import { TextlintRuleReporter } from "@textlint/kernel";
 import { createTester, getDictionary } from "./create-tester";
 import { fetchProofdict } from "./fetch-proofdict";
 import { getDictJSONURL, getRuleURL } from "./proofdict-repo-util";
 import { MODE } from "./mode";
 import { storage } from "./dictionary-storage";
 import { TxtNode } from "@textlint/ast-node-types";
+import { TextlintRuleModule, TextlintRuleReportHandler } from "@textlint/types";
 
 const { RuleHelper } = require("textlint-rule-helper");
 
@@ -40,7 +40,7 @@ const DefaultOptions: RuleOption = {
 };
 
 // TODO: https://github.com/textlint/textlint/issues/554
-const reporter: TextlintRuleReporter = (context, options: any = DefaultOptions) => {
+const reporter: TextlintRuleModule<RuleOption> = (context, options = DefaultOptions) => {
     const helper = new RuleHelper(context);
     const { Syntax, RuleError, report, getSource, fixer } = context;
     if (!options.dictURL && !options.dictPath && !options.proofdict) {
@@ -52,7 +52,8 @@ const reporter: TextlintRuleReporter = (context, options: any = DefaultOptions) 
 Please set dictURL or dictPath to .textlintrc.`)
                 );
             }
-        };
+        } as TextlintRuleReportHandler;
+        // Avoid type error: https://twitter.com/azu_re/status/1190205426064715776
     }
     const mode = options.dictURL ? MODE.NETWORK : MODE.LOCAL;
     const allowTags = Array.isArray(options.allowTags) ? options.allowTags : DefaultOptions.allowTags;
@@ -67,7 +68,7 @@ Please set dictURL or dictPath to .textlintrc.`)
     const addQueue = (node: TxtNode) => targetNodes.push(node);
     let promiseQueue: Promise<void> = Promise.resolve();
     return {
-        [Syntax.Document]() {
+        [Syntax.Document](_node) {
             // default: 0
             const lastUpdated = Number(storage.getItem("proofdict-lastUpdated", "-1"));
             const isExpired = lastUpdated <= 0 ? true : Date.now() - lastUpdated > autoUpdateInterval;
@@ -89,7 +90,7 @@ Please set dictURL or dictPath to .textlintrc.`)
         [Syntax.Str](node) {
             addQueue(node);
         },
-        [`${Syntax.Document}:exit`]() {
+        [Syntax.DocumentExit](_node) {
             return promiseQueue.then(() => {
                 const dictionary = getDictionary(options, mode);
                 if (!dictionary) {
