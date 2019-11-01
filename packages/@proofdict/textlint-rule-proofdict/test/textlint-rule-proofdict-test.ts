@@ -1,8 +1,11 @@
-const TextLintTester = require("textlint-tester");
+import TextLintTester from "textlint-tester";
+
 const tester = new TextLintTester();
 // rule
 import rule from "../src/textlint-rule-proofdict";
 // IN testing , disable tester cache
+import path from "path";
+
 const disableProofdictTesterCache = true;
 const defaultOptions = {
     disableProofdictTesterCache,
@@ -56,6 +59,25 @@ tester.run("proofdict", rule, {
                 {
                     message:
                         "jquery => jQuery\nReference http://jquery.com/\nSee https://proofdict.github.io/proof-dictionary/#01BQ92YYBJENZB6M480KCJ0J99",
+                    line: 1,
+                    column: 1
+                }
+            ]
+        },
+        // dictGlob
+        {
+            text: "jquery",
+            output: "jQuery",
+            options: {
+                dicts: [
+                    {
+                        dictGlob: path.join(__dirname, "dict/*.yml")
+                    }
+                ]
+            },
+            errors: [
+                {
+                    message: "jquery => jQuery\nReference http://jquery.com/",
                     line: 1,
                     column: 1
                 }

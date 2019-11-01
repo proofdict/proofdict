@@ -1,6 +1,6 @@
 import { Proofdict } from "@proofdict/tester";
 
-export interface RuleOption {
+export type RuleOption = {
     // If you want to use live-proofdict
     // Proofdict-style dictionary URL
     // Example: "https://example.github.io/proof-dictionary/"
@@ -9,8 +9,7 @@ export interface RuleOption {
     dictURL?: { jsonAPI: string; ruleBase: string } | string;
     // If you want to use local proofdict
     // dictPath is glob style path
-    // TODO: Not implement yet
-    dictPath?: string;
+    dictGlob?: string | string[];
     // Default: 60sec(60 * 1000ms)
     autoUpdateInterval: number;
     // = Tag settings
@@ -24,10 +23,10 @@ export interface RuleOption {
     proofdict?: Proofdict;
     // Disable cache for tester
     disableProofdictTesterCache: boolean;
-}
+};
 
 export type RuleOptions =
     | RuleOption
     | {
-          dicts: RuleOption[];
+          dicts?: RuleOption[];
       };

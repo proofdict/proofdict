@@ -1,0 +1,13 @@
+id: JavaScript
+description: 'JavaScript is not Java Script'
+expected: JavaScript
+patterns:
+  - /javascript/i
+  - /Java Script/i
+specs:
+  # invalid
+  - from: Javascript
+    to: JavaScript
+tags:
+  - noun
+  - JavaScript

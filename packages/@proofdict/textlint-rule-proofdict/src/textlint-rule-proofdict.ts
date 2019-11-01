@@ -1,13 +1,14 @@
 // MIT © 2017 azu
 "use strict";
 import { RuleOption, RuleOptions } from "./RuleOptions";
-import { createTester, getDictionary } from "./create-tester";
+import { createTester } from "./create-tester";
 import { fetchProofdict } from "./fetch-proofdict";
 import { getDictJSONURL, getRuleURL } from "./proofdict-repo-util";
 import { MODE } from "./mode";
 import { storage } from "./dictionary-storage";
 import { TxtNode } from "@textlint/ast-node-types";
 import { TextlintRuleModule } from "@textlint/types";
+import { getDictionary } from "./fetch-dictionary/network";
 
 const { RuleHelper } = require("textlint-rule-helper");
 
@@ -22,8 +23,8 @@ const DefaultOptions: RuleOption = {
     dictURL: undefined,
     // If you want to use local proofdict
     // dictPath is glob style path
-    // TODO: Not implement yet
-    dictPath: undefined,
+    // "./dict/*.yml"
+    dictGlob: undefined,
     // Default: 60sec(60 * 1000ms)
     autoUpdateInterval: 60 * 1000,
     // = Tag settings
@@ -77,7 +78,7 @@ const reporter: TextlintRuleModule<RuleOptions> = (context, options = DefaultOpt
         [Syntax.DocumentExit](node) {
             const dictResultPromise = dictOptions.map(options => {
                 // Error if wrong config
-                if (!options.dictURL && !options.dictPath && !options.proofdict) {
+                if (!options.dictURL && !options.dictGlob && !options.proofdict) {
                     report(
                         node,
                         new RuleError(`Not found dictionary in Config.
