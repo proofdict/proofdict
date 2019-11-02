@@ -32,6 +32,8 @@ textlint --rule proofdict README.md
 
 ## Options
 
+A Dictionary options:
+
 ```json5
 {
     // If you want to use live-proofdict
@@ -42,8 +44,8 @@ textlint --rule proofdict README.md
     "dictURL": undefined,
     // If you want to use local proofdict
     // dictPath is glob style path
-    // TODO: Not implement yet
-    "dictPath": undefined,
+    // `dictGlob: "./dict/*.yml"`
+    "dictGlob": undefined,
     // Default: 60sec(60 * 1000ms)
     "autoUpdateInterval": 60 * 1000,
     // = Tag settings
@@ -55,21 +57,49 @@ textlint --rule proofdict README.md
 }
 ```
 
+Multiple dictionary options:
+
+```json5
+{
+    "dicts": [
+        /* Dictionary Option */
+        {
+          "dictURL": "..."
+        }
+    ]
+}
+```
+
+Each Dictionary should have one of `dictURL` or `dictGlob` option.
+
 ### `dictURL`
 
-`dictURL` is required option.
-You must set your dictionary website url.
+`dictURL` is a dictionary website url.
 
 For example, set `https://azu.github.io/proof-dictionary/` to `dictURL`.
 This url fetch dictionary data from `https://azu.github.io/proof-dictionary/dictionary.json`.
 
 If you want to custom API end point, pass object instead of string.
 
-```json5.
-"dictURL": { 
-   "jsonAPI": "https://azu.github.io/proof-dictionary/custom-dict.json",
-   "ruleBase": "https://azu.github.io/proof-dictionary/item/",
+```json5
+{
+  "dictURL": { 
+    "jsonAPI": "https://azu.github.io/proof-dictionary/custom-dict.json",
+    "ruleBase": "https://azu.github.io/proof-dictionary/item/",
+  }
 }
+``` 
+
+### `dictGlob`
+
+`dictGlob` is a glob pattern for loading local dictionary files.
+
+Each yml file should be Proofdict format.
+
+```json5
+{
+    "dictGlob": "./dict/*.yml"
+} 
 ``` 
 
 ### AllowTags/DenyTags
@@ -105,7 +135,6 @@ e.g.) Use items without `"opinion"` tag
     }
 }
 ```
-
 
 ## Running tests
 

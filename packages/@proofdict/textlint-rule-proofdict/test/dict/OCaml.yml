@@ -1,0 +1,10 @@
+id: Ocaml
+description: 'Reference http://ocaml.org/'
+expected: OCaml
+patterns:
+  - TEST TEST TEST
+specs:
+  - from: ocaml
+    to: OCaml
+tags:
+  - noun

@@ -1,0 +1,11 @@
+id: jqyery
+description: 'Reference http://jquery.com/'
+expected: jQuery
+patterns:
+  - /jquery/i
+specs:
+  # non-noun
+  - from: jquery-ui
+    to: jquery-ui
+tags:
+  - JavaScript
