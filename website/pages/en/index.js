@@ -170,7 +170,7 @@ textlint is a linter tool for natural language.
 It can check your text(Markdown, text, html etc..) with your dictionary.
 Also, it can fix your text automatically.
 
-For more details, see [textlint-rule-proofdict](https://www.npmjs.com/package/textlint-rule-proofdict "textlint-rule-proo") and [textlint](https://github.com/textlint/textlint "textlint").
+For more details, see [textlint-rule-proofdict](https://www.npmjs.com/package/@proofdict/textlint-rule-proofdict "textlint-rule-proo") and [textlint](https://github.com/textlint/textlint "textlint").
 `
             }
         ]}
