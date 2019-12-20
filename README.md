@@ -10,7 +10,7 @@ See website for using it.
 
 ## Integration textlint
 
-Use [textlint-rule-proofdict](https://github.com/proofdict/textlint-rule-proofdict "textlint-rule-proofdict")
+Use [textlint-rule-proofdict](https://github.com/proofdict/proofdict/tree/master/packages/%40proofdict/textlint-rule-proofdict "textlint-rule-proofdict")
 
 ## Proofdict format
 

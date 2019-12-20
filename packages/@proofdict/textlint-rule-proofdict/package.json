@@ -5,9 +5,9 @@
   "keywords": [
     "textlintrule"
   ],
-  "homepage": "https://github.com/proofdict/textlint-rule-proofdict",
+  "homepage": "https://github.com/proofdict/proofdict/tree/master/packages/%40proofdict/textlint-rule-proofdict",
   "bugs": {
-    "url": "https://github.com/proofdict/textlint-rule-proofdict/issues"
+    "url": "https://github.com/proofdict/proofdict/issues"
   },
   "license": "MIT",
   "author": "azu",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/proofdict/textlint-rule-proofdict.git"
+    "url": "https://github.com/proofdict/proofdict.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc -p .",
