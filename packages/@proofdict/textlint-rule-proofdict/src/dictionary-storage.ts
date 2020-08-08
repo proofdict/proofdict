@@ -1,25 +1,14 @@
-// MIT © 2018 azu
-"use strict";
-import { createLocalStorage, LocalStoragePonyfill } from "localstorage-ponyfill";
+import { kvsEnvStorage } from "@kvs/env";
+import { Proofdict } from "@proofdict/tester";
 
-class Storage {
-    private localStorage: LocalStoragePonyfill;
-
-    constructor() {
-        this.localStorage = createLocalStorage();
-    }
-
-    getItem(name: string, defaultValue?: any) {
-        return this.localStorage.getItem(name) || defaultValue;
-    }
-
-    setItem(name: string, value: any) {
-        return this.localStorage.setItem(name, value);
-    }
-
-    removeItem(name: string) {
-        return this.localStorage.removeItem(name);
-    }
+type StorageSchema = {
+    "proofdict": Proofdict
+    "proofdict-lastUpdated": number;
 }
-
-export const storage = new Storage();
+const storage = kvsEnvStorage<StorageSchema>({
+    name: "prooddict",
+    version: 1
+});
+export const openStorage = () => {
+    return storage;
+};

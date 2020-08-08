@@ -50,7 +50,7 @@
     "prettier": "^1.18.2",
     "react-scripts-ts": "^3.1.0",
     "sw-precache": "^5.2.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.9.7"
   },
   "resolutions": {
     "@types/react": "16.4.18",

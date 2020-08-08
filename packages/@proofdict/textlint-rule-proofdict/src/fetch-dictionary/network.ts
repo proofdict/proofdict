@@ -1,6 +1,6 @@
 import { RuleOption } from "../RuleOptions";
 import { MODE } from "../mode";
-import { storage } from "../dictionary-storage";
+import { openStorage } from "../dictionary-storage";
 import * as globby from "globby";
 import yaml from "js-yaml";
 import { Proofdict } from "@proofdict/tester";
@@ -10,19 +10,19 @@ import { Proofdict } from "@proofdict/tester";
  * @param {string} mode
  * @returns {*}
  */
-export const getDictionary = (options: RuleOption, mode: MODE): Proofdict => {
+export const getDictionary = async (options: RuleOption, mode: MODE): Promise<Proofdict | undefined> => {
     // prefer `dictionary` option
     if (options.proofdict !== undefined) {
         return options.proofdict;
     }
-    let proofDictData;
+    const storage = await openStorage();
+    let proofDictData: Proofdict | undefined;
     // NETWORK
     if (mode === MODE.NETWORK) {
         try {
-            const cachedProofdict = storage.getItem("proofdict");
-            proofDictData = JSON.parse(cachedProofdict);
+            proofDictData = await storage.get("proofdict");
         } catch (error) {
-            storage.removeItem("proofdict");
+            await storage.delete("proofdict");
         }
     }
     // LOCAL
@@ -32,7 +32,8 @@ export const getDictionary = (options: RuleOption, mode: MODE): Proofdict => {
             proofDictData = files.map(filePath => {
                 return yaml.safeLoad(filePath);
             });
-        } catch (error) {}
+        } catch (error) {
+        }
     }
     return proofDictData;
 };
