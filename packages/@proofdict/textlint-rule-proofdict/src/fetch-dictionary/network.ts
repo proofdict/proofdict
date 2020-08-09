@@ -3,7 +3,7 @@ import { MODE } from "../mode";
 import { openStorage } from "../dictionary-storage";
 import * as globby from "globby";
 import yaml from "js-yaml";
-import { Proofdict } from "@proofdict/tester";
+import { Proofdict, ProofdictRule } from "@proofdict/tester";
 
 /**
  * @param options
@@ -29,11 +29,10 @@ export const getDictionary = async (options: RuleOption, mode: MODE): Promise<Pr
     if (mode === MODE.LOCAL && options.dictGlob) {
         try {
             const files = globby.sync(options.dictGlob);
-            proofDictData = files.map(filePath => {
-                return yaml.safeLoad(filePath);
+            proofDictData = files.map((filePath) => {
+                return yaml.safeLoad(filePath) as ProofdictRule;
             });
-        } catch (error) {
-        }
+        } catch (error) {}
     }
     return proofDictData;
 };
