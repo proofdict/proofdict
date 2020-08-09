@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/proofdict/proofdict/compare/v3.0.3...v3.1.0) (2020-08-09)
+
+
+### Bug Fixes
+
+* **docs:** fix link to old proofdict repository ([#43](https://github.com/proofdict/proofdict/issues/43)) ([2c7aecb](https://github.com/proofdict/proofdict/commit/2c7aecb207acb882faf1c1aa024d1d1382d11592))
+* **textlint:** use @kvs/env insteadof localstorage-ponyfill ([#48](https://github.com/proofdict/proofdict/issues/48)) ([3ea632e](https://github.com/proofdict/proofdict/commit/3ea632e76e63e51717e0c20a236a22bb7169ff8c))
+* **textlint-rule-proofdict:** support browser field ([#49](https://github.com/proofdict/proofdict/issues/49)) ([89b847d](https://github.com/proofdict/proofdict/commit/89b847d69df39fc532d1a9cefa26065fa9b89653))
+
+
+### Features
+
+* **textlint-rule-proofdict:** support `dictGlob` options ([#42](https://github.com/proofdict/proofdict/issues/42)) ([f511418](https://github.com/proofdict/proofdict/commit/f511418996a49be7efeedfbc4cbe9ce116923908))
+
+
+
+
+
 # [3.0.0](https://github.com/proofdict/textlint-rule-proofdict/compare/v2.2.1...v3.0.0) (2018-11-17)
 
 

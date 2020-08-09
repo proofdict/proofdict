@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/migrate",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Migration tool for proofdict.",
   "keywords": [
     "migrate",
@@ -46,7 +46,7 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "@proofdict/domain": "^3.0.0",
+    "@proofdict/domain": "^3.1.0",
     "glob": "^7.1.5",
     "js-yaml": "^3.13.1",
     "meow": "^5.0.0"

@@ -11,9 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **textlint:** use @kvs/env insteadof localstorage-ponyfill ([#48](https://github.com/proofdict/proofdict/issues/48)) ([3ea632e](https://github.com/proofdict/proofdict/commit/3ea632e76e63e51717e0c20a236a22bb7169ff8c))
 
 
+### Features
 
-
-
-# [3.0.0](https://github.com/proofdict/proofdict/compare/v2.2.1...v3.0.0) (2018-11-17)
-
-**Note:** Version bump only for package @proofdict/domain
+* **prh-to-proofdict:** implement prh-to-proofdict migration ([#30](https://github.com/proofdict/proofdict/issues/30)) ([3b7f319](https://github.com/proofdict/proofdict/commit/3b7f319d369db062eba2d4cc960a577df2ba252e))

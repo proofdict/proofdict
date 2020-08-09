@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/textlint-rule-proofdict",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "textlint rule check text using proofdict.",
   "keywords": [
     "textlintrule"
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@kvs/env": "^0.2.0",
-    "@proofdict/tester": "^3.0.0",
+    "@proofdict/tester": "^3.1.0",
     "@textlint/kernel": "^3.3.6",
     "@textlint/types": "^1.4.5",
     "debug": "^4.1.1",

@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/editor",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "homepage": "https://proofdict.github.io/editor",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@immutable-array/prototype": "^1.0.4",
-    "@proofdict/domain": "^3.0.0",
-    "@proofdict/tester": "^3.0.0",
+    "@proofdict/domain": "^3.1.0",
+    "@proofdict/tester": "^3.1.0",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.21",
     "@types/js-yaml": "^3.12.1",

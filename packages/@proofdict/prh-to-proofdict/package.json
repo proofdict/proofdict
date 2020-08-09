@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/prh-to-proofdict",
-  "version": "1.0.0",
+  "version": "3.1.0",
   "description": "Migration tool that convert prh.yml to proof-dictionary.",
   "keywords": [
     "prh",
@@ -40,7 +40,7 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "@proofdict/domain": "^3.0.0",
+    "@proofdict/domain": "^3.1.0",
     "js-yaml": "^3.13.1",
     "meow": "^5.0.0",
     "prh": "^5.4.4"
