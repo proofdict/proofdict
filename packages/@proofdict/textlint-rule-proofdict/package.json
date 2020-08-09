@@ -18,6 +18,9 @@
   ],
   "main": "lib/textlint-rule-proofdict.js",
   "types": "lib/textlint-rule-proofdict.d.ts",
+  "browser": {
+    "./lib/fetch-dctionary/node.js": "./lib/fetch-dctionary/browser.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"
