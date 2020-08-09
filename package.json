@@ -1,5 +1,5 @@
 {
-  "name": "proofdict",
+  "name": "root",
   "version": "1.2.1",
   "private": true,
   "description": "Proofdict is a collection of dictionary.",
@@ -12,16 +12,6 @@
   },
   "license": "MIT",
   "author": "azu",
-  "files": [
-    "dict/",
-    "public/dict.json",
-    "index.js"
-  ],
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/proofdict/proofdict.git"
@@ -39,10 +29,10 @@
   "dependencies": {},
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
-    "husky": "^3.0.9",
-    "lerna": "^3.18.3",
-    "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
