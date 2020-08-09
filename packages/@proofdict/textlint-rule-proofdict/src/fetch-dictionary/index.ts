@@ -1,9 +1,8 @@
 import { RuleOption } from "../RuleOptions";
 import { MODE } from "../mode";
 import { openStorage } from "../dictionary-storage";
-import * as globby from "globby";
-import yaml from "js-yaml";
-import { Proofdict, ProofdictRule } from "@proofdict/tester";
+import { Proofdict } from "@proofdict/tester";
+import loadFromLocal from "./node";
 
 /**
  * @param options
@@ -26,13 +25,11 @@ export const getDictionary = async (options: RuleOption, mode: MODE): Promise<Pr
         }
     }
     // LOCAL
-    if (mode === MODE.LOCAL && options.dictGlob) {
-        try {
-            const files = globby.sync(options.dictGlob);
-            proofDictData = files.map((filePath) => {
-                return yaml.safeLoad(filePath) as ProofdictRule;
-            });
-        } catch (error) {}
+    if (mode === MODE.LOCAL) {
+        // This module will be replaced with noop in browser
+        // package.json "browser" field define it
+        // https://github.com/defunctzombie/package-browser-field-spec
+        return loadFromLocal(options, mode);
     }
     return proofDictData;
 };

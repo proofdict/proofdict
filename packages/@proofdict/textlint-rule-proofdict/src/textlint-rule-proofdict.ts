@@ -8,7 +8,7 @@ import { MODE } from "./mode";
 import { openStorage } from "./dictionary-storage";
 import { TxtNode } from "@textlint/ast-node-types";
 import { TextlintRuleModule } from "@textlint/types";
-import { getDictionary } from "./fetch-dictionary/network";
+import { getDictionary } from "./fetch-dictionary";
 
 const { RuleHelper } = require("textlint-rule-helper");
 
@@ -37,7 +37,7 @@ const DefaultOptions: RuleOption = {
     // set you proofdict json object
     proofdict: undefined,
     // Disable cache for tester
-    disableProofdictTesterCache: false
+    disableProofdictTesterCache: false,
 };
 
 /**
@@ -50,16 +50,16 @@ const refreshDictionary = async (options: RuleOption) => {
         options.autoUpdateInterval !== undefined ? options.autoUpdateInterval : DefaultOptions.autoUpdateInterval;
     const storage = await openStorage();
     // default: 0
-    const lastUpdated = await storage.get("proofdict-lastUpdated") ?? -1;
+    const lastUpdated = (await storage.get("proofdict-lastUpdated")) ?? -1;
     const isExpired = lastUpdated <= 0 ? true : Date.now() - lastUpdated > autoUpdateInterval;
     if (mode === MODE.NETWORK && isExpired) {
         const jsonAPIURL = getDictJSONURL(options);
         return fetchProofdict({ URL: jsonAPIURL })
-            .then(dictionary => {
+            .then((dictionary) => {
                 storage.set("proofdict", dictionary);
                 storage.set("proofdict-lastUpdated", Date.now());
             })
-            .catch(error => {
+            .catch((error) => {
                 debug("error is happened, but this rule fallback to storage", error);
             });
     } else {
@@ -78,7 +78,7 @@ const reporter: TextlintRuleModule<RuleOptions> = (context, options = DefaultOpt
         },
         async [Syntax.DocumentExit](node) {
             const storage = await openStorage();
-            const dictResultPromise = dictOptions.map(options => {
+            const dictResultPromise = dictOptions.map((options) => {
                 // Error if wrong config
                 if (!options.dictURL && !options.dictGlob && !options.proofdict) {
                     report(
@@ -107,16 +107,16 @@ Please set dictURL or dictPath to .textlintrc.`)
                         lastUpdated,
                         allowTags: allowTags,
                         denyTags: denyTags,
-                        disableTesterCache
+                        disableTesterCache,
                     });
                     // check
-                    const promises = targetNodes.map(node => {
+                    const promises = targetNodes.map((node) => {
                         if (helper.isChildNode(node, [Syntax.Link, Syntax.Image, Syntax.BlockQuote, Syntax.Emphasis])) {
                             return;
                         }
                         const text = getSource(node);
-                        return tester.match(text).then(result => {
-                            result.details.forEach(detail => {
+                        return tester.match(text).then((result) => {
+                            result.details.forEach((detail) => {
                                 const { matchStartIndex, matchEndIndex, actual, expected, description, rule } = detail;
                                 // If result is not changed, should not report
                                 if (actual === expected) {
@@ -131,7 +131,7 @@ Please set dictURL or dictPath to .textlintrc.`)
                                     node,
                                     new RuleError(messages, {
                                         index: matchStartIndex,
-                                        fix: fixer.replaceTextRange([matchStartIndex, matchEndIndex], expected)
+                                        fix: fixer.replaceTextRange([matchStartIndex, matchEndIndex], expected),
                                     })
                                 );
                             });
@@ -141,11 +141,11 @@ Please set dictURL or dictPath to .textlintrc.`)
                 });
             });
             return Promise.all(dictResultPromise);
-        }
+        },
     };
 };
 
 export default {
     linter: reporter,
-    fixer: reporter
+    fixer: reporter,
 };
