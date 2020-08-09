@@ -1,6 +1,6 @@
 {
   "name": "@proofdict/textlint-rule-proofdict",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "textlint rule check text using proofdict.",
   "keywords": [
     "textlintrule"

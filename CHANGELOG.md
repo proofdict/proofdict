@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/proofdict/proofdict/compare/v3.1.0...v3.1.1) (2020-08-09)
+
+
+### Bug Fixes
+
+* **textlint-rule-proofdict:** fix browser path ([ed54272](https://github.com/proofdict/proofdict/commit/ed54272cfcd7967f804c3bc1f1be9581fba09733))
+
+
+
+
+
 # [3.1.0](https://github.com/proofdict/proofdict/compare/v3.0.3...v3.1.0) (2020-08-09)
 
 
