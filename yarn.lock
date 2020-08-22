@@ -1257,42 +1257,42 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kvs/env@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kvs/env/-/env-0.2.0.tgz#83a9c21de7bd623d33ca8e2bc8a2aa154eb13710"
-  integrity sha512-lR0WlQ+sFnAJLMddAxAxgXyQjsMKuOPyRP52cqbN7ErSI/0THSZn0TXrTExPhxVci2UnUR8uWmHsAJNmgDHUJg==
+"@kvs/env@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kvs/env/-/env-1.0.0.tgz#805079cc9d3dcb2e2f7d916d1b5dc397fc876329"
+  integrity sha512-2F7qEV1InUeJz3BvixJHG7kvb+Jr+VaRlX3tz0gpy2qW+aac9htXSoQQ2IDn9Ov10VuDkGzQAHh1on8LFy1yPw==
   dependencies:
-    "@kvs/indexeddb" "^0.2.0"
-    "@kvs/node-localstorage" "^0.2.0"
+    "@kvs/indexeddb" "^1.0.0"
+    "@kvs/node-localstorage" "^1.0.0"
 
-"@kvs/indexeddb@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kvs/indexeddb/-/indexeddb-0.2.0.tgz#25b12cf9c47c132d0449500b016f6db7081daca5"
-  integrity sha512-glxSVNasTG/10XUBohqcluiljm/cAPLeFXEYF3nJ9+3Um1lMOsm6guXBYLFg5YAzgDZlKq88JdRSlYcSOTuKRw==
+"@kvs/indexeddb@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kvs/indexeddb/-/indexeddb-1.0.0.tgz#cbb323a1dae6dd707146c66103e3b6e9a615d80d"
+  integrity sha512-nn2cYtPU/6+92/VabZfpo2DTU/Ga8thTvj3QMnSRaX9Jd5SxSO/29/CuQyOPJOhKyqSDOqmannU3h1mEeduqEA==
   dependencies:
-    "@kvs/types" "^0.2.0"
+    "@kvs/types" "^1.0.0"
 
-"@kvs/node-localstorage@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kvs/node-localstorage/-/node-localstorage-0.2.0.tgz#8bc9a1ea9505e013fac0a6af6e2558e615d7bc48"
-  integrity sha512-jUU+F9QLnHm5kDvwA/MaoirdLz1Gz/9jqrutX/w7+upsico64nlVJHa8pkw6ALcP/kisacFomGpzytjn0aQfhA==
+"@kvs/node-localstorage@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kvs/node-localstorage/-/node-localstorage-1.0.0.tgz#9bcb6dbb5156075f4f8c7709de498ac579c9496e"
+  integrity sha512-fu+cAZKYo1amqSQZmA1KUp33Unz1xIqoBg6xpwAF5+pvCM3KwMSJK9UDcg70xuXBssoLejFd2JJv1QohCZ6UbA==
   dependencies:
-    "@kvs/storage" "^0.2.0"
+    "@kvs/storage" "^1.0.0"
     app-root-path "^3.0.0"
     mkdirp "^1.0.4"
     node-localstorage "^2.1.6"
 
-"@kvs/storage@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kvs/storage/-/storage-0.2.0.tgz#948ffa850f5609cf465847a922e30dfdc7adabb1"
-  integrity sha512-v8Gz4oYwJgYFE0Pp+bIOcy7lbg2byuZFgQJ5tFOwMZFIfzwxW2AQ96pIptrOIrjhQKL0JuE2hovDsDo6dmvlSQ==
+"@kvs/storage@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kvs/storage/-/storage-1.0.0.tgz#6f519e070a58895d279611806c317c9deef57440"
+  integrity sha512-tN7iiWQzCm673voE5+r1pPrB2eDO9UwelHaRV169XBuFETf3y6hnB0RdPlJZepNJYe4Sjh6FIlb49KQIpexe1w==
   dependencies:
-    "@kvs/types" "^0.2.0"
+    "@kvs/types" "^1.0.0"
 
-"@kvs/types@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kvs/types/-/types-0.2.0.tgz#ad7c81404ba41a41f3e3195c5e95035b34f97a9c"
-  integrity sha512-9Xc6Ek+OGr/3tD7Mtl+Zy6VqM7LUS8Qdq1M18/0Jix/XBBXfN+CUrdJRUPWMVBlnqeLL6Ij8VUOYXNqgfbqcrA==
+"@kvs/types@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kvs/types/-/types-1.0.0.tgz#dd31321b45436d015c0438891aec9c9a0e2a8040"
+  integrity sha512-JYC4dvNRdZ5q0FXDtgAqI8cCWWKQEgmSsl0rR1ugHQV/N9HpizCe3W5cU2ny22D+a8iLnHO5OiqnhGuYQmS2MA==
 
 "@lerna/add@3.21.0":
   version "3.21.0"
