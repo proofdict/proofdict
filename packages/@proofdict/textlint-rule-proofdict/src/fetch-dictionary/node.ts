@@ -1,3 +1,4 @@
+import fs from "fs";
 import * as globby from "globby";
 import yaml from "js-yaml";
 import { ProofdictRule } from "@proofdict/types";
@@ -15,7 +16,7 @@ export default (options: RuleOption, mode: MODE): Proofdict | undefined => {
     try {
         const files = globby.sync(options.dictGlob);
         return files.map((filePath) => {
-            return yaml.safeLoad(filePath) as ProofdictRule;
+            return yaml.safeLoad(fs.readFileSync(filePath, "utf8")) as ProofdictRule;
         });
     } catch (error) {
         console.error(error);
