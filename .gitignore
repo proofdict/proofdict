@@ -87,3 +87,6 @@ packages/**/lib
 !/public/_posts/build/.gitkeep
 /public/dict.json
 /_site/
+
+# Local Netlify folder
+.netlify
