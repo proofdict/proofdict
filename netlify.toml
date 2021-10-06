@@ -3,5 +3,5 @@
   publish = "website/build/proofdict"
 
 [build.environment]
-  NODE_VERSION = "--lts=dubnium"
+  NODE_VERSION = "--lts=Fermium"
   YARN_VERSION = "1.12.3"
