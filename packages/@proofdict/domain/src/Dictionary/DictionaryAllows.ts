@@ -7,16 +7,16 @@ export const DictionaryAllowsSerializer: Serializer<DictionaryAllows, Dictionary
     fromJSON(patternStrings = []) {
         return new DictionaryAllows(
             patternStrings.map(
-                value =>
+                (value) =>
                     new DictionaryAllow({
-                        value: value
+                        value: value,
                     })
             )
         );
     },
     toJSON(entity) {
         return entity.getAllowValuesWithoutEmpty();
-    }
+    },
 };
 export type DictionaryAllowsJSON = string[];
 
@@ -32,11 +32,11 @@ export class DictionaryAllows {
     }
 
     getAllowValues(): string[] {
-        return this.patterns.map(pattern => pattern.value);
+        return this.patterns.map((pattern) => pattern.value);
     }
 
     getAllowValuesWithoutEmpty(): string[] {
-        return this.getAllowValues().filter(pattern => pattern.length > 0);
+        return this.getAllowValues().filter((pattern) => pattern.length > 0);
     }
 
     // write
@@ -45,7 +45,7 @@ export class DictionaryAllows {
     }
 
     update(oldAllow: DictionaryAllow, newAllow: DictionaryAllow) {
-        const index = this.patterns.findIndex(targetPattern => {
+        const index = this.patterns.findIndex((targetPattern) => {
             return targetPattern.equals(oldAllow);
         });
         if (index === -1) {
@@ -56,7 +56,7 @@ export class DictionaryAllows {
     }
 
     remove(allow: DictionaryAllow) {
-        const index = this.patterns.findIndex(targetPattern => {
+        const index = this.patterns.findIndex((targetPattern) => {
             return targetPattern.equals(allow);
         });
         if (index === -1) {

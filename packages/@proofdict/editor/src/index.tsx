@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== "production") {
     logger.startLogging(context);
 }
 context
-    .transaction("Initialize", async transactionContext => {
+    .transaction("Initialize", async (transactionContext) => {
         // ?owner=a&repo=b is minimal case
         // ?owner=a&repo=b&branch=gh-pages
         const query = parseQuery<{

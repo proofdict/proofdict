@@ -63,12 +63,12 @@ export function normalizeToken(token: RawToken): NormalizedToken {
  */
 export function getUniqueTokens(dictionary: Dictionary): Promise<Array<NormalizedToken>> {
     const options = process.env.PUBLIC_URL ? { dicPath: `${process.env.PUBLIC_URL}/dict` } : undefined;
-    return getTokenizer(options).then(tokenizer => {
+    return getTokenizer(options).then((tokenizer) => {
         const results: Array<Array<any>> = [];
         results.push(tokenizer.tokenize(dictionary.expected.value));
-        dictionary.specs.getFilledSpecList().forEach(spec => {
+        dictionary.specs.getFilledSpecList().forEach((spec) => {
             const matchExpectedWords = getMatchExpectedWords(dictionary, spec);
-            matchExpectedWords.forEach(word => {
+            matchExpectedWords.forEach((word) => {
                 const tokens = tokenizer.tokenize(word);
                 results.push(tokens);
             });
@@ -97,7 +97,7 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
         // FIXME: use proof-tester
         const engine = new Engine({
             version: 1,
-            rules: patterns.map(pattern => {
+            rules: patterns.map((pattern) => {
                 return {
                     expected: dictionary.expected.value,
                     pattern: pattern
@@ -116,10 +116,10 @@ export function getMatchExpectedWords(dictionary: Dictionary, spec: DictionarySp
         });
         const changeSet = engine.makeChangeSet("/web", spec.from);
         return changeSet.diffs
-            .map(diff => {
+            .map((diff) => {
                 return diff.matches[0].replace(diff.pattern, diff.expected!);
             })
-            .filter(word => word !== undefined && word.length > 0);
+            .filter((word) => word !== undefined && word.length > 0);
     } catch (error) {
         return [];
     }
@@ -144,10 +144,10 @@ export function testPattern(dictionary: Dictionary, spec: DictionarySpec): Promi
     }
     return tester
         .replace(spec.from)
-        .then(expected => {
+        .then((expected) => {
             return spec.updateExpected(expected);
         })
-        .catch(error => {
+        .catch((error) => {
             return spec.invalid(error);
         });
 }

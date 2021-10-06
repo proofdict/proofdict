@@ -1,4 +1,4 @@
-# Proofdict [![Build Status](https://travis-ci.org/proofdict/proofdict.svg?branch=master)](https://travis-ci.org/proofdict/proofdict)
+# Proofdict [![Actions Status: test](https://github.com/proofdict/proofdict/workflows/test/badge.svg)](https://github.com/proofdict/proofdict/actions?query=workflow%3A"test")
 
 Proofdict is a collection of dictionary.
 

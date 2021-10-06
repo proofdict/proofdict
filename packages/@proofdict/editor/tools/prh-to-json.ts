@@ -20,8 +20,8 @@ console.log("Process: " + process.argv[2]);
 const result = prh.fromYAMLFilePath(process.argv[2]);
 const jsonPromises = result.rules.map(prhRuleToDictionary);
 Promise.all(jsonPromises)
-    .then(dictionaries => {
-        dictionaries.forEach(dictionary => {
+    .then((dictionaries) => {
+        dictionaries.forEach((dictionary) => {
             const dictionaryWithTags = dictionary.updateTags(DictionaryTagsSerializer.fromJSON(tags));
             const slug = createSlugFromDictionary(dictionaryWithTags);
             fs.writeFileSync(
@@ -31,6 +31,6 @@ Promise.all(jsonPromises)
             );
         });
     })
-    .catch(error => {
+    .catch((error) => {
         console.error(error);
     });

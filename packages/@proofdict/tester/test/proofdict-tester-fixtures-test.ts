@@ -6,16 +6,16 @@ describe("ProofdictTester fixtures", () => {
     const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
     const tester = new ProofdictTester({ dictionary: proofdict });
     proofdict
-        .filter(dict => dict.specs && dict.specs.length > 0)
-        .forEach(dict => {
+        .filter((dict) => dict.specs && dict.specs.length > 0)
+        .forEach((dict) => {
             const proofdictRuleSpecs = dict.specs;
             if (!proofdictRuleSpecs) {
                 return;
             }
             describe(`${dict.expected}`, () => {
-                proofdictRuleSpecs.forEach(spec => {
+                proofdictRuleSpecs.forEach((spec) => {
                     it(`${spec.from} => ${spec.to}`, () => {
-                        return tester.replace(spec.from).then(result => {
+                        return tester.replace(spec.from).then((result) => {
                             assert.strictEqual(result, spec.to);
                         });
                     });

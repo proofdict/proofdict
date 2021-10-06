@@ -1,7 +1,7 @@
 import * as assert from "assert";
 import { AllowPatterns } from "../src/AllowPatterns";
 
-describe("AllowPatterns", function() {
+describe("AllowPatterns", function () {
     describe("when allows is empty", () => {
         it("should not alllow", () => {
             const allowPatterns = new AllowPatterns({

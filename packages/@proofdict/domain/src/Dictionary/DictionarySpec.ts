@@ -40,14 +40,14 @@ export class DictionarySpec extends ValueObject<DictionarySpecArgs> {
     updateExpected(expected: string) {
         return new DictionarySpec({
             ...(this as DictionarySpecArgs),
-            to: expected
+            to: expected,
         });
     }
 
     invalid(error: Error) {
         return new DictionarySpec({
             ...(this as DictionarySpecArgs),
-            error
+            error,
         });
     }
 }

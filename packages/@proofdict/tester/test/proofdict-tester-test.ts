@@ -8,7 +8,7 @@ describe("ProofdictTester", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "This is webkit desu.";
-            return tester.replace(text).then(result => {
+            return tester.replace(text).then((result) => {
                 assert.strictEqual(result, "This is WebKit desu.");
             });
         });
@@ -28,7 +28,7 @@ describe("ProofdictTester", () => {
                 ]
             });
             const text = "This is node-webkit";
-            return tester.match(text).then(result => {
+            return tester.match(text).then((result) => {
                 assert.strictEqual(result.details.length, 0);
             });
         });
@@ -36,7 +36,7 @@ describe("ProofdictTester", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "This is webkit";
-            return tester.match(text).then(result => {
+            return tester.match(text).then((result) => {
                 assert.strictEqual(result.details.length, 1);
                 const [detail] = result.details;
                 assert.deepStrictEqual(detail.rule, {
@@ -59,7 +59,7 @@ describe("ProofdictTester", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "SourceMap is text.";
-            return tester.match(text).then(result => {
+            return tester.match(text).then((result) => {
                 assert.strictEqual(result.details.length, 1);
                 const [detail] = result.details;
                 assert.strictEqual(detail.actual, "SourceMap", "actual");
@@ -82,7 +82,7 @@ describe("ProofdictTester", () => {
                 ]
             });
             const text = "Pointer Events is an event.";
-            return tester.match(text).then(result => {
+            return tester.match(text).then((result) => {
                 assert.strictEqual(result.details.length, 0);
             });
         });
@@ -90,7 +90,7 @@ describe("ProofdictTester", () => {
             const proofdict: ProofdictRule[] = require("./fixtures/proofdict.json");
             const tester = new ProofdictTester({ dictionary: proofdict });
             const text = "Workaound is typo.";
-            return tester.match(text).then(result => {
+            return tester.match(text).then((result) => {
                 assert.strictEqual(result.details.length, 1);
                 const [detail] = result.details;
                 assert.strictEqual(detail.actual, "Workaound");

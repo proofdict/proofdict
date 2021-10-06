@@ -47,7 +47,7 @@ Button.defaultProps = {
     target: "_self"
 };
 
-const SplashContainer = props => (
+const SplashContainer = (props) => (
     <div className="homeContainer">
         <div className="homeSplashFade">
             <div className="wrapper homeWrapper">{props.children}</div>
@@ -55,20 +55,20 @@ const SplashContainer = props => (
     </div>
 );
 
-const Logo = props => (
+const Logo = (props) => (
     <div className="projectLogo">
         <img src={props.img_src} />
     </div>
 );
 
-const ProjectTitle = props => (
+const ProjectTitle = (props) => (
     <h2 className="projectTitle">
         {siteConfig.title}
         <small>{siteConfig.tagline}</small>
     </h2>
 );
 
-const PromoSection = props => (
+const PromoSection = (props) => (
     <div className="section promoSection">
         <div className="promoRow">
             <div className="pluginRowBlock">{props.children}</div>
@@ -93,13 +93,13 @@ class HomeSplash extends React.Component {
     }
 }
 
-const Block = props => (
+const Block = (props) => (
     <Container padding={["bottom", "top"]} id={props.id} background={props.background}>
         <GridBlock align={props.align || "center"} contents={props.children} layout={props.layout} />
     </Container>
 );
 
-const Features = props => (
+const Features = (props) => (
     <Block layout="twoColumn">
         {[
             {
@@ -138,7 +138,7 @@ Your dictionary can be Open Source and You can fork existing dictionary.`
     </Block>
 );
 
-const LearnHow = props => (
+const LearnHow = (props) => (
     <Block align="left" background="dark" id={"usage"}>
         {[
             {
@@ -157,7 +157,7 @@ For more details, please see [Get Started](${docUrl("usage.html", props.language
     </Block>
 );
 
-const Textlint = props => (
+const Textlint = (props) => (
     <Block align="left">
         {[
             {
@@ -177,12 +177,12 @@ For more details, see [textlint-rule-proofdict](https://www.npmjs.com/package/@p
     </Block>
 );
 
-const Showcase = props => {
+const Showcase = (props) => {
     if ((siteConfig.users || []).length === 0) {
         return null;
     }
     const showcase = siteConfig.users
-        .filter(user => {
+        .filter((user) => {
             return user.pinned;
         })
         .map((user, i) => {

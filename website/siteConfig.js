@@ -14,7 +14,10 @@ const siteConfig = {
     url: "https://proofdict.github.io/" /* your website url */,
     baseUrl: "/" /* base url for your project */,
     projectName: "proofdict",
-    headerLinks: [{ doc: "usage", label: "Usage" }, { href: "https://github.com/proofdict", label: "GItHub" }],
+    headerLinks: [
+        { doc: "usage", label: "Usage" },
+        { href: "https://github.com/proofdict", label: "GItHub" }
+    ],
     users,
     /* path to images for header/footer */
     headerIcon: "img/proofdict.png",

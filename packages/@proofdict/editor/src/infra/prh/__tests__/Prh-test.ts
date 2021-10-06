@@ -71,7 +71,7 @@ describe("Prh", () => {
                         to: "--ECMAScript 2015--ECMAScript 6"
                     })
                 );
-            return getUniqueTokens(dictionary).then(tokens => {
+            return getUniqueTokens(dictionary).then((tokens) => {
                 assert.deepEqual(tokens, [
                     {
                         word_type: "UNKNOWN",

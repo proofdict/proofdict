@@ -28,15 +28,15 @@
     "versionup:major": "lerna version major --conventional-commits",
     "release": "lerna publish from-package",
     "test": "lerna run test",
-    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,css}'"
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepare": "git config --local core.hooksPath .githooks"
   },
   "dependencies": {},
   "devDependencies": {
     "@alrra/travis-scripts": "^3.0.1",
-    "husky": "^4.2.5",
     "lerna": "^3.22.1",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "lint-staged": "^11.2.0",
+    "prettier": "^2.4.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -44,8 +44,10 @@
     ]
   },
   "prettier": {
+    "singleQuote": false,
     "printWidth": 120,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "trailingComma": "none"
   },
   "workspaces": {
     "packages": [

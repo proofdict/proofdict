@@ -57,7 +57,7 @@ export class DictOutputStore extends Store<DictOutputState> {
             output: ""
         });
         const { usePayload, useEntity } = createHooks(this, [repo.dictionaryRepository]);
-        usePayload(payload => {
+        usePayload((payload) => {
             this.setState(this.state.reduce(payload));
         });
         useEntity((state, [dictionary]) => {

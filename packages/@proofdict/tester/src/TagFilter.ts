@@ -14,13 +14,13 @@ export function isNoun(dict: ProofdictRule): boolean {
 
 export function filterByTags(dictionary: Proofdict, allowTags: string[] = [], denyTags: string[] = []) {
     if (allowTags.length > 0) {
-        return dictionary.filter(item => {
-            return allowTags.every(allowTag => item.tags.indexOf(allowTag) !== -1);
+        return dictionary.filter((item) => {
+            return allowTags.every((allowTag) => item.tags.indexOf(allowTag) !== -1);
         });
     }
     if (denyTags.length > 0) {
-        return dictionary.filter(item => {
-            return !item.tags.some(tag => denyTags.indexOf(tag) !== -1);
+        return dictionary.filter((item) => {
+            return !item.tags.some((tag) => denyTags.indexOf(tag) !== -1);
         });
     }
     return dictionary;

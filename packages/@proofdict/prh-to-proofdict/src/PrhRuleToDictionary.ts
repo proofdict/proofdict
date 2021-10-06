@@ -5,7 +5,7 @@ import {
     DictionaryDescription,
     DictionaryExpected,
     DictionaryPattern,
-    DictionarySpec
+    DictionarySpec,
 } from "@proofdict/domain";
 import { Rule } from "prh/lib/rule";
 
@@ -27,7 +27,7 @@ function addSpecs(dictionary: Dictionary, rule: Rule): Dictionary {
         return dict.addSpec(
             new DictionarySpec({
                 from: spec.from,
-                to: spec.to
+                to: spec.to,
             })
         );
     }, dictionary);

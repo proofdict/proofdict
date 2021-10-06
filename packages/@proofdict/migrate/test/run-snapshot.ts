@@ -3,7 +3,7 @@ import * as path from "path";
 import * as assert from "assert";
 
 export const runSnapshot = (rootDirectory: string, handler: (content: string, filePath: string) => string) => {
-    fs.readdirSync(rootDirectory).map(caseName => {
+    fs.readdirSync(rootDirectory).map((caseName) => {
         const normalizedTestName = caseName.replace(/-/g, " ");
         it(`Test ${normalizedTestName}`, async () => {
             const fixtureDir = path.join(rootDirectory, caseName);

@@ -8,7 +8,7 @@ describe("cli", () => {
     it("should reject when invalid some files", () => {
         return execute([__dirname + "/fixtures/invalid/*.yml"]).then(
             () => assert.fail("SHOULD NOT CALLED"),
-            error => {
+            (error) => {
                 assert.ok(error instanceof Error);
             }
         );

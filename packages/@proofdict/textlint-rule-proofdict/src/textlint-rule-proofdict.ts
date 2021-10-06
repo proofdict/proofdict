@@ -37,7 +37,7 @@ const DefaultOptions: RuleOption = {
     // set you proofdict json object
     proofdict: undefined,
     // Disable cache for tester
-    disableProofdictTesterCache: false,
+    disableProofdictTesterCache: false
 };
 
 /**
@@ -107,7 +107,7 @@ Please set dictURL or dictPath to .textlintrc.`)
                         lastUpdated,
                         allowTags: allowTags,
                         denyTags: denyTags,
-                        disableTesterCache,
+                        disableTesterCache
                     });
                     // check
                     const promises = targetNodes.map((node) => {
@@ -131,7 +131,7 @@ Please set dictURL or dictPath to .textlintrc.`)
                                     node,
                                     new RuleError(messages, {
                                         index: matchStartIndex,
-                                        fix: fixer.replaceTextRange([matchStartIndex, matchEndIndex], expected),
+                                        fix: fixer.replaceTextRange([matchStartIndex, matchEndIndex], expected)
                                     })
                                 );
                             });
@@ -141,11 +141,11 @@ Please set dictURL or dictPath to .textlintrc.`)
                 });
             });
             return Promise.all(dictResultPromise);
-        },
+        }
     };
 };
 
 export default {
     linter: reporter,
-    fixer: reporter,
+    fixer: reporter
 };

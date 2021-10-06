@@ -19,14 +19,14 @@ describe("TagFilter", () => {
         it("whitelist options filter items", () => {
             const whitelistTags = ["noun"];
             const items = filterByTags(proofdict, whitelistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldHaveTag("noun")(item);
             });
         });
         it("whitelist options filter items by multiple tags", () => {
             const whitelistTags = ["noun", "JavaScript"];
             const items = filterByTags(proofdict, whitelistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldHaveTag("noun")(item);
                 shouldHaveTag("JavaScript")(item);
             });
@@ -34,14 +34,14 @@ describe("TagFilter", () => {
         it("blacklist options reject items", () => {
             const blacklistTags = ["noun"];
             const items = filterByTags(proofdict, [], blacklistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldNotHaveTag("noun")(item);
             });
         });
         it("blacklist options reject items by multiple tags", () => {
             const blacklistTags = ["noun", "JavaScript"];
             const items = filterByTags(proofdict, [], blacklistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldNotHaveTag("noun")(item);
                 shouldNotHaveTag("JavaScript")(item);
             });
@@ -49,7 +49,7 @@ describe("TagFilter", () => {
         it("whitelist options filter items", () => {
             const whitelistTags = ["noun"];
             const items = filterByTags(proofdict, whitelistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldHaveTag("noun")(item);
             });
         });
@@ -57,7 +57,7 @@ describe("TagFilter", () => {
             const whitelist = ["noun"];
             const blacklistTags = ["noun"];
             const items = filterByTags(proofdict, whitelist, blacklistTags);
-            items.forEach(item => {
+            items.forEach((item) => {
                 shouldHaveTag("noun")(item);
             });
         });

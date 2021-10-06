@@ -17,8 +17,8 @@ const createEmptyDictionaryWithId = (id: string) => {
         allows: new DictionaryAllows([]),
         tags: new DictionaryTags([]),
         specs: new DictionarySpecs({
-            specs: []
-        })
+            specs: [],
+        }),
     });
 };
 

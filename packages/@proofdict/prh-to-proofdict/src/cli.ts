@@ -11,7 +11,7 @@ function createPrhEngine(rulePaths: string[], baseDir: string) {
         return null;
     }
     const prhEngine = prh.fromYAMLFilePath(path.resolve(baseDir, rulePaths[0]));
-    rulePaths.slice(1).forEach(ruleFilePath => {
+    rulePaths.slice(1).forEach((ruleFilePath) => {
         const config = prh.fromYAMLFilePath(path.resolve(baseDir, ruleFilePath));
         prhEngine.merge(config);
     });
@@ -45,7 +45,7 @@ export async function run(prhFilePathList: string[], options: RunOptions) {
     }
     const jsonPromises = prhEngine.rules.map(prhRuleToDictionary);
     const dictionaries = await Promise.all(jsonPromises);
-    dictionaries.forEach(dictionary => {
+    dictionaries.forEach((dictionary) => {
         const dictionaryWithTags = options.defaultTags
             ? dictionary.updateTags(DictionaryTagsSerializer.fromJSON(options.defaultTags))
             : dictionary;

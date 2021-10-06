@@ -25,7 +25,7 @@ export class UpdateDictionarySpecStatusUseCase extends UseCase {
             throw new Error(`Not found dictionary:${id}`);
         }
         // update all spec
-        const newSpecPromises = dictionary.specs.getSpecList().map(async spec => {
+        const newSpecPromises = dictionary.specs.getSpecList().map(async (spec) => {
             return testPattern(dictionary, spec);
         });
         const newSpecList = await Promise.all(newSpecPromises);

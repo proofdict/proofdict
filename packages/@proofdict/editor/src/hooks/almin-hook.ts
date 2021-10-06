@@ -109,24 +109,24 @@ export function createHooks<State, Repositories extends Repository<any>[]>(
     const createUsePayload = <State>(store: Store<State>) => {
         return (handler: PayloadHandler) => {
             const payloadHandlers: PayloadHandler[] = [];
-            const disposeOnDispatch = store.onDispatch(payload => {
-                payloadHandlers.forEach(handler => handler(payload));
+            const disposeOnDispatch = store.onDispatch((payload) => {
+                payloadHandlers.forEach((handler) => handler(payload));
             });
             disposes.push(disposeOnDispatch);
             payloadHandlers.push(handler);
         };
     };
     const getEntries = () => {
-        return repositories.map(repository => {
+        return repositories.map((repository) => {
             return repository.get();
         });
     };
     type DomainHandler = (state: State, entries: GetEntityTypes<Repositories>) => any;
     const createUseEntity = () => {
         const domainHandlers: DomainHandler[] = [];
-        repositories.forEach(repository => {
+        repositories.forEach((repository) => {
             const disposeOnSave = repository.events.onSave(() => {
-                domainHandlers.forEach(handler => {
+                domainHandlers.forEach((handler) => {
                     handler(store.getState(), getEntries() as any);
                 });
             });
@@ -141,7 +141,7 @@ export function createHooks<State, Repositories extends Repository<any>[]>(
         useEntity: createUseEntity(),
         disposable: {
             dispose: () => {
-                disposes.forEach(dispose => dispose());
+                disposes.forEach((dispose) => dispose());
             }
         }
     };
