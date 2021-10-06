@@ -22,7 +22,7 @@ describe("createSlugFromDictionary", () => {
                 .addSpec(
                     new DictionarySpec({
                         from: "--es 2015--es 6",
-                        to: "--ECMAScript 2015--ECMAScript 6"
+                        to: "--ECMAScript 2015--ECMAScript 6",
                     })
                 );
             const slug = createSlugFromDictionary(dictionary);

@@ -32,7 +32,7 @@ const specSelector = (state: DictTesterState, dictionary: Dictionary) => {
     return dictionary.specs;
 };
 
-const stateSelector = createShallowEqualSelector(specSelector, specs => {
+const stateSelector = createShallowEqualSelector(specSelector, (specs) => {
     return new DictTesterState({
         inputs: specs.getActualPatterns(),
         outputs: specs.getExpectedResults()

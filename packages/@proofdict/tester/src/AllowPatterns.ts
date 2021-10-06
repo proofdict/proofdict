@@ -8,12 +8,9 @@ const SPECIAL_PATTERNS = [
             if (patterns.length === 0) {
                 return [];
             }
-            return patterns.reduce(
-                (total, pattern) => {
-                    return total.concat(createCombinationPatterns(pattern));
-                },
-                [] as RegExp[]
-            );
+            return patterns.reduce((total, pattern) => {
+                return total.concat(createCombinationPatterns(pattern));
+            }, [] as RegExp[]);
         }
     }
 ];
@@ -37,7 +34,7 @@ export class AllowPattern {
     }
 
     match(text: string) {
-        return this.patterns.some(pattern => {
+        return this.patterns.some((pattern) => {
             return pattern.test(text);
         });
     }
@@ -49,10 +46,10 @@ export class AllowPatterns {
     constructor(dict: ProofdictRule) {
         const allows = dict.allows || [];
         const patterns = dict.patterns;
-        this.allowPatterns = allows.map(allowString => new AllowPattern(allowString, patterns));
+        this.allowPatterns = allows.map((allowString) => new AllowPattern(allowString, patterns));
     }
 
     match(text: string) {
-        return this.allowPatterns.some(allowPattern => allowPattern.match(text));
+        return this.allowPatterns.some((allowPattern) => allowPattern.match(text));
     }
 }

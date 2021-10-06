@@ -43,7 +43,7 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             patterns: DictionaryPatternsSerializer.fromJSON(json.patterns),
             allows: DictionaryAllowsSerializer.fromJSON(json.allows),
             specs: DictionarySpecsSerializer.fromJSON(json.specs),
-            tags: DictionaryTagsSerializer.fromJSON(json.tags)
+            tags: DictionaryTagsSerializer.fromJSON(json.tags),
         });
     },
     toJSON(dictionary) {
@@ -54,9 +54,9 @@ export const DictionarySerializer: Serializer<Dictionary, DictionaryJSON> = {
             patterns: DictionaryPatternsSerializer.toJSON(dictionary.patterns),
             allows: DictionaryAllowsSerializer.toJSON(dictionary.allows),
             specs: DictionarySpecsSerializer.toJSON(dictionary.specs),
-            tags: DictionaryTagsSerializer.toJSON(dictionary.tags)
+            tags: DictionaryTagsSerializer.toJSON(dictionary.tags),
         };
-    }
+    },
 };
 
 export class Dictionary extends Entity<DictionaryProps> {
@@ -82,7 +82,7 @@ export class Dictionary extends Entity<DictionaryProps> {
     inputExpected(expected: DictionaryExpected) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            expected: expected
+            expected: expected,
         });
     }
 
@@ -90,21 +90,21 @@ export class Dictionary extends Entity<DictionaryProps> {
     addPattern(pattern: DictionaryPattern) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            patterns: this.patterns.add(pattern)
+            patterns: this.patterns.add(pattern),
         });
     }
 
     updatePattern(old: DictionaryPattern, newPattern: DictionaryPattern) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            patterns: this.patterns.update(old, newPattern)
+            patterns: this.patterns.update(old, newPattern),
         });
     }
 
     removePattern(pattern: DictionaryPattern) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            patterns: this.patterns.remove(pattern)
+            patterns: this.patterns.remove(pattern),
         });
     }
 
@@ -112,21 +112,21 @@ export class Dictionary extends Entity<DictionaryProps> {
     addAllow(allow: DictionaryAllow) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            allows: this.allows.add(allow)
+            allows: this.allows.add(allow),
         });
     }
 
     updateAllow(old: DictionaryAllow, newPattern: DictionaryAllow) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            allows: this.allows.update(old, newPattern)
+            allows: this.allows.update(old, newPattern),
         });
     }
 
     removeAllow(allow: DictionaryAllow) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            allows: this.allows.remove(allow)
+            allows: this.allows.remove(allow),
         });
     }
 
@@ -134,21 +134,21 @@ export class Dictionary extends Entity<DictionaryProps> {
     addSpec(spec: DictionarySpec) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            specs: this.specs.add(spec)
+            specs: this.specs.add(spec),
         });
     }
 
     updateSpec(oldSpec: DictionarySpec, newSpec: DictionarySpec) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            specs: this.specs.update(oldSpec, newSpec)
+            specs: this.specs.update(oldSpec, newSpec),
         });
     }
 
     removeSpec(spec: DictionarySpec) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            specs: this.specs.remove(spec)
+            specs: this.specs.remove(spec),
         });
     }
 
@@ -158,21 +158,21 @@ export class Dictionary extends Entity<DictionaryProps> {
         }
         return new Dictionary({
             ...(this as DictionaryProps),
-            specs: newSpecs
+            specs: newSpecs,
         });
     }
 
     updateDescription(description: DictionaryDescription) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            description
+            description,
         });
     }
 
     updateTags(tags: DictionaryTags) {
         return new Dictionary({
             ...(this as DictionaryProps),
-            tags
+            tags,
         });
     }
 }

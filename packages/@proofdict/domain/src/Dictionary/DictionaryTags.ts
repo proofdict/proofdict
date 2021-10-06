@@ -6,11 +6,11 @@ export type DictionaryTagsJSON = DictionaryTagJSON[];
 
 export const DictionaryTagsSerializer: Serializer<DictionaryTags, DictionaryTagsJSON> = {
     fromJSON(json = []) {
-        return new DictionaryTags(json.map(tag => new DictionaryTag(tag)));
+        return new DictionaryTags(json.map((tag) => new DictionaryTag(tag)));
     },
     toJSON(entity) {
-        return entity.tags.map(tag => tag.value);
-    }
+        return entity.tags.map((tag) => tag.value);
+    },
 };
 
 export class DictionaryTags {
@@ -21,6 +21,6 @@ export class DictionaryTags {
     }
 
     toValue() {
-        return this.tags.map(tag => tag.value);
+        return this.tags.map((tag) => tag.value);
     }
 }

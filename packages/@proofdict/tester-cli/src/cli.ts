@@ -4,7 +4,7 @@ import globby = require("globby");
 
 export const execute = (globPattern: string[]) => {
     const fileList = globby.sync(globPattern);
-    const promises = fileList.map(filePath => {
+    const promises = fileList.map((filePath) => {
         const ext = path.extname(filePath);
         if (ext === ".yml" || ext === ".yaml") {
             return assertYAML(filePath);

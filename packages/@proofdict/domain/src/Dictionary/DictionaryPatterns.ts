@@ -5,11 +5,11 @@ import { Serializer } from "ddd-base";
 
 export const DictionaryPatternsSerializer: Serializer<DictionaryPatterns, DictionaryPatternsJSON> = {
     fromJSON(patternStrings = []) {
-        return new DictionaryPatterns(patternStrings.map(pattern => new DictionaryPattern(pattern)));
+        return new DictionaryPatterns(patternStrings.map((pattern) => new DictionaryPattern(pattern)));
     },
     toJSON(entity) {
         return entity.getPatternValuesWithoutEmpty();
-    }
+    },
 };
 export type DictionaryPatternsJSON = string[];
 
@@ -25,11 +25,11 @@ export class DictionaryPatterns {
     }
 
     getPatternValues(): string[] {
-        return this.patterns.map(pattern => pattern.value);
+        return this.patterns.map((pattern) => pattern.value);
     }
 
     getPatternValuesWithoutEmpty(): string[] {
-        return this.getPatternValues().filter(pattern => pattern.length > 0);
+        return this.getPatternValues().filter((pattern) => pattern.length > 0);
     }
 
     // write
@@ -38,7 +38,7 @@ export class DictionaryPatterns {
     }
 
     update(oldExpect: DictionaryPattern, newExpect: DictionaryPattern) {
-        const index = this.patterns.findIndex(targetPattern => {
+        const index = this.patterns.findIndex((targetPattern) => {
             return targetPattern.equals(oldExpect);
         });
         if (index === -1) {
@@ -49,7 +49,7 @@ export class DictionaryPatterns {
     }
 
     remove(pattern: DictionaryPattern) {
-        const index = this.patterns.findIndex(targetPattern => {
+        const index = this.patterns.findIndex((targetPattern) => {
             return targetPattern.equals(pattern);
         });
         if (index === -1) {

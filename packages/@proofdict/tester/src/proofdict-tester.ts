@@ -60,13 +60,13 @@ export class ProofdictTester {
      */
     private splitRuleToEachPattern(dictionary: Proofdict): Proofdict {
         const results: Proofdict = [];
-        dictionary.map(dict => {
+        dictionary.map((dict) => {
             const patterns = isNoun(dict)
-                ? dict.patterns.map(pattern => {
+                ? dict.patterns.map((pattern) => {
                       return wrapWordBoundaryToString(pattern);
                   })
                 : dict.patterns;
-            patterns.forEach(pattern => {
+            patterns.forEach((pattern) => {
                 results.push({
                     ...dict,
                     patterns: [pattern],
@@ -78,20 +78,20 @@ export class ProofdictTester {
     }
 
     replace(text: string): Promise<string> {
-        return this.match(text).then(result => result.output);
+        return this.match(text).then((result) => result.output);
     }
 
     match(text: string): Promise<ProofdictTesterResult> {
         // pass empty string for working in browser
         // https://github.com/prh/prh/issues/29
         const changeSet = this.prhEngine.makeChangeSet("", text);
-        const sortedDiffs = changeSet.diffs.sort(function(a, b) {
+        const sortedDiffs = changeSet.diffs.sort(function (a, b) {
             return a.index - b.index;
         });
         let deltaTestStartPosition = 0;
         let currentString = text;
         const results: ProofdictTesterResultDetail[] = [];
-        sortedDiffs.forEach(diff => {
+        sortedDiffs.forEach((diff) => {
             if (!diff.expected) {
                 return;
             }
@@ -106,7 +106,7 @@ export class ProofdictTester {
             // Automatically add word boundary to the patterns
             if (isNoun(diff.rule!.raw)) {
                 const expectPatterns = createCombinationPatterns(diff.pattern);
-                const isExpected = expectPatterns.some(expectPattern => {
+                const isExpected = expectPatterns.some((expectPattern) => {
                     return expectPattern.test(currentString);
                 });
                 if (isExpected) {

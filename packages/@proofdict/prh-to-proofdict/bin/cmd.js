@@ -19,26 +19,26 @@ const cli = meow(
         flags: {
             outDir: {
                 type: "string",
-                alias: "o"
+                alias: "o",
             },
             defaultTags: {
-                type: "string"
-            }
+                type: "string",
+            },
         },
         autoVersion: true,
-        autoHelp: true
+        autoHelp: true,
     }
 );
 // main
 run(cli.input, {
     cwd: process.cwd(),
     outputDirectory: cli.flags.outDir,
-    defaultTags: cli.flags.defaultTags ? cli.flags.defaultTags.split(",").map(tag => tag.trim()) : []
+    defaultTags: cli.flags.defaultTags ? cli.flags.defaultTags.split(",").map((tag) => tag.trim()) : [],
 })
     .then(() => {
         console.log("Success migrations!");
     })
-    .catch(error => {
+    .catch((error) => {
         console.error(error);
         process.exit(1);
     });

@@ -10,7 +10,7 @@ describe("prhRuleToDictionary", () => {
         const engine = prh.fromYAMLFilePath(path.join(__dirname, "fixtures/input.yml"));
         const promises = engine.rules.map(prhRuleToDictionary);
         return Promise.all(promises).then((dictionaries: Dictionary[]) => {
-            dictionaries.forEach(dictionary => {
+            dictionaries.forEach((dictionary) => {
                 assert.ok(dictionary instanceof Dictionary, `${dictionary} should be instanceof Dictionary`);
             });
         });
@@ -23,7 +23,7 @@ describe("prhRuleToDictionary", () => {
         const engine = prh.fromYAMLFilePath(path.join(__dirname, "fixtures/input.yml"));
         const promises = engine.rules.map(prhRuleToDictionary);
         return Promise.all(promises).then((dictionaries: Dictionary[]) => {
-            const jsonList = dictionaries.map(dictionary => {
+            const jsonList = dictionaries.map((dictionary) => {
                 return DictionarySerializer.toJSON(removeId(dictionary));
             });
             expect(jsonList).toMatchSnapshot("prh.yml-to-json");

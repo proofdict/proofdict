@@ -1,7 +1,7 @@
 import * as assert from "assert";
 import { DictionaryPattern } from "../src";
 
-describe("DictionaryPattern", function() {
+describe("DictionaryPattern", function () {
     describe("/pattern/", () => {
         it("has not workBoundary", () => {
             const pattern = new DictionaryPattern("/pattern/");

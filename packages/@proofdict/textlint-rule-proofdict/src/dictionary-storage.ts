@@ -7,7 +7,7 @@ type StorageSchema = {
 };
 const storage = kvsEnvStorage<StorageSchema>({
     name: "prooddict",
-    version: 1,
+    version: 1
 });
 export const openStorage = () => {
     return storage;

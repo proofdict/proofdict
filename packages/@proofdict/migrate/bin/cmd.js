@@ -11,7 +11,7 @@ const cli = meow(
     Options:
       --script migration script name 
     Scripts:
-      ${migrationNames.map(name => `- ${name}`).join("\n")}
+      ${migrationNames.map((name) => `- ${name}`).join("\n")}
 
     Examples
       $ npx @proofdict/migrate "proof-dictionary/**/*.yaml" --script noun-to-allows
@@ -19,11 +19,11 @@ const cli = meow(
     {
         flags: {
             script: {
-                type: "string"
-            }
+                type: "string",
+            },
         },
         autoVersion: true,
-        autoHelp: true
+        autoHelp: true,
     }
 );
 

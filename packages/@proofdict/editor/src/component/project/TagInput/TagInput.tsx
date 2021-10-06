@@ -17,7 +17,7 @@ type SelectOption = {
 export class TagInput extends React.Component<TagInputProps, {}> {
     private logChange = (value: ValueType<SelectOption>): void => {
         if (value && Array.isArray(value)) {
-            const tags = value.map(v => {
+            const tags = value.map((v) => {
                 return v.value;
             });
             this.props.onChangeTags(tags);
@@ -28,14 +28,14 @@ export class TagInput extends React.Component<TagInputProps, {}> {
 
     render() {
         // All options that include current selected tags
-        const options: SelectOption[] = [...this.props.suggestedTags, ...this.props.selectedTags].map(tag => {
+        const options: SelectOption[] = [...this.props.suggestedTags, ...this.props.selectedTags].map((tag) => {
             return {
                 label: tag,
                 value: tag
             };
         });
         // selected
-        const selectedTagValue = this.props.selectedTags.map(tag => {
+        const selectedTagValue = this.props.selectedTags.map((tag) => {
             return {
                 label: tag,
                 value: tag

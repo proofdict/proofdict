@@ -5,14 +5,14 @@ import { safeLoad } from "js-yaml";
 
 export const assertProofdictJSON = (dictionary: Proofdict) => {
     const tester = new ProofdictTester({
-        dictionary: dictionary
+        dictionary: dictionary,
     });
-    const promises = dictionary.map(dict => {
+    const promises = dictionary.map((dict) => {
         if (!dict.specs) {
             return Promise.resolve([]);
         }
-        const specPromises = dict.specs.map(spec => {
-            return tester.match(spec.from).then(result => {
+        const specPromises = dict.specs.map((spec) => {
+            return tester.match(spec.from).then((result) => {
                 assert.strictEqual(
                     result.output,
                     spec.to,
