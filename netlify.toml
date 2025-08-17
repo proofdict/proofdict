@@ -1,7 +1,6 @@
 [build]
-  command = "yarn run bootstrap && yarn run website"
+  command = "pnpm run website"
   publish = "website/build/proofdict"
 
 [build.environment]
   NODE_VERSION = "--lts=Fermium"
-  YARN_VERSION = "1.12.3"
