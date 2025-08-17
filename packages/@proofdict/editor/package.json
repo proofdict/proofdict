@@ -49,6 +49,7 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react-scripts-ts": "^3.1.0",
+    "source-map": "^0.7.6",
     "source-map-support": "^0.5.21",
     "sw-precache": "^5.2.1",
     "ts-jest": "22.0.1",
