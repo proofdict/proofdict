@@ -66,17 +66,5 @@
     "build:tools": "rm -rf tools/output && tsc -p tsconfig.tool.json",
     "test": "cross-env CI=true react-scripts-ts test",
     "update-sw-cache": "sw-precache --config=sw-precache-config.js && mv service-worker.js build/"
-  },
-  "lint-staged": {
-    "src/**/*.{js,ts,tsx,css}": [
-      "prettier --write --print-width 120 --tab-width 4",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "git reset",
-      "pre-commit": "lint-staged"
-    }
   }
 }

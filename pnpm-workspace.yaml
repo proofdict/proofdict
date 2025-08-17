@@ -1,3 +1,17 @@
 packages:
-  - 'packages/@proofdict/*'
-  - 'website'
+  - packages/@proofdict/*
+  - website
+
+ignoredBuiltDependencies:
+  - core-js
+  - es5-ext
+
+onlyBuiltDependencies:
+  - fast-folder-size
+  - fsevents
+  - gifsicle
+  - highlight.js
+  - husky
+  - jpegtran-bin
+  - optipng-bin
+  - uglifyjs-webpack-plugin

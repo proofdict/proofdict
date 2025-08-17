@@ -21,10 +21,7 @@
     "clean": "lerna run clean",
     "website": "lerna run build --scope website --scope @proofdict/editor && cp -rf ./packages/@proofdict/editor/build ./website/build/proofdict/editor",
     "prepublish": "pnpm run clean && pnpm run build",
-    "versionup": "lerna version --conventional-commits",
-    "versionup:patch": "lerna version patch --conventional-commits",
-    "versionup:minor": "lerna version minor --conventional-commits",
-    "versionup:major": "lerna version major --conventional-commits",
+    "versionup": "lerna version",
     "release": "lerna publish from-package",
     "test": "lerna run test --ignore @proofdict/editor",
     "test:all": "lerna run test",
@@ -35,7 +32,7 @@
     "@alrra/travis-scripts": "^3.0.1",
     "lerna": "^8.2.3",
     "lint-staged": "^11.2.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.8.8"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
@@ -47,24 +44,6 @@
     "printWidth": 120,
     "tabWidth": 4,
     "trailingComma": "none"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/@proofdict/*",
-      "website"
-    ],
-    "nohoist": [
-      "**/@types/mocha",
-      "**/@types/mocha/**",
-      "**/@types/jest",
-      "**/@types/jest/**"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "git reset",
-      "pre-commit": "lint-staged"
-    }
   },
   "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
 }
