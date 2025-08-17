@@ -17,7 +17,6 @@
     "url": "https://github.com/proofdict/proofdict.git"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "build": "lerna run build --ignore website --ignore @proofdict/editor",
     "clean": "lerna run clean",
     "website": "lerna run build --scope website --scope @proofdict/editor && cp -rf ./packages/@proofdict/editor/build ./website/build/proofdict/editor",
