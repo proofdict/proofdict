@@ -26,7 +26,8 @@
     "versionup:minor": "lerna version minor --conventional-commits",
     "versionup:major": "lerna version major --conventional-commits",
     "release": "lerna publish from-package",
-    "test": "lerna run test",
+    "test": "lerna run test --ignore @proofdict/editor",
+    "test:all": "lerna run test",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
   },
