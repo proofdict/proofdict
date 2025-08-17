@@ -295,8 +295,8 @@ importers:
   packages/@proofdict/tester:
     dependencies:
       '@proofdict/types':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: workspace:*
+        version: link:../types
       prh:
         specifier: 5.4.4
         version: 5.4.4
@@ -326,11 +326,11 @@ importers:
   packages/@proofdict/tester-cli:
     dependencies:
       '@proofdict/tester':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: workspace:*
+        version: link:../tester
       '@proofdict/types':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: workspace:*
+        version: link:../types
       '@types/globby':
         specifier: ^9.1.0
         version: 9.1.0
@@ -384,11 +384,11 @@ importers:
         specifier: ^1.0.0
         version: 1.2.0
       '@proofdict/tester':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: workspace:*
+        version: link:../tester
       '@proofdict/types':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: workspace:*
+        version: link:../types
       '@textlint/kernel':
         specifier: ^3.3.6
         version: 3.4.5

@@ -58,8 +58,8 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "@proofdict/tester": "^3.1.0",
-    "@proofdict/types": "^3.1.0",
+    "@proofdict/tester": "workspace:*",
+    "@proofdict/types": "workspace:*",
     "@types/globby": "^9.1.0",
     "@types/js-yaml": "^3.12.1",
     "@types/meow": "^5.0.0",
