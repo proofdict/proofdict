@@ -49,6 +49,7 @@
     "url-join": "^4.0.1"
   },
   "devDependencies": {
+    "@textlint/ast-node-types": "^15.2.1",
     "@types/js-yaml": "^3.12.1",
     "@types/mocha": "^8.0.1",
     "@types/node": "^14.0.27",
