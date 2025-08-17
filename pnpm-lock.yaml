@@ -32,6 +32,9 @@ importers:
       sanitize-filename:
         specifier: ^1.6.3
         version: 1.6.3
+      ulid:
+        specifier: ^2.4.0
+        version: 2.4.0
     devDependencies:
       '@types/mocha':
         specifier: ^8.0.1

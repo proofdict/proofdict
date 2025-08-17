@@ -42,7 +42,8 @@
   "dependencies": {
     "@immutable-array/prototype": "^1.0.4",
     "ddd-base": "^0.9.1",
-    "sanitize-filename": "^1.6.3"
+    "sanitize-filename": "^1.6.3",
+    "ulid": "^2.4.0"
   },
   "devDependencies": {
     "@types/mocha": "^8.0.1",
