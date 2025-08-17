@@ -383,6 +383,9 @@ importers:
       '@proofdict/tester':
         specifier: ^3.1.0
         version: 3.1.0
+      '@proofdict/types':
+        specifier: ^3.1.0
+        version: 3.1.0
       '@textlint/kernel':
         specifier: ^3.3.6
         version: 3.4.5

@@ -39,6 +39,7 @@
   "dependencies": {
     "@kvs/env": "^1.0.0",
     "@proofdict/tester": "^3.1.0",
+    "@proofdict/types": "^3.1.0",
     "@textlint/kernel": "^3.3.6",
     "@textlint/types": "^1.4.5",
     "debug": "^4.1.1",
