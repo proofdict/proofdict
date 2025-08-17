@@ -1,3 +1,6 @@
 [build]
   command = "pnpm run website"
   publish = "website/build/proofdict"
+
+[build.environment]
+  NODE_VERSION = "22.18.0"
