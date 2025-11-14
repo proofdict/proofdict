@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@proofdict/domain": "^3.1.0",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^4.1.1",
     "meow": "^5.0.0",
     "prh": "^5.4.4"
   },

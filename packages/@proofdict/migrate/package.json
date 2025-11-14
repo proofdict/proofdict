@@ -48,7 +48,7 @@
   "dependencies": {
     "@proofdict/domain": "^3.1.0",
     "glob": "^7.1.5",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^4.1.1",
     "meow": "^5.0.0"
   },
   "devDependencies": {
